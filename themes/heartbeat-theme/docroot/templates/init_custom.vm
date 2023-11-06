@@ -1,0 +1,16 @@
+#*
+This file allows you to override and define new Velocity variables.
+*#
+
+##Footer webcontent ID
+#set ($journalArticleLocalService = $serviceLocator.findService("com.liferay.portlet.journal.service.JournalArticleService"))
+#set ($footerArticle = $journalArticleLocalService.getArticleByUrlTitle($themeDisplay.getScopeGroupId(),"heartbeat-footer"))
+## Create site search url
+#set ($layoutLocalService = $serviceLocator.findService("com.liferay.portal.service.LayoutLocalService"))
+#set ($site_search_layout = $layoutLocalService.getFriendlyURLLayout($themeDisplay.getScopeGroupId(), false, "/search-results"))
+#set ($site_search_url = $portalUtil.getLayoutFullURL($site_search_layout, $themeDisplay))
+
+
+<script type="text/javascript">
+var siteSerachURL = '$site_search_url';
+</script>

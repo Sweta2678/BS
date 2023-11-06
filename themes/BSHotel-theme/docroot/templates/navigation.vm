@@ -1,0 +1,313 @@
+<nav id="navigation" role="navigation">
+	<ul id="menu" style="display:none">
+		#foreach ($nav_item in $nav_items)
+			################ HOTEL FACING NAVIGATOIN ################
+			#if ($nav_item.getLayout().getFriendlyURL().equalsIgnoreCase("/hotel") && 
+					$themeDisplay.getURLCurrent().contains("/hotel/") && $nav_item.hasChildren())
+				#set ($whatChangedOnNavs = $publishLocalService.getWhatChangedOnNavigation($chainCode, "PRODUCTION"))
+				#set ($noOfPublishes = 0)
+				#if ($validator.isNotNull($whatChangedOnNavs))
+					#set ($noOfPublishes = $whatChangedOnNavs.size())
+				#end
+				
+				#foreach ($nav_child in $nav_item.getChildren())
+					#if ($nav_child.isSelected())
+						<li class="active">
+					#else
+						<li>
+					#end
+						#if($nav_child.getLayout().getFriendlyURL().contains("/home"))
+							<a href="$nav_child.getURL()" onmousedown="_gaq.push(['_trackEvent', 'Header', 'BS_MainNavClick', 'Home']);" $nav_child.getTarget()>
+								<i class="icon-home icon-white"></i>
+								<span>$homeLink</span>
+								#if($nav_child.hasChildren())
+									<b class="caret" style="border-top-color:#fff;border-bottom-color:#fff;"></b>
+								#end
+							</a>
+						#elseif($nav_child.getLayout().getFriendlyURL().contains("/search-standards"))
+							<a href="$nav_child.getURL()" onmousedown="_gaq.push(['_trackEvent', 'Header', 'BS_MainNavClick', 'Search Standards']);" $nav_child.getTarget()>
+								<i class="icon-book icon-white"></i>
+								<span>$searchStd</span>
+								#if($nav_child.hasChildren())
+									<b class="caret" style="border-top-color:#fff;border-bottom-color:#fff;"></b>
+								#end
+							</a>
+						#elseif($nav_child.getLayout().getFriendlyURL().contains("/what-changed-on"))
+							<a href="#" $nav_child.getTarget()>
+								<i class="icon-white icon-calendar"></i>
+								<span>$whatChanged</span>
+								#if($noOfPublishes > 0)
+									<b class="caret" style="border-top-color:#fff;border-bottom-color:#fff;"></b>
+								#end
+							</a>
+							#if($noOfPublishes > 0)
+								<ul>
+									<li class="child"><table width="100%" cellspacing="0" cellpadding="0" border="0"><tbody>
+									#set ($prevPublishId = 0)
+									#set ($publishItr = 0)
+									#set ($subMenuItr = 0)
+									#foreach($whatChangeNav in $whatChangedOnNavs)
+										#set ($quotientVal = -1)
+										#if($publishItr < ($noOfPublishes - 1))
+											#set ($publishItr = $publishItr + 1)
+											#set ($prevPublishId =$whatChangedOnNavs.get($publishItr).getPublishId())
+										#else
+											#set ($prevPublishId = 0)
+										#end
+										##### if more than 10 publications then break into 2 rows #####
+										#if($subMenuItr > 0)
+											#set ($quotientVal = ($subMenuItr % 10))
+										#end
+										#set ($subMenuItr = $subMenuItr + 1)
+										#if($quotientVal == 0)
+											</tbody></table></li>
+											<li class="child"><table><tbody>
+										#end
+										<tr>
+											<td>
+												#if($whatChangeNav.getPublishStatCd().equals("PURGE"))
+													<span style="color:#000;margin:0 20px;">
+														$publishLocalService.getFormatedDate($whatChangeNav.getPublishDate(), $langCode, $uiElementMap)
+													</span>
+											#else
+											
+												<a href="$nav_child.getURL()?selPublishId=$whatChangeNav.getPublishId()&prevPublishId=$prevPublishId">
+													$publishLocalService.getFormatedDate($whatChangeNav.getPublishDate(), $langCode, $uiElementMap)
+												</a>
+												#end
+											</td>
+											<td align="right">
+												#set ($publishedPDFURL = "#")
+												#if($whatChangeNav.getPublishContentType().equals("FULL_BUILD_OPERATE"))
+													#if($countryCode.equalsIgnoreCase("USA"))
+														#set ($publishedPDFURL = $publishedPDFListLocalService.getPublishedPDFFullManualURL($whatChangeNav.getPublishId(), $countryCode, $langCode, "FULL", "LETTER_PORTRAIT"))
+													#else
+														#set ($publishedPDFURL = $publishedPDFListLocalService.getPublishedPDFFullManualURL($whatChangeNav.getPublishId(), $countryCode, $langCode, "FULL", "A4_PORTRAIT"))
+													#end
+												#else
+													#if($countryCode.equalsIgnoreCase("USA"))
+														#set ($publishedPDFURL = $publishedPDFListLocalService.getPublishedPDFFullManualURL($whatChangeNav.getPublishId(), $countryCode, $langCode, "OPERATE", "LETTER_PORTRAIT"))
+													#else
+														#set ($publishedPDFURL = $publishedPDFListLocalService.getPublishedPDFFullManualURL($whatChangeNav.getPublishId(), $countryCode, $langCode, "OPERATE", "A4_PORTRAIT"))
+													#end
+												#end
+												
+												#if($publishedPDFURL.equalsIgnoreCase("#"))
+													<a href="$publishedPDFURL" title="$downloadManual"><img src="$images_folder/download_icon.png"></a>
+												#else
+													<a href="$publishedPDFURL" target="_blank" title="$downloadManual"><img src="$images_folder/download_icon.png"></a>
+												#end
+											</td>
+										</tr>
+									#end
+									</tbody></table></li>
+								</ul>
+							#end
+						#elseif($nav_child.getLayout().getFriendlyURL().contains("/glossary"))
+							<a href="$nav_child.getURL()" onmousedown="_gaq.push(['_trackEvent', 'Header', 'BS_MainNavClick', 'Glossary']);" $nav_child.getTarget()>
+								<i class="icon-white icon-list-alt"></i>
+								<span>$glossary</span>
+								#if($nav_child.hasChildren())
+									<b class="caret" style="border-top-color:#fff;border-bottom-color:#fff;"></b>
+								#end
+							</a>	
+						#elseif($nav_child.getLayout().getFriendlyURL().contains("/help-information"))
+							<a href="$nav_child.getURL()" onmousedown="_gaq.push(['_trackEvent', 'Header', 'BS_MainNavClick', 'Help & Information']);" $nav_child.getTarget()>
+								<i class="icon-white icon-question-sign"></i>
+								<span>$helpInformation</span>
+								#if($nav_child.hasChildren())
+									<b class="caret" style="border-top-color:#fff;border-bottom-color:#fff;"></b>
+								#end
+							</a>
+						#else
+							<a href="$nav_child.getURL()" $nav_child.getTarget()>
+								<span>$nav_child.getName()</span>
+								#if($nav_child.hasChildren())
+									<b class="caret" style="border-top-color:#fff;border-bottom-color:#fff;"></b>
+								#end
+							</a>
+						#end
+						
+						
+						#if((!$nav_child.getLayout().getFriendlyURL().contains("/what-changed-on")) && $nav_child.hasChildren())
+							<ul>				
+								#foreach($nav_sub_child in $nav_child.getChildren())
+									
+									#if($nav_sub_child.hasChildren())
+										<li class="ui-sub-nav">
+									#else
+										<li>
+									#end
+											<a href="$nav_sub_child.getURL()" $nav_sub_child.getTarget()>
+												<span>$nav_sub_child.getName()</span>
+											</a>
+											#if($nav_sub_child.hasChildren())
+												<ul>
+												#foreach($nav_sub2_child in $nav_sub_child.getChildren())
+													<li>
+														<a href="$nav_sub2_child.getURL()" $nav_sub2_child.getTarget()>$nav_sub2_child.getName()</a>
+													</li>
+												#end
+												</ul>
+											#end
+										</li>
+								#end
+							</ul>
+						#end
+						
+					</li>
+				#end
+			
+			################ HOTEL STAGING NAVIGATOIN ################	
+			#elseif ($nav_item.getLayout().getFriendlyURL().equalsIgnoreCase("/staging") && 
+					$themeDisplay.getURLCurrent().contains("/staging/") && $nav_item.hasChildren())
+				#set ($whatChangedOnNavs = $publishLocalService.getWhatChangedOnCustom($chainCode, "STAGING"))
+				#set ($noOfPublishes = 0)
+				#if ($validator.isNotNull($whatChangedOnNavs))
+					#set ($noOfPublishes = $whatChangedOnNavs.size())
+				#end
+				#foreach ($nav_child in $nav_item.getChildren())
+					#if ($nav_child.isSelected())
+						<li class="active">
+					#else
+						<li>
+					#end
+						#if($nav_child.getLayout().getFriendlyURL().contains("/home"))
+							<a href="$nav_child.getURL()" onmousedown="_gaq.push(['_trackEvent', 'Staging - Header', 'BS_MainNavClick', 'Home']);" $nav_child.getTarget()>
+								<i class="icon-home icon-white"></i>
+								<span>$homeLink</span>
+								#if($nav_child.hasChildren())
+									<b class="caret" style="border-top-color:#fff;border-bottom-color:#fff;"></b>
+								#end
+							</a>
+						#elseif($nav_child.getLayout().getFriendlyURL().contains("/search-standards"))
+							<a href="$nav_child.getURL()" onmousedown="_gaq.push(['_trackEvent', 'Staging - Header', 'BS_MainNavClick', 'Search Standards']);" $nav_child.getTarget()>
+								<i class="icon-book icon-white"></i>
+								<span>$searchStd</span>
+								#if($nav_child.hasChildren())
+									<b class="caret" style="border-top-color:#fff;border-bottom-color:#fff;"></b>
+								#end
+							</a>
+						#elseif($nav_child.getLayout().getFriendlyURL().contains("/what-changed-on"))
+							<a href="#" $nav_child.getTarget()>
+								<i class="icon-white icon-calendar"></i>
+								<span>$whatChanged</span>
+								#if($noOfPublishes > 0)
+									<b class="caret" style="border-top-color:#fff;border-bottom-color:#fff;"></b>
+								#end
+							</a>
+							#if($noOfPublishes > 0)
+								<ul>				
+									<li class="child"><table width="100%" cellspacing="0" cellpadding="0" border="0"><tbody>
+									#set ($prevPublishId = 0)
+									#set ($publishItr = 0)
+									#set ($subMenuItr = 0)
+									#foreach($whatChangeNav in $whatChangedOnNavs)
+										#set ($quotientVal = -1)
+										#if($publishItr < ($noOfPublishes - 1))
+											#set ($publishItr = $publishItr+1)
+											#set ($prevPublishId =$whatChangedOnNavs.get($publishItr).getPublishId())
+										#else
+											#set ($prevPublishId = 0)
+										#end
+										##### if more than 10 publications then break into 2 rows #####
+										#if($subMenuItr > 0)
+											#set ($quotientVal = ($subMenuItr % 10))
+										#end
+										#set ($subMenuItr = $subMenuItr + 1)
+										#if($quotientVal == 0)
+											</tbody></table></li>
+											<li class="child"><table width="100%" cellspacing="0" cellpadding="0" border="0"><tbody>
+										#end
+										<tr>
+											<td>
+												<a href="$nav_child.getURL()?selPublishId=$whatChangeNav.getPublishId()&prevPublishId=$prevPublishId">
+													$publishLocalService.getFormatedDate($whatChangeNav.getPublishDate(), $langCode, $uiElementMap)
+												</a>
+											</td>
+											<td align="right">
+												#set ($publishedPDFURL = "#")
+												#if($whatChangeNav.getPublishContentType().equals("FULL_BUILD_OPERATE"))
+													#if($countryCode.equalsIgnoreCase("USA"))
+														#set ($publishedPDFURL = $publishedPDFListLocalService.getPublishedPDFFullManualURL($whatChangeNav.getPublishId(), $countryCode, $langCode, "FULL", "LETTER_PORTRAIT"))
+													#else
+														#set ($publishedPDFURL = $publishedPDFListLocalService.getPublishedPDFFullManualURL($whatChangeNav.getPublishId(), $countryCode, $langCode, "FULL", "A4_PORTRAIT"))
+													#end
+												#else
+													#if($countryCode.equalsIgnoreCase("USA"))
+														#set ($publishedPDFURL = $publishedPDFListLocalService.getPublishedPDFFullManualURL($whatChangeNav.getPublishId(), $countryCode, $langCode, "OPERATE", "LETTER_PORTRAIT"))
+													#else
+														#set ($publishedPDFURL = $publishedPDFListLocalService.getPublishedPDFFullManualURL($whatChangeNav.getPublishId(), $countryCode, $langCode, "OPERATE", "A4_PORTRAIT"))
+													#end
+												#end
+												
+												#if($publishedPDFURL.equalsIgnoreCase("#"))
+													<a href="$publishedPDFURL" title="$downloadManual"><img src="$images_folder/download_icon.png"></a>
+												#else
+													<a href="$publishedPDFURL" target="_blank" title="$downloadManual"><img src="$images_folder/download_icon.png"></a>
+												#end
+											</td>
+										</tr>
+									#end
+									</tbody></table></li>
+								</ul>
+							#end
+						#elseif($nav_child.getLayout().getFriendlyURL().contains("/glossary"))
+							<a href="$nav_child.getURL()" onmousedown="_gaq.push(['_trackEvent', 'Staging - Header', 'BS_MainNavClick', 'Glossary']);" $nav_child.getTarget()>
+								<i class="icon-white icon-list-alt"></i>
+								<span>$glossary</span>
+								#if($nav_child.hasChildren())
+									<b class="caret" style="border-top-color:#fff;border-bottom-color:#fff;"></b>
+								#end
+							</a>	
+						#elseif($nav_child.getLayout().getFriendlyURL().contains("/help-information"))
+							<a href="$nav_child.getURL()" onmousedown="_gaq.push(['_trackEvent', 'Staging - Header', 'BS_MainNavClick', 'Help & Information']);" $nav_child.getTarget()>
+								<i class="icon-white icon-question-sign"></i>
+								<span>$helpInformation</span>
+								#if($nav_child.hasChildren())
+									<b class="caret" style="border-top-color:#fff;border-bottom-color:#fff;"></b>
+								#end
+							</a>
+						#else
+							<a href="$nav_child.getURL()" $nav_child.getTarget()>
+								<span>$nav_child.getName()</span>
+								#if($nav_child.hasChildren())
+									<b class="caret" style="border-top-color:#fff;border-bottom-color:#fff;"></b>
+								#end
+							</a>
+						#end
+						
+						
+						#if((!$nav_child.getLayout().getFriendlyURL().contains("/what-changed-on")) && $nav_child.hasChildren())
+							<ul>				
+								#foreach($nav_sub_child in $nav_child.getChildren())
+									
+									#if($nav_sub_child.hasChildren())
+										<li class="ui-sub-nav">
+									#else
+										<li>
+									#end
+											<a href="$nav_sub_child.getURL()" $nav_sub_child.getTarget()>
+												<span>$nav_sub_child.getName()</span>
+											</a>
+											#if($nav_sub_child.hasChildren())
+												<ul>
+												#foreach($nav_sub2_child in $nav_sub_child.getChildren())
+													<li>
+														<a href="$nav_sub2_child.getURL()" $nav_sub2_child.getTarget()>$nav_sub2_child.getName()</a>
+													</li>
+												#end
+												</ul>
+											#end
+										</li>
+								#end
+							</ul>
+						#end
+						
+					</li>
+				#end	
+			#end
+			
+		#end
+	</ul>
+</nav>

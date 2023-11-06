@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.ihg.grs.common.model.Directory">
+		<field name="directoryId" type="int" />
+		<field name="firstName" type="String" />
+		<field name="lastName" type="String" />
+		<field name="businessTitle" type="String" />
+		<field name="geoRegion" type="String" />
+		<field name="role" type="String" />
+		<field name="regionType" type="String" />
+		<field name="organizationName" type="String" />
+		<field name="portraitURL" type="String" />
+		<field name="createdate" type="Date" />
+		<field name="createUserId" type="String" />
+		<field name="lastUpdateUserId" type="String" />
+		<field name="updatedate" type="Date" />
+		<field name="email" type="String" />
+	</model>
+	<model name="com.ihg.grs.common.model.Feedback">
+		<field name="feedbackId" type="int" />
+		<field name="firstName" type="String" />
+		<field name="lastName" type="String" />
+		<field name="title" type="String" />
+		<field name="email" type="String" />
+		<field name="onBehalfOf" type="String" />
+		<field name="createUserId" type="String" />
+		<field name="createdate" type="Date" />
+		<field name="lastUpdateUserId" type="String" />
+		<field name="updatedate" type="Date" />
+	</model>
+	<model name="com.ihg.grs.common.model.FeedbackDetail">
+		<field name="PORTAL_FEEDBACK_DTL_ID" type="int" />
+		<field name="feedbackId" type="int" />
+		<field name="feedbackType" type="String" />
+		<field name="subject" type="String" />
+		<field name="message" type="String" />
+		<field name="fileName" type="String" />
+		<field name="fileContent" type="Blob" />
+		<field name="createUserId" type="String" />
+		<field name="createdate" type="Date" />
+		<field name="lastUpdateUserId" type="String" />
+		<field name="updatedate" type="Date" />
+	</model>
+	<model name="com.ihg.grs.common.model.Glossary">
+		<field name="glossaryId" type="int" />
+		<field name="term" type="String" />
+		<field name="description" type="String" />
+		<field name="activeIndicator" type="String" />
+		<field name="createUserId" type="String" />
+		<field name="createdate" type="Date" />
+		<field name="lastUpdateUserId" type="String" />
+		<field name="updatedate" type="Date" />
+	</model>
+</model-hints>

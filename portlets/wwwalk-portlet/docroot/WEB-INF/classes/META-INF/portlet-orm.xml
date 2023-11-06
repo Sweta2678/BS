@@ -1,0 +1,913 @@
+<?xml version="1.0"?>
+
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd">
+	<persistence-unit-metadata>
+		<xml-mapping-metadata-complete/>
+		<persistence-unit-defaults>
+			<access>PROPERTY</access>
+		</persistence-unit-defaults>
+	</persistence-unit-metadata>
+	<mapped-superclass class="com.ihg.www.common.model.impl.AccountActivityModelImpl">
+		<attributes>
+			<id name="activityId">
+				<column name="ACCT_ACTV_ID" />
+			</id>
+			<basic name="mnemonicCode">
+				<column name="MNEMONIC_CD" />
+			</basic>
+			<basic name="rfpTitleText">
+				<column name="RFP_TITLE_TXT" />
+			</basic>
+			<basic name="rateCategoryCode">
+				<column name="RATE_CATGY_CD" />
+			</basic>
+			<basic name="activityType">
+				<column name="ACTV_TYP" />
+			</basic>
+			<basic name="activityReference">
+				<column name="ACTV_REF_ID" />
+			</basic>
+			<basic name="action">
+				<column name="ACTV_ACTN_TYP" />
+			</basic>
+			<basic name="fieldName">
+				<column name="ACTV_FLD_NM" />
+			</basic>
+			<basic name="oldValue">
+				<column name="ACTV_OLD_VAL" />
+			</basic>
+			<basic name="newValue">
+				<column name="ACTV_NEW_VAL" />
+			</basic>
+			<basic name="comments">
+				<column name="ACTV_CMT_TXT" />
+			</basic>
+			<basic name="createUserId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updateUserId">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.www.common.model.impl.AccountAvgPercPricingModelImpl">
+		<id-class class="com.ihg.www.common.service.persistence.AccountAvgPercPricingPK" />
+		<attributes>
+			<id name="acctPricingId">
+				<column name="ACCT_PRICING_ID" />
+			</id>
+			<id name="roomId">
+				<column name="RM_CLASS_ID" />
+			</id>
+			<basic name="wishRoomAvgPerc">
+				<column name="WISH_RM_RATE_AVG_PCT" />
+			</basic>
+			<basic name="wantRoomAvgPerc">
+				<column name="WANT_RM_RATE_AVG_PCT" />
+			</basic>
+			<basic name="walkRoomAvgPerc">
+				<column name="WALK_RM_RATE_AVG_PCT" />
+			</basic>
+			<basic name="userName">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updateBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.www.common.model.impl.AccountOwnerModelImpl">
+		<attributes>
+			<id name="acctOwnerId">
+				<column name="ACCT_OWNER_ID" />
+			</id>
+			<basic name="acctOwnerType">
+				<column name="ACCT_OWNER_TYP" />
+			</basic>
+			<basic name="username">
+				<column name="USR_NM" />
+			</basic>
+			<basic name="firstName">
+				<column name="FRST_NM" />
+			</basic>
+			<basic name="lastName">
+				<column name="LST_NM" />
+			</basic>
+			<basic name="email">
+				<column name="EMAIL_ID" />
+			</basic>
+			<basic name="primaryBackupId">
+				<column name="ACCT_OWNER_PRIM_BACKUP_ID" />
+			</basic>
+			<basic name="secondaryBackupId">
+				<column name="ACCT_OWNER_SEC_BACKUP_ID" />
+			</basic>
+			<basic name="autoEscalateInd">
+				<column name="AUTO_ESCALATE_IND" />
+			</basic>
+			<basic name="createUserId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updateUserId">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.www.common.model.impl.AccountPricingModelImpl">
+		<id-class class="com.ihg.www.common.service.persistence.AccountPricingPK" />
+		<attributes>
+			<id name="acctPricingId">
+				<column name="ACCT_PRICING_ID" />
+			</id>
+			<id name="mnemonicCode">
+				<column name="MNEMONIC_CD" />
+			</id>
+			<basic name="rateCategoryCode">
+				<column name="RATE_CATGY_CD" />
+			</basic>
+			<basic name="pricingYearNumber">
+				<column name="PRICING_YR_NBR" />
+			</basic>
+			<basic name="franchiseGrpName">
+				<column name="FRAN_GRP_NM" />
+			</basic>
+			<basic name="lraCostAmount">
+				<column name="LRA_COST_AMT" />
+			</basic>
+			<basic name="currencyCode">
+				<column name="CURR_CD" />
+			</basic>
+			<basic name="breakfastIndicator">
+				<column name="BREAKFAST_INCL_IND" />
+			</basic>
+			<basic name="breakfastFee">
+				<column name="BREAKFAST_FEE_AMT" />
+			</basic>
+			<basic name="breakfastVariance">
+				<column name="BREAKFAST_FEE_VAR_AMT" />
+			</basic>
+			<basic name="internetIndicator">
+				<column name="HSIA_INCL_IND" />
+			</basic>
+			<basic name="internetFee">
+				<column name="HSIA_FEE_AMT" />
+			</basic>
+			<basic name="internetVariance">
+				<column name="HSIA_FEE_VAR_AMT" />
+			</basic>
+			<basic name="parkingIndicator">
+				<column name="PARKING_INCL_IND" />
+			</basic>
+			<basic name="parkingFee">
+				<column name="PARKING_FEE_AMT" />
+			</basic>
+			<basic name="parkingVariance">
+				<column name="PARKING_FEE_VAR_AMT" />
+			</basic>
+			<basic name="commissionIndicator">
+				<column name="COMM_IND" />
+			</basic>
+			<basic name="commissionRate">
+				<column name="COMM_PCT" />
+			</basic>
+			<basic name="commissionVariance">
+				<column name="COMM_RATE_VAR_AMT" />
+			</basic>
+			<basic name="taxIndicator">
+				<column name="TAX_INCL_CD" />
+			</basic>
+			<basic name="taxFlatPerc">
+				<column name="TAX_FEE_TYP" />
+			</basic>
+			<basic name="taxRate">
+				<column name="TAX_AMT" />
+			</basic>
+			<basic name="taxRateVariance">
+				<column name="TAX_RATE_VAR_AMT" />
+			</basic>
+			<basic name="streetCornerText">
+				<column name="STREET_CORNER_INTELLIGENCE_TXT" />
+			</basic>
+			<basic name="rfpName">
+				<column name="RFP_NM" />
+			</basic>
+			<basic name="finalSubmitIndicator">
+				<column name="FINAL_SUBMIT_IND" />
+			</basic>
+			<basic name="kadIndicator">
+				<column name="KAD_NEGOTIATE_IND" />
+			</basic>
+			<basic name="rateGuidanceIndicator">
+				<column name="RATE_GUIDANCE_ACCEPT_IND" />
+			</basic>
+			<basic name="lraGuidanceIndicator">
+				<column name="LRA_GUIDANCE_ACCEPT_IND" />
+			</basic>
+			<basic name="rfpApprovedIndicator">
+				<column name="RFP_APPR_IND" />
+			</basic>
+			<basic name="wishVariance">
+				<column name="WISH_RM_VAR_PCT" />
+			</basic>
+			<basic name="wantVariance">
+				<column name="WANT_RM_VAR_PCT" />
+			</basic>
+			<basic name="walkVariance">
+				<column name="WALK_RM_VAR_PCT" />
+			</basic>
+			<basic name="userName">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updateBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="serviceFeeIncludeInd">
+				<column name="SVC_FEE_INCL_IND" />
+			</basic>
+			<basic name="serviceFeeType">
+				<column name="SVC_FEE_TYP" />
+			</basic>
+			<basic name="serviceFeeAmount">
+				<column name="SVC_FEE_AMT" />
+			</basic>
+			<basic name="serviceFeeVariance">
+				<column name="SVC_RATE_VAR_AMT" />
+			</basic>
+			<basic name="vatFeeIncludeInd">
+				<column name="VAT_INCL_IND" />
+			</basic>
+			<basic name="vatFeeType">
+				<column name="VAT_FEE_TYP" />
+			</basic>
+			<basic name="vatFeeAmount">
+				<column name="VAT_FEE_AMT" />
+			</basic>
+			<basic name="vatFeeVariance">
+				<column name="VAT_RATE_VAR_AMT" />
+			</basic>
+			<basic name="initLoadIndicator">
+				<column name="INIT_LD_IND" />
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.www.common.model.impl.AccountPricingSeasonalModelImpl">
+		<id-class class="com.ihg.www.common.service.persistence.AccountPricingSeasonalPK" />
+		<attributes>
+			<id name="acctPricingId">
+				<column name="ACCT_PRICING_ID" />
+			</id>
+			<id name="seasonId">
+				<column name="SEASON_ID" />
+			</id>
+			<id name="roomId">
+				<column name="RM_CLASS_ID" />
+			</id>
+			<basic name="seasonStartDate">
+				<column name="SEASON_STRT_DT" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="seasonEndDate">
+				<column name="SEASON_END_DT" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="wishPercentage">
+				<column name="LRA_NLRA_WISH_PCT" />
+			</basic>
+			<basic name="wantPercentage">
+				<column name="LRA_NLRA_WANT_PCT" />
+			</basic>
+			<basic name="walkPercentage">
+				<column name="LRA_NLRA_WALK_PCT" />
+			</basic>
+			<basic name="lraWishRate">
+				<column name="LRA_WISH_RATE" />
+			</basic>
+			<basic name="lraWantRate">
+				<column name="LRA_WANT_RATE" />
+			</basic>
+			<basic name="lraWalkRate">
+				<column name="LRA_WALK_RATE" />
+			</basic>
+			<basic name="nlraWishRate">
+				<column name="NLRA_WISH_RATE" />
+			</basic>
+			<basic name="nlraWantRate">
+				<column name="NLRA_WANT_RATE" />
+			</basic>
+			<basic name="nlraWalkRate">
+				<column name="NLRA_WALK_RATE" />
+			</basic>
+			<basic name="userName">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updateBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.www.common.model.impl.ArtExtraModelImpl">
+		<id-class class="com.ihg.www.common.service.persistence.ArtExtraPK" />
+		<attributes>
+			<id name="mnemonicCode">
+				<column name="MNEMONIC_CD" />
+			</id>
+			<id name="rateCategoryCode">
+				<column name="RATE_CATGY_CD" />
+			</id>
+			<basic name="rateCategoryName">
+				<column name="RATE_CATGY_NM" />
+			</basic>
+			<basic name="accountType">
+				<column name="ACCT_TYP" />
+			</basic>
+			<basic name="totalRoomNetQty">
+				<column name="TOT_RM_NT_QTY" />
+			</basic>
+			<basic name="busyRoomNetQty">
+				<column name="BUSY_RM_NT_QTY" />
+			</basic>
+			<basic name="totalAvgDailyRate">
+				<column name="AVG_DY_RATE" />
+			</basic>
+			<basic name="totalRevenueAmount">
+				<column name="TOT_REV_AMT" />
+			</basic>
+			<basic name="displacedRevenueAmount">
+				<column name="DISPLACED_REV_AMT" />
+			</basic>
+			<basic name="currencyCode">
+				<column name="CURR_CD" />
+			</basic>
+			<basic name="lraCost">
+				<column name="LRA_USD_AMT" />
+			</basic>
+			<basic name="wishRateGuidance">
+				<column name="WISH_RATE_GUIDANCE_PCT" />
+			</basic>
+			<basic name="wantRateGuidance">
+				<column name="WANT_RATE_GUIDANCE_PCT" />
+			</basic>
+			<basic name="walkRateGuidance">
+				<column name="WALK_RATE_GUIDANCE_PCT" />
+			</basic>
+			<basic name="acctQuadNumber">
+				<column name="ART_ACCT_QUADRANT_NBR" />
+			</basic>
+			<basic name="userName">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.www.common.model.impl.CurrencyModelImpl">
+		<attributes>
+			<id name="currencyCode">
+				<column name="CURR_CD" />
+			</id>
+			<basic name="currencyName">
+				<column name="CURR_NM" />
+			</basic>
+			<basic name="userName">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.www.common.model.impl.PricingExtraModelImpl">
+		<id-class class="com.ihg.www.common.service.persistence.PricingExtraPK" />
+		<attributes>
+			<id name="mnemonicCode">
+				<column name="MNEMONIC_CD" />
+			</id>
+			<id name="rfpTitleText">
+				<column name="RFP_TITLE_TXT" />
+			</id>
+			<basic name="rateCategoryCode">
+				<column name="RATE_CATGY_CD" />
+			</basic>
+			<basic name="regionCode">
+				<column name="RGN_CD" />
+			</basic>
+			<basic name="countryName">
+				<column name="CTRY_NM" />
+			</basic>
+			<basic name="cityName">
+				<column name="CITY_NM" />
+			</basic>
+			<basic name="corpAccountName">
+				<column name="CORP_ACCT_NM" />
+			</basic>
+			<basic name="currencyCode">
+				<column name="CURR_CD" />
+			</basic>
+			<basic name="mgmtCompanyName">
+				<column name="MGT_COMPANY_NM" />
+			</basic>
+			<basic name="breakfastIndicator">
+				<column name="BREAKFAST_INCL_IND" />
+			</basic>
+			<basic name="parkingIndicator">
+				<column name="PARKING_INCL_IND" />
+			</basic>
+			<basic name="internetIndicator">
+				<column name="HSIA_INCL_IND" />
+			</basic>
+			<basic name="taxIndicator">
+				<column name="TAX_INCL_CD" />
+			</basic>
+			<basic name="taxFlatPerc">
+				<column name="TAX_FEE_TYP" />
+			</basic>
+			<basic name="commissionIndicator">
+				<column name="COMM_IND" />
+			</basic>
+			<basic name="breakfastFee">
+				<column name="BREAKFAST_FEE_AMT" />
+			</basic>
+			<basic name="parkingFee">
+				<column name="PARKING_FEE_AMT" />
+			</basic>
+			<basic name="internetFee">
+				<column name="HSIA_FEE_AMT" />
+			</basic>
+			<basic name="taxRate">
+				<column name="TAX_AMT" />
+			</basic>
+			<basic name="commissionRate">
+				<column name="COMM_PCT" />
+			</basic>
+			<basic name="rfpExportIndicator">
+				<column name="RFP_EXPORT_IND" />
+			</basic>
+			<basic name="lraIndicator">
+				<column name="LRA_IND" />
+			</basic>
+			<basic name="hotelName">
+				<column name="HTL_NM" />
+			</basic>
+			<basic name="userName">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updateBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="chainCode">
+				<column name="CHAIN_CD" />
+			</basic>
+			<basic name="serviceFeeIncludeInd">
+				<column name="SVC_FEE_INCL_IND" />
+			</basic>
+			<basic name="serviceFeeType">
+				<column name="SVC_FEE_TYP" />
+			</basic>
+			<basic name="serviceFeeAmount">
+				<column name="SVC_FEE_AMT" />
+			</basic>
+			<basic name="vatFeeIncludeInd">
+				<column name="VAT_INCL_IND" />
+			</basic>
+			<basic name="vatFeeType">
+				<column name="VAT_FEE_TYP" />
+			</basic>
+			<basic name="vatFeeAmount">
+				<column name="VAT_FEE_AMT" />
+			</basic>
+			<basic name="initExportCode">
+				<column name="INIT_EXPORT_CD" />
+			</basic>
+			<basic name="newHotelIndicator">
+				<column name="NEW_HTL_IND" />
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.www.common.model.impl.RegionChainAccountMetricsModelImpl">
+		<id-class class="com.ihg.www.common.service.persistence.RegionChainAccountMetricsPK" />
+		<attributes>
+			<id name="regionCode">
+				<column name="RGN_CD" />
+			</id>
+			<id name="chainCode">
+				<column name="CHAIN_CD" />
+			</id>
+			<basic name="wishPercentage">
+				<column name="LOW_WISH_RM_VAR_PCT" />
+			</basic>
+			<basic name="wantPercentage">
+				<column name="LOW_WANT_RM_VAR_PCT" />
+			</basic>
+			<basic name="walkPercentage">
+				<column name="LOW_WALK_RM_VAR_PCT" />
+			</basic>
+			<basic name="roomNightQuntity">
+				<column name="RM_NT_QTY" />
+			</basic>
+			<basic name="createUserId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updateUserId">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updateDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="wishHighPercentage">
+				<column name="HIGH_WISH_RM_VAR_PCT" />
+			</basic>
+			<basic name="wantHighPercentage">
+				<column name="HIGH_WANT_RM_VAR_PCT" />
+			</basic>
+			<basic name="walkHighPercentage">
+				<column name="HIGH_WALK_RM_VAR_PCT" />
+			</basic>
+			<basic name="artMatchIndicator">
+				<column name="ART_MATCH_IND" />
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.www.common.model.impl.RFPAccountOwnerModelImpl">
+		<id-class class="com.ihg.www.common.service.persistence.RFPAccountOwnerPK" />
+		<attributes>
+			<id name="mnemonicCode">
+				<column name="MNEMONIC_CD" />
+			</id>
+			<id name="rfpTitleText">
+				<column name="RFP_TITLE_TXT" />
+			</id>
+			<id name="rateCategoryCode">
+				<column name="RATE_CATGY_CD" />
+			</id>
+			<basic name="acctOwnerId">
+				<column name="ACCT_OWNER_ID" />
+			</basic>
+			<basic name="acctReviewerId">
+				<column name="ACCT_REVIEWER_ID" />
+			</basic>
+			<basic name="acceptanceRateInd">
+				<column name="RATE_ACCEPTED_IND" />
+			</basic>
+			<basic name="acctLockedInd">
+				<column name="ACCT_LOCKED_IND" />
+			</basic>
+			<basic name="acceptanceDueDate">
+				<column name="ACCT_DUE_DT" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="hotelEmail">
+				<column name="HTL_EMAIL_ID" />
+			</basic>
+			<basic name="createUserId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updateUserId">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="regionCode">
+				<column name="RGN_CD" />
+			</basic>
+			<basic name="rfpBypassWorkFlowInd">
+				<column name="RFP_BYPASS_WORKFLOW_IND" />
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.www.common.model.impl.RFPCommnetsModelImpl">
+		<attributes>
+			<id name="rfpCommentSequenceNumber">
+				<column name="RFP_CMT_SEQ_NBR" />
+			</id>
+			<basic name="mnemonicCode">
+				<column name="MNEMONIC_CD" />
+			</basic>
+			<basic name="rfpTitleText">
+				<column name="RFP_TITLE_TXT" />
+			</basic>
+			<basic name="rateCategoryCode">
+				<column name="RATE_CATGY_CD" />
+			</basic>
+			<basic name="userName">
+				<column name="USR_NM" />
+			</basic>
+			<basic name="reviewCommnentIndicator">
+				<column name="REVIEWER_CMT_IND" />
+			</basic>
+			<basic name="createUserId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updateUserId">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updateDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="rfpCommentsText">
+				<column name="RFP_CMT_TXT" />
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.www.common.model.impl.RFPSeasonModelImpl">
+		<id-class class="com.ihg.www.common.service.persistence.RFPSeasonPK" />
+		<attributes>
+			<id name="mnemonicCode">
+				<column name="MNEMONIC_CD" />
+			</id>
+			<id name="rfpTitleText">
+				<column name="RFP_TITLE_TXT" />
+			</id>
+			<id name="seasonId">
+				<column name="SEASON_ID" />
+			</id>
+			<basic name="seasonStartDate">
+				<column name="SEASON_STRT_DT" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="seasonEndDate">
+				<column name="SEASON_END_DT" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="userName">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.www.common.model.impl.RFPSeasonRoomModelImpl">
+		<id-class class="com.ihg.www.common.service.persistence.RFPSeasonRoomPK" />
+		<attributes>
+			<id name="mnemonicCode">
+				<column name="MNEMONIC_CD" />
+			</id>
+			<id name="rfpTitleText">
+				<column name="RFP_TITLE_TXT" />
+			</id>
+			<id name="seasonId">
+				<column name="SEASON_ID" />
+			</id>
+			<id name="roomId">
+				<column name="RM_CLASS_ID" />
+			</id>
+			<basic name="roomRateAmt">
+				<column name="RM_RATE_AMT" />
+			</basic>
+			<basic name="userName">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.www.common.model.impl.WorkflowModelImpl">
+		<id-class class="com.ihg.www.common.service.persistence.WorkflowPK" />
+		<attributes>
+			<id name="mnemonicCode">
+				<column name="MNEMONIC_CD" />
+			</id>
+			<id name="rfpTitleText">
+				<column name="RFP_TITLE_TXT" />
+			</id>
+			<id name="rateCategoryCode">
+				<column name="RATE_CATGY_CD" />
+			</id>
+			<basic name="intialApproverId">
+				<column name="INIT_APPR_ID" />
+			</basic>
+			<basic name="currentApproverId">
+				<column name="CURRENT_APPR_ID" />
+			</basic>
+			<basic name="workflowStartDate">
+				<column name="WORKFLOW_STRT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="escalation1Date">
+				<column name="ESCALATION_1_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="escalation2Date">
+				<column name="ESCALATION_2_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="escalation3Date">
+				<column name="ESCALATION_3_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="status">
+				<column name="WORKFLOW_STAT_CD" />
+			</basic>
+			<basic name="createUserId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updateUserId">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<entity class="com.ihg.www.common.model.impl.AccountActivityImpl" name="AccountActivity">
+		<table name="WISHWALK.ACCT_ACTV_LOG" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.www.common.model.impl.AccountAvgPercPricingImpl" name="AccountAvgPercPricing">
+		<table name="WISHWALK.ACCT_RM_PRICING" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.www.common.model.impl.AccountOwnerImpl" name="AccountOwner">
+		<table name="WISHWALK.ACCT_OWNER" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.www.common.model.impl.AccountPricingImpl" name="AccountPricing">
+		<table name="WISHWALK.ACCT_PRICING" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.www.common.model.impl.AccountPricingSeasonalImpl" name="AccountPricingSeasonal">
+		<table name="WISHWALK.ACCT_PRICING_SEASONAL" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.www.common.model.impl.ArtExtraImpl" name="ArtExtra">
+		<table name="WISHWALK.ART_EXTR" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.www.common.model.impl.CurrencyImpl" name="Currency">
+		<table name="WISHWALK.CURR" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.www.common.model.impl.PricingExtraImpl" name="PricingExtra">
+		<table name="WISHWALK.PRICING_EXTR" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.www.common.model.impl.RegionChainAccountMetricsImpl" name="RegionChainAccountMetrics">
+		<table name="WISHWALK.RGN_CHAIN_ACCT_METRICS" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.www.common.model.impl.RFPAccountOwnerImpl" name="RFPAccountOwner">
+		<table name="WISHWALK.RFP_ACCT_OWNER" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.www.common.model.impl.RFPCommnetsImpl" name="RFPCommnets">
+		<table name="WISHWALK.RFP_CMT" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.www.common.model.impl.RFPSeasonImpl" name="RFPSeason">
+		<table name="WISHWALK.RFP_SEASON" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.www.common.model.impl.RFPSeasonRoomImpl" name="RFPSeasonRoom">
+		<table name="WISHWALK.RFP_SEASON_RM" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.www.common.model.impl.WorkflowImpl" name="Workflow">
+		<table name="WISHWALK.WWW_WORKFLOW" />
+		<attributes />
+	</entity>
+</entity-mappings>

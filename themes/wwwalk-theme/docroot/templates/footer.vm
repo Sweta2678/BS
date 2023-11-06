@@ -1,0 +1,77 @@
+<footer id="news-footer" class="row-fluid">
+
+	  <div class="bgWhite span12">
+    	<div class="footer-border">A</div>
+        <div class="footer-rectangle-border">
+            <div class="pRelative"> <a title="IHG Logo" href="http://www.ihg.com" target="_blank" class="IHG-logo"><span style="display:none" title="IHG Logo">IHG Logo</span></a> </div>
+            <div class="footer-brand-container">
+            <div class="brands-container">
+            		<a title="InterContinental" href="http://www.ichotelsgroup.com/h/d/ic/1/en/home" target="_blank" class="ic-logo"><span style="display:none" title="Intercontinental">Intercontinental</span></a>
+                    <a title="Kimpton" href="https://www.kimptonhotels.com/" target="_blank" class="Kimpton-logo"><span style="display:none" title="Kimpton">Kimptonl</span></a>
+                    <a title="Hualuxe" href="http://www.ihgplc.com/index.asp?pageid=856" target="_blank" class="hualuxe-logo"><span style="display:none"  title="Hualuxe">Hualuxe</span></a>
+                      <a title="Holiday Inn" href="http://www.holidayinn.com/hotels/us/en/reservation"  target="_blank" class="H-Inn-logo"><span style="display:none" title="Holiday Inn">Holiday Inn</span></a>
+                       <a title="Holiday Inn Express" href="http://www.hiexpress.com/hotels/us/en/reservation" target="_blank" class="H-Exp-logo"><span style="display:none" title="Holiday Inn Express">Holiday Inn Express</span></a>
+                        <a title="Staybridge Suites" href="http://www.ichotelsgroup.com/h/d/sb/1/en/home" target="_blank" class="SB-logo"><span style="display:none" title="StayBridge Suites">StayBridge Suites</span></a> 
+                         <a title="Hotel Indigo" href="http://www.ichotelsgroup.com/h/d/in/1/en/home" target="_blank" class="HI-logo"><span style="display:none" title="Hotel Indigo">Hotel Indigo</span></a>
+                         <a title="Even Hotels" href="http://www.evenhotels.com" target="_blank" class="EH-logo"><span style="display:none" title="Even Hotels">Even Hotels</span></a>
+                    <a href="http://www.ichotelsgroup.com/crowneplaza/hotels/us/en/reservation" 
+			target="_blank" class="CP-logo"><span style="display:none" title="Crowne Plaza">Crowne Plaza</span></a>
+           <a title="Holiday Inn Club Vacation" href="http://www.ichotelsgroup.com/holidayinnclubvacations/hotels/us/en/reservation" target="_blank" class="H-Club-logo"><span style="display:none" title="Holiday Inn Club Vacation">Holiday Inn Club Vacation</span></a>          
+                      <a title="Holiday Inn Resort" href="http://www.ichotelsgroup.com/holidayinnresorts/hotels/us/en/reservation" target="_blank" class="H-Resort-logo"><span style="display:none" title="Holiday Inn Resort">Holiday Inn Resort</span></a>
+                      
+                       <a title="Candlewood Suites" href="http://www.ichotelsgroup.com/candlewood/hotels/us/en/reservation" target="_blank" class="CW-logo"><span style="display:none" title="Candelwood Suites">Candelwood Suites</span></a>
+                    
+                       </div>
+                       <div class="fLeft">
+                       <a title="IHG Rewards Club" href="http://www.ihgrewardsclub.com"  target="_blank" class="IHG-RC-logo"><span style="display:none" title="IHG Rewards Club">IHG Rewards</span></a>
+                       </div>
+            
+            </div><!--end of footer brand container -->
+          </div>  <!--end of footer-rectangle border -->
+           <div class="disclaimer">*IHG&reg; Rewards Club not applicable to Kimpton&reg; Hotels and Restaurants; to be included at a future date.</div>
+
+    
+    <div class="footerLinks-Container">
+                        <div class="footerLinksDiv1">
+                            <div><a href="/web/merlin" title="My Merlin">MY MERLIN</a></div>
+                            <div><a href="/web/news/home" title="Newsroom">NEWSROOM</a></div>
+                            <div><a href="/web/applications/home" title="Applications">APPLICATIONS</a></div>
+                            <div class="lastlink"><a href="/web/depts" title="Departments">DEPARTMENTS</a></div>
+                        </div>
+                        <div class="footerLinksDiv2">
+                            <div><a href="/web/teamspaces/home" title="Teamspaces">TEAMSPACES</a></div>
+                            <div><a href="/web/initiatives/home" title="Initiatives">INITIATIVES</a></div>
+                            <div class="lastlink"><a href="/web/conferences/home" title="Conferences & Events">CONFERENCES &amp; EVENTS</a></div>
+                        </div>
+                        <div class="footerLinksDiv3">
+                            <div> <span class="people" title="People Icon">a</span> <span><a href="/web/peopledir" title="People">People</a></span> </div>
+                            <!--<div> <span class="locations" title="Locations Icon">a</span> <span><a href="#" title="Locations">LOCATIONS</a></span> </div>-->
+                            <div class="lastlink "> <span class="career-website" title="IHG Career Website Icon">a</span> <span><a class="career" href="http://www.ihg.com/jobs" title="IHG Careers Website">IHG CAREERS WEBSITE</a></span> </div>
+                        </div>
+                        <div class="footerLinksDiv4">
+                            <div><a href="/web/merlin/about-ihg" title="About IHG">ABOUT IHG</a></div>
+                            ##<div><a href="#" title="Our Brands">OUR BRANDS</a></div>
+                            <div class="lastlink" title="About Merlin"><a href="/web/merlinupdate/corp">ABOUT MERLIN</a></div>
+                        </div>
+                    </div>
+                    <!--end of footer link continer -->
+                </div>
+                 <!--end of bg -->
+            
+            <!--end of footer-wrapper -->
+            <div class="global-links-container">
+                <div class="global-links-wrapper">
+                    <div class="global-links-left"> 
+                    	<span><a href="/web/merlin/support" title="Help">Help & Support</a></span> 
+                    	##<span>|</span> 
+                    	##<span><a href="#" title="Feedback">Feedback</a></span> 
+                    	##<span>|</span> 
+                    	##<span><a href="/web/merlin/support" title="Support">Support</a></span> 
+                	</div>
+                    <div class="global-links-right fRight"> <a href="#backtotop" title="Back to Top"> <span >Back to Top</span> <span class="backtotop-icon">.</span> </a> </div>
+                </div>
+                <!--end of global links container --> 
+            </div>
+            <!--end of footer continer -->  
+			</div>
+        </footer>

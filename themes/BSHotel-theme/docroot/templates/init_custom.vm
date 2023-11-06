@@ -1,0 +1,38 @@
+##* This file allows you to override and define new Velocity variables. *#
+
+#set ($isIHGAdmin = false)
+#set ($isBridgeUser = false)
+#set ($isCMSUser = false)
+
+#foreach ($role in $user.getRoles())
+	#if($role.getName() == "IHG Admin")
+		#set ($isIHGAdmin = true)
+	#elseif($role.getName() == "BRND_STND_ADMIN_PAGES_ACCESS")
+		#set ($isCMSUser = true)	
+	#elseif($role.getName() == "BRND_STND_BRIDGE_GLBL_ADMIN" || $role.getName() == "BRND_STND_BRIDGE_AMEA_ADMIN" || $role.getName() == "BRND_STND_BRIDGE_AMER_ADMIN" 
+		|| $role.getName() == "BRND_STND_BRIDGE_EURO_ADMIN" || $role.getName() == "BRND_STND_BRIDGE_GC_ADMIN" )
+		#set ($isBridgeUser = true)	
+	#end
+#end
+#set ($uiElementService = $serviceLocator.findService("BSBridge-portlet", "com.ihg.brandstandards.db.service.UIElementLocalService"))
+#set ($userPrefsService = $serviceLocator.findService("BSBridge-portlet", "com.ihg.brandstandards.db.service.UserPreferenceLocalService"))
+#set ($userPreferences = $userPrefsService.getUserPreferencesByUserId($user_id, "OBSM"))
+#set ($chainCode = $userPreferences.getChainCode())
+#set ($countryCode = $userPreferences.getCountryCode())
+#set ($langCode = $userPreferences.getLangCode())
+#set ($buildType = $userPreferences.getBuildType())
+#set ($paperSize = $userPreferences.getPaperSize())
+
+#if ($validator.isNotNull($langCode))
+	#set ($uiElementMap = $uiElementService.loadUIElements($langCode))
+	#parse ("$full_templates_path/bs_hotel_labels.vm")
+#end
+
+########### What Changed On Dynamic Navigation Services ###########
+#set ($publishLocalService = $serviceLocator.findService("BSBridge-portlet", "com.ihg.brandstandards.db.service.PublicationLocalService"))
+#set ($publishedPDFListLocalService = $serviceLocator.findService("BSBridge-portlet", "com.ihg.brandstandards.db.service.PublishedPdfListLocalService"))
+
+#set($merlinSession = $portal.getClass().forName("com.ihg.me2.utils.session.MerlinSession"))
+#if ($validator.isNotNull($merlinSession))
+	#set($merlinSessionUserType = $merlinSession.get($theme_display.getUser().getScreenName(), "USRTYP"))
+#end

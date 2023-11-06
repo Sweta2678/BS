@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE display PUBLIC "-//Liferay//DTD Display 6.2.0//EN" "http://www.liferay.com/dtd/liferay-display_6_2_0.dtd">
+
+<display>
+	<category name="BrandStandards">
+		<portlet id="UserPreferences" />
+		<portlet id="Taxonomy" />
+		<portlet id="AdminTaxonomy" />
+		<portlet id="Standards" />
+		<portlet id="StandList" />
+		<!-- <portlet id="BSAdmin" /> -->
+		<portlet id="CounterPortlet" />
+		<portlet id="HistoricalManuals" />
+		<portlet id="AddHistoricalManuals" />
+		<portlet id="LogHistory" />
+		<portlet id="RegionalManual" />
+		<portlet id="ImageAdmin" />
+		<portlet id="LanguageAdmin" />
+		<portlet id="ChangeOrder" />
+		<portlet id="Publish" />
+		<portlet id="ManageTranslations" />
+		<portlet id="IndexTranslation" />
+		<portlet id="SupportForm" />
+		<portlet id="ManageCompliance" />
+		<portlet id="ComplianceAdmin" />
+		<portlet id="EditComplianceDeadline" />
+		<portlet id="complianceruleutilityfix" />
+		<portlet id="GlossaryTranslation" />
+		<portlet id="GlossaryWizard" />
+		<portlet id="GlossaryList" />
+		<portlet id="BulkUpdate" />
+		<portlet id="UIElement" />
+		<portlet id="Attribute-update-request" />
+		<portlet id="standards-country-management"/>
+		<portlet id="brnd-stnd-role-assignment"/>
+	</category>
+</display>

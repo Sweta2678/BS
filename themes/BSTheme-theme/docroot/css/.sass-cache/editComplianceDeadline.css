@@ -1,0 +1,32 @@
+.aui .apply_link, .aui .apply_link1, .aui .cancel_link, .aui .cancel_link1, .aui .apply_expiry_date_link, .aui .cancel_expiry_date_link, .aui .apply_expiry_date_link1, .aui .cancel_expiry_date_link1, .aui .region_apply_link, .aui .region_cancel_link, .aui .region_apply_expiry_date_link, .aui .region_cancel_expiry_date_link {
+  display: none; }
+.aui .edit_link, .aui .edit_expiry_date_link, .aui .edit_link1, .aui .apply_link, .aui .apply_link1, .aui .cancel_link, .aui .cancel_link1, .aui .apply_expiry_date_link, .aui .cancel_expiry_date_link, .aui .apply_expiry_date_link1, .aui .cancel_expiry_date_link1, .aui .region_apply_link, .aui .region_cancel_link, .aui .region_apply_expiry_date_link, .aui .region_cancel_expiry_date_link, .aui .edit_expiry_date_link, .aui .region_edit_expiry_date_link, .aui .edit_expiry_date_link1, .aui .region_edit_link {
+  text-decoration: underline; }
+.aui #accordion table td {
+  padding: 5px 0px; }
+.aui .edit_comp_deadline table.results_table, .aui .edit_comp_deadline table.results_table tr {
+  border: 0; }
+.aui #accordion #compliance_admin_edit_table td {
+  padding: 5px;
+  border: 1px solid #ccc; }
+.aui #accordion .comp_edit_title td {
+  background-color: #959595;
+  color: #FFF;
+  font-weight: bold; }
+.aui #accordion #comp_edit_table_no_border td {
+  border: 0px;
+  padding: 0px; }
+.aui #accordion a {
+  cursor: pointer;
+  color: blue; }
+.aui .amendAll {
+  border: 1px solid #ccc;
+  margin: 10px 0; }
+.aui .amendAll h3 {
+  background-color: #959595;
+  color: #FFF;
+  border: 1px solid #ccc; }
+.aui .blankTd {
+  border-bottom: none;
+  background-color: #959595; }
+

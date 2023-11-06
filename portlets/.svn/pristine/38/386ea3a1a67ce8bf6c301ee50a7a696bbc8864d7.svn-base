@@ -1,0 +1,26 @@
+<p>Thank you for your feedback. The following message has been forwarded to the GRS Comms Team. We are reviewing it and will reply to you shortly.</p> 
+ 
+<p><strong>Note: <font color="red">If you submitted feedback anonymously, your identity was not submitted.</font></strong></p>
+ 
+<b>First name</b>: $feedback.getFirstName()<br>
+<b>Last name</b>: $feedback.getLastName()<br>
+<b>Business title</b>: $feedback.getTitle()<br>
+<b>Email</b>: $feedback.getEmail()<br>
+#if($feedback.getOnBehalfOf() != '')
+<b>On Behalf of</b>: $feedback.getOnBehalfOf()<br>
+#end
+
+#foreach( $feedbackDetail in $feedbackDetails )
+--------<br>
+	<b>Feedback Type</b>: $feedbackDetail.getFeedbackType()<br>
+	<b>Topic</b>: $feedbackDetail.getSubject()<br>
+	<b>Message</b>: $feedbackDetail.getMessage()<br>
+	#if( $feedbackDetail.getFileName() != '')
+   		<b>File attachment</b>: $feedbackDetail.getFileName()<br>
+	#end
+#end
+ 
+<p>Thanks for your feedback!</p>
+ 
+<p>Sincerely,<br>
+GRS Comms Team</p>

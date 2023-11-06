@@ -1,0 +1,323 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-lazy="false" auto-import="false">
+	<import class="com.ihg.www.common.model.AccountActivity" />
+	<import class="com.ihg.www.common.model.AccountAvgPercPricing" />
+	<import class="com.ihg.www.common.model.AccountOwner" />
+	<import class="com.ihg.www.common.model.AccountPricing" />
+	<import class="com.ihg.www.common.model.AccountPricingSeasonal" />
+	<import class="com.ihg.www.common.model.ArtExtra" />
+	<import class="com.ihg.www.common.model.Currency" />
+	<import class="com.ihg.www.common.model.PricingExtra" />
+	<import class="com.ihg.www.common.model.RegionChainAccountMetrics" />
+	<import class="com.ihg.www.common.model.RFPAccountOwner" />
+	<import class="com.ihg.www.common.model.RFPCommnets" />
+	<import class="com.ihg.www.common.model.RFPSeason" />
+	<import class="com.ihg.www.common.model.RFPSeasonRoom" />
+	<import class="com.ihg.www.common.model.Workflow" />
+	<class name="com.ihg.www.common.model.impl.AccountActivityImpl" table="WISHWALK.ACCT_ACTV_LOG">
+		<cache usage="read-write" />
+		<id name="activityId" column="ACCT_ACTV_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="mnemonicCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="MNEMONIC_CD" />
+		<property name="rfpTitleText" type="com.liferay.portal.dao.orm.hibernate.StringType" column="RFP_TITLE_TXT" />
+		<property name="rateCategoryCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="RATE_CATGY_CD" />
+		<property name="activityType" type="com.liferay.portal.dao.orm.hibernate.StringType" column="ACTV_TYP" />
+		<property name="activityReference" type="com.liferay.portal.dao.orm.hibernate.LongType" column="ACTV_REF_ID" />
+		<property name="action" type="com.liferay.portal.dao.orm.hibernate.StringType" column="ACTV_ACTN_TYP" />
+		<property name="fieldName" type="com.liferay.portal.dao.orm.hibernate.StringType" column="ACTV_FLD_NM" />
+		<property name="oldValue" type="com.liferay.portal.dao.orm.hibernate.StringType" column="ACTV_OLD_VAL" />
+		<property name="newValue" type="com.liferay.portal.dao.orm.hibernate.StringType" column="ACTV_NEW_VAL" />
+		<property name="comments" type="com.liferay.portal.dao.orm.hibernate.StringType" column="ACTV_CMT_TXT" />
+		<property name="createUserId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updateUserId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.www.common.model.impl.AccountAvgPercPricingImpl" table="WISHWALK.ACCT_RM_PRICING">
+		<cache usage="read-write" />
+		<composite-id name="primaryKey" class="com.ihg.www.common.service.persistence.AccountAvgPercPricingPK">
+			<key-property name="acctPricingId" column="ACCT_PRICING_ID" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+			<key-property name="roomId" column="RM_CLASS_ID" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		</composite-id>
+		<property name="wishRoomAvgPerc" type="com.liferay.portal.dao.orm.hibernate.DoubleType" column="WISH_RM_RATE_AVG_PCT" />
+		<property name="wantRoomAvgPerc" type="com.liferay.portal.dao.orm.hibernate.DoubleType" column="WANT_RM_RATE_AVG_PCT" />
+		<property name="walkRoomAvgPerc" type="com.liferay.portal.dao.orm.hibernate.DoubleType" column="WALK_RM_RATE_AVG_PCT" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updateBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.www.common.model.impl.AccountOwnerImpl" table="WISHWALK.ACCT_OWNER">
+		<cache usage="read-write" />
+		<id name="acctOwnerId" column="ACCT_OWNER_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="acctOwnerType" type="com.liferay.portal.dao.orm.hibernate.StringType" column="ACCT_OWNER_TYP" />
+		<property name="username" type="com.liferay.portal.dao.orm.hibernate.StringType" column="USR_NM" />
+		<property name="firstName" type="com.liferay.portal.dao.orm.hibernate.StringType" column="FRST_NM" />
+		<property name="lastName" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_NM" />
+		<property name="email" type="com.liferay.portal.dao.orm.hibernate.StringType" column="EMAIL_ID" />
+		<property name="primaryBackupId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="ACCT_OWNER_PRIM_BACKUP_ID" />
+		<property name="secondaryBackupId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="ACCT_OWNER_SEC_BACKUP_ID" />
+		<property name="autoEscalateInd" type="com.liferay.portal.dao.orm.hibernate.StringType" column="AUTO_ESCALATE_IND" />
+		<property name="createUserId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updateUserId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.www.common.model.impl.AccountPricingImpl" table="WISHWALK.ACCT_PRICING">
+		<cache usage="read-write" />
+		<composite-id name="primaryKey" class="com.ihg.www.common.service.persistence.AccountPricingPK">
+			<key-property name="acctPricingId" column="ACCT_PRICING_ID" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+			<key-property name="mnemonicCode" column="MNEMONIC_CD" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		</composite-id>
+		<property name="rateCategoryCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="RATE_CATGY_CD" />
+		<property name="pricingYearNumber" type="com.liferay.portal.dao.orm.hibernate.IntegerType" column="PRICING_YR_NBR" />
+		<property name="franchiseGrpName" type="com.liferay.portal.dao.orm.hibernate.StringType" column="FRAN_GRP_NM" />
+		<property name="lraCostAmount" type="com.liferay.portal.dao.orm.hibernate.DoubleType" column="LRA_COST_AMT" />
+		<property name="currencyCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CURR_CD" />
+		<property name="breakfastIndicator" type="com.liferay.portal.dao.orm.hibernate.BooleanType" column="BREAKFAST_INCL_IND" />
+		<property name="breakfastFee" type="com.liferay.portal.dao.orm.hibernate.DoubleType" column="BREAKFAST_FEE_AMT" />
+		<property name="breakfastVariance" type="com.liferay.portal.dao.orm.hibernate.DoubleType" column="BREAKFAST_FEE_VAR_AMT" />
+		<property name="internetIndicator" type="com.liferay.portal.dao.orm.hibernate.BooleanType" column="HSIA_INCL_IND" />
+		<property name="internetFee" type="com.liferay.portal.dao.orm.hibernate.DoubleType" column="HSIA_FEE_AMT" />
+		<property name="internetVariance" type="com.liferay.portal.dao.orm.hibernate.DoubleType" column="HSIA_FEE_VAR_AMT" />
+		<property name="parkingIndicator" type="com.liferay.portal.dao.orm.hibernate.BooleanType" column="PARKING_INCL_IND" />
+		<property name="parkingFee" type="com.liferay.portal.dao.orm.hibernate.DoubleType" column="PARKING_FEE_AMT" />
+		<property name="parkingVariance" type="com.liferay.portal.dao.orm.hibernate.DoubleType" column="PARKING_FEE_VAR_AMT" />
+		<property name="commissionIndicator" type="com.liferay.portal.dao.orm.hibernate.BooleanType" column="COMM_IND" />
+		<property name="commissionRate" type="com.liferay.portal.dao.orm.hibernate.DoubleType" column="COMM_PCT" />
+		<property name="commissionVariance" type="com.liferay.portal.dao.orm.hibernate.DoubleType" column="COMM_RATE_VAR_AMT" />
+		<property name="taxIndicator" type="com.liferay.portal.dao.orm.hibernate.StringType" column="TAX_INCL_CD" />
+		<property name="taxFlatPerc" type="com.liferay.portal.dao.orm.hibernate.StringType" column="TAX_FEE_TYP" />
+		<property name="taxRate" type="com.liferay.portal.dao.orm.hibernate.DoubleType" column="TAX_AMT" />
+		<property name="taxRateVariance" type="com.liferay.portal.dao.orm.hibernate.DoubleType" column="TAX_RATE_VAR_AMT" />
+		<property name="streetCornerText" type="com.liferay.portal.dao.orm.hibernate.StringType" column="STREET_CORNER_INTELLIGENCE_TXT" />
+		<property name="rfpName" type="com.liferay.portal.dao.orm.hibernate.StringType" column="RFP_NM" />
+		<property name="finalSubmitIndicator" type="com.liferay.portal.dao.orm.hibernate.StringType" column="FINAL_SUBMIT_IND" />
+		<property name="kadIndicator" type="com.liferay.portal.dao.orm.hibernate.StringType" column="KAD_NEGOTIATE_IND" />
+		<property name="rateGuidanceIndicator" type="com.liferay.portal.dao.orm.hibernate.BooleanType" column="RATE_GUIDANCE_ACCEPT_IND" />
+		<property name="lraGuidanceIndicator" type="com.liferay.portal.dao.orm.hibernate.BooleanType" column="LRA_GUIDANCE_ACCEPT_IND" />
+		<property name="rfpApprovedIndicator" type="com.liferay.portal.dao.orm.hibernate.BooleanType" column="RFP_APPR_IND" />
+		<property name="wishVariance" type="com.liferay.portal.dao.orm.hibernate.DoubleType" column="WISH_RM_VAR_PCT" />
+		<property name="wantVariance" type="com.liferay.portal.dao.orm.hibernate.DoubleType" column="WANT_RM_VAR_PCT" />
+		<property name="walkVariance" type="com.liferay.portal.dao.orm.hibernate.DoubleType" column="WALK_RM_VAR_PCT" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updateBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+		<property name="serviceFeeIncludeInd" type="com.liferay.portal.dao.orm.hibernate.StringType" column="SVC_FEE_INCL_IND" />
+		<property name="serviceFeeType" type="com.liferay.portal.dao.orm.hibernate.StringType" column="SVC_FEE_TYP" />
+		<property name="serviceFeeAmount" type="com.liferay.portal.dao.orm.hibernate.DoubleType" column="SVC_FEE_AMT" />
+		<property name="serviceFeeVariance" type="com.liferay.portal.dao.orm.hibernate.DoubleType" column="SVC_RATE_VAR_AMT" />
+		<property name="vatFeeIncludeInd" type="com.liferay.portal.dao.orm.hibernate.StringType" column="VAT_INCL_IND" />
+		<property name="vatFeeType" type="com.liferay.portal.dao.orm.hibernate.StringType" column="VAT_FEE_TYP" />
+		<property name="vatFeeAmount" type="com.liferay.portal.dao.orm.hibernate.DoubleType" column="VAT_FEE_AMT" />
+		<property name="vatFeeVariance" type="com.liferay.portal.dao.orm.hibernate.DoubleType" column="VAT_RATE_VAR_AMT" />
+		<property name="initLoadIndicator" type="com.liferay.portal.dao.orm.hibernate.StringType" column="INIT_LD_IND" />
+	</class>
+	<class name="com.ihg.www.common.model.impl.AccountPricingSeasonalImpl" table="WISHWALK.ACCT_PRICING_SEASONAL">
+		<cache usage="read-write" />
+		<composite-id name="primaryKey" class="com.ihg.www.common.service.persistence.AccountPricingSeasonalPK">
+			<key-property name="acctPricingId" column="ACCT_PRICING_ID" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+			<key-property name="seasonId" column="SEASON_ID" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+			<key-property name="roomId" column="RM_CLASS_ID" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		</composite-id>
+		<property name="seasonStartDate" type="org.hibernate.type.TimestampType" column="SEASON_STRT_DT" />
+		<property name="seasonEndDate" type="org.hibernate.type.TimestampType" column="SEASON_END_DT" />
+		<property name="wishPercentage" type="com.liferay.portal.dao.orm.hibernate.DoubleType" column="LRA_NLRA_WISH_PCT" />
+		<property name="wantPercentage" type="com.liferay.portal.dao.orm.hibernate.DoubleType" column="LRA_NLRA_WANT_PCT" />
+		<property name="walkPercentage" type="com.liferay.portal.dao.orm.hibernate.DoubleType" column="LRA_NLRA_WALK_PCT" />
+		<property name="lraWishRate" type="com.liferay.portal.dao.orm.hibernate.DoubleType" column="LRA_WISH_RATE" />
+		<property name="lraWantRate" type="com.liferay.portal.dao.orm.hibernate.DoubleType" column="LRA_WANT_RATE" />
+		<property name="lraWalkRate" type="com.liferay.portal.dao.orm.hibernate.DoubleType" column="LRA_WALK_RATE" />
+		<property name="nlraWishRate" type="com.liferay.portal.dao.orm.hibernate.DoubleType" column="NLRA_WISH_RATE" />
+		<property name="nlraWantRate" type="com.liferay.portal.dao.orm.hibernate.DoubleType" column="NLRA_WANT_RATE" />
+		<property name="nlraWalkRate" type="com.liferay.portal.dao.orm.hibernate.DoubleType" column="NLRA_WALK_RATE" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updateBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.www.common.model.impl.ArtExtraImpl" table="WISHWALK.ART_EXTR">
+		<cache usage="read-write" />
+		<composite-id name="primaryKey" class="com.ihg.www.common.service.persistence.ArtExtraPK">
+			<key-property name="mnemonicCode" column="MNEMONIC_CD" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+			<key-property name="rateCategoryCode" column="RATE_CATGY_CD" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		</composite-id>
+		<property name="rateCategoryName" type="com.liferay.portal.dao.orm.hibernate.StringType" column="RATE_CATGY_NM" />
+		<property name="accountType" type="com.liferay.portal.dao.orm.hibernate.StringType" column="ACCT_TYP" />
+		<property name="totalRoomNetQty" type="com.liferay.portal.dao.orm.hibernate.IntegerType" column="TOT_RM_NT_QTY" />
+		<property name="busyRoomNetQty" type="com.liferay.portal.dao.orm.hibernate.IntegerType" column="BUSY_RM_NT_QTY" />
+		<property name="totalAvgDailyRate" type="com.liferay.portal.dao.orm.hibernate.StringType" column="AVG_DY_RATE" />
+		<property name="totalRevenueAmount" type="com.liferay.portal.dao.orm.hibernate.StringType" column="TOT_REV_AMT" />
+		<property name="displacedRevenueAmount" type="com.liferay.portal.dao.orm.hibernate.StringType" column="DISPLACED_REV_AMT" />
+		<property name="currencyCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CURR_CD" />
+		<property name="lraCost" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LRA_USD_AMT" />
+		<property name="wishRateGuidance" type="com.liferay.portal.dao.orm.hibernate.DoubleType" column="WISH_RATE_GUIDANCE_PCT" />
+		<property name="wantRateGuidance" type="com.liferay.portal.dao.orm.hibernate.DoubleType" column="WANT_RATE_GUIDANCE_PCT" />
+		<property name="walkRateGuidance" type="com.liferay.portal.dao.orm.hibernate.DoubleType" column="WALK_RATE_GUIDANCE_PCT" />
+		<property name="acctQuadNumber" type="com.liferay.portal.dao.orm.hibernate.IntegerType" column="ART_ACCT_QUADRANT_NBR" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.www.common.model.impl.CurrencyImpl" table="WISHWALK.CURR">
+		<cache usage="read-write" />
+		<id name="currencyCode" column="CURR_CD" type="java.lang.String">
+			<generator class="assigned" />
+		</id>
+		<property name="currencyName" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CURR_NM" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.www.common.model.impl.PricingExtraImpl" table="WISHWALK.PRICING_EXTR">
+		<cache usage="read-write" />
+		<composite-id name="primaryKey" class="com.ihg.www.common.service.persistence.PricingExtraPK">
+			<key-property name="mnemonicCode" column="MNEMONIC_CD" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+			<key-property name="rfpTitleText" column="RFP_TITLE_TXT" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		</composite-id>
+		<property name="rateCategoryCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="RATE_CATGY_CD" />
+		<property name="regionCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="RGN_CD" />
+		<property name="countryName" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CTRY_NM" />
+		<property name="cityName" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CITY_NM" />
+		<property name="corpAccountName" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CORP_ACCT_NM" />
+		<property name="currencyCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CURR_CD" />
+		<property name="mgmtCompanyName" type="com.liferay.portal.dao.orm.hibernate.StringType" column="MGT_COMPANY_NM" />
+		<property name="breakfastIndicator" type="com.liferay.portal.dao.orm.hibernate.BooleanType" column="BREAKFAST_INCL_IND" />
+		<property name="parkingIndicator" type="com.liferay.portal.dao.orm.hibernate.BooleanType" column="PARKING_INCL_IND" />
+		<property name="internetIndicator" type="com.liferay.portal.dao.orm.hibernate.BooleanType" column="HSIA_INCL_IND" />
+		<property name="taxIndicator" type="com.liferay.portal.dao.orm.hibernate.StringType" column="TAX_INCL_CD" />
+		<property name="taxFlatPerc" type="com.liferay.portal.dao.orm.hibernate.StringType" column="TAX_FEE_TYP" />
+		<property name="commissionIndicator" type="com.liferay.portal.dao.orm.hibernate.BooleanType" column="COMM_IND" />
+		<property name="breakfastFee" type="com.liferay.portal.dao.orm.hibernate.DoubleType" column="BREAKFAST_FEE_AMT" />
+		<property name="parkingFee" type="com.liferay.portal.dao.orm.hibernate.DoubleType" column="PARKING_FEE_AMT" />
+		<property name="internetFee" type="com.liferay.portal.dao.orm.hibernate.DoubleType" column="HSIA_FEE_AMT" />
+		<property name="taxRate" type="com.liferay.portal.dao.orm.hibernate.DoubleType" column="TAX_AMT" />
+		<property name="commissionRate" type="com.liferay.portal.dao.orm.hibernate.DoubleType" column="COMM_PCT" />
+		<property name="rfpExportIndicator" type="com.liferay.portal.dao.orm.hibernate.BooleanType" column="RFP_EXPORT_IND" />
+		<property name="lraIndicator" type="com.liferay.portal.dao.orm.hibernate.BooleanType" column="LRA_IND" />
+		<property name="hotelName" type="com.liferay.portal.dao.orm.hibernate.StringType" column="HTL_NM" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updateBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+		<property name="chainCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CHAIN_CD" />
+		<property name="serviceFeeIncludeInd" type="com.liferay.portal.dao.orm.hibernate.StringType" column="SVC_FEE_INCL_IND" />
+		<property name="serviceFeeType" type="com.liferay.portal.dao.orm.hibernate.StringType" column="SVC_FEE_TYP" />
+		<property name="serviceFeeAmount" type="com.liferay.portal.dao.orm.hibernate.DoubleType" column="SVC_FEE_AMT" />
+		<property name="vatFeeIncludeInd" type="com.liferay.portal.dao.orm.hibernate.StringType" column="VAT_INCL_IND" />
+		<property name="vatFeeType" type="com.liferay.portal.dao.orm.hibernate.StringType" column="VAT_FEE_TYP" />
+		<property name="vatFeeAmount" type="com.liferay.portal.dao.orm.hibernate.DoubleType" column="VAT_FEE_AMT" />
+		<property name="initExportCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="INIT_EXPORT_CD" />
+		<property name="newHotelIndicator" type="com.liferay.portal.dao.orm.hibernate.StringType" column="NEW_HTL_IND" />
+	</class>
+	<class name="com.ihg.www.common.model.impl.RegionChainAccountMetricsImpl" table="WISHWALK.RGN_CHAIN_ACCT_METRICS">
+		<cache usage="read-write" />
+		<composite-id name="primaryKey" class="com.ihg.www.common.service.persistence.RegionChainAccountMetricsPK">
+			<key-property name="regionCode" column="RGN_CD" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+			<key-property name="chainCode" column="CHAIN_CD" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		</composite-id>
+		<property name="wishPercentage" type="com.liferay.portal.dao.orm.hibernate.DoubleType" column="LOW_WISH_RM_VAR_PCT" />
+		<property name="wantPercentage" type="com.liferay.portal.dao.orm.hibernate.DoubleType" column="LOW_WANT_RM_VAR_PCT" />
+		<property name="walkPercentage" type="com.liferay.portal.dao.orm.hibernate.DoubleType" column="LOW_WALK_RM_VAR_PCT" />
+		<property name="roomNightQuntity" type="com.liferay.portal.dao.orm.hibernate.IntegerType" column="RM_NT_QTY" />
+		<property name="createUserId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updateUserId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updateDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+		<property name="wishHighPercentage" type="com.liferay.portal.dao.orm.hibernate.DoubleType" column="HIGH_WISH_RM_VAR_PCT" />
+		<property name="wantHighPercentage" type="com.liferay.portal.dao.orm.hibernate.DoubleType" column="HIGH_WANT_RM_VAR_PCT" />
+		<property name="walkHighPercentage" type="com.liferay.portal.dao.orm.hibernate.DoubleType" column="HIGH_WALK_RM_VAR_PCT" />
+		<property name="artMatchIndicator" type="com.liferay.portal.dao.orm.hibernate.StringType" column="ART_MATCH_IND" />
+	</class>
+	<class name="com.ihg.www.common.model.impl.RFPAccountOwnerImpl" table="WISHWALK.RFP_ACCT_OWNER">
+		<cache usage="read-write" />
+		<composite-id name="primaryKey" class="com.ihg.www.common.service.persistence.RFPAccountOwnerPK">
+			<key-property name="mnemonicCode" column="MNEMONIC_CD" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+			<key-property name="rfpTitleText" column="RFP_TITLE_TXT" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+			<key-property name="rateCategoryCode" column="RATE_CATGY_CD" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		</composite-id>
+		<property name="acctOwnerId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="ACCT_OWNER_ID" />
+		<property name="acctReviewerId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="ACCT_REVIEWER_ID" />
+		<property name="acceptanceRateInd" type="com.liferay.portal.dao.orm.hibernate.StringType" column="RATE_ACCEPTED_IND" />
+		<property name="acctLockedInd" type="com.liferay.portal.dao.orm.hibernate.StringType" column="ACCT_LOCKED_IND" />
+		<property name="acceptanceDueDate" type="org.hibernate.type.TimestampType" column="ACCT_DUE_DT" />
+		<property name="hotelEmail" type="com.liferay.portal.dao.orm.hibernate.StringType" column="HTL_EMAIL_ID" />
+		<property name="createUserId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updateUserId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+		<property name="regionCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="RGN_CD" />
+		<property name="rfpBypassWorkFlowInd" type="com.liferay.portal.dao.orm.hibernate.StringType" column="RFP_BYPASS_WORKFLOW_IND" />
+	</class>
+	<class name="com.ihg.www.common.model.impl.RFPCommnetsImpl" table="WISHWALK.RFP_CMT">
+		<cache usage="read-write" />
+		<id name="rfpCommentSequenceNumber" column="RFP_CMT_SEQ_NBR" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="mnemonicCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="MNEMONIC_CD" />
+		<property name="rfpTitleText" type="com.liferay.portal.dao.orm.hibernate.StringType" column="RFP_TITLE_TXT" />
+		<property name="rateCategoryCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="RATE_CATGY_CD" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" column="USR_NM" />
+		<property name="reviewCommnentIndicator" type="com.liferay.portal.dao.orm.hibernate.BooleanType" column="REVIEWER_CMT_IND" />
+		<property name="createUserId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updateUserId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updateDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+		<property name="rfpCommentsText" type="com.liferay.portal.dao.orm.hibernate.StringType" column="RFP_CMT_TXT" />
+	</class>
+	<class name="com.ihg.www.common.model.impl.RFPSeasonImpl" table="WISHWALK.RFP_SEASON">
+		<cache usage="read-write" />
+		<composite-id name="primaryKey" class="com.ihg.www.common.service.persistence.RFPSeasonPK">
+			<key-property name="mnemonicCode" column="MNEMONIC_CD" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+			<key-property name="rfpTitleText" column="RFP_TITLE_TXT" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+			<key-property name="seasonId" column="SEASON_ID" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		</composite-id>
+		<property name="seasonStartDate" type="org.hibernate.type.TimestampType" column="SEASON_STRT_DT" />
+		<property name="seasonEndDate" type="org.hibernate.type.TimestampType" column="SEASON_END_DT" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.www.common.model.impl.RFPSeasonRoomImpl" table="WISHWALK.RFP_SEASON_RM">
+		<cache usage="read-write" />
+		<composite-id name="primaryKey" class="com.ihg.www.common.service.persistence.RFPSeasonRoomPK">
+			<key-property name="mnemonicCode" column="MNEMONIC_CD" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+			<key-property name="rfpTitleText" column="RFP_TITLE_TXT" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+			<key-property name="seasonId" column="SEASON_ID" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+			<key-property name="roomId" column="RM_CLASS_ID" type="com.liferay.portal.dao.orm.hibernate.IntegerType" />
+		</composite-id>
+		<property name="roomRateAmt" type="com.liferay.portal.dao.orm.hibernate.StringType" column="RM_RATE_AMT" />
+		<property name="userName" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.www.common.model.impl.WorkflowImpl" table="WISHWALK.WWW_WORKFLOW">
+		<cache usage="read-write" />
+		<composite-id name="primaryKey" class="com.ihg.www.common.service.persistence.WorkflowPK">
+			<key-property name="mnemonicCode" column="MNEMONIC_CD" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+			<key-property name="rfpTitleText" column="RFP_TITLE_TXT" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+			<key-property name="rateCategoryCode" column="RATE_CATGY_CD" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		</composite-id>
+		<property name="intialApproverId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="INIT_APPR_ID" />
+		<property name="currentApproverId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="CURRENT_APPR_ID" />
+		<property name="workflowStartDate" type="org.hibernate.type.TimestampType" column="WORKFLOW_STRT_TS" />
+		<property name="escalation1Date" type="org.hibernate.type.TimestampType" column="ESCALATION_1_TS" />
+		<property name="escalation2Date" type="org.hibernate.type.TimestampType" column="ESCALATION_2_TS" />
+		<property name="escalation3Date" type="org.hibernate.type.TimestampType" column="ESCALATION_3_TS" />
+		<property name="status" type="com.liferay.portal.dao.orm.hibernate.StringType" column="WORKFLOW_STAT_CD" />
+		<property name="createUserId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updateUserId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,20 @@
+your-request-could-not-be-processed=Your request could not processed now. Please try again after some time.
+feedback-processed-successfully=Feedback submitted successfully.
+invalid-directory-id=Please provide valid directory id.
+
+#search
+site.search.heading=Modify Your Search
+search-sub-heading-results=results returned for
+label.modified=Last Modified Date
+label.a-z=A-Z
+label.z-a=Z-A
+label.sortBy=Sort By
+
+#Subscription and Notification
+subscription.heading=Your Subscriptions
+activity.heading=Your Activity Notifications
+notfications.and.subscription.heading=Notifications & Subscription Management
+notification.desc.document={0} uploaded a document in the <strong class="red"> {1}</strong> category.<br />
+
+#No record found message
+message.norecords=There are no records to display.

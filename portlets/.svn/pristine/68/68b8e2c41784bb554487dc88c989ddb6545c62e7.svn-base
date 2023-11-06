@@ -1,0 +1,249 @@
+/**
+ * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
+ *
+ * The contents of this file are subject to the terms of the Liferay Enterprise
+ * Subscription License ("License"). You may not use this file except in
+ * compliance with the License. You can obtain a copy of the License by
+ * contacting Liferay, Inc. See the License for the specific language governing
+ * permissions and limitations under the License, including but not limited to
+ * distribution rights of the Software.
+ *
+ *
+ *
+ */
+
+package com.ihg.brandstandards.db.service.base;
+
+import com.ihg.brandstandards.db.service.JobQueueServiceUtil;
+
+import java.util.Arrays;
+
+/**
+ * @author Mummanedi
+ * @generated
+ */
+public class JobQueueServiceClpInvoker {
+	public JobQueueServiceClpInvoker() {
+		_methodName588 = "getBeanIdentifier";
+
+		_methodParameterTypes588 = new String[] {  };
+
+		_methodName589 = "setBeanIdentifier";
+
+		_methodParameterTypes589 = new String[] { "java.lang.String" };
+
+		_methodName594 = "addJobQueue";
+
+		_methodParameterTypes594 = new String[] {
+				"java.lang.String", "java.lang.String", "java.lang.String",
+				"java.lang.String", "java.lang.String", "java.util.Date",
+				"java.util.Date", "java.lang.String", "java.lang.String",
+				"java.util.Date", "java.lang.String", "java.util.Date"
+			};
+
+		_methodName595 = "updateJobQueue";
+
+		_methodParameterTypes595 = new String[] {
+				"long", "java.lang.String", "java.lang.String",
+				"java.lang.String", "java.lang.String", "java.lang.String",
+				"java.util.Date", "java.util.Date", "java.lang.String",
+				"java.lang.String"
+			};
+
+		_methodName596 = "updateJobQueueStatus";
+
+		_methodParameterTypes596 = new String[] {
+				"long", "java.lang.String", "java.util.Date", "java.util.Date",
+				"java.lang.String"
+			};
+
+		_methodName597 = "deleteJobQueue";
+
+		_methodParameterTypes597 = new String[] { "long" };
+
+		_methodName598 = "getAllJobQueues";
+
+		_methodParameterTypes598 = new String[] {  };
+
+		_methodName599 = "getJobQueuesExceptFullManuals";
+
+		_methodParameterTypes599 = new String[] {  };
+
+		_methodName600 = "getJobQueuesByOwnerAndType";
+
+		_methodParameterTypes600 = new String[] {
+				"java.lang.String", "java.lang.String"
+			};
+
+		_methodName601 = "getJobQueuesByOwnerTypeAndStatus";
+
+		_methodParameterTypes601 = new String[] {
+				"java.lang.String", "java.lang.String", "java.lang.String"
+			};
+
+		_methodName602 = "getJobQueuesByType";
+
+		_methodParameterTypes602 = new String[] { "java.lang.String" };
+
+		_methodName603 = "getJobQueuesByTypeAndStatus";
+
+		_methodParameterTypes603 = new String[] {
+				"java.lang.String", "java.lang.String"
+			};
+
+		_methodName604 = "getJobQueuesByOwner";
+
+		_methodParameterTypes604 = new String[] { "java.lang.String" };
+
+		_methodName605 = "getUniqueJobQueTypes";
+
+		_methodParameterTypes605 = new String[] {  };
+
+		_methodName606 = "getFileAsByteStream";
+
+		_methodParameterTypes606 = new String[] { "long" };
+
+		_methodName607 = "getImageAsByteStream";
+
+		_methodParameterTypes607 = new String[] { "long", "boolean" };
+	}
+
+	public Object invokeMethod(String name, String[] parameterTypes,
+		Object[] arguments) throws Throwable {
+		if (_methodName588.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes588, parameterTypes)) {
+			return JobQueueServiceUtil.getBeanIdentifier();
+		}
+
+		if (_methodName589.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes589, parameterTypes)) {
+			JobQueueServiceUtil.setBeanIdentifier((java.lang.String)arguments[0]);
+
+			return null;
+		}
+
+		if (_methodName594.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes594, parameterTypes)) {
+			return JobQueueServiceUtil.addJobQueue((java.lang.String)arguments[0],
+				(java.lang.String)arguments[1], (java.lang.String)arguments[2],
+				(java.lang.String)arguments[3], (java.lang.String)arguments[4],
+				(java.util.Date)arguments[5], (java.util.Date)arguments[6],
+				(java.lang.String)arguments[7], (java.lang.String)arguments[8],
+				(java.util.Date)arguments[9], (java.lang.String)arguments[10],
+				(java.util.Date)arguments[11]);
+		}
+
+		if (_methodName595.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes595, parameterTypes)) {
+			return JobQueueServiceUtil.updateJobQueue(((Long)arguments[0]).longValue(),
+				(java.lang.String)arguments[1], (java.lang.String)arguments[2],
+				(java.lang.String)arguments[3], (java.lang.String)arguments[4],
+				(java.lang.String)arguments[5], (java.util.Date)arguments[6],
+				(java.util.Date)arguments[7], (java.lang.String)arguments[8],
+				(java.lang.String)arguments[9]);
+		}
+
+		if (_methodName596.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes596, parameterTypes)) {
+			return JobQueueServiceUtil.updateJobQueueStatus(((Long)arguments[0]).longValue(),
+				(java.lang.String)arguments[1], (java.util.Date)arguments[2],
+				(java.util.Date)arguments[3], (java.lang.String)arguments[4]);
+		}
+
+		if (_methodName597.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes597, parameterTypes)) {
+			JobQueueServiceUtil.deleteJobQueue(((Long)arguments[0]).longValue());
+
+			return null;
+		}
+
+		if (_methodName598.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes598, parameterTypes)) {
+			return JobQueueServiceUtil.getAllJobQueues();
+		}
+
+		if (_methodName599.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes599, parameterTypes)) {
+			return JobQueueServiceUtil.getJobQueuesExceptFullManuals();
+		}
+
+		if (_methodName600.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes600, parameterTypes)) {
+			return JobQueueServiceUtil.getJobQueuesByOwnerAndType((java.lang.String)arguments[0],
+				(java.lang.String)arguments[1]);
+		}
+
+		if (_methodName601.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes601, parameterTypes)) {
+			return JobQueueServiceUtil.getJobQueuesByOwnerTypeAndStatus((java.lang.String)arguments[0],
+				(java.lang.String)arguments[1], (java.lang.String)arguments[2]);
+		}
+
+		if (_methodName602.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes602, parameterTypes)) {
+			return JobQueueServiceUtil.getJobQueuesByType((java.lang.String)arguments[0]);
+		}
+
+		if (_methodName603.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes603, parameterTypes)) {
+			return JobQueueServiceUtil.getJobQueuesByTypeAndStatus((java.lang.String)arguments[0],
+				(java.lang.String)arguments[1]);
+		}
+
+		if (_methodName604.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes604, parameterTypes)) {
+			return JobQueueServiceUtil.getJobQueuesByOwner((java.lang.String)arguments[0]);
+		}
+
+		if (_methodName605.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes605, parameterTypes)) {
+			return JobQueueServiceUtil.getUniqueJobQueTypes();
+		}
+
+		if (_methodName606.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes606, parameterTypes)) {
+			return JobQueueServiceUtil.getFileAsByteStream(((Long)arguments[0]).longValue());
+		}
+
+		if (_methodName607.equals(name) &&
+				Arrays.deepEquals(_methodParameterTypes607, parameterTypes)) {
+			return JobQueueServiceUtil.getImageAsByteStream(((Long)arguments[0]).longValue(),
+				((Boolean)arguments[1]).booleanValue());
+		}
+
+		throw new UnsupportedOperationException();
+	}
+
+	private String _methodName588;
+	private String[] _methodParameterTypes588;
+	private String _methodName589;
+	private String[] _methodParameterTypes589;
+	private String _methodName594;
+	private String[] _methodParameterTypes594;
+	private String _methodName595;
+	private String[] _methodParameterTypes595;
+	private String _methodName596;
+	private String[] _methodParameterTypes596;
+	private String _methodName597;
+	private String[] _methodParameterTypes597;
+	private String _methodName598;
+	private String[] _methodParameterTypes598;
+	private String _methodName599;
+	private String[] _methodParameterTypes599;
+	private String _methodName600;
+	private String[] _methodParameterTypes600;
+	private String _methodName601;
+	private String[] _methodParameterTypes601;
+	private String _methodName602;
+	private String[] _methodParameterTypes602;
+	private String _methodName603;
+	private String[] _methodParameterTypes603;
+	private String _methodName604;
+	private String[] _methodParameterTypes604;
+	private String _methodName605;
+	private String[] _methodParameterTypes605;
+	private String _methodName606;
+	private String[] _methodParameterTypes606;
+	private String _methodName607;
+	private String[] _methodParameterTypes607;
+}

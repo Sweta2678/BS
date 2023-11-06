@@ -1,0 +1,20 @@
+#*
+This file allows you to override and define new Velocity variables.
+*#
+
+##set($merlinSession = $portal.getClass().forName("com.ihg.me2.utils.session.MerlinSession"))
+##if ($validator.isNotNull($merlinSession))
+	##set($merlinSessionUserType = $merlinSession.get($theme_display.getUser().getScreenName(), "USRTYP"))
+##end
+
+#set ($isBridgeUser = false)
+#set ($isOBSMUser = false)
+
+#foreach ($role in $user.getRoles())
+	#if($role.getName() == "BRND_STND_HOTEL_ACCESS")
+		#set ($isOBSMUser = true)
+	#elseif($role.getName() == "BRND_STND_BRIDGE_GLBL_ADMIN" || $role.getName() == "BRND_STND_BRIDGE_AMEA_ADMIN" || $role.getName() == "BRND_STND_BRIDGE_AMER_ADMIN" 
+		|| $role.getName() == "BRND_STND_BRIDGE_EURO_ADMIN" || $role.getName() == "BRND_STND_BRIDGE_GC_ADMIN" )
+		#set ($isBridgeUser = true)
+	#end
+#end

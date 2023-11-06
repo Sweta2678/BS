@@ -1,0 +1,813 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<bean id="com.ihg.brandstandards.db.service.AttachmentsStandardsLocalService" class="com.ihg.brandstandards.db.service.impl.AttachmentsStandardsLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.AttachmentsStandardsPersistence" class="com.ihg.brandstandards.db.service.persistence.AttachmentsStandardsPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.AttachmentsStandardsFinder" class="com.ihg.brandstandards.db.service.persistence.AttachmentsStandardsFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.AttachmentsStandardsCountryLocalService" class="com.ihg.brandstandards.db.service.impl.AttachmentsStandardsCountryLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.AttachmentsStandardsCountryPersistence" class="com.ihg.brandstandards.db.service.persistence.AttachmentsStandardsCountryPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.AttachmentsStandardsCountryFinder" class="com.ihg.brandstandards.db.service.persistence.AttachmentsStandardsCountryFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.BrandArticleLocalService" class="com.ihg.brandstandards.db.service.impl.BrandArticleLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.BrandArticleFinder" class="com.ihg.brandstandards.db.service.persistence.BrandArticleFinderImpl" parent="basePersistence" />
+	<bean id="com.ihg.brandstandards.db.service.BrandTaxonomyLocalService" class="com.ihg.brandstandards.db.service.impl.BrandTaxonomyLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.BrandTaxonomyPersistence" class="com.ihg.brandstandards.db.service.persistence.BrandTaxonomyPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.BrandTaxonomyTranslateLocalService" class="com.ihg.brandstandards.db.service.impl.BrandTaxonomyTranslateLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.BrandTaxonomyTranslatePersistence" class="com.ihg.brandstandards.db.service.persistence.BrandTaxonomyTranslatePersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.BridgeGlobalPublishLocalService" class="com.ihg.brandstandards.db.service.impl.BridgeGlobalPublishLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.BridgeGlobalPublishPersistence" class="com.ihg.brandstandards.db.service.persistence.BridgeGlobalPublishPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.BridgeGlobalPublishFinder" class="com.ihg.brandstandards.db.service.persistence.BridgeGlobalPublishFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.BridgeGlobalPublishCountryLocalService" class="com.ihg.brandstandards.db.service.impl.BridgeGlobalPublishCountryLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.BridgeGlobalPublishCountryPersistence" class="com.ihg.brandstandards.db.service.persistence.BridgeGlobalPublishCountryPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.BridgeProgressCategoryLocalService" class="com.ihg.brandstandards.db.service.impl.BridgeProgressCategoryLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.BridgeProgressCategoryPersistence" class="com.ihg.brandstandards.db.service.persistence.BridgeProgressCategoryPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.BridgeProgressDiscrepancyLocalService" class="com.ihg.brandstandards.db.service.impl.BridgeProgressDiscrepancyLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.BridgeProgressDiscrepancyPersistence" class="com.ihg.brandstandards.db.service.persistence.BridgeProgressDiscrepancyPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.BridgeProgressDiscrepancyFinder" class="com.ihg.brandstandards.db.service.persistence.BridgeProgressDiscrepancyFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.BridgeProgressSubCategoryLocalService" class="com.ihg.brandstandards.db.service.impl.BridgeProgressSubCategoryLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.BridgeProgressSubCategoryPersistence" class="com.ihg.brandstandards.db.service.persistence.BridgeProgressSubCategoryPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.BridgePublishLocalService" class="com.ihg.brandstandards.db.service.impl.BridgePublishLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.BridgePublishPersistence" class="com.ihg.brandstandards.db.service.persistence.BridgePublishPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.BridgePublishFinder" class="com.ihg.brandstandards.db.service.persistence.BridgePublishFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.BridgePublishCountryLocalService" class="com.ihg.brandstandards.db.service.impl.BridgePublishCountryLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.BridgePublishCountryPersistence" class="com.ihg.brandstandards.db.service.persistence.BridgePublishCountryPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.BridgePublishCountryFinder" class="com.ihg.brandstandards.db.service.persistence.BridgePublishCountryFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.BridgePublishCountryStateExLocalService" class="com.ihg.brandstandards.db.service.impl.BridgePublishCountryStateExLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.BridgePublishCountryStateExPersistence" class="com.ihg.brandstandards.db.service.persistence.BridgePublishCountryStateExPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.BridgePublishCountryStateExFinder" class="com.ihg.brandstandards.db.service.persistence.BridgePublishCountryStateExFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.BridgePublishImportLocalService" class="com.ihg.brandstandards.db.service.impl.BridgePublishImportLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.BridgePublishImportPersistence" class="com.ihg.brandstandards.db.service.persistence.BridgePublishImportPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.BridgePublishImportFinder" class="com.ihg.brandstandards.db.service.persistence.BridgePublishImportFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.BridgePublishLangLocalService" class="com.ihg.brandstandards.db.service.impl.BridgePublishLangLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.BridgePublishLangPersistence" class="com.ihg.brandstandards.db.service.persistence.BridgePublishLangPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.BridgePublishLangFinder" class="com.ihg.brandstandards.db.service.persistence.BridgePublishLangFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.BridgePublishPreviewLocalService" class="com.ihg.brandstandards.db.service.impl.BridgePublishPreviewLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.BridgePublishPreviewPersistence" class="com.ihg.brandstandards.db.service.persistence.BridgePublishPreviewPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.BridgePublishPreviewFinder" class="com.ihg.brandstandards.db.service.persistence.BridgePublishPreviewFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.BridgePublishStateExLocalService" class="com.ihg.brandstandards.db.service.impl.BridgePublishStateExLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.BridgePublishStateExPersistence" class="com.ihg.brandstandards.db.service.persistence.BridgePublishStateExPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.BridgePublishStateExFinder" class="com.ihg.brandstandards.db.service.persistence.BridgePublishStateExFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.BridgePublishStatusLocalService" class="com.ihg.brandstandards.db.service.impl.BridgePublishStatusLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.BridgePublishStatusPersistence" class="com.ihg.brandstandards.db.service.persistence.BridgePublishStatusPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.BusImpactAssmtLocalService" class="com.ihg.brandstandards.db.service.impl.BusImpactAssmtLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.BusImpactAssmtPersistence" class="com.ihg.brandstandards.db.service.persistence.BusImpactAssmtPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.ChainAttachmentsStandardsLocalService" class="com.ihg.brandstandards.db.service.impl.ChainAttachmentsStandardsLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.ChainAttachmentsStandardsPersistence" class="com.ihg.brandstandards.db.service.persistence.ChainAttachmentsStandardsPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.ChainExternalLinkStandardsLocalService" class="com.ihg.brandstandards.db.service.impl.ChainExternalLinkStandardsLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.ChainExternalLinkStandardsPersistence" class="com.ihg.brandstandards.db.service.persistence.ChainExternalLinkStandardsPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.ChainStandardsLocalService" class="com.ihg.brandstandards.db.service.impl.ChainStandardsLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.ChainStandardsPersistence" class="com.ihg.brandstandards.db.service.persistence.ChainStandardsPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.CountryStandardsLocalService" class="com.ihg.brandstandards.db.service.impl.CountryStandardsLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.CountryStandardsPersistence" class="com.ihg.brandstandards.db.service.persistence.CountryStandardsPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.CountryStandardsFinder" class="com.ihg.brandstandards.db.service.persistence.CountryStandardsFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.CountryStandardsExtLocalService" class="com.ihg.brandstandards.db.service.impl.CountryStandardsExtLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.CountryStandardsExtPersistence" class="com.ihg.brandstandards.db.service.persistence.CountryStandardsExtPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.CountryStandardsExtFinder" class="com.ihg.brandstandards.db.service.persistence.CountryStandardsExtFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.DepartmentLocalService" class="com.ihg.brandstandards.db.service.impl.DepartmentLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.DepartmentPersistence" class="com.ihg.brandstandards.db.service.persistence.DepartmentPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.DepartmentFinder" class="com.ihg.brandstandards.db.service.persistence.DepartmentFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.ErrNotificationLocalService" class="com.ihg.brandstandards.db.service.impl.ErrNotificationLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.ErrNotificationPersistence" class="com.ihg.brandstandards.db.service.persistence.ErrNotificationPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.ErrNotificationFinder" class="com.ihg.brandstandards.db.service.persistence.ErrNotificationFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.ExternalLinkStandardsLocalService" class="com.ihg.brandstandards.db.service.impl.ExternalLinkStandardsLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.ExternalLinkStandardsPersistence" class="com.ihg.brandstandards.db.service.persistence.ExternalLinkStandardsPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.ExternalLinkStandardsFinder" class="com.ihg.brandstandards.db.service.persistence.ExternalLinkStandardsFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.ExternalLinkStandardsCountryLocalService" class="com.ihg.brandstandards.db.service.impl.ExternalLinkStandardsCountryLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.ExternalLinkStandardsCountryPersistence" class="com.ihg.brandstandards.db.service.persistence.ExternalLinkStandardsCountryPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.ExternalLinkStandardsCountryFinder" class="com.ihg.brandstandards.db.service.persistence.ExternalLinkStandardsCountryFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.FlagCategoryLocalService" class="com.ihg.brandstandards.db.service.impl.FlagCategoryLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.FlagCategoryPersistence" class="com.ihg.brandstandards.db.service.persistence.FlagCategoryPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.FlagCategoryFinder" class="com.ihg.brandstandards.db.service.persistence.FlagCategoryFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.FlagStandardsLocalService" class="com.ihg.brandstandards.db.service.impl.FlagStandardsLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.FlagStandardsPersistence" class="com.ihg.brandstandards.db.service.persistence.FlagStandardsPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.FlagStandardsFinder" class="com.ihg.brandstandards.db.service.persistence.FlagStandardsFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.GEMCategoryLocalService" class="com.ihg.brandstandards.db.service.impl.GEMCategoryLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.GEMCategoryPersistence" class="com.ihg.brandstandards.db.service.persistence.GEMCategoryPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.GEMCategoryFinder" class="com.ihg.brandstandards.db.service.persistence.GEMCategoryFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.GEMChainMeasurementLocalService" class="com.ihg.brandstandards.db.service.impl.GEMChainMeasurementLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.GEMChainMeasurementPersistence" class="com.ihg.brandstandards.db.service.persistence.GEMChainMeasurementPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.GEMCodeLocalService" class="com.ihg.brandstandards.db.service.impl.GEMCodeLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.GEMCodePersistence" class="com.ihg.brandstandards.db.service.persistence.GEMCodePersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.GEMGeneratedReportLocalService" class="com.ihg.brandstandards.db.service.impl.GEMGeneratedReportLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.GEMGeneratedReportPersistence" class="com.ihg.brandstandards.db.service.persistence.GEMGeneratedReportPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.GEMGeneratedReportValLocalService" class="com.ihg.brandstandards.db.service.impl.GEMGeneratedReportValLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.GEMGeneratedReportValPersistence" class="com.ihg.brandstandards.db.service.persistence.GEMGeneratedReportValPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.GEMManagementBucketLocalService" class="com.ihg.brandstandards.db.service.impl.GEMManagementBucketLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.GEMManagementBucketPersistence" class="com.ihg.brandstandards.db.service.persistence.GEMManagementBucketPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.GEMManagementIdLocalService" class="com.ihg.brandstandards.db.service.impl.GEMManagementIdLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.GEMManagementIdPersistence" class="com.ihg.brandstandards.db.service.persistence.GEMManagementIdPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.GEMManagementIdFinder" class="com.ihg.brandstandards.db.service.persistence.GEMManagementIdFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.GEMMeasurementLocalService" class="com.ihg.brandstandards.db.service.impl.GEMMeasurementLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.GEMMeasurementPersistence" class="com.ihg.brandstandards.db.service.persistence.GEMMeasurementPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.GEMMeasurementBucketChainLocalService" class="com.ihg.brandstandards.db.service.impl.GEMMeasurementBucketChainLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.GEMMeasurementBucketChainPersistence" class="com.ihg.brandstandards.db.service.persistence.GEMMeasurementBucketChainPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.GEMMeasurementFormulaLocalService" class="com.ihg.brandstandards.db.service.impl.GEMMeasurementFormulaLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.GEMMeasurementFormulaPersistence" class="com.ihg.brandstandards.db.service.persistence.GEMMeasurementFormulaPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.GEMMeasurementFormulaValueLocalService" class="com.ihg.brandstandards.db.service.impl.GEMMeasurementFormulaValueLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.GEMMeasurementFormulaValuePersistence" class="com.ihg.brandstandards.db.service.persistence.GEMMeasurementFormulaValuePersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.GEMMeasurementTypeLocalService" class="com.ihg.brandstandards.db.service.impl.GEMMeasurementTypeLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.GEMMeasurementTypePersistence" class="com.ihg.brandstandards.db.service.persistence.GEMMeasurementTypePersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.GEMQlReportLocalService" class="com.ihg.brandstandards.db.service.impl.GEMQlReportLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.GEMQlReportPersistence" class="com.ihg.brandstandards.db.service.persistence.GEMQlReportPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.GEMQlReportFinder" class="com.ihg.brandstandards.db.service.persistence.GEMQlReportFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.GEMRoleLocalService" class="com.ihg.brandstandards.db.service.impl.GEMRoleLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.GEMRolePersistence" class="com.ihg.brandstandards.db.service.persistence.GEMRolePersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.GEMRoleFinder" class="com.ihg.brandstandards.db.service.persistence.GEMRoleFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.GEMScoringValueLocalService" class="com.ihg.brandstandards.db.service.impl.GEMScoringValueLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.GEMScoringValuePersistence" class="com.ihg.brandstandards.db.service.persistence.GEMScoringValuePersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.GEMSeverityLocalService" class="com.ihg.brandstandards.db.service.impl.GEMSeverityLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.GEMSeverityPersistence" class="com.ihg.brandstandards.db.service.persistence.GEMSeverityPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.GEMStdCategoryLocalService" class="com.ihg.brandstandards.db.service.impl.GEMStdCategoryLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.GEMStdCategoryPersistence" class="com.ihg.brandstandards.db.service.persistence.GEMStdCategoryPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.GEMTemplateLocalService" class="com.ihg.brandstandards.db.service.impl.GEMTemplateLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.GEMTemplatePersistence" class="com.ihg.brandstandards.db.service.persistence.GEMTemplatePersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.GEMTemplateFinder" class="com.ihg.brandstandards.db.service.persistence.GEMTemplateFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.GEMTemplateCategoryLocalService" class="com.ihg.brandstandards.db.service.impl.GEMTemplateCategoryLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.GEMTemplateCategoryPersistence" class="com.ihg.brandstandards.db.service.persistence.GEMTemplateCategoryPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.GEMTemplateColumnLocalService" class="com.ihg.brandstandards.db.service.impl.GEMTemplateColumnLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.GEMTemplateColumnPersistence" class="com.ihg.brandstandards.db.service.persistence.GEMTemplateColumnPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.GEMTemplateColumnFinder" class="com.ihg.brandstandards.db.service.persistence.GEMTemplateColumnFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.GEMTemplateReferenceLocalService" class="com.ihg.brandstandards.db.service.impl.GEMTemplateReferenceLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.GEMTemplateReferencePersistence" class="com.ihg.brandstandards.db.service.persistence.GEMTemplateReferencePersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.GEMTemplateValuesLocalService" class="com.ihg.brandstandards.db.service.impl.GEMTemplateValuesLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.GEMTemplateValuesPersistence" class="com.ihg.brandstandards.db.service.persistence.GEMTemplateValuesPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.GEMTriggerLocalService" class="com.ihg.brandstandards.db.service.impl.GEMTriggerLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.GEMTriggerPersistence" class="com.ihg.brandstandards.db.service.persistence.GEMTriggerPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.GEMUniqueGroupLocalService" class="com.ihg.brandstandards.db.service.impl.GEMUniqueGroupLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.GEMUniqueGroupPersistence" class="com.ihg.brandstandards.db.service.persistence.GEMUniqueGroupPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.GEMUniqueGroupFinder" class="com.ihg.brandstandards.db.service.persistence.GEMUniqueGroupFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.GEMUniqueGroupCountryLocalService" class="com.ihg.brandstandards.db.service.impl.GEMUniqueGroupCountryLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.GEMUniqueGroupCountryPersistence" class="com.ihg.brandstandards.db.service.persistence.GEMUniqueGroupCountryPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.GEMUniqueGroupCountryFinder" class="com.ihg.brandstandards.db.service.persistence.GEMUniqueGroupCountryFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.GEMUniqueGroupStandardLocalService" class="com.ihg.brandstandards.db.service.impl.GEMUniqueGroupStandardLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.GEMUniqueGroupStandardPersistence" class="com.ihg.brandstandards.db.service.persistence.GEMUniqueGroupStandardPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.GlossaryLocalService" class="com.ihg.brandstandards.db.service.impl.GlossaryLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.GlossaryPersistence" class="com.ihg.brandstandards.db.service.persistence.GlossaryPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.GlossaryFinder" class="com.ihg.brandstandards.db.service.persistence.GlossaryFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.GlossaryExtLocalService" class="com.ihg.brandstandards.db.service.impl.GlossaryExtLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.GlossaryExtPersistence" class="com.ihg.brandstandards.db.service.persistence.GlossaryExtPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.GlossaryExtFinder" class="com.ihg.brandstandards.db.service.persistence.GlossaryExtFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.GlossaryRegionNavLocalService" class="com.ihg.brandstandards.db.service.impl.GlossaryRegionNavLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.GlossaryRegionNavPersistence" class="com.ihg.brandstandards.db.service.persistence.GlossaryRegionNavPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.GlossaryTranslateLocalService" class="com.ihg.brandstandards.db.service.impl.GlossaryTranslateLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.GlossaryTranslatePersistence" class="com.ihg.brandstandards.db.service.persistence.GlossaryTranslatePersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.HistManualAttachmentLocalService" class="com.ihg.brandstandards.db.service.impl.HistManualAttachmentLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.HistManualAttachmentPersistence" class="com.ihg.brandstandards.db.service.persistence.HistManualAttachmentPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.HistManualChainLocalService" class="com.ihg.brandstandards.db.service.impl.HistManualChainLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.HistManualChainPersistence" class="com.ihg.brandstandards.db.service.persistence.HistManualChainPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.HistManualRegionLocalService" class="com.ihg.brandstandards.db.service.impl.HistManualRegionLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.HistManualRegionPersistence" class="com.ihg.brandstandards.db.service.persistence.HistManualRegionPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.HistManualsLocalService" class="com.ihg.brandstandards.db.service.impl.HistManualsLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.HistManualsPersistence" class="com.ihg.brandstandards.db.service.persistence.HistManualsPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.HistManualsFinder" class="com.ihg.brandstandards.db.service.persistence.HistManualsFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.ImageLocalService" class="com.ihg.brandstandards.db.service.impl.ImageLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.ImagePersistence" class="com.ihg.brandstandards.db.service.persistence.ImagePersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.ImageFinder" class="com.ihg.brandstandards.db.service.persistence.ImageFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.JobQueueLocalService" class="com.ihg.brandstandards.db.service.impl.JobQueueLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.JobQueueService" class="com.ihg.brandstandards.db.service.impl.JobQueueServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.JobQueuePersistence" class="com.ihg.brandstandards.db.service.persistence.JobQueuePersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.JobQueueFinder" class="com.ihg.brandstandards.db.service.persistence.JobQueueFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.MustPublishLocalService" class="com.ihg.brandstandards.db.service.impl.MustPublishLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.MustPublishPersistence" class="com.ihg.brandstandards.db.service.persistence.MustPublishPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.MustPublishFinder" class="com.ihg.brandstandards.db.service.persistence.MustPublishFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.PublicationLocalService" class="com.ihg.brandstandards.db.service.impl.PublicationLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.PublicationPersistence" class="com.ihg.brandstandards.db.service.persistence.PublicationPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.PublicationFinder" class="com.ihg.brandstandards.db.service.persistence.PublicationFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.PublishCountryStandardLocalService" class="com.ihg.brandstandards.db.service.impl.PublishCountryStandardLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.PublishCountryStandardPersistence" class="com.ihg.brandstandards.db.service.persistence.PublishCountryStandardPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.PublishDeptLocalService" class="com.ihg.brandstandards.db.service.impl.PublishDeptLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.PublishDeptPersistence" class="com.ihg.brandstandards.db.service.persistence.PublishDeptPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.PublishDeptFinder" class="com.ihg.brandstandards.db.service.persistence.PublishDeptFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.PublishedPdfListLocalService" class="com.ihg.brandstandards.db.service.impl.PublishedPdfListLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.PublishedPdfListPersistence" class="com.ihg.brandstandards.db.service.persistence.PublishedPdfListPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.PublishExtStdLocalService" class="com.ihg.brandstandards.db.service.impl.PublishExtStdLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.PublishExtStdPersistence" class="com.ihg.brandstandards.db.service.persistence.PublishExtStdPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.PublishParmLocalService" class="com.ihg.brandstandards.db.service.impl.PublishParmLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.PublishParmPersistence" class="com.ihg.brandstandards.db.service.persistence.PublishParmPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.PublishParmFinder" class="com.ihg.brandstandards.db.service.persistence.PublishParmFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.PublishQueueLocalService" class="com.ihg.brandstandards.db.service.impl.PublishQueueLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.PublishQueuePersistence" class="com.ihg.brandstandards.db.service.persistence.PublishQueuePersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.PublishQueueFinder" class="com.ihg.brandstandards.db.service.persistence.PublishQueueFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.PublishStandardsExtLocalService" class="com.ihg.brandstandards.db.service.impl.PublishStandardsExtLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.PublishStandardsExtPersistence" class="com.ihg.brandstandards.db.service.persistence.PublishStandardsExtPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.PublishStandardsExtFinder" class="com.ihg.brandstandards.db.service.persistence.PublishStandardsExtFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.PublishStdLocalService" class="com.ihg.brandstandards.db.service.impl.PublishStdLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.PublishStdPersistence" class="com.ihg.brandstandards.db.service.persistence.PublishStdPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.PublishStdFinder" class="com.ihg.brandstandards.db.service.persistence.PublishStdFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.PublishTaxonomyLocalService" class="com.ihg.brandstandards.db.service.impl.PublishTaxonomyLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.PublishTaxonomyPersistence" class="com.ihg.brandstandards.db.service.persistence.PublishTaxonomyPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.PublishTaxonomyExtLocalService" class="com.ihg.brandstandards.db.service.impl.PublishTaxonomyExtLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.PublishTaxonomyExtPersistence" class="com.ihg.brandstandards.db.service.persistence.PublishTaxonomyExtPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.PublishTaxonomyExtFinder" class="com.ihg.brandstandards.db.service.persistence.PublishTaxonomyExtFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.SpecialWordDictionaryLocalService" class="com.ihg.brandstandards.db.service.impl.SpecialWordDictionaryLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.SpecialWordDictionaryPersistence" class="com.ihg.brandstandards.db.service.persistence.SpecialWordDictionaryPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.SpreadSheetAttributeUpdateLocalService" class="com.ihg.brandstandards.db.service.impl.SpreadSheetAttributeUpdateLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.SpreadSheetAttributeUpdatePersistence" class="com.ihg.brandstandards.db.service.persistence.SpreadSheetAttributeUpdatePersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.SpreadSheetAttributeUpdateFinder" class="com.ihg.brandstandards.db.service.persistence.SpreadSheetAttributeUpdateFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.StandardsLocalService" class="com.ihg.brandstandards.db.service.impl.StandardsLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.StandardsPersistence" class="com.ihg.brandstandards.db.service.persistence.StandardsPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.StandardsFinder" class="com.ihg.brandstandards.db.service.persistence.StandardsFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.StandardsAuthorsLocalService" class="com.ihg.brandstandards.db.service.impl.StandardsAuthorsLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.StandardsAuthorsPersistence" class="com.ihg.brandstandards.db.service.persistence.StandardsAuthorsPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.StandardsChainImagesLocalService" class="com.ihg.brandstandards.db.service.impl.StandardsChainImagesLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.StandardsChainImagesPersistence" class="com.ihg.brandstandards.db.service.persistence.StandardsChainImagesPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.StandardsComplianceLocalService" class="com.ihg.brandstandards.db.service.impl.StandardsComplianceLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.StandardsCompliancePersistence" class="com.ihg.brandstandards.db.service.persistence.StandardsCompliancePersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.StandardsComplianceFinder" class="com.ihg.brandstandards.db.service.persistence.StandardsComplianceFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.StandardsComplianceExtLocalService" class="com.ihg.brandstandards.db.service.impl.StandardsComplianceExtLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.StandardsComplianceExtPersistence" class="com.ihg.brandstandards.db.service.persistence.StandardsComplianceExtPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.StandardsComplianceExtFinder" class="com.ihg.brandstandards.db.service.persistence.StandardsComplianceExtFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.StandardsCountryLocalService" class="com.ihg.brandstandards.db.service.impl.StandardsCountryLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.StandardsCountryPersistence" class="com.ihg.brandstandards.db.service.persistence.StandardsCountryPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.StandardsCountryChainLocalService" class="com.ihg.brandstandards.db.service.impl.StandardsCountryChainLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.StandardsCountryChainPersistence" class="com.ihg.brandstandards.db.service.persistence.StandardsCountryChainPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.StandardsCountryChainFinder" class="com.ihg.brandstandards.db.service.persistence.StandardsCountryChainFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.StandardsCountryExtLocalService" class="com.ihg.brandstandards.db.service.impl.StandardsCountryExtLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.StandardsCountryExtPersistence" class="com.ihg.brandstandards.db.service.persistence.StandardsCountryExtPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.StandardsCountryExtFinder" class="com.ihg.brandstandards.db.service.persistence.StandardsCountryExtFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.StandardsCountryImagesLocalService" class="com.ihg.brandstandards.db.service.impl.StandardsCountryImagesLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.StandardsCountryImagesPersistence" class="com.ihg.brandstandards.db.service.persistence.StandardsCountryImagesPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.StandardsCountryImagesFinder" class="com.ihg.brandstandards.db.service.persistence.StandardsCountryImagesFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.StandardsCrossReferenceLocalService" class="com.ihg.brandstandards.db.service.impl.StandardsCrossReferenceLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.StandardsCrossReferencePersistence" class="com.ihg.brandstandards.db.service.persistence.StandardsCrossReferencePersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.StandardsDisplayOrderLocalService" class="com.ihg.brandstandards.db.service.impl.StandardsDisplayOrderLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.StandardsDisplayOrderPersistence" class="com.ihg.brandstandards.db.service.persistence.StandardsDisplayOrderPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.StandardsDisplayOrderExtLocalService" class="com.ihg.brandstandards.db.service.impl.StandardsDisplayOrderExtLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.StandardsDisplayOrderExtPersistence" class="com.ihg.brandstandards.db.service.persistence.StandardsDisplayOrderExtPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.StandardsDisplayOrderExtFinder" class="com.ihg.brandstandards.db.service.persistence.StandardsDisplayOrderExtFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.StandardsExtLocalService" class="com.ihg.brandstandards.db.service.impl.StandardsExtLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.StandardsExtPersistence" class="com.ihg.brandstandards.db.service.persistence.StandardsExtPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.StandardsExtFinder" class="com.ihg.brandstandards.db.service.persistence.StandardsExtFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.StandardsHistoricalManualLocalService" class="com.ihg.brandstandards.db.service.impl.StandardsHistoricalManualLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.StandardsHistoricalManualPersistence" class="com.ihg.brandstandards.db.service.persistence.StandardsHistoricalManualPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.StandardsHistoricalManualFinder" class="com.ihg.brandstandards.db.service.persistence.StandardsHistoricalManualFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.StandardsImagesLocalService" class="com.ihg.brandstandards.db.service.impl.StandardsImagesLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.StandardsImagesPersistence" class="com.ihg.brandstandards.db.service.persistence.StandardsImagesPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.StandardsImagesFinder" class="com.ihg.brandstandards.db.service.persistence.StandardsImagesFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.StandardsLocaleLocalService" class="com.ihg.brandstandards.db.service.impl.StandardsLocaleLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.StandardsLocalePersistence" class="com.ihg.brandstandards.db.service.persistence.StandardsLocalePersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.StandardsLocaleFinder" class="com.ihg.brandstandards.db.service.persistence.StandardsLocaleFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.StandardsRegionLocalService" class="com.ihg.brandstandards.db.service.impl.StandardsRegionLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.StandardsRegionPersistence" class="com.ihg.brandstandards.db.service.persistence.StandardsRegionPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.StandardsRegionFinder" class="com.ihg.brandstandards.db.service.persistence.StandardsRegionFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.StandardsRegionChainLocalService" class="com.ihg.brandstandards.db.service.impl.StandardsRegionChainLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.StandardsRegionChainPersistence" class="com.ihg.brandstandards.db.service.persistence.StandardsRegionChainPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.StandardsRegionLocaleLocalService" class="com.ihg.brandstandards.db.service.impl.StandardsRegionLocaleLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.StandardsRegionLocalePersistence" class="com.ihg.brandstandards.db.service.persistence.StandardsRegionLocalePersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.StandardsStatusLocalService" class="com.ihg.brandstandards.db.service.impl.StandardsStatusLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.StandardsStatusPersistence" class="com.ihg.brandstandards.db.service.persistence.StandardsStatusPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.StandardsTranslateLocalService" class="com.ihg.brandstandards.db.service.impl.StandardsTranslateLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.StandardsTranslatePersistence" class="com.ihg.brandstandards.db.service.persistence.StandardsTranslatePersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.StandardTagLocalService" class="com.ihg.brandstandards.db.service.impl.StandardTagLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.StandardTagPersistence" class="com.ihg.brandstandards.db.service.persistence.StandardTagPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.TaxonomyLocalService" class="com.ihg.brandstandards.db.service.impl.TaxonomyLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.TaxonomyPersistence" class="com.ihg.brandstandards.db.service.persistence.TaxonomyPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.TaxonomyFinder" class="com.ihg.brandstandards.db.service.persistence.TaxonomyFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.TaxonomyExtLocalService" class="com.ihg.brandstandards.db.service.impl.TaxonomyExtLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.TaxonomyExtPersistence" class="com.ihg.brandstandards.db.service.persistence.TaxonomyExtPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.TaxonomyExtFinder" class="com.ihg.brandstandards.db.service.persistence.TaxonomyExtFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.TaxonomyStandardsLocalService" class="com.ihg.brandstandards.db.service.impl.TaxonomyStandardsLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.TaxonomyStandardsPersistence" class="com.ihg.brandstandards.db.service.persistence.TaxonomyStandardsPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.TaxonomyTranslateLocalService" class="com.ihg.brandstandards.db.service.impl.TaxonomyTranslateLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.TaxonomyTranslatePersistence" class="com.ihg.brandstandards.db.service.persistence.TaxonomyTranslatePersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.TreeXMLLocalService" class="com.ihg.brandstandards.db.service.impl.TreeXMLLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.TreeXMLPersistence" class="com.ihg.brandstandards.db.service.persistence.TreeXMLPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.UIElementLocalService" class="com.ihg.brandstandards.db.service.impl.UIElementLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.UIElementPersistence" class="com.ihg.brandstandards.db.service.persistence.UIElementPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.UIElementFinder" class="com.ihg.brandstandards.db.service.persistence.UIElementFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.UIElementTranslateLocalService" class="com.ihg.brandstandards.db.service.impl.UIElementTranslateLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.UIElementTranslatePersistence" class="com.ihg.brandstandards.db.service.persistence.UIElementTranslatePersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.UniqueGroupLocalService" class="com.ihg.brandstandards.db.service.impl.UniqueGroupLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.UniqueGroupPersistence" class="com.ihg.brandstandards.db.service.persistence.UniqueGroupPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.UniqueGroupFinder" class="com.ihg.brandstandards.db.service.persistence.UniqueGroupFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.UniqueGroupCountryLocalService" class="com.ihg.brandstandards.db.service.impl.UniqueGroupCountryLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.UniqueGroupCountryPersistence" class="com.ihg.brandstandards.db.service.persistence.UniqueGroupCountryPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.UniqueGroupCountryFinder" class="com.ihg.brandstandards.db.service.persistence.UniqueGroupCountryFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.UniqueGroupStandardLocalService" class="com.ihg.brandstandards.db.service.impl.UniqueGroupStandardLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.UniqueGroupStandardPersistence" class="com.ihg.brandstandards.db.service.persistence.UniqueGroupStandardPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.UserPreferenceLocalService" class="com.ihg.brandstandards.db.service.impl.UserPreferenceLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.UserPreferencePersistence" class="com.ihg.brandstandards.db.service.persistence.UserPreferencePersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.persistence.UserPreferenceFinder" class="com.ihg.brandstandards.db.service.persistence.UserPreferenceFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.UserSearchCriteriaLocalService" class="com.ihg.brandstandards.db.service.impl.UserSearchCriteriaLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.UserSearchCriteriaPersistence" class="com.ihg.brandstandards.db.service.persistence.UserSearchCriteriaPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+	<bean id="com.ihg.brandstandards.db.service.WorkflowLocalService" class="com.ihg.brandstandards.db.service.impl.WorkflowLocalServiceImpl" />
+	<bean id="com.ihg.brandstandards.db.service.persistence.WorkflowPersistence" class="com.ihg.brandstandards.db.service.persistence.WorkflowPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="brandstandDataSource" />
+		<property name="sessionFactory" ref="BRNDSTNDSessionFactory" />
+	</bean>
+</beans>

@@ -1,0 +1,54 @@
+<%
+String noCustom = portletPreferences.getValue("noCustom","true"); //Check to use liferay's OOB 
+String hideLocalized = portletPreferences.getValue("hideLocalized","false"); // default un-hide
+String hideLanguage = portletPreferences.getValue("hideLanguage","false");
+String hideStructure = portletPreferences.getValue("hideStructure","false");
+String hideTemplate = portletPreferences.getValue("hideTemplate","false");
+String hideSchedule = portletPreferences.getValue("hideSchedule","false");
+String hideSearchable = portletPreferences.getValue("hideSearchable","false");
+String hidePermission = portletPreferences.getValue("hidePermission","false");
+String hideAbstract = portletPreferences.getValue("hideAbstract","false");
+String hideAbstractDesc = portletPreferences.getValue("hideAbstractDesc","false");
+String hideSmallImage = portletPreferences.getValue("hideSmallImage","false");
+String hideCategorization = portletPreferences.getValue("hideCategorization","false");
+String hideCatType = portletPreferences.getValue("hideCatType","false");
+String hideCatSelect = portletPreferences.getValue("hideCatSelect","false");
+String hideTags = portletPreferences.getValue("hideTags","false");
+String hideCustomFields = portletPreferences.getValue("hideCustomFields","false");
+String hideDisplayPage = portletPreferences.getValue("hideDisplayPage","false");
+String hideRelatedAssets = portletPreferences.getValue("hideRelatedAssets","false");
+String previewURL = portletPreferences.getValue("previewURL",null);
+String editorType = portletPreferences.getValue("editorType","liferay-article");
+%>
+<aui:fieldset>
+		<aui:input name="easyPublishTab" value="true" type="hidden" />
+		<aui:input label="Do Not Apply EZ Publisher" name="noCustom" value="<%= noCustom %>" type="checkbox" />
+		<hr/>
+		<aui:input label="Hide Localized Checkbox" name="hideLocalized" value="<%= hideLocalized %>" type="checkbox" />
+		<aui:input label="Hide Language / Default Language Dropdowns" name="hideLanguage" value="<%= hideLanguage %>" type="checkbox" />
+		<aui:input label="Hide Structure Section" name="hideStructure" value="<%= hideStructure %>" type="checkbox" />
+		<aui:input label="Hide Template Section" name="hideTemplate" value="<%= hideTemplate %>" type="checkbox" />
+		<aui:input label="Hide Schedule Section" name="hideSchedule" value="<%= hideSchedule %>" type="checkbox" />
+		<aui:input label="Hide Searchable Checkbox" name="hideSearchable" value="<%= hideSearchable %>" type="checkbox" />
+		<aui:input label="Hide Permission Checkbox" name="hidePermission" value="<%= hidePermission %>" type="checkbox" />
+		<aui:input label="Hide Abstract Section" name="hideAbstract" value="<%= hideAbstract %>" type="checkbox" />
+		<aui:input label="Hide Abstract Section Description" name="hideAbstractDesc" value="<%= hideAbstractDesc %>" type="checkbox" cssClass="subCategory"/>
+		<aui:input label="Hide Small Image Section" name="hideSmallImage" value="<%= hideSmallImage %>" type="checkbox" cssClass="subCategory"/>
+		<aui:input label="Hide Custom Attributes Section" name="hideCustomFields" value="<%= hideCustomFields %>" type="checkbox" cssClass="subCategory"/>
+		<aui:input label="Hide Categorization Section" name="hideCategorization" value="<%= hideCategorization %>" type="checkbox" />
+		<aui:input label="Hide Type Dropdown" name="hideCatType" value="<%= hideCatType %>" type="checkbox" cssClass="subCategory" />
+		<aui:input label="Hide Categories Select" name="hideCatSelect" value="<%= hideCatSelect %>" type="checkbox" cssClass="subCategory" />
+		<aui:input label="Hide Tags Section" name="hideTags" value="<%= hideTags %>" type="checkbox" cssClass="subCategory" />	
+		<aui:input label="Hide Display Page Section" name="hideDisplayPage" value="<%= hideDisplayPage %>" type="checkbox" />	
+		<aui:input label="Hide Related Assets Section" name="hideRelatedAssets" value="<%= hideRelatedAssets %>" type="checkbox" />				
+		<aui:input label="Preview URL" name="previewURL" value="<%= previewURL %>" type="text" />
+		<label>Editor Type</label>
+		<select name="editorType">
+			<option value="liferay-article" <%= editorType.equals("liferay-article")?"selected=selected":"" %>>Advanced Editor</option>
+			<option value="custom" <%= editorType.equals("custom")?"selected=selected":"" %>>Basic Editor</option>
+		</select>
+		<br/>				
+</aui:fieldset>
+<style>
+.subCategory .aui-field-content{margin-left:20px;}
+</style>

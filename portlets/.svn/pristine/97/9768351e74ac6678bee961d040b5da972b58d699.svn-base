@@ -1,0 +1,1431 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.ihg.brandstandards.db.model.AttachmentsStandards">
+		<field name="attachmentId" type="long" />
+		<field name="localeCode" type="String" />
+		<field name="parentAttachmentId" type="long" />
+		<field name="stdId" type="long" />
+		<field name="type" type="String" />
+		<field name="title" type="String" />
+		<field name="translationIndicator" type="String" />
+		<field name="attachmentPath" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.AttachmentsStandardsCountry">
+		<field name="attachmentId" type="long" />
+		<field name="countryCode" type="String" />
+		<field name="localeCode" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.BrandTaxonomy">
+		<field name="id" type="long" />
+		<field name="taxId" type="long" />
+		<field name="chain" type="String" />
+		<field name="title" type="String" />
+		<field name="desc" type="String" />
+		<field name="imageLoc" type="String" />
+		<field name="createdBy" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.BrandTaxonomyTranslate">
+		<field name="brandTaxId" type="long" />
+		<field name="localeCd" type="String" />
+		<field name="title" type="String" />
+		<field name="desc" type="String" />
+		<field name="imageLoc" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.BridgeGlobalPublish">
+		<field name="globalPublishId" type="long" />
+		<field name="publishId" type="long" />
+		<field name="stdId" type="long" />
+		<field name="mustPublishInd" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.BridgeGlobalPublishCountry">
+		<field name="globalPublishCtryId" type="long" />
+		<field name="globalPublishId" type="long" />
+		<field name="countryCode" type="String" />
+		<field name="publishInd" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.BridgeProgressCategory">
+		<field name="progressCategoryId" type="long" />
+		<field name="progressCategoryName" type="String" />
+		<field name="displayOrderNumber" type="long" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.BridgeProgressDiscrepancy">
+		<field name="progressCategoryId" type="long" />
+		<field name="progressSubCategoryId" type="long" />
+		<field name="publishId" type="long" />
+		<field name="regionId" type="long" />
+		<field name="errorCount" type="long" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.BridgeProgressSubCategory">
+		<field name="progressSubCategoryId" type="long" />
+		<field name="progressCategoryId" type="long" />
+		<field name="categoryName" type="String" />
+		<field name="displayOrderNumber" type="long" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.BridgePublish">
+		<field name="bridgePublishId" type="long" />
+		<field name="publishId" type="long" />
+		<field name="standardId" type="long" />
+		<field name="regionId" type="long" />
+		<field name="unpublishInd" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.BridgePublishCountry">
+		<field name="publishCtryId" type="long" />
+		<field name="bridgePublishId" type="long" />
+		<field name="countryCode" type="String" />
+		<field name="statusCode" type="String" />
+		<field name="publishInd" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.BridgePublishCountryStateEx">
+		<field name="stdId" type="long" />
+		<field name="CountryCode" type="String" />
+		<field name="parentStdId" type="long" />
+		<field name="type" type="String" />
+		<field name="publishId" type="long" />
+		<field name="stateCd" type="String" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.BridgePublishImport">
+		<field name="publishImportId" type="long" />
+		<field name="publishId" type="long" />
+		<field name="stdId" type="long" />
+		<field name="selectInd" type="String" />
+		<field name="regionId" type="long" />
+		<field name="status" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.BridgePublishLang">
+		<field name="publishLangId" type="long" />
+		<field name="publishId" type="long" />
+		<field name="regionId" type="long" />
+		<field name="localeCode" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.BridgePublishPreview">
+		<field name="stdId" type="long" />
+		<field name="taxonomyTitle" type="String" />
+		<field name="title" type="String" />
+		<field name="path" type="String" />
+		<field name="parentStdId" type="long" />
+		<field name="currentTitle" type="String" />
+		<field name="type" type="String" />
+		<field name="displayOrder" type="long" />
+		<field name="taxonomyId" type="long" />
+		<field name="parentTaxonomyId" type="long" />
+		<field name="indexOrder" type="long" />
+		<field name="level" type="long" />
+		<field name="levelSortOrder" type="long" />
+		<field name="status" type="String" />
+		<field name="imageCount" type="long" />
+		<field name="attachmentCount" type="long" />
+		<field name="xRefCount" type="long" />
+		<field name="hotelLifeCycle" type="long" />
+		<field name="complianceCount" type="long" />
+		<field name="hotelAttributes" type="String" />
+		<field name="complianceDate" type="String" />
+		<field name="stdReference" type="String" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.BridgePublishStateEx">
+		<field name="publishId" type="long" />
+		<field name="stdId" type="long" />
+		<field name="taxonomyTitle" type="String" />
+		<field name="title" type="String" />
+		<field name="path" type="String" />
+		<field name="parentStdId" type="long" />
+		<field name="stateCd" type="String" />
+		<field name="type" type="String" />
+		<field name="manualType" type="String" />
+		<field name="count" type="long" />
+		<field name="displayOrder" type="long" />
+		<field name="taxonomyId" type="long" />
+		<field name="parentTaxonomyId" type="long" />
+		<field name="indexOrder" type="long" />
+		<field name="level" type="long" />
+		<field name="levelSortOrder" type="long" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.BridgePublishStatus">
+		<field name="publishStatusCode" type="String" />
+		<field name="publishStatusName" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.BusImpactAssmt">
+		<field name="busImpactAssmtId" type="long" />
+		<field name="stdId" type="long" />
+		<field name="chain" type="String" />
+		<field name="region" type="String" />
+		<field name="profileLossImpact" type="String" />
+		<field name="CapExpenseImpact" type="String" />
+		<field name="ImplTimeScale" type="String" />
+		<field name="changeFromRegional" type="String" />
+		<field name="biaComments" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.ChainAttachmentsStandards">
+		<field name="chainAttachmentId" type="long" />
+		<field name="attachmentId" type="long" />
+		<field name="localeCode" type="String" />
+		<field name="chainCode" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.ChainExternalLinkStandards">
+		<field name="extLinkId" type="long" />
+		<field name="chainCode" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.ChainStandards">
+		<field name="chainCode" type="String" />
+		<field name="stdId" type="long" />
+		<field name="statusId" type="long" />
+		<field name="isActive" type="String" />
+		<field name="lastPublishedDate" type="Date" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.CountryStandards">
+		<field name="country" type="String" />
+		<field name="stdId" type="long" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.CountryStandardsExt">
+		<field name="countryCode" type="String" />
+		<field name="stdId" type="long" />
+		<field name="regionId" type="long" />
+		<field name="regionCode" type="String" />
+		<field name="regionName" type="String" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.Department">
+		<field name="departmentId" type="long" />
+		<field name="departmentName" type="String" />
+		<field name="description" type="String" />
+		<field name="activeInd" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.ErrNotification">
+		<field name="notificationId" type="long" />
+		<field name="componentName" type="String" />
+		<field name="referenceId" type="long" />
+		<field name="severity" type="String" />
+		<field name="title" type="String" />
+		<field name="description" type="String" />
+		<field name="status" type="String" />
+		<field name="publishId" type="long" />
+		<field name="regionId" type="long" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.ExternalLinkStandards">
+		<field name="extLinkId" type="long" />
+		<field name="parentExtLinkId" type="long" />
+		<field name="stdId" type="long" />
+		<field name="url" type="String" />
+		<field name="title" type="String" />
+		<field name="translationIndicator" type="String" />
+		<field name="localeCode" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.ExternalLinkStandardsCountry">
+		<field name="extLinkId" type="long" />
+		<field name="countryCode" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.FlagCategory">
+		<field name="flagCatId" type="long" />
+		<field name="activeInd" type="String" />
+		<field name="parentCatId" type="long" />
+		<field name="catOrField" type="String" />
+		<field name="txtValue" type="String" />
+		<field name="orderNumber" type="long" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.FlagStandards">
+		<field name="flagCatId" type="long" />
+		<field name="stdId" type="long" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.GEMCategory">
+		<field name="categoryId" type="long" />
+		<field name="cmsCategoryId" type="long" />
+		<field name="gemCategoryCode" type="String" />
+		<field name="gemPrntCategoryId" type="String" />
+		<field name="categoryName" type="String" />
+		<field name="categoryViewType" type="String" />
+		<field name="categoryAnsAll" type="String" />
+		<field name="duplicatable" type="String" />
+		<field name="displayOrderNumber" type="long" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.GEMChainMeasurement">
+		<field name="chainMeasurementId" type="long" />
+		<field name="measurementId" type="long" />
+		<field name="publishDeptId" type="long" />
+		<field name="publishId" type="long" />
+		<field name="regionId" type="long" />
+		<field name="uniqueGroupId" type="long" />
+		<field name="measurementItemCount" type="long" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.GEMCode">
+		<field name="code" type="String" />
+		<field name="codeDesc" type="String" />
+		<field name="codeVal" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.GEMGeneratedReport">
+		<field name="reportId" type="long" />
+		<field name="templateId" type="long" />
+		<field name="uniqueGroupId" type="long" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.GEMGeneratedReportVal">
+		<field name="reportValId" type="long" />
+		<field name="reportId" type="long" />
+		<field name="columnId" type="long" />
+		<field name="generatedValue" type="String" />
+		<field name="displayOrderNumber" type="long" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.GEMManagementBucket">
+		<field name="bucketId" type="long" />
+		<field name="bucketName" type="String" />
+		<field name="departmentId" type="long" />
+		<field name="activeInd" type="String" />
+		<field name="displayOrderNumber" type="long" />
+		<field name="bucketCode" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.GEMManagementId">
+		<field name="managementId" type="long" />
+		<field name="chainCode" type="String" />
+		<field name="countryCode" type="String" />
+		<field name="value" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.GEMMeasurement">
+		<field name="measurementId" type="long" />
+		<field name="measurementName" type="String" />
+		<field name="measurementType" type="String" />
+		<field name="displayOrderNumber" type="long" />
+		<field name="templateId" type="long" />
+		<field name="multiplierQty" type="long" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.GEMMeasurementBucketChain">
+		<field name="measurementBucketChainId" type="long" />
+		<field name="bucketId" type="long" />
+		<field name="severityId" type="long" />
+		<field name="measurementId" type="long" />
+		<field name="publishDeptId" type="long" />
+		<field name="publishId" type="long" />
+		<field name="regionId" type="long" />
+		<field name="subRegionCd" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.GEMMeasurementFormula">
+		<field name="formulaId" type="long" />
+		<field name="publishId" type="long" />
+		<field name="regionId" type="long" />
+		<field name="measurementId" type="long" />
+		<field name="severityId" type="long" />
+		<field name="subRegionLevelCd" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.GEMMeasurementFormulaValue">
+		<field name="formulaValueId" type="long" />
+		<field name="formulaId" type="long" />
+		<field name="formulaType" type="String" />
+		<field name="formulaValue" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.GEMMeasurementType">
+		<field name="measurementType" type="String" />
+		<field name="measurementTypeDesc" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.GEMQlReport">
+		<field name="qlReportId" type="long" />
+		<field name="publishDeptId" type="long" />
+		<field name="publishId" type="long" />
+		<field name="stdId" type="long" />
+		<field name="bucketId" type="long" />
+		<field name="severityId" type="long" />
+		<field name="measurementId" type="long" />
+		<field name="triggerId" type="long" />
+		<field name="categoryId" type="long" />
+		<field name="displayOrderNumber" type="long" />
+		<field name="regionId" type="long" />
+		<field name="complianceDueDays" type="long" />
+		<field name="glblMustMeasure" type="String" />
+		<field name="parentQlReportId" type="long" />
+		<field name="duplicate" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.GEMRole">
+		<field name="gemGrpId" type="long" />
+		<field name="regionId" type="long" />
+		<field name="chainCode" type="String" />
+		<field name="gemGrpCode" type="String" />
+		<field name="ownerGrpId" type="String" />
+		<field name="ownerGrpName" type="String" />
+		<field name="busOwnerName" type="String" />
+		<field name="deligate1Name" type="String" />
+		<field name="deligate2Name" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.GEMScoringValue">
+		<field name="scoringId" type="long" />
+		<field name="measurementBucketChainId" type="long" />
+		<field name="totalMeasurement" type="long" />
+		<field name="netMeasurement" type="long" />
+		<field name="nonCompliantMeasurement" type="long" />
+		<field name="nonCompliantMeasurementPercent" type="long" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.GEMSeverity">
+		<field name="severityId" type="long" />
+		<field name="severityName" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.GEMStdCategory">
+		<field name="gemStdCategoryId" type="long" />
+		<field name="stdId" type="long" />
+		<field name="categoryId" type="long" />
+		<field name="templateType" type="String" />
+		<field name="chainCode" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.GEMTemplate">
+		<field name="templateId" type="long" />
+		<field name="templateName" type="String" />
+		<field name="publishId" type="long" />
+		<field name="regionId" type="long" />
+		<field name="templateType" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.GEMTemplateCategory">
+		<field name="templateCatgyId" type="long" />
+		<field name="templateId" type="long" />
+		<field name="categoryId" type="long" />
+		<field name="categoryViewType" type="String" />
+		<field name="categoryAnsAll" type="String" />
+		<field name="duplicatable" type="String" />
+		<field name="displayOrderNumber" type="long" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.GEMTemplateColumn">
+		<field name="columnId" type="long" />
+		<field name="templateId" type="long" />
+		<field name="columnName" type="String" />
+		<field name="valueType" type="String" />
+		<field name="defaultValue" type="String" />
+		<field name="isMandatory" type="String" />
+		<field name="displayOrderNumber" type="long" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.GEMTemplateReference">
+		<field name="templateRefId" type="long" />
+		<field name="templateId" type="long" />
+		<field name="publishDeptId" type="long" />
+		<field name="regionId" type="long" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.GEMTemplateValues">
+		<field name="valueId" type="long" />
+		<field name="columnId" type="long" />
+		<field name="categoryId" type="long" />
+		<field name="columnValue" type="String" />
+		<field name="displayOrderNumber" type="long" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.GEMTrigger">
+		<field name="triggerId" type="long" />
+		<field name="publishDeptId" type="long" />
+		<field name="publishId" type="long" />
+		<field name="question" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.GEMUniqueGroup">
+		<field name="uniqueGroupId" type="long" />
+		<field name="publishDeptId" type="long" />
+		<field name="publishId" type="long" />
+		<field name="groupName" type="String" />
+		<field name="regionId" type="long" />
+		<field name="policyId" type="String" />
+		<field name="levelId" type="String" />
+		<field name="groupType" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.GEMUniqueGroupCountry">
+		<field name="groupCountryId" type="long" />
+		<field name="uniqueGroupId" type="long" />
+		<field name="countryCode" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.GEMUniqueGroupStandard">
+		<field name="groupStandardId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="stdId" type="long" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.Glossary">
+		<field name="glossaryId" type="long" />
+		<field name="glossaryTermText" type="String" />
+		<field name="glossaryTermDesc" type="String" />
+		<field name="activeInd" type="String" />
+		<field name="glossaryOwner" type="long" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.GlossaryExt">
+		<field name="glossaryId" type="long" />
+		<field name="activeInd" type="String" />
+		<field name="glossaryTermText" type="String" />
+		<field name="glossaryTermDesc" type="String" />
+		<field name="glossaryRegions" type="String" />
+		<field name="glossaryChains" type="String" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.GlossaryRegionNav">
+		<field name="glossaryRgnNavId" type="long" />
+		<field name="glossaryId" type="long" />
+		<field name="regionId" type="long" />
+		<field name="navItemText" type="String" />
+		<field name="activeInd" type="String" />
+		<field name="chainCode" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.GlossaryTranslate">
+		<field name="glossaryXlatId" type="long" />
+		<field name="glossaryId" type="long" />
+		<field name="langCode" type="String" />
+		<field name="glossaryTermText" type="String" />
+		<field name="glossaryTermDesc" type="String" />
+		<field name="isValidTermTxt" type="String" />
+		<field name="isValidDescTxt" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.HistManualAttachment">
+		<field name="histManualId" type="long" />
+		<field name="attachmentPath" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.HistManualChain">
+		<field name="chainCode" type="String" />
+		<field name="histManualId" type="long" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.HistManualRegion">
+		<field name="regionCode" type="String" />
+		<field name="histManualId" type="long" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.HistManuals">
+		<field name="histManualId" type="long" />
+		<field name="title" type="String" />
+		<field name="type" type="String" />
+		<field name="pubDate" type="Date" />
+		<field name="status" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.Image">
+		<field name="imageId" type="long" />
+		<field name="imageUuId" type="String" />
+		<field name="imageDesc" type="String" />
+		<field name="imageTitle" type="String" />
+		<field name="imageSize" type="String" />
+		<field name="imageType" type="String" />
+		<field name="smallImageId" type="String" />
+		<field name="imageDimension" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.JobQueue">
+		<field name="jobId" type="long" />
+		<field name="jobOwner" type="String" />
+		<field name="jobType" type="String" />
+		<field name="metadata" type="String" />
+		<field name="link" type="String" />
+		<field name="notificationEmail" type="String" />
+		<field name="startTime" type="Date" />
+		<field name="endTime" type="Date" />
+		<field name="status" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.MustPublish">
+		<field name="parentId" type="long" />
+		<field name="stdId" type="long" />
+		<field name="title" type="String" />
+		<field name="stdType" type="String" />
+		<field name="path" type="String" />
+		<field name="currentPath" type="String" />
+		<field name="regionCode" type="String" />
+		<field name="amer" type="String" />
+		<field name="amea" type="String" />
+		<field name="euro" type="String" />
+		<field name="gc" type="String" />
+		<field name="status" type="String" />
+		<field name="displayOrder" type="long" />
+		<field name="taxonomyId" type="long" />
+		<field name="parentTaxonomyId" type="long" />
+		<field name="indexOrder" type="long" />
+		<field name="level" type="long" />
+		<field name="levelSortOrder" type="long" />
+		<field name="isGlobal" type="String" />
+		<field name="framework" type="String" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.Publication">
+		<field name="publishId" type="long" />
+		<field name="publishVerId" type="long" />
+		<field name="publishStatCd" type="String" />
+		<field name="chainCode" type="String" />
+		<field name="publishEnvName" type="String" />
+		<field name="publishLocaleList" type="String" />
+		<field name="publishDate" type="Date" />
+		<field name="publishContentType" type="String" />
+		<field name="parentPublishId" type="long" />
+		<field name="validateTranslation" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.PublishCountryStandard">
+		<field name="publishCountryStdId" type="String" />
+		<field name="publishVerId" type="long" />
+		<field name="countryCode" type="String" />
+		<field name="expiredRefTxt" type="String" />
+		<field name="publishStatCode" type="String" />
+		<field name="stdComplyDeadlineDate" type="Date" />
+		<field name="orderNumber" type="long" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.PublishDept">
+		<field name="publishDeptId" type="long" />
+		<field name="deptId" type="long" />
+		<field name="publishId" type="long" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.PublishedPdfList">
+		<field name="pdfId" type="long" />
+		<field name="pdfChainCode" type="String" />
+		<field name="pdfCtryCode" type="String" />
+		<field name="pdfBuildType" type="String" />
+		<field name="pdfYearNumber" type="int" />
+		<field name="pdfLocaleCode" type="String" />
+		<field name="pdfVersionNumber" type="long" />
+		<field name="pdfFileName" type="String" />
+		<field name="pdfFileURLText" type="String" />
+		<field name="publishId" type="long" />
+		<field name="pageSizeOrientationType" type="String" />
+		<field name="createdBy" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.PublishExtStd">
+		<field name="compDate" type="Date" />
+		<field name="stdId" type="long" />
+		<field name="parentId" type="long" />
+		<field name="title" type="String" />
+		<field name="expiredIds" type="String" />
+		<field name="regionCode" type="String" />
+		<field name="isGlobal" type="String" />
+		<field name="framework" type="String" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.PublishParm">
+		<field name="publishParmId" type="long" />
+		<field name="publishId" type="long" />
+		<field name="parmName" type="String" />
+		<field name="parmValue" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.PublishQueue">
+		<field name="publishQueueId" type="long" />
+		<field name="publishFileText" type="String" />
+		<field name="publishEnvironment" type="String" />
+		<field name="schedulePublish" type="Date" />
+		<field name="queueStatCd" type="String" />
+		<field name="chainCd" type="String" />
+		<field name="notificationEmailId" type="String" />
+		<field name="scheduleStart" type="Date" />
+		<field name="scheduleEnd" type="Date" />
+		<field name="expectedProdPublishDt" type="Date" />
+		<field name="publishId" type="long" />
+		<field name="publishLocaleList" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.PublishStandardsExt">
+		<field name="publishStdId" type="long" />
+		<field name="publishId" type="long" />
+		<field name="stdId" type="long" />
+		<field name="parentPublishId" type="long" />
+		<field name="stdTyp" type="String" />
+		<field name="title" type="String" />
+		<field name="prevPublishTitle" type="String" />
+		<field name="description" type="String" />
+		<field name="prevDescription" type="String" />
+		<field name="author" type="String" />
+		<field name="businessOwner" type="String" />
+		<field name="effectiveDate" type="Date" />
+		<field name="implDate" type="Date" />
+		<field name="prevCmplyDate" type="Date" />
+		<field name="waiver" type="String" />
+		<field name="status" type="String" />
+		<field name="category" type="String" />
+		<field name="createdBy" type="String" />
+		<field name="change" type="String" />
+		<field name="isGlobal" type="String" />
+		<field name="regionCode" type="String" />
+		<field name="notes" type="String" />
+		<field name="framework" type="String" />
+		<field name="internalReference" type="String" />
+		<field name="region" type="String" />
+		<field name="statusIdentifier" type="String" />
+		<field name="sortOrder" type="long" />
+		<field name="localeCode" type="String" />
+		<field name="taxonomyId" type="long" />
+		<field name="prntTaxonomyId" type="long" />
+		<field name="attachmentExists" type="String" />
+		<field name="attachmentList" type="String" />
+		<field name="linkExists" type="String" />
+		<field name="linkList" type="String" />
+		<field name="imageExists" type="String" />
+		<field name="stdXrefListStdId" type="String" />
+		<field name="attachmentStatus" type="String" />
+		<field name="linkStatus" type="String" />
+		<field name="imageStatus" type="String" />
+		<field name="imageIdList" type="String" />
+		<field name="indexOrder" type="long" />
+		<field name="publishTaxonomyId" type="long" />
+		<field name="parentTaxonomyId" type="long" />
+		<field name="indexTitle" type="String" />
+		<field name="indexLvl" type="long" />
+		<field name="taxonomyPath" type="String" />
+		<field name="levelSortOrder" type="long" />
+		<field name="indexDescription" type="String" />
+		<field name="matchedId" type="String" />
+		<field name="expiryDate" type="Date" />
+		<field name="prevExpiryDate" type="Date" />
+		<field name="expiredStdId" type="String" />
+		<field name="flagStdId" type="String" />
+		<field name="prevFlagStdId" type="String" />
+		<field name="titleChange" type="String" />
+		<field name="cmplyChange" type="String" />
+		<field name="exprChange" type="String" />
+		<field name="hlcChange" type="String" />
+		<field name="changedStatus" type="String" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.PublishStd">
+		<field name="publishStdVerId" type="long" />
+		<field name="stdId" type="long" />
+		<field name="parentId" type="long" />
+		<field name="stdTyp" type="String" />
+		<field name="title" type="String" />
+		<field name="description" type="String" />
+		<field name="author" type="String" />
+		<field name="businessOwner" type="String" />
+		<field name="effectiveDate" type="Date" />
+		<field name="implDate" type="Date" />
+		<field name="waiver" type="String" />
+		<field name="status" type="String" />
+		<field name="category" type="String" />
+		<field name="createdBy" type="String" />
+		<field name="change" type="String" />
+		<field name="isGlobal" type="String" />
+		<field name="regionCode" type="String" />
+		<field name="notes" type="String" />
+		<field name="framework" type="String" />
+		<field name="internalReference" type="String" />
+		<field name="orderNumber" type="long" />
+		<field name="statusIdentifier" type="long" />
+		<field name="regionIdentifier" type="long" />
+		<field name="publishId" type="long" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.PublishTaxonomy">
+		<field name="publishTaxId" type="long" />
+		<field name="publishId" type="long" />
+		<field name="taxId" type="long" />
+		<field name="publishParentId" type="long" />
+		<field name="title" type="String" />
+		<field name="desc" type="String" />
+		<field name="imageLoc" type="String" />
+		<field name="createdBy" type="String" />
+		<field name="position" type="long" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.PublishTaxonomyExt">
+		<field name="publishTaxId" type="long" />
+		<field name="publishParentId" type="long" />
+		<field name="title" type="String" />
+		<field name="lvl" type="String" />
+		<field name="path" type="String" />
+		<field name="levelSortOrder" type="long" />
+		<field name="publishId" type="long" />
+		<field name="indexOrder" type="long" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.SpecialWordDictionary">
+		<field name="specialWordId" type="long" />
+		<field name="replacedWordTxt" type="String" />
+		<field name="replacementWordTxt" type="String" />
+		<field name="localeCode" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.SpreadSheetAttributeUpdate">
+		<field name="speardSheetId" type="long" />
+		<field name="requestTitle" type="String" />
+		<field name="status" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+		<field name="spreadSheet" type="String" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.Standards">
+		<field name="stdId" type="long" />
+		<field name="parentId" type="long" />
+		<field name="stdTyp" type="String" />
+		<field name="title" type="String" />
+		<field name="description" type="String" />
+		<field name="author" type="String" />
+		<field name="businessOwner" type="String" />
+		<field name="effectiveDate" type="Date" />
+		<field name="implDate" type="Date" />
+		<field name="waiver" type="String" />
+		<field name="status" type="String" />
+		<field name="category" type="String" />
+		<field name="createdBy" type="String" />
+		<field name="change" type="String" />
+		<field name="isGlobal" type="String" />
+		<field name="regionCode" type="String" />
+		<field name="notes" type="String" />
+		<field name="framework" type="String" />
+		<field name="internalReference" type="String" />
+		<field name="orderNumber" type="long" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+		<field name="statusId" type="long" />
+		<field name="regionId" type="long" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.StandardsAuthors">
+		<field name="stdAuthorId" type="long" />
+		<field name="stdId" type="long" />
+		<field name="authorName" type="String" />
+		<field name="isPrimary" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.StandardsChainImages">
+		<field name="stdImageId" type="long" />
+		<field name="chainCode" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.StandardsCompliance">
+		<field name="stdComplianceId" type="long" />
+		<field name="stdId" type="long" />
+		<field name="countryCode" type="String" />
+		<field name="chainCode" type="String" />
+		<field name="complianceExpiryDate" type="Date" />
+		<field name="complianceExpiryRule" type="String" />
+		<field name="complianceRuleMonths" type="long" />
+		<field name="RuleDate" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.StandardsComplianceExt">
+		<field name="stdComplianceId" type="long" />
+		<field name="stdId" type="long" />
+		<field name="countryCode" type="String" />
+		<field name="regionCode" type="String" />
+		<field name="chainCode" type="String" />
+		<field name="complianceExpiryDate" type="Date" />
+		<field name="complianceExpiryRule" type="String" />
+		<field name="complianceRuleMonths" type="long" />
+		<field name="RuleDate" type="String" />
+		<field name="expiryDate" type="String" />
+		<field name="complianceDateString" type="String" />
+		<field name="expiryDateString" type="String" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.StandardsCountry">
+		<field name="countryNameCode" type="String" />
+		<field name="regionId" type="long" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+		<field name="subRegionId" type="long" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.StandardsCountryChain">
+		<field name="stdId" type="long" />
+		<field name="countryCode" type="String" />
+		<field name="chainCode" type="String" />
+		<field name="regionCode" type="String" />
+		<field name="compDate" type="Date" />
+		<field name="exprDate" type="Date" />
+		<field name="expiredIds" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.StandardsCountryExt">
+		<field name="rowNum" type="long" />
+		<field name="countryCode" type="String" />
+		<field name="flag" type="String" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.StandardsCountryImages">
+		<field name="stdImageId" type="long" />
+		<field name="countryCode" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.StandardsCrossReference">
+		<field name="stdId" type="long" />
+		<field name="xrefStdId" type="long" />
+		<field name="dispOrderNumber" type="long" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.StandardsDisplayOrder">
+		<field name="stdId" type="long" />
+		<field name="regionCode" type="String" />
+		<field name="chainCode" type="String" />
+		<field name="displayOrder" type="long" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.StandardsDisplayOrderExt">
+		<field name="stdId" type="long" />
+		<field name="title" type="String" />
+		<field name="isGlobal" type="String" />
+		<field name="framework" type="String" />
+		<field name="chainCode" type="String" />
+		<field name="regionCode" type="String" />
+		<field name="displayOrder" type="long" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.StandardsExt">
+		<field name="stdId" type="long" />
+		<field name="auditLogId" type="long" />
+		<field name="stdManual" type="String" />
+		<field name="stdCorporateDepartment" type="String" />
+		<field name="stdBrandCd" type="String" />
+		<field name="biImpactAssmntId" type="long" />
+		<field name="stdCountryCd" type="String" />
+		<field name="stdPrntId" type="long" />
+		<field name="stdOrigStdId" type="long" />
+		<field name="stdPubStatCd" type="String" />
+		<field name="stdType" type="String" />
+		<field name="stdTitle" type="String" />
+		<field name="stdDescription" type="String" />
+		<field name="stdBusinessOwner" type="String" />
+		<field name="stdStatus" type="String" />
+		<field name="stdAuthor" type="String" />
+		<field name="stdCategory" type="String" />
+		<field name="stdGlobal" type="String" />
+		<field name="stdRegionCode" type="String" />
+		<field name="stdFramework" type="String" />
+		<field name="stdChange" type="String" />
+		<field name="stdCreatedBy" type="String" />
+		<field name="stdUpdatedDate" type="Date" />
+		<field name="stdImageCount" type="long" />
+		<field name="stdImageTitle" type="String" />
+		<field name="stdInternalReference" type="String" />
+		<field name="stdOrderNumber" type="long" />
+		<field name="indexId" type="long" />
+		<field name="indexOrigId" type="long" />
+		<field name="indexPrntId" type="long" />
+		<field name="indexTitle" type="String" />
+		<field name="indexLevel" type="long" />
+		<field name="indexLevelSortOrder" type="long" />
+		<field name="indexPath" type="String" />
+		<field name="auditLogComments" type="String" />
+		<field name="auditLogTitle" type="String" />
+		<field name="auditLogDate" type="Date" />
+		<field name="auditLogStatus" type="String" />
+		<field name="auditLogPrevStatus" type="String" />
+		<field name="histManualDesc" type="String" />
+		<field name="secLangIndexTitle" type="String" />
+		<field name="secLangIndexDesc" type="String" />
+		<field name="secLangIndexImgPath" type="String" />
+		<field name="secLangStdTitle" type="String" />
+		<field name="secLangStdDesc" type="String" />
+		<field name="biChangeTypeCd" type="String" />
+		<field name="biRegionCd" type="String" />
+		<field name="biProfileLossImpactCd" type="String" />
+		<field name="biCapExpenseImpactCd" type="String" />
+		<field name="biImplTimeScaleCd" type="String" />
+		<field name="biComments" type="String" />
+		<field name="biBrandCd" type="String" />
+		<field name="stdCrossReferences" type="String" />
+		<field name="auditBrand" type="String" />
+		<field name="globalRule" type="long" />
+		<field name="ameaRule" type="long" />
+		<field name="amerRule" type="long" />
+		<field name="euroRule" type="long" />
+		<field name="gcRule" type="long" />
+		<field name="expires" type="String" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.StandardsHistoricalManual">
+		<field name="stdMnlId" type="long" />
+		<field name="stdId" type="long" />
+		<field name="histManualId" type="long" />
+		<field name="change" type="String" />
+		<field name="title" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.StandardsImages">
+		<field name="stdImageId" type="long" />
+		<field name="parentImageId" type="long" />
+		<field name="imageId" type="long" />
+		<field name="stdId" type="long" />
+		<field name="localeCode" type="String" />
+		<field name="imageTitle" type="String" />
+		<field name="imageSortOrder" type="long" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.StandardsLocale">
+		<field name="localeCode" type="String" />
+		<field name="countryCode" type="String" />
+		<field name="localeName" type="String" />
+		<field name="languageCode" type="String" />
+		<field name="orderNumber" type="long" />
+		<field name="isActive" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.StandardsRegion">
+		<field name="regionId" type="long" />
+		<field name="regionCode" type="String" />
+		<field name="regionType" type="String" />
+		<field name="regionName" type="String" />
+		<field name="isActive" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+		<field name="parentRegionId" type="long" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.StandardsRegionChain">
+		<field name="stdId" type="long" />
+		<field name="regionCode" type="String" />
+		<field name="chainCode" type="String" />
+		<field name="compDate" type="Date" />
+		<field name="expiredIds" type="String" />
+		<field name="complianceRule" type="long" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.StandardsRegionLocale">
+		<field name="regionId" type="long" />
+		<field name="localeCode" type="String" />
+		<field name="isDefault" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.StandardsStatus">
+		<field name="statusId" type="long" />
+		<field name="statusCode" type="String" />
+		<field name="title" type="String" />
+		<field name="regionId" type="long" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.StandardsTranslate">
+		<field name="stdId" type="long" />
+		<field name="localeCode" type="String" />
+		<field name="title" type="String" />
+		<field name="description" type="String" />
+		<field name="note" type="String" />
+		<field name="comment" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+		<field name="isValidTxt" type="String" />
+		<field name="isValidCntxt" type="String" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.StandardTag">
+		<field name="stdId" type="long" />
+		<field name="tag" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.Taxonomy">
+		<field name="taxId" type="long" />
+		<field name="parentId" type="long" />
+		<field name="title" type="String" />
+		<field name="desc" type="String" />
+		<field name="imageLoc" type="String" />
+		<field name="createdBy" type="String" />
+		<field name="position" type="long" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.TaxonomyExt">
+		<field name="taxId" type="long" />
+		<field name="parentId" type="long" />
+		<field name="title" type="String" />
+		<field name="desc" type="String" />
+		<field name="imageLoc" type="String" />
+		<field name="lvl" type="String" />
+		<field name="path" type="String" />
+		<field name="levelSortOrder" type="long" />
+		<field name="indexOrder" type="long" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.TaxonomyStandards">
+		<field name="stdId" type="long" />
+		<field name="taxId" type="long" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.TaxonomyTranslate">
+		<field name="taxId" type="long" />
+		<field name="localeCode" type="String" />
+		<field name="title" type="String" />
+		<field name="desc" type="String" />
+		<field name="imageLoc" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.TreeXML">
+		<field name="ID" type="long" />
+		<field name="XMLLOB" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.UIElement">
+		<field name="elementId" type="long" />
+		<field name="elementKey" type="String" />
+		<field name="moduleName" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.UIElementTranslate">
+		<field name="elementId" type="long" />
+		<field name="localeCode" type="String" />
+		<field name="elementValue" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.UniqueGroup">
+		<field name="uniqueGroupId" type="long" />
+		<field name="publishId" type="long" />
+		<field name="groupName" type="String" />
+		<field name="regionId" type="long" />
+		<field name="groupType" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.UniqueGroupCountry">
+		<field name="groupCountryId" type="long" />
+		<field name="uniqueGroupId" type="long" />
+		<field name="countryCode" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.UniqueGroupStandard">
+		<field name="groupStandardId" type="long" />
+		<field name="groupId" type="long" />
+		<field name="stdId" type="long" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.UserPreference">
+		<field name="preferenceId" type="long" />
+		<field name="userId" type="long" />
+		<field name="langCode" type="String" />
+		<field name="pdfLangCode" type="String" />
+		<field name="buildType" type="String" />
+		<field name="chainCode" type="String" />
+		<field name="reportType" type="String" />
+		<field name="paperSize" type="String" />
+		<field name="itemsPerPage" type="String" />
+		<field name="infoDisplay" type="String" />
+		<field name="CountryCode" type="String" />
+		<field name="unsubscribeEmail" type="String" />
+		<field name="moduleName" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.UserSearchCriteria">
+		<field name="userSearchId" type="long" />
+		<field name="searchName" type="String" />
+		<field name="searchCriteria" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+		<field name="moduleName" type="String" />
+	</model>
+	<model name="com.ihg.brandstandards.db.model.Workflow">
+		<field name="workflowActvtId" type="long" />
+		<field name="objectId" type="long" />
+		<field name="objectType" type="String" />
+		<field name="status" type="String" />
+		<field name="prevStatus" type="String" />
+		<field name="title" type="String" />
+		<field name="comment" type="String" />
+		<field name="createdBy" type="String" />
+		<field name="chainCode" type="String" />
+		<field name="creatorId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+</model-hints>

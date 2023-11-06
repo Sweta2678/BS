@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+
+#parse ($init)
+
+<html class="$root_css_class" dir="#language ("lang.dir")" lang="$w3c_language_id">
+
+<head>
+	<title>$the_title - $company_name</title>
+
+	<meta content="initial-scale=1.0, width=device-width" name="viewport" />
+
+	$theme.include($top_head_include)
+	
+	<script src="/grs-theme/js/jquery-1.9.1.js" type="text/javascript"></script>
+</head>
+
+<body class="$css_class">
+
+<a href="#main-content" id="skip-to-content">#language ("skip-to-content")</a>
+
+$theme.include($body_top_include)
+
+#if ($is_signed_in)
+	#dockbar()
+#end
+<div class="main-wrapper">
+<div class="container-fluid" id="wrapper">
+	<!--<header id="banner" role="banner">
+		<div id="heading">
+			<h1 class="site-title">
+				<a class="$logo_css_class" href="$site_default_url" title="#language_format ("go-to-x", [$site_name])">
+					<img alt="$logo_description" height="$site_logo_height" src="$site_logo" width="$site_logo_width" />
+				</a>
+
+				#if ($show_site_name)
+					<span class="site-name" title="#language_format ("go-to-x", [$site_name])">
+						$site_name
+					</span>
+				#end
+			</h1>
+
+			<h2 class="page-title">
+				<span>$the_title</span>
+			</h2>
+		</div>
+
+		#if (!$is_signed_in)
+			<a data-redirect="$is_login_redirect_required" href="$sign_in_url" id="sign-in" rel="nofollow">$sign_in_text</a>
+		#end
+
+		#if ($has_navigation || $is_signed_in)
+			#parse ("$full_templates_path/navigation.vm")
+		#end
+	</header>
+	-->
+<!--Header Start-->
+	<header>
+    <div class="container-fluid headtop">
+      <div class="head-wrap">
+        <div class="span8 left-head">
+          <div class="sub-lft-head">
+            <span class="hamber-butn"><a href="javascript:void(0)"><img src="/grs-theme/images/nav-btn.png"></a></span>
+            <a class="grsSiteLogo" href="/web/grs-communications/home">
+            	<span class="grslogo">GRS</span>
+            	<span class="mirrologo">Microsite</span>
+            </a>
+          </div>
+        </div>
+        <div class="pull-right">
+	         <div class="sub-cent-head">
+	          <form name="grsGlobalSiteSearch" onsubmit="event.preventDefault();" title="Search Form" class="row">
+	          <span class="serchbox">
+	            <input type="text" id="grsGlobalSiteSearchKeywords" onblur="if(this.value == '') { this.value = 'search...'; }" 
+         			onfocus="if(this.value == 'search...') { this.value = ''; }" value="search..." name="">
+	        	<input type="submit" title="Click to search" name="searchBtn" class="searchBtn" onclick="grsGlobalSiteSearchFormSubmit();">
+	        	
+	          </span>
+	          </form>
+	        </div>
+	        <div class="right-head">
+	          <div class="sub-rgt-head">
+	            <span class="userlogo"><img src="$userImageUrl"/></span>
+	            <span class="slct-box">
+	              <section class="main">
+	                <div class="wrapper-demo">
+	                  <div id="dd" class="wrapper-dropdown-3">
+	                    <a href="#">$user.getFirstName()</a>
+	                    <ul class="dropdown">
+	                      <!-- <li><a href="#">Notifications & Subscriptions</a></li> -->
+	                      <li><a href="$sign_out_url"></i>Log Out</a></li>
+	                    </ul>
+	                  </div>
+	                </div>
+	              </section>
+	            </span>
+	          </div>
+         </div>
+        </div>
+      </div>
+    </div>
+  </header>
+<!--Header end-->
+<!--Hamburger menu start-->
+  <div class="hambarger" id="hambarger-menu">
+  	<ul class="nav-hamber">
+    	<li id="aboutGRSPage"><a href="$theme_settings.getProperty('about-page-url')"><i class="fa fa-home"></i>About GRS</a></li>
+    	        
+         #if($hasEditPermission==1 && $is_signed_in)
+         	<li id="changeNetworkPage"><a href="$theme_settings.getProperty('change-network-page-url')"><i class="fa fa-group"></i>Change Network</a></li>
+         #end
+        
+	<!--<li><a href="$theme_settings.getProperty('implementation-page-url')"><i class="fa fa-flag-checkered"></i>Implementation</a></li>-->
+		<li id="trainingPage"><a href="$theme_settings.getProperty('training-page-url')"><i class="fa fa-graduation-cap"></i>Training</a></li>
+        <li id="timeLinePage"><a href="$theme_settings.getProperty('roadmap-page-url')"><i class="fa fa-road"></i>Roadmap/Timeline</a></li>
+        <li id="calendarPage"><a href="$theme_settings.getProperty('calendar-page-url')"><i class="fa fa-calendar"></i>Calendar</a></li>
+        <li id="craigBlogPage"><a href="$theme_settings.getProperty('blog-page-url')"><i class="fa fa-rss"></i>Craig's Blog</a></li>
+        <li id="articlePage"><a href="$theme_settings.getProperty('article-landing-page-url')"><i class="fa fa-newspaper-o"></i>Articles</a></li>
+        <li id="discussionPage"><a href="$theme_settings.getProperty('discussion-landing-page-url')"><i class="fa fa-comments"></i>Discussion</a></li>
+        <li id="assetLibraryPage"><a href="$theme_settings.getProperty('asset-library-page-url')"><i class="fa fa-cloud-download"></i>Asset Library/Toolkit</a></li>
+        <li id="terminologyPage"><a href="$theme_settings.getProperty('glossary-page-url')"><i class="fa fa-list"></i>Terminology</a></li>
+        <li id="faqPage"><a href="$theme_settings.getProperty('faq-page-url')"><i class="fa fa-question-circle"></i>FAQs</a></li>
+        <li id="feedbackFormPage"><a href="$theme_settings.getProperty('feedback-page-url')"><i class="fa fa-envelope-o"></i>Feedback Form</a></li>
+    </ul>
+    </div>
+  <!--Hamburger menu end-->
+	<div id="content" class="maincontent">
+		<!--<nav id="breadcrumbs">#breadcrumbs()</nav>-->
+
+		#if ($selectable)
+			$theme.include($content_include)
+		#else
+			$portletDisplay.recycle()
+
+			$portletDisplay.setTitle($the_title)
+
+			$theme.wrapPortlet("portlet.vm", $content_include)
+		#end
+	</div>
+
+    <div class="footerContent">
+       <div class="wrap">	 
+     #parse ("fnb-amer-euro-gc-theme_SERVLET_CONTEXT_/templates/brand_bar.vm")
+	 <div class="bottmup">
+    	<div class="left-bottmup"><a href="/web/grs-communications/feedback">Submit GRS Feedback</a></div>
+        <div class="right-bottmup"><a href="">BACK TO TOP<span><img title="logo" alt="logo" src="/grs-theme/images/footer-icon.png"></span></a></div>
+    </div>
+	</div></div> 
+</div>
+
+	<div style="display:none">
+		$velocityPortletPreferences.setValue("portlet-setup-show-borders", "false")
+		#set($instanceId = 'r7Ya')
+		#set($myPortletId = "me2analytics_WAR_me2analyticsportlet_INSTANCE_${instanceId}")
+		#set($locRenderedPortletContent = $theme.runtime($myPortletId, "", $velocityPortletPreferences.toString()))
+		$locRenderedPortletContent
+		$velocityPortletPreferences.reset()
+	</div>
+<!-- Theme core JavaScript inclued start
+    ================================================== -->
+	<script src="/grs-theme/js/bootstrap.js" type="text/javascript"></script>
+	<script src="/grs-theme/js/jquery.jcarousel.min.js" type="text/javascript"></script>
+	<script src="/grs-theme/js/html5.js" type="text/javascript"></script>
+	<script src="/grs-theme/js/jquery-ui.1.8.22.min.js" type="text/javascript"></script>
+	<script src="/grs-theme/js/custom-selectbox.js" type="text/javascript"></script>
+	<script src="/grs-theme/js/prettyCheckable.js" type="text/javascript"></script>
+	<script src="/grs-theme/js/jquery.cookie.js" type="text/javascript"></script>
+	<script src="/grs-theme/js/custom.js" type="text/javascript"></script>
+	<script>
+	$( ".hambarger" ).hide();
+	$( ".hamber-butn" ).click(function() {
+	$( ".hambarger" ).slideToggle( "slow", function() {
+	});
+	});
+	</script>
+	
+	<!-- Theme core JavaScript inclued end
+    ================================================== -->	
+$theme.include($body_bottom_include)
+
+$theme.include($bottom_include)
+
+</body>
+
+</html>

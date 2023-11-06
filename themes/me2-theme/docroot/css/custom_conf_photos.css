@@ -1,0 +1,73 @@
+/*photos page*/
+@import "compass";
+.aui{
+	
+/*By prateeti for 6.2 photo gallery*/
+	
+/*common for both listing of folders and photos*/
+.lfr-asset-column-details .lfr-asset-metadata{margin: 20px 0 1.5em 10px;font-size:10px}
+.portlet-image-gallery-display .navbar, .portlet-image-gallery-display .lfr-asset-description{display:none}
+.portlet-image-gallery-display .pager.lfr-pagination-buttons{margin:10px 12px 0 0;}
+.portlet-image-gallery-display .pager.lfr-pagination-buttons li a{padding:0 14px}
+.portlet-image-gallery-display .pager.lfr-pagination-buttons li.disabled a{border:0;background-color: #f3f3f3;text-indent:-9999px}
+.portlet-image-gallery-display .clearfix.lfr-pagination small.search-results{}
+.portlet-image-gallery-display .taglib-header h3.header-title {font-size: 18px;font-weight: bold;margin: 0px;padding-top:10px}
+.portlet-image-gallery-display .taglib-page-iterator .btn-group > .btn{font-size:10px}
+/*common for both listing of folders and photos ends*/
+	
+/*Listing of folder*/
+.portlet-image-gallery-display .custom_conf_folder_wrapper .image-thumbnail{ float: left;margin-right: 20px;position: relative;width: 140px;}
+.portlet-image-gallery-display .custom_conf_folder_wrapper a span.image-title,
+.portlet-image-gallery-display .custom_conf_folder_wrapper a:hover span.image-title{width:600px;clear:none;font:bold 13px Arial, Helvetica, sans-serif;float:left;text-align:left;margin-top:7px;color:#5a5a5a}
+.portlet-image-gallery-display .custom_conf_folder_wrapper .image-icon{float:none;text-align:left;border-radius:0;margin:0;height:104px;border-bottom: 1px dotted #e4028c;}
+.portlet-image-gallery-display .custom_conf_folder_wrapper .image-icon:hover .image-thumbnail img{background-color:#f3f3f3}
+.portlet-image-gallery-display .custom_conf_folder_wrapper .image-icon .image-thumbnail img,
+.portlet-image-gallery-display .custom_conf_folder_wrapper .image-icon:hover .image-thumbnail img{border:0;background:#fff;border-radius:0;min-height:88px;min-width:140px;max-height:88px!important;max-width:140px!important;height:88px;width:140px;padding:0}
+.portlet-image-gallery-display .span12lfr-asset-column.lfr-asset-column-details{border-top:7px solid #e4028c;background-color: #f3f3f3;}
+/*Listing of folder ends*/
+
+/*Listing of photos*/
+.portlet-image-gallery-display .custom_conf_file_wrapper .image-icon{margin:10px 2px;width:136px;height:136px}
+.portlet-image-gallery-display .custom_conf_file_wrapper .image-title{display:none!important}
+.portlet-image-gallery-display .custom_conf_file_wrapper .image-icon:hover{background:transparent}
+.portlet-image-gallery-display .custom_conf_file_wrapper .image-icon .image-thumbnail img{border:1px solid lightgray;background:transparent}
+.portlet-image-gallery-display div.taglib-header { border-top: 7px solid #e4028c;}
+.custom_conf_common_wrapper .custom_conf_folder_wrapper:first-child {  border-top: 7px solid #e4028c;}
+.portlet-image-gallery-display .lfr-asset-icon.lfr-asset-subfolders { display: none;}
+.portlet-image-gallery-display .header-back-to { float: left; margin-left: 10px;}
+/*Listing of photos* ends/
+
+/*Photo slideshow*/
+
+.image-gallery-pagination .component.pagination{display:none}
+.image-viewer.image-gallery.well.image-gallery-focused{top:28%!important;position:fixed}
+.portlet-image-gallery-display .clearfix.lfr-pagination{width:100%;font-size:10px}
+.image-viewer-control.carousel-control{opacity:1;position:fixed;top:52%}
+.image-viewer-control.carousel-control.left,
+.image-viewer-control.carousel-control.right{
+	background:url(../images/global/arrow-left.png) no-repeat 0 0;
+	height:54px;
+	width:30px;
+	text-indent:-9999px;
+	border:0;
+	border-radius:0;
+	margin-top:0;
+	left:115px
+	}
+.image-viewer-control.carousel-control.right{
+	background:url(../images/global/arrow-right.png) no-repeat 0 0;
+	right:112px;
+	left:auto;
+	}
+button.image-viewer-close.close{
+	background:url(../images/global/image-close.png) no-repeat 0 0;
+    height: 19px;
+    opacity: 1;
+    width: 19px;
+	text-indent:-9999px;
+	box-shadow:none;
+	}
+
+/*Photo slideshow ends*/
+/*By prateeti for 6.2 photo gallery ends*/	
+} /*aui ends*/

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+#parse ($init)
+
+<html class="$root_css_class" dir="#language ("lang.dir")" lang="$w3c_language_id">
+
+<head>
+	<title>$the_title - $company_name</title>
+
+	<meta content="initial-scale=1.0, width=device-width" name="viewport" />
+
+	$theme.include($top_head_include)
+	<script type="text/javascript" src="$javascript_folder/jquery-1.11.0.js"></script>
+	<script>
+		<!--var $j = jQuery.noConflict();-->
+
+		function hedersupportCall(){
+			jQuery("#headerSupportDialog" ).dialog( "open" );
+	    
+	        }
+		jQuery(document).ready(function() {
+		    jQuery("#headerSupportDialog" ).dialog({ 
+			autoOpen: false,
+			dialogClass: "comment-dialog",
+			modal: true,
+		    });
+	       });
+	       
+	    jQuery(document).ready(function() {
+		   	var newScript = document.createElement('script');
+			newScript.type = 'text/javascript';
+			var d = new Date();
+		
+			var source = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit' + '&tStamp=' + d.getTime();
+			
+			newScript.src = source;
+		
+			## When we add this script to the head, the request is sent off.
+			document.getElementsByTagName('head')[0].appendChild(newScript);
+		});
+		
+		function googleTranslateElementInit(){
+			new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+		};
+		
+	</script>
+	<script type="text/javascript" src="$javascript_folder/jquery.ui.js"></script>
+	<script type="text/javascript" src="$javascript_folder/main.js"></script>
+	<script type="text/javascript" src="$javascript_folder/jquery.tablesorter.min.js"></script>
+	<script type="text/javascript" src="$javascript_folder/jquery.dataTables.js"></script>
+	<script type="text/javascript" src="$javascript_folder/wwwcustome.js"></script>
+
+	<!--[if lt IE 9]>
+        <script type="text/javascript" src="js/html5media.min.js"></script>
+        <script>     
+            document.createElement("header" );
+            document.createElement("footer" );
+            document.createElement("section");     
+            document.createElement("aside"  );     
+            document.createElement("nav"    );     
+            document.createElement("article");     
+            document.createElement("hgroup" );      
+            document.createElement("time"   );   
+        </script> 
+    <![endif]-->
+</head>
+
+<body class="$css_class">
+
+$theme.include($body_top_include)
+
+#if ($is_signed_in)
+	#dockbar()
+#end
+
+<a name="backtotop" id="backtotop"></a>
+
+<div class="container-fluid" id="wrapper">
+	<header id="banner" role="banner">
+		<div class="header-container">
+            <div class="head-links-container">
+                <div class="head-left-links"> 
+                	<span class="about_ihg"><a href="/web/merlin/about-ihg" title="About IHG">About IHG</a></span> 
+                	<span>|</span> 
+                	##<span><a href="#" title="Our Brands">Our Brands</a></span> 
+                	<span><a href="/web/merlinupdate/corp" title="About Merlin">About Merlin</a></span>
+                	<span>|</span> 
+                	<span><a href="/web/merlin/support" title="Help & Support">Help & Support</a></span>
+                </div>
+                <!--end of head-left-links -->
+
+                <!--
+                <div class="head-city-time">
+                    <form method="post" action="#changeCity" class="change-city">
+                        <div id="postCodeControl" class="postCodeControl" > <a href="#" title="Activate me to change your city">Ahmedabad</a> </div>
+                        <fieldset id="postcodeContainer">
+                        <legend>
+                          <label>Change city:</label>
+                          </legend>
+                        <input class="cBoth" type="hidden" name="placeholder-current-city-postcode" value="Start typing your post/zip code" />
+                        <input class="placeholder cBoth" type="text" name="current-city-postcode" id="current-city-postcode" placeholder="Start typing your post/zip code" value="Start typing your post/zip code" maxlength="10" />
+                        <label>
+                            <input type="submit" name="current-city-submit" id="current-city-submit" value="Set this city" />
+                          </label>
+                      </fieldset>
+                    </form>
+                    <time datetime="2012-10-11 14:38:21">Thursday 14:38</time>
+                    <span class="temperature">84&deg;</span> <span class="temperature-icon"></span> 
+                </div>
+                -->
+                
+                <div class="head-right-links">
+	                <div class="people-container"> <span><a title="People" href="/web/peopledir">People</a></span> <span class="people-icon" title="People Icon">A</span> </div>
+	                <!--end of people container -->
+	                <!--<div class="locations-container"> <span><a href="#" title="Locations">Locations</a></span> <span class="locations-icon" title="Locations Icon">A</span> </div>-->
+	                <div class="logout"><a href="$sign_out_url" title="Logout">Logout</a></div>
+               </div>
+            </div>
+            <!--end of head-links-container -->
+            <div class="logoContainer">
+                <div class="logoMerlin"><a href="/web/wwwalk/home" title="Return to Merlin">Wish Want Walk</a></div>
+            </div>
+            ##<div class="search-google-container">
+                ##<form title="Search Form" class="global-search" name="$searchFormName" onsubmit="searchFormSubmit(this); return false;">
+                    ##<fieldset>
+                        ##<div class="headerSearchContainer">
+                            ##<input class="placeholder" title="Enter keyword(s) search" type="text" name="$searchFieldName" value="Enter keyword(s) search" onfocus="onFocusValidation(this)" onblur="onBlurValidation(this)" id="siteSearchKeywords" />
+                            ##<label  title="Header Submit">
+                                ##<input id="header-submit" type="button" name="header-submit" onclick="#" title="Click To Search">
+                            ##</label>
+                        ##</div>
+                    ##</fieldset>
+                ##</form>
+                ##<div class="google-holder">
+					##<div id="google_translate_element">
+					##</div>
+				##</div>
+            ##</div>
+            <div class="google-holder">
+	            <div id="google_translate_element">
+	            </div>
+	        </div>
+            #if ($has_navigation)
+				#parse ("$full_templates_path/navigation.vm")
+			#end
+        </div>
+		<!--navigation div ends here -->
+	</header>
+
+## ---------- include WWW Security Portlet here ---------- ##
+$velocityPortletPreferences.setValue("portlet-setup-show-borders", "false")
+#set($wwwSecurityPorletID = "WWWSecurity_WAR_wwwalkportlet")
+$theme.runtime($wwwSecurityPorletID, "", $velocityPortletPreferences.toString())
+
+## ---------- end of WWW Security Portlet Code here ---------- ##
+
+	
+	<div id="content" class="$page.getHTMLTitle($locale)_page">							
+		<!-- <nav id="breadcrumbs">#breadcrumbs()</nav> -->
+
+		#if ($selectable)
+			$theme.include($content_include)
+		#else
+			$portletDisplay.recycle()
+
+			$portletDisplay.setTitle($the_title)
+
+			$theme.wrapPortlet("portlet.vm", $content_include)
+		#end
+	</div>
+
+
+
+	#parse ("$full_templates_path/footer.vm")
+
+</div>
+
+
+$theme.include($body_bottom_include)
+
+$theme.include($bottom_include)
+
+</body>
+
+</html>

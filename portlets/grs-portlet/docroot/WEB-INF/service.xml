@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.2.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_2_0.dtd">
+<service-builder package-path="com.ihg.grs.common">
+	<author>gulam.vora</author>
+	<namespace>GRS</namespace>
+
+	<entity table="GRS_COMM.GLOSSARY" name="Glossary" local-service="true" remote-service="false" data-source="grsDataSource" session-factory="grsSessionFactory">
+		<column name="glossaryId" type="int" db-name="GLOSSARY_ID" primary="true"></column>
+		<column name="term" type="String" db-name="GLOSSARY_TERM_TXT"></column>
+		<column name="description" type="String" db-name="GLOSSARY_DESC"></column>
+		<column name="activeIndicator" type="String" db-name="ACTV_IND"></column>
+		<column name="createUserId" type="String" db-name="CREAT_USR_ID"></column>
+		<column name="createdate" type="Date" db-name="CREAT_TS"></column>
+		<column name="lastUpdateUserId" type="String" db-name="LST_UPDT_USR_ID"></column>
+		<column name="updatedate" type="Date" db-name="LST_UPDT_TS"></column>
+	</entity>
+
+	<entity table="GRS_COMM.TEAM_MBR" name="Directory" local-service="true" remote-service="false" data-source="grsDataSource" session-factory="grsSessionFactory">
+		<column name="directoryId" type="int" db-name="TEAM_MBR_ID" primary="true"></column>
+		<column name="firstName" type="String" db-name="TEAM_MBR_FRST_NM"></column>
+		<column name="lastName" type="String" db-name="TEAM_MBR_LST_NM"></column>
+		<column name="businessTitle" type="String" db-name="BUS_TITLE_NM"></column>
+		<column name="geoRegion" type="String" db-name="RGN_NM"></column>
+		<column name="role" type="String" db-name="ROLE_NM"></column>
+		<column name="regionType" type="String" db-name="ROLE_TYP_NM"></column>
+		<column name="organizationName" type="String" db-name="ORG_NM"></column>
+		<column name="portraitURL" type="String" db-name="PHOTO_URL_TXT"></column>
+		<column name="createdate" type="Date" db-name="CREAT_TS"></column>
+		<column name="createUserId" type="String" db-name="CREAT_USR_ID"></column>
+		<column name="lastUpdateUserId" type="String" db-name="LST_UPDT_USR_ID"></column>
+		<column name="updatedate" type="Date" db-name="LST_UPDT_TS"></column>
+		<column name="email" type="String" db-name="TEAM_MBR_EMAIL_ID"></column>
+	</entity>
+
+	<entity table="GRS_COMM.PORTAL_USR" name="Feedback" local-service="true" remote-service="false" data-source="grsDataSource" session-factory="grsSessionFactory">
+		<column name="feedbackId" type="int" db-name="PORTAL_USR_ID" primary="true"></column>
+		<column name="firstName" type="String" db-name="USR_FRST_NM"></column>
+		<column name="lastName" type="String" db-name="USR_LST_NM"></column>
+		<column name="title" type="String" db-name="BUS_TITLE_NM"></column>
+		<column name="email" type="String" db-name="USR_EMAIL_ID"></column>
+		<column name="onBehalfOf" type="String" db-name="ON_BEHALF_OF_NM"></column>
+		<column name="createUserId" type="String" db-name="CREAT_USR_ID"></column>
+		<column name="createdate" type="Date" db-name="CREAT_TS"></column>
+		<column name="lastUpdateUserId" type="String" db-name="LST_UPDT_USR_ID"></column>
+		<column name="updatedate" type="Date" db-name="LST_UPDT_TS"></column>
+	</entity>
+
+	<entity table="GRS_COMM.PORTAL_FEEDBACK_DTL" name="FeedbackDetail" local-service="true" remote-service="false" data-source="grsDataSource" session-factory="grsSessionFactory">
+		<column name="PORTAL_FEEDBACK_DTL_ID" type="int" db-name="PORTAL_FEEDBACK_DTL_ID" primary="true"></column>
+		<column name="feedbackId" type="int" db-name="PORTAL_USR_ID"></column>
+		<column name="feedbackType" type="String" db-name="FEEDBACK_TYP_NM"></column>
+		<column name="subject" type="String" db-name="SUBJECT_NM"></column>
+		<column name="message" type="String" db-name="MSG_TXT"></column>
+		<column name="fileName" type="String" db-name="FILE_NM"></column>
+		<column name="fileContent" type="Blob" db-name="FILE_BLOB"></column>
+		<column name="createUserId" type="String" db-name="CREAT_USR_ID"></column>
+		<column name="createdate" type="Date" db-name="CREAT_TS"></column>
+		<column name="lastUpdateUserId" type="String" db-name="LST_UPDT_USR_ID"></column>
+		<column name="updatedate" type="Date" db-name="LST_UPDT_TS"></column>
+	</entity>
+
+</service-builder>

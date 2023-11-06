@@ -1,0 +1,191 @@
+<?xml version="1.0"?>
+
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd">
+	<persistence-unit-metadata>
+		<xml-mapping-metadata-complete/>
+		<persistence-unit-defaults>
+			<access>PROPERTY</access>
+		</persistence-unit-defaults>
+	</persistence-unit-metadata>
+	<mapped-superclass class="com.ihg.grs.common.model.impl.DirectoryModelImpl">
+		<attributes>
+			<id name="directoryId">
+				<column name="TEAM_MBR_ID" />
+			</id>
+			<basic name="firstName">
+				<column name="TEAM_MBR_FRST_NM" />
+			</basic>
+			<basic name="lastName">
+				<column name="TEAM_MBR_LST_NM" />
+			</basic>
+			<basic name="businessTitle">
+				<column name="BUS_TITLE_NM" />
+			</basic>
+			<basic name="geoRegion">
+				<column name="RGN_NM" />
+			</basic>
+			<basic name="role">
+				<column name="ROLE_NM" />
+			</basic>
+			<basic name="regionType">
+				<column name="ROLE_TYP_NM" />
+			</basic>
+			<basic name="organizationName">
+				<column name="ORG_NM" />
+			</basic>
+			<basic name="portraitURL">
+				<column name="PHOTO_URL_TXT" />
+			</basic>
+			<basic name="createdate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="createUserId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="lastUpdateUserId">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="email">
+				<column name="TEAM_MBR_EMAIL_ID" />
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.grs.common.model.impl.FeedbackModelImpl">
+		<attributes>
+			<id name="feedbackId">
+				<column name="PORTAL_USR_ID" />
+			</id>
+			<basic name="firstName">
+				<column name="USR_FRST_NM" />
+			</basic>
+			<basic name="lastName">
+				<column name="USR_LST_NM" />
+			</basic>
+			<basic name="title">
+				<column name="BUS_TITLE_NM" />
+			</basic>
+			<basic name="email">
+				<column name="USR_EMAIL_ID" />
+			</basic>
+			<basic name="onBehalfOf">
+				<column name="ON_BEHALF_OF_NM" />
+			</basic>
+			<basic name="createUserId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="lastUpdateUserId">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.grs.common.model.impl.FeedbackDetailModelImpl">
+		<attributes>
+			<id name="PORTAL_FEEDBACK_DTL_ID" />
+			<basic name="feedbackId">
+				<column name="PORTAL_USR_ID" />
+			</basic>
+			<basic name="feedbackType">
+				<column name="FEEDBACK_TYP_NM" />
+			</basic>
+			<basic name="subject">
+				<column name="SUBJECT_NM" />
+			</basic>
+			<basic name="message">
+				<column name="MSG_TXT" />
+			</basic>
+			<basic name="fileName">
+				<column name="FILE_NM" />
+			</basic>
+			<basic name="fileContent">
+				<column name="FILE_BLOB" />
+			</basic>
+			<basic name="createUserId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="lastUpdateUserId">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.grs.common.model.impl.GlossaryModelImpl">
+		<attributes>
+			<id name="glossaryId">
+				<column name="GLOSSARY_ID" />
+			</id>
+			<basic name="term">
+				<column name="GLOSSARY_TERM_TXT" />
+			</basic>
+			<basic name="description">
+				<column name="GLOSSARY_DESC" />
+			</basic>
+			<basic name="activeIndicator">
+				<column name="ACTV_IND" />
+			</basic>
+			<basic name="createUserId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="lastUpdateUserId">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<entity class="com.ihg.grs.common.model.impl.DirectoryImpl" name="Directory">
+		<table name="GRS_COMM.TEAM_MBR" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.grs.common.model.impl.FeedbackImpl" name="Feedback">
+		<table name="GRS_COMM.PORTAL_USR" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.grs.common.model.impl.FeedbackDetailImpl" name="FeedbackDetail">
+		<table name="GRS_COMM.PORTAL_FEEDBACK_DTL" />
+		<attributes>
+			<transient name="feedbackFile" />
+		</attributes>
+	</entity>
+	<entity class="com.ihg.grs.common.model.impl.GlossaryImpl" name="Glossary">
+		<table name="GRS_COMM.GLOSSARY" />
+		<attributes />
+	</entity>
+</entity-mappings>

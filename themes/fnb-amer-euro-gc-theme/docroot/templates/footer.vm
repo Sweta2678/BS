@@ -1,0 +1,52 @@
+
+	 #if ($communityPageURL == "fnb-amer" || $communityPageURL == "fnb-euro")
+		<div class="to_top"> <a title="Back to Top" href="#"><span></span></a> </div>
+	 #else
+		<div class="to_top"> <a title=$languageUtil.get($locale,"back-to-top") href="#"><span></span></a> </div>
+     #end
+	<!--/.to_top-->
+
+	<!--<span id="logo_footer"> <img src="$images_folder/logo_footer.jpg" alt="" /> </span>
+	<ul id="logobox" class="cf">
+		<li> <a onmousedown="_gaq.push(['_trackEvent', 'Footer', 'Footer_LinkClick', 'InterContinental']);" title="InterContinental" href="http://www.ichotelsgroup.com/h/d/ic/1/en/home" target="_blank" > <img src="$images_folder/img_footer_1.png" alt="Intercontinental" title="Intercontinental"/> </a> </li>
+		<li> <a onmousedown="_gaq.push(['_trackEvent', 'Footer', 'Footer_LinkClick', 'Hualuxe']);" title="Hualuxe" href="http://www.ihgplc.com/index.asp?pageid=856" target="_blank" > <img src="$images_folder/img_footer_2.png" alt="Hualuxe" title="Hualuxe"/> </a> </li>
+		<li> <a onmousedown="_gaq.push(['_trackEvent', 'Footer', 'Footer_LinkClick', 'Crowne Plaza']);" title="Crowne Plaza" href="http://www.ichotelsgroup.com/crowneplaza/hotels/us/en/reservation" target="_blank" > <img src="$images_folder/img_footer_3.png" alt="Crowne Plaza" title="Crowne Plaza"/> </a> </li>
+		<li> <a onmousedown="_gaq.push(['_trackEvent', 'Footer', 'Footer_LinkClick', 'Hotel Indigo']);" title="Hotel Indigo" href="http://www.ichotelsgroup.com/h/d/in/1/en/home" target="_blank"> <img src="$images_folder/img_footer_4.png" alt="Hotel Indigo" title="Hotel Indigo"/> </a> </li>
+		<li> <a onmousedown="_gaq.push(['_trackEvent', 'Footer', 'Footer_LinkClick', 'Even Hotels']);" title="Even Hotels" href="http://www.evenhotels.com" target="_blank"> <img src="$images_folder/img_footer_5.png" alt="Even Hotels" title="Even Hotels"/> </a> </li>
+		<li> <a onmousedown="_gaq.push(['_trackEvent', 'Footer', 'Footer_LinkClick', 'Holiday Inn']);" title="Holiday Inn" href="http://www.holidayinn.com/hotels/us/en/reservation"  target="_blank"> <img src="$images_folder/img_footer_6.png" alt="Holiday Inn" title="Holiday Inn"/> </a> </li>
+		<li> <a onmousedown="_gaq.push(['_trackEvent', 'Footer', 'Footer_LinkClick', 'Holiday Inn Express']);" title="Holiday Inn Express" href="http://www.hiexpress.com/hotels/us/en/reservation" target="_blank"> <img src="$images_folder/img_footer_7.png" alt="Holiday Inn Express" title="Holiday Inn Express"/> </a> </li>
+		<li> <a onmousedown="_gaq.push(['_trackEvent', 'Footer', 'Footer_LinkClick', 'Holiday Inn Resort']);" title="Holiday Inn Resort" href="http://www.ichotelsgroup.com/holidayinnresorts/hotels/us/en/reservation" target="_blank"> <img src="$images_folder/img_footer_8.png" alt="Holiday Inn Resort" title="Holiday Inn Resort"/> </a> </li>
+		<li> <a onmousedown="_gaq.push(['_trackEvent', 'Footer', 'Footer_LinkClick', 'Holiday Inn Club Vacation']);" title="Holiday Inn Club Vacation" href="http://www.ichotelsgroup.com/holidayinnclubvacations/hotels/us/en/reservation" target="_blank"> <img src="$images_folder/img_footer_9.png" alt="Holiday Inn Club Vacation" title="Holiday Inn Club Vacation"/> </a> </li>
+		<li> <a onmousedown="_gaq.push(['_trackEvent', 'Footer', 'Footer_LinkClick', 'Staybridge Suites']);" title="Staybridge Suites" href="http://www.ichotelsgroup.com/h/d/sb/1/en/home" target="_blank"> <img src="$images_folder/img_footer_10.png" alt="Staybridge Suites" title="Staybridge Suites"/> </a> </li>
+		<li> <a onmousedown="_gaq.push(['_trackEvent', 'Footer', 'Footer_LinkClick', 'Candlewood Suites']);" title="Candlewood Suites" href="http://www.ichotelsgroup.com/candlewood/hotels/us/en/reservation" target="_blank"> <img src="$images_folder/img_footer_11.png" alt="Candlewood Suites" title="Candlewood Suites"/> </a> </li>
+		<li class="last">  <a onmousedown="_gaq.push(['_trackEvent', 'Footer', 'Footer_LinkClick', 'IHG Rewards Club']);" title="IHG Rewards Club" href="http://www.ihgrewardsclub.com"  target="_blank"> <img src="$images_folder/img_footer_12.png" alt="IHG Rewards Club" title="IHG Rewards Club"/> </a> </li>
+	</ul>-->
+
+			<!-- New Brand Bar-->
+				#parse ("$full_templates_path/brand_bar.vm")
+			<!-- End new Brand bar -->
+
+	<!--/.logobox-->
+	</div>
+</div>
+<footer id="footer" role="contentinfo">
+	<div class="footer_links_bar">
+		<ul class="cf wrap">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+
+		</ul>
+	</div>
+</footer>
+</div>
+
+$theme.include($body_bottom_include)
+
+$theme.include($bottom_include)
+
+</body>
+
+</html>

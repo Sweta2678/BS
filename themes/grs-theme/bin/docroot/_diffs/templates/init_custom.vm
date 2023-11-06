@@ -1,0 +1,72 @@
+#*
+This file allows you to override and define new Velocity variables.
+*#
+
+#set ($hasEditPermission=0)
+#set ($hasGroupMemberOfChangeNetworkCommunity=false)
+#set ($permissionChecker = $themeDisplay.getPermissionChecker())
+#set ($groupLocalService = $serviceLocator.findService("com.liferay.portal.service.GroupLocalService"))
+#set ($groupId = $groupLocalService.getGroup($company_id,"GRS Change Network").getGroupId())
+#set ($userGroupLocalService = $serviceLocator.findService("com.liferay.portal.service.UserGroupRoleLocalService"))
+#set ($roleLocalService = $serviceLocator.findService("com.liferay.portal.service.RoleLocalService"))
+#set ($layoutLocalService = $serviceLocator.findService("com.liferay.portal.service.LayoutLocalService"))
+#set ($hotelImplementationGroupId = $groupLocalService.getGroup($company_id,"GRS Hotel Implementation").getGroupId())
+#set ($hasHotelImplementationPermission=0)
+#set ($hasDockbarPermission=0)
+
+	#if($userGroupLocalService.hasUserGroupRole($themeDisplay.getUserId(), $themeDisplay.getScopeGroupId(),"Global Content Admin", false) || 
+		$userGroupLocalService.hasUserGroupRole($themeDisplay.getUserId(), $themeDisplay.getScopeGroupId(),"IHG Content Publisher", false) ||
+		$userGroupLocalService.hasUserGroupRole($themeDisplay.getUserId(), $themeDisplay.getScopeGroupId(),"IHG Super Content Publisher", false) ||
+		$userGroupLocalService.hasUserGroupRole($themeDisplay.getUserId(), $groupId, "Global Content Admin", false) || 
+		$userGroupLocalService.hasUserGroupRole($themeDisplay.getUserId(), $groupId, "IHG Content Publisher", false) ||
+		$userGroupLocalService.hasUserGroupRole($themeDisplay.getUserId(), $groupId, "IHG Super Content Publisher", false) ||
+		$roleLocalService.hasUserRole($themeDisplay.getUserId(), $company_id, "IHG Global Admin", false) ||
+		$permissionChecker.isOmniadmin() || $permissionChecker.isGroupAdmin($themeDisplay.getScopeGroupId()) || $permissionChecker.isGroupAdmin($groupId) || 
+		$permissionChecker.isGroupMember($groupId))
+			#set ($hasEditPermission=1)
+	#end	
+	
+	#if($userGroupLocalService.hasUserGroupRole($themeDisplay.getUserId(), $themeDisplay.getScopeGroupId(),"Global Content Admin", false) || 
+		$userGroupLocalService.hasUserGroupRole($themeDisplay.getUserId(), $themeDisplay.getScopeGroupId(),"IHG Content Publisher", false) ||
+		$userGroupLocalService.hasUserGroupRole($themeDisplay.getUserId(), $themeDisplay.getScopeGroupId(),"IHG Super Content Publisher", false) ||
+		$userGroupLocalService.hasUserGroupRole($themeDisplay.getUserId(), $hotelImplementationGroupId, "Global Content Admin", false) || 
+		$userGroupLocalService.hasUserGroupRole($themeDisplay.getUserId(), $hotelImplementationGroupId, "IHG Content Publisher", false) ||
+		$userGroupLocalService.hasUserGroupRole($themeDisplay.getUserId(), $hotelImplementationGroupId, "IHG Super Content Publisher", false) ||
+		$roleLocalService.hasUserRole($themeDisplay.getUserId(), $company_id, "IHG Global Admin", false) ||
+		$permissionChecker.isOmniadmin() || $permissionChecker.isGroupAdmin($themeDisplay.getScopeGroupId()) || $permissionChecker.isGroupAdmin($hotelImplementationGroupId) || 
+		$permissionChecker.isGroupMember($hotelImplementationGroupId))
+			#set ($hasHotelImplementationPermission=1)
+	#end
+	
+	#if($userGroupLocalService.hasUserGroupRole($themeDisplay.getUserId(), $themeDisplay.getScopeGroupId(),"Global Content Admin", false) || 
+		$userGroupLocalService.hasUserGroupRole($themeDisplay.getUserId(), $themeDisplay.getScopeGroupId(),"IHG Content Publisher", false) ||
+		$userGroupLocalService.hasUserGroupRole($themeDisplay.getUserId(), $themeDisplay.getScopeGroupId(),"IHG Super Content Publisher", false) ||		
+		$roleLocalService.hasUserRole($themeDisplay.getUserId(), $company_id, "IHG Global Admin", false) ||
+		$permissionChecker.isOmniadmin() || $permissionChecker.isGroupAdmin($themeDisplay.getScopeGroupId()))
+			#set ($hasDockbarPermission=1)
+	#end	
+		
+
+#set ($userImageUrl=$user.getPortraitURL($themeDisplay))			
+
+	#if($user.getPortraitId()==0)
+		#set ($userImageUrl="/grs-theme/images/userdefault.png")
+	#end	
+	
+## Create site search url
+#set ($site_search_layout = $layoutLocalService.getFriendlyURLLayout($themeDisplay.getScopeGroupId(), false, "/search-results"))
+#set ($site_search_url = $portalUtil.getLayoutFullURL($site_search_layout, $themeDisplay))
+
+## Create notifications url
+#set ($notifications_layout = $layoutLocalService.getFriendlyURLLayout($themeDisplay.getScopeGroupId(), false, "/notifications"))
+#set ($notifications_url = $portalUtil.getLayoutFullURL($notifications_layout, $themeDisplay))
+
+##Commenting Policy webcontent ID
+#set ($journalArticleLocalService = $serviceLocator.findService("com.liferay.portlet.journal.service.JournalArticleService"))
+#set($commentingPolicyArticle = $journalArticleLocalService.getArticleByUrlTitle($themeDisplay.getScopeGroupId(),"comment-policy"))
+#set ($commentingPolicyContent = $journalContentUtil.getContent($themeDisplay.getScopeGroupId(), $commentingPolicyArticle.getArticleId(), null, $locale.toString(), $themeDisplay))
+
+<script type="text/javascript">
+var siteSerachURL = '$site_search_url';
+</script>
+	

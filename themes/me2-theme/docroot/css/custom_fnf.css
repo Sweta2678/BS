@@ -1,0 +1,138 @@
+@charset "utf-8";
+/* CSS Document */
+
+@import "compass";
+.aui{	
+	.mTop15{margin-top:15px}
+	.mTop7{margin-top:7px}
+	.mTop5{margin-top:5px}
+	.mTop-3{margin-top:-3px}
+	
+	
+	/*Family and Friends*/
+	
+	
+	/*.portlet-msg-info {  Div's class name is changed in Liferay 6.2 */
+	.alert-info {display:none}
+	.portlet-column-content-only, .ltr .portlet-column-content-last, .rtl .portlet-column-content-first{padding:0}
+	a{text-decoration: none}
+	.fnf-container{background:#e1e1e1 url("../images/bg-content-fnf.png") no-repeat left bottom;width:100%;border-radius:10px 10px 0 0;padding-bottom:75px;border-bottom:2px solid #d71920}
+	
+	.fnf-container .leftblock{float:left;width:395px;padding-left:35px}
+	.fnf-container .rightblock{float:left;width:425px;margin-left:30px;box-shadow:3px 3px 4px 0px rgba(122, 122, 122, 0.75);border:1px solid #ab9a7e;margin-top:30px;background-color: #F0F1F1;}
+	.fnf-container .rightblock .headercolor{background-color:#d83b28;height:30px}
+	.fnf-container .rightblock .cols-container{float:left;height:auto;width:100%;padding:2px 0 0 0;background-color:#f0f1f1}
+	
+	.fnf-container .cols-container .firstcol, .fnf-container .cols-container .secondcol, .fnf-container .cols-container .thirdcol{width:140px;float:left;height:168px;padding-bottom:5px;border-bottom:1px solid #bab5aa;}
+	.fnf-container .cols-container .firstcol{border-right:1px solid #fff}
+	.fnf-container .cols-container .secondcol{border-left:1px solid #b9b7b8; border-right:1px solid #fff;position:relative}
+	.fnf-container .cols-container .bgChange:hover{background-color:#ebd4c9;border-bottom:1px solid #ebd4c9; border-right:1px solid #ebd4c9}
+	.fnf-container .cols-container .thirdcol.bgChange:hover{border-right:0}
+	.fnf-container .cols-container .thirdcol{width:141px;float:left; border-left:1px solid #b9b7b8;height:168px}
+	.fnf-container .cols-container p{padding:10px 9px;font:normal 12px Arial, Helvetica, sans-serif}
+	.fnf-container .cols-container .down-arrow-conatiner{ margin-left: 61px; margin-top: 10px;}
+	.url-container{text-align:center;background-color:#fff7e9;font:14px "Georgia", "Times New Roman", Times, serif;padding:10px;clear:both}
+	.url-container.hoverbg{background-color:#ebd4c9}
+	.url-container .url{font:normal 12px Arial, Helvetica, sans-serif; margin:5px 20px 0;background-color:#fff}
+	
+	/*.fnf-container .rightblock .one, .fnf-container .rightblock .two, .fnf-container .rightblock .three{background:url(../images/sprite-fnf_1.png) no-repeat 0 0;height:56px;width:58px;float:left}
+	.fnf-container .rightblock .firstcol:hover .one{background-position:0 -115px;width:50px}
+	.fnf-container .rightblock .two{background-position:-65px 0}
+	.fnf-container .rightblock .secondcol:hover .two{background-position:-65px -115px}
+	.fnf-container .rightblock .three{background-position:-137px 0}
+	.fnf-container .rightblock .thirdcol:hover .three{background-position:-137px -115px}
+	*/
+	.fnf-container .cols-container .bgChange .title{color:#d96932;text-align:center;font:normal 16px "Georgia", "Times New Roman", Times, serif;clear:both;height:20px}
+	.fnf-container .cols-container .bgChange:hover .title{
+		font:bold 18px "Georgia", "Times New Roman", Times, serif;
+	}
+	.fnf-container .cols-container h2, .fnf-container .cols-container h2 span.dot{font:normal 85px Georgia, "Times New Roman", Times, serif;float:left;margin:-33px 0 0 0px;color:#c9cbcb}
+	.fnf-container .cols-container h2{margin-right:4px}
+	.fnf-container .cols-container h2.three{font:normal 68px Georgia, "Times New Roman", Times, serif;float:left;margin-top:-26px; color:#c9cbcb}
+	.fnf-container .cols-container h2 span{float:left}
+	.fnf-container .cols-container h2 span.dot{margin-top:-8px;color:#c9cbcb}
+	.fnf-container .rightblock .bgChange:hover h2, .fnf-container .rightblock .bgChange:hover h2 span.dot{color:#fff}
+	
+	.fnf-container .header{background:url("../images/bg-fnf-header.png") repeat-x left top;height:120px;width:848px;border-radius:10px 10px 0 0;padding:0 36px}
+	.fnf-container .header .f-text{font: italic normal 90px "Georgia", "Times New Roman", Times, serif;color:#fff;float:left;width:70px;}
+	.fnf-container .header .text{float:left}
+	.fnf-container .header .text span.uppertext, .fnf-container .header .text span.lowertext{font: italic bold 28px "Georgia", "Times New Roman", Times, serif;color:#fff;margin:31px 0 0 -17px;float:left;width:150px;}
+	.fnf-container .header .text span.lowertext{clear:both;margin: -6px 0 0 -21px;width:200px;font-style:normal}
+	
+	.fnf-container .header .leftText{float:left;margin-top:10px}
+	.fnf-container .header .rightText{float:right;color:#fff; font:  normal 22px "Georgia", Arial, Helvetica, sans-serif;color:#fff;margin-top:22px;text-align:right}
+	
+	.fnf-container .help-friends{background:url(../images/bg-helpfriends.png) repeat-x left bottom;width:367px;border:2px solid #d71920;border-left:none;border-right:none;margin-top:30px;margin-right:30px;padding:0 10px 12px 10px}
+	.fnf-container .help-friends .heading .h-text{font: normal 82px "Georgia", "Times New Roman", Times, serif;color:#d71920;float:left;width:75px;height:90px}
+	.fnf-container .help-friends .heading .text{float:left;}
+	.fnf-container .help-friends .heading .text span.uppertext, .fnf-container .help-friends .heading .text span.lowertext{font:  normal 24px "Georgia", "Times New Roman", Times, serif;color:#000;margin:29px 0 0 -8px;float:left;width:300px;}
+	.fnf-container .help-friends .heading .text span.lowertext{clear:both;margin: -6px 0 0 -7px;width:203px;font-style:normal}
+	.fnf-container .help-friends p,.fnf-container .help-friends p.text{font-size:12px;line-height: 18px;padding: 6px;}
+	.fnf-container .help-friends p.text{clear:both}
+	.fnf-container .registration-container .header-container{border-radius:10px 10px 0 0;background-color:#707372;width:407px;padding:10px 0 10px 18px;color:#fff;font:normal 20px Georgia, "Times New Roman", Times, serif;margin-left:30px;margin-top:20px;float:left;border:1px solid #484848;border-bottom:1px solid #999999}
+	.fnf-container .registration-container .content-container{border:1px solid #484848;box-shadow:3px 3px 4px 0px rgba(122, 122, 122, 0.75);width:853px;margin-left:30px;height:145px;background-color:#000;clear:both;}
+	.fnf-container .registration-container .divider{background:url(../images/reg-form-divider.jpg) repeat-y left top;height:145px;width:14px;float:left;}
+	.fnf-container .regform{float:left;background-color:#8c8d8e;width:636px;height:119px;padding:13px 14px;position:relative}
+	.fnf-container .regform fieldset{border:0;padding:0;margin:0}
+	.fnf-container .regform p.text{font:normal 11px Arial, Helvetica, sans-serif;color:#000;clear:both;width:100%}
+	.fnf-container .regform p.text a{text-decoration:underline;color:#000}
+	.fnf-container .regform label{color:#fff;font-size:12px;float:left;width:46px;margin-top:2px}
+	.fnf-container .regform input[type="text"]{float:left;background-image:none;background-color:#fff;border:2px solid #b3b6b5;width:210px;padding:3px 5px}
+	.fnf-container .regform .input-container{margin-top:7px;clear:both}
+	.fnf-container .regform p.whitetxt{color:#fff; font-size:12px;float:left;width:300px;width:326px;margin-top:6px}
+	.fnf-container .regform input[type='button'],.fnf-container .regform input[type='button']:hover,.fnf-container .regform input[type='button']:focus,
+	.fnf-container .regform input[type='submit'],.fnf-container .regform input[type='submit']:hover,.fnf-container .regform input[type='submit']:focus{background-image:none;background-color:#d96932;border:1px solid #c25720;color:#fff;font:normal 12px Arial, Helvetica, sans-serif;border-radius:5px;padding:3px 15px;margin: 0;width: auto;max-width: auto;overflow: visible;-webkit-appearance: none;-moz-appearance:none;text-shadow:none;margin-top:5px}
+	/*CSS Added by Bashi 12-08-2014*/
+	#regsubmit{text-shadow:none !important;}
+	.inactivefafbutton{background-color:#b3b6b5 !important;border:1px solid #d7d7d7 !important;text-shadow:none !important;}
+	/*end CSS Added by Bashi */
+	
+	.fnf-container .regform input[type='checkbox']{margin:5px 5px 0 0}
+	
+
+	
+	.fnf-container .language-container{color:#fff;font:normal 12px Arial, Helvetica, sans-serif;float:left;width:142px;padding:35px 12px 20px 13px;text-align:center}
+	.fnf-container .side-arrow{background:url(../images/sprite-fnf-arrows.png) no-repeat -26px 0;
+	height:16px;width:16px;text-indent:-9999px;float:left;position:relative}
+	.fnf-container .language-container .side-arrow a{position:absolute;left:0;width:0;height:16px;width:16px}
+	.fnf-container .language-container span.english a, .fnf-container .language-container span.chinese a{margin-right:10px;text-decoration:underline;color:#fff}
+	.fnf-container .language-container span.chinese a{margin-right:5px}
+	.fnf-container .language-container .eng-lang, .fnf-container .language-container .chi-lang{margin-left:50px;margin-top:10px;float:left}
+	
+	.fnf-container .secondcol .down-arrow-container{background:url(../images/sprite-fnf-arrows.png) no-repeat left top;width:23px;height:13px;text-indent:-9999px;position:absolute;bottom:8px;left:59px}
+	.fnf-container .secondcol:hover .down-arrow-container{background-position:left bottom}
+	
+	.fnf-container .regform .popup{display:none}
+	.fnf-container .regform .popup .popup-bg{background:url(../images/reg-popup-bg.png);width:664px; height:146px;position:absolute;top:0;left:0;}
+	.fnf-container .regform .popup .text{position:absolute;left:174px;top:30px;text-align:center;font-size:22px;color:#363636}
+	.fnf-container .regform .popup .text span.greatnews, .popup .text span.firstname{}
+	.fnf-container .regform .popup .text span.firstname{}
+	.fnf-container .regform .popup span{}
+	.fnf-container .regform .popup span.already-reg-text{line-height:19px;margin-top:3px;float:left;font-size:16px;display:none}
+	.fnf-container .regform .popup span.success-reg-text{line-height:19px;margin-top:3px;float:left;font-size:16px;display:none}
+	
+	
+	
+	/* Ajax loader divs */
+	#wait{display: none;width: 48px;height: 48px;position: absolute;padding: 80px 189px;background-color: rgba(255,255,255,0.9);border-radius: 5px;z-index:999;}
+	#waitreg{display: none;width: 48px;height: 48px;position: absolute;padding: 48px 308px;background-color: rgba(255,255,255,0.9);border-radius: 5px;z-index:999;}
+	.waitImg{background:url(../images/loader_img.gif) no-repeat;width:60px;height:60px;}
+	.url-container{display:none;}
+	
+	footer .bgWhite{padding-top:45px}
+	footer#news-footer.row-fluid {
+    	margin-top: 0px!important;
+}
+	/*Family and Friends end*/
+
+} /*end of .aui class*/
+
+.aui.ie7 .fnf-container .regform input[type='button'],.aui.ie7 .fnf-container.regform input[type='button']:hover,.aui.ie7 .fnf-container .regform input[type='button']:focus, 
+.aui.ie7 .fnf-container .regform input[type='submit'],.aui.ie7 .fnf-container .regform input[type='submit']:hover,.aui.ie7 .fnf-container .regform input[type='submit']:focus
+	{
+		padding:1px 10px 3px 10px;
+	}
+
+.aui.ie footer .bgWhite{  
+		margin-top:0
+		}

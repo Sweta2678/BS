@@ -1,0 +1,11 @@
+
+Dear $requesterName,
+
+Your request to join the community "$groupName" - $url has been $status.
+
+Comments from the community administrator:
+-------------------------------------------------
+$comment
+-------------------------------------------------
+
+Sincerely,

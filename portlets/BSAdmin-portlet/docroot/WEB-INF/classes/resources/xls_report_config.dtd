@@ -1,0 +1,34 @@
+<!ELEMENT field EMPTY >
+<!ATTLIST field class_field_name CDATA #REQUIRED >
+<!ATTLIST field return_entries NMTOKEN #IMPLIED >
+<!ATTLIST field xls_column_name CDATA #REQUIRED >
+<!ATTLIST field xls_column_width ( 10 | 12 | 15 | 16 | 18 | 20 | 22 | 24 | 30 | 40 | 6 | 7 | 8 ) #REQUIRED >
+<!ATTLIST field default_value_from CDATA #IMPLIED >
+<!ATTLIST field show_translation CDATA #IMPLIED >
+<!ATTLIST field field_type CDATA #IMPLIED >
+
+<!ELEMENT index ( field+ ) >
+
+<!ELEMENT record ( field+ ) >
+<!ATTLIST record records_on_row_for_same_index NMTOKEN #IMPLIED >
+<!ATTLIST record filter_out CDATA #IMPLIED >
+<!ATTLIST record record_type CDATA #IMPLIED >
+
+<!ELEMENT report ( index | record | selectClause | table | whereClause | secLanguage )* >
+<!ATTLIST report active ( false | true ) #REQUIRED >
+<!ATTLIST report id NMTOKEN #REQUIRED >
+<!ATTLIST report name CDATA #REQUIRED >
+<!ATTLIST report feature CDATA #IMPLIED > 
+<!ATTLIST report qualifier CDATA #IMPLIED >
+<!ATTLIST report requireSecondLang CDATA #IMPLIED >
+<!ATTLIST report report_type CDATA #IMPLIED >
+
+<!ELEMENT reports ( report+ ) >
+
+<!ELEMENT selectClause ( #PCDATA ) >
+
+<!ELEMENT table ( #PCDATA ) >
+
+<!ELEMENT whereClause ( #PCDATA ) >
+
+<!ELEMENT secLanguage ( #PCDATA ) >

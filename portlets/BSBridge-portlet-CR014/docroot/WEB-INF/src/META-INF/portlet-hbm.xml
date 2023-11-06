@@ -1,0 +1,1821 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-lazy="false" auto-import="false">
+	<import class="com.ihg.brandstandards.db.model.AttachmentsStandards" />
+	<import class="com.ihg.brandstandards.db.model.AttachmentsStandardsCountry" />
+	<import class="com.ihg.brandstandards.db.model.BrandArticle" />
+	<import class="com.ihg.brandstandards.db.model.BrandTaxonomy" />
+	<import class="com.ihg.brandstandards.db.model.BrandTaxonomyTranslate" />
+	<import class="com.ihg.brandstandards.db.model.BridgeGlobalPublish" />
+	<import class="com.ihg.brandstandards.db.model.BridgeGlobalPublishCountry" />
+	<import class="com.ihg.brandstandards.db.model.BridgePublish" />
+	<import class="com.ihg.brandstandards.db.model.BridgePublishCountry" />
+	<import class="com.ihg.brandstandards.db.model.BridgePublishCountryStateEx" />
+	<import class="com.ihg.brandstandards.db.model.BridgePublishImport" />
+	<import class="com.ihg.brandstandards.db.model.BridgePublishLang" />
+	<import class="com.ihg.brandstandards.db.model.BridgePublishPreview" />
+	<import class="com.ihg.brandstandards.db.model.BridgePublishStateEx" />
+	<import class="com.ihg.brandstandards.db.model.BridgePublishStatus" />
+	<import class="com.ihg.brandstandards.db.model.BusImpactAssmt" />
+	<import class="com.ihg.brandstandards.db.model.ChainAttachmentsStandards" />
+	<import class="com.ihg.brandstandards.db.model.ChainExternalLinkStandards" />
+	<import class="com.ihg.brandstandards.db.model.ChainStandards" />
+	<import class="com.ihg.brandstandards.db.model.CountryStandards" />
+	<import class="com.ihg.brandstandards.db.model.CountryStandardsExt" />
+	<import class="com.ihg.brandstandards.db.model.Department" />
+	<import class="com.ihg.brandstandards.db.model.ErrNotification" />
+	<import class="com.ihg.brandstandards.db.model.ExternalLinkStandards" />
+	<import class="com.ihg.brandstandards.db.model.ExternalLinkStandardsCountry" />
+	<import class="com.ihg.brandstandards.db.model.FlagCategory" />
+	<import class="com.ihg.brandstandards.db.model.FlagStandards" />
+	<import class="com.ihg.brandstandards.db.model.GEMCategory" />
+	<import class="com.ihg.brandstandards.db.model.GEMChainMeasurement" />
+	<import class="com.ihg.brandstandards.db.model.GEMCode" />
+	<import class="com.ihg.brandstandards.db.model.GEMGeneratedReport" />
+	<import class="com.ihg.brandstandards.db.model.GEMGeneratedReportVal" />
+	<import class="com.ihg.brandstandards.db.model.GEMManagementBucket" />
+	<import class="com.ihg.brandstandards.db.model.GEMManagementId" />
+	<import class="com.ihg.brandstandards.db.model.GEMMeasurement" />
+	<import class="com.ihg.brandstandards.db.model.GEMMeasurementBucketChain" />
+	<import class="com.ihg.brandstandards.db.model.GEMMeasurementFormula" />
+	<import class="com.ihg.brandstandards.db.model.GEMMeasurementFormulaValue" />
+	<import class="com.ihg.brandstandards.db.model.GEMMeasurementType" />
+	<import class="com.ihg.brandstandards.db.model.GEMQlReport" />
+	<import class="com.ihg.brandstandards.db.model.GEMRole" />
+	<import class="com.ihg.brandstandards.db.model.GEMScoringValue" />
+	<import class="com.ihg.brandstandards.db.model.GEMSeverity" />
+	<import class="com.ihg.brandstandards.db.model.GEMStdCategory" />
+	<import class="com.ihg.brandstandards.db.model.GEMTemplate" />
+	<import class="com.ihg.brandstandards.db.model.GEMTemplateCategory" />
+	<import class="com.ihg.brandstandards.db.model.GEMTemplateColumn" />
+	<import class="com.ihg.brandstandards.db.model.GEMTemplateReference" />
+	<import class="com.ihg.brandstandards.db.model.GEMTemplateValues" />
+	<import class="com.ihg.brandstandards.db.model.GEMTrigger" />
+	<import class="com.ihg.brandstandards.db.model.GEMUniqueGroup" />
+	<import class="com.ihg.brandstandards.db.model.GEMUniqueGroupCountry" />
+	<import class="com.ihg.brandstandards.db.model.GEMUniqueGroupStandard" />
+	<import class="com.ihg.brandstandards.db.model.Glossary" />
+	<import class="com.ihg.brandstandards.db.model.GlossaryExt" />
+	<import class="com.ihg.brandstandards.db.model.GlossaryRegionNav" />
+	<import class="com.ihg.brandstandards.db.model.GlossaryTranslate" />
+	<import class="com.ihg.brandstandards.db.model.HistManualAttachment" />
+	<import class="com.ihg.brandstandards.db.model.HistManualChain" />
+	<import class="com.ihg.brandstandards.db.model.HistManualRegion" />
+	<import class="com.ihg.brandstandards.db.model.HistManuals" />
+	<import class="com.ihg.brandstandards.db.model.Image" />
+	<import class="com.ihg.brandstandards.db.model.JobQueue" />
+	<import class="com.ihg.brandstandards.db.model.MustPublish" />
+	<import class="com.ihg.brandstandards.db.model.Publication" />
+	<import class="com.ihg.brandstandards.db.model.PublishCountryStandard" />
+	<import class="com.ihg.brandstandards.db.model.PublishDept" />
+	<import class="com.ihg.brandstandards.db.model.PublishedPdfList" />
+	<import class="com.ihg.brandstandards.db.model.PublishExtStd" />
+	<import class="com.ihg.brandstandards.db.model.PublishParm" />
+	<import class="com.ihg.brandstandards.db.model.PublishQueue" />
+	<import class="com.ihg.brandstandards.db.model.PublishStandardsExt" />
+	<import class="com.ihg.brandstandards.db.model.PublishStd" />
+	<import class="com.ihg.brandstandards.db.model.PublishTaxonomy" />
+	<import class="com.ihg.brandstandards.db.model.PublishTaxonomyExt" />
+	<import class="com.ihg.brandstandards.db.model.SpecialWordDictionary" />
+	<import class="com.ihg.brandstandards.db.model.SpreadSheetAttributeUpdate" />
+	<import class="com.ihg.brandstandards.db.model.Standards" />
+	<import class="com.ihg.brandstandards.db.model.StandardsAuthors" />
+	<import class="com.ihg.brandstandards.db.model.StandardsChainImages" />
+	<import class="com.ihg.brandstandards.db.model.StandardsCompliance" />
+	<import class="com.ihg.brandstandards.db.model.StandardsComplianceExt" />
+	<import class="com.ihg.brandstandards.db.model.StandardsCountry" />
+	<import class="com.ihg.brandstandards.db.model.StandardsCountryChain" />
+	<import class="com.ihg.brandstandards.db.model.StandardsCountryExt" />
+	<import class="com.ihg.brandstandards.db.model.StandardsCountryImages" />
+	<import class="com.ihg.brandstandards.db.model.StandardsCrossReference" />
+	<import class="com.ihg.brandstandards.db.model.StandardsDisplayOrder" />
+	<import class="com.ihg.brandstandards.db.model.StandardsDisplayOrderExt" />
+	<import class="com.ihg.brandstandards.db.model.StandardsExt" />
+	<import class="com.ihg.brandstandards.db.model.StandardsHistoricalManual" />
+	<import class="com.ihg.brandstandards.db.model.StandardsImages" />
+	<import class="com.ihg.brandstandards.db.model.StandardsLocale" />
+	<import class="com.ihg.brandstandards.db.model.StandardsRegion" />
+	<import class="com.ihg.brandstandards.db.model.StandardsRegionChain" />
+	<import class="com.ihg.brandstandards.db.model.StandardsRegionLocale" />
+	<import class="com.ihg.brandstandards.db.model.StandardsStatus" />
+	<import class="com.ihg.brandstandards.db.model.StandardsTranslate" />
+	<import class="com.ihg.brandstandards.db.model.Taxonomy" />
+	<import class="com.ihg.brandstandards.db.model.TaxonomyExt" />
+	<import class="com.ihg.brandstandards.db.model.TaxonomyStandards" />
+	<import class="com.ihg.brandstandards.db.model.TaxonomyTranslate" />
+	<import class="com.ihg.brandstandards.db.model.TreeXML" />
+	<import class="com.ihg.brandstandards.db.model.UIElement" />
+	<import class="com.ihg.brandstandards.db.model.UIElementTranslate" />
+	<import class="com.ihg.brandstandards.db.model.UniqueGroup" />
+	<import class="com.ihg.brandstandards.db.model.UniqueGroupCountry" />
+	<import class="com.ihg.brandstandards.db.model.UniqueGroupStandard" />
+	<import class="com.ihg.brandstandards.db.model.UserPreference" />
+	<import class="com.ihg.brandstandards.db.model.UserSearchCriteria" />
+	<import class="com.ihg.brandstandards.db.model.Workflow" />
+	<class name="com.ihg.brandstandards.db.model.impl.AttachmentsStandardsImpl" table="STD_ATTACHMENT">
+		<cache usage="read-write" />
+		<composite-id name="primaryKey" class="com.ihg.brandstandards.db.service.persistence.AttachmentsStandardsPK">
+			<key-property name="attachmentId" column="STD_ATTACHEMENT_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+			<key-property name="localeCode" column="LOCALE_CD" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		</composite-id>
+		<property name="parentAttachmentId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="PRNT_STD_ATTACHMENT_ID" />
+		<property name="stdId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="STD_ID" />
+		<property name="type" type="com.liferay.portal.dao.orm.hibernate.StringType" column="ATTACHMENT_TYP" />
+		<property name="title" type="com.liferay.portal.dao.orm.hibernate.StringType" column="ATTACHMENT_TITLE_TXT" />
+		<property name="translationIndicator" type="com.liferay.portal.dao.orm.hibernate.StringType" column="XLAT_IND" />
+		<property name="attachmentPath" type="com.liferay.portal.dao.orm.hibernate.StringType" column="ATTACHMENT_PATH_TXT" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.AttachmentsStandardsCountryImpl" table="STD_ATTACHMENT_CTRY">
+		<cache usage="read-write" />
+		<composite-id name="primaryKey" class="com.ihg.brandstandards.db.service.persistence.AttachmentsStandardsCountryPK">
+			<key-property name="attachmentId" column="STD_ATTACHEMENT_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+			<key-property name="countryCode" column="CTRY_NM_CD" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+			<key-property name="localeCode" column="LOCALE_CD" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		</composite-id>
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.BrandTaxonomyImpl" table="Brand_Taxonomy">
+		<cache usage="read-write" />
+		<id name="id" column="BRAND_TAXONOMY_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="taxId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="TAXONOMY_ID" />
+		<property name="chain" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CHAIN_CD" />
+		<property name="title" type="com.liferay.portal.dao.orm.hibernate.StringType" column="TITLE_TXT" />
+		<property name="desc" type="com.liferay.portal.dao.orm.hibernate.StringType" column="BRAND_TAXOMOMY_DESC" />
+		<property name="imageLoc" type="com.liferay.portal.dao.orm.hibernate.StringType" column="IMAGE_PATH_TXT" />
+		<property name="createdBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREATOR_SCRN_NM" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.BrandTaxonomyTranslateImpl" table="BRAND_TAXONOMY_XLAT">
+		<cache usage="read-write" />
+		<composite-id name="primaryKey" class="com.ihg.brandstandards.db.service.persistence.BrandTaxonomyTranslatePK">
+			<key-property name="brandTaxId" column="BRAND_TAXONOMY_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+			<key-property name="localeCd" column="LOCALE_CD" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		</composite-id>
+		<property name="title" type="com.liferay.portal.dao.orm.hibernate.StringType" column="TITLE_TXT" />
+		<property name="desc" type="com.liferay.portal.dao.orm.hibernate.StringType" column="BRAND_TAXONOMY_DESC" />
+		<property name="imageLoc" type="com.liferay.portal.dao.orm.hibernate.StringType" column="IMAGE_PATH_TXT" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.BridgeGlobalPublishImpl" table="BRIDGE_GBL_PUBLISH">
+		<cache usage="read-write" />
+		<id name="globalPublishId" column="BRIDGE_GBL_PUBLISH_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="publishId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="PUBLISH_ID" />
+		<property name="stdId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="STD_ID" />
+		<property name="mustPublishInd" type="com.liferay.portal.dao.orm.hibernate.StringType" column="MUST_PUBLISH_IND" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.BridgeGlobalPublishCountryImpl" table="BRIDGE_GBL_PUBLISH_CTRY">
+		<cache usage="read-write" />
+		<id name="globalPublishCtryId" column="BRIDGE_GBL_PUBLISH_CTRY_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="globalPublishId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="BRIDGE_GBL_PUBLISH_ID" />
+		<property name="countryCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CTRY_NM_CD" />
+		<property name="publishInd" type="com.liferay.portal.dao.orm.hibernate.StringType" column="PUBLISH_IND" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.BridgePublishImpl" table="BRIDGE_PUBLISH">
+		<cache usage="read-write" />
+		<id name="bridgePublishId" column="BRIDGE_PUBLISH_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="publishId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="PUBLISH_ID" />
+		<property name="standardId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="STD_ID" />
+		<property name="regionId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="RGN_ID" />
+		<property name="unpublishInd" type="com.liferay.portal.dao.orm.hibernate.StringType" column="UNPUBLISH_IND" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.BridgePublishCountryImpl" table="BRIDGE_PUBLISH_CTRY">
+		<cache usage="read-write" />
+		<id name="publishCtryId" column="BRIDGE_PUBLISH_CTRY_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="bridgePublishId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="BRIDGE_PUBLISH_ID" />
+		<property name="countryCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CTRY_NM_CD" />
+		<property name="statusCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="BRIDGE_PUBLISH_STAT_CD" />
+		<property name="publishInd" type="com.liferay.portal.dao.orm.hibernate.StringType" column="PUBLISH_IND" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.BridgePublishCountryStateExImpl" table="BRIDGE_PUBLISH_STAT">
+		<cache usage="read-write" />
+		<composite-id name="primaryKey" class="com.ihg.brandstandards.db.service.persistence.BridgePublishCountryStateExPK">
+			<key-property name="stdId" column="STD_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+			<key-property name="CountryCode" column="CTRY_NM_CD" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		</composite-id>
+		<property name="parentStdId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="PRNT_STD_ID" />
+		<property name="type" type="com.liferay.portal.dao.orm.hibernate.StringType" column="STD_TYP" />
+		<property name="publishId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="BRIDGE_PUBLISH_ID" />
+		<property name="stateCd" type="com.liferay.portal.dao.orm.hibernate.StringType" column="BRIDGE_PUBLISH_STAT_CD" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.BridgePublishImportImpl" table="BRIDGE_PUBLISH_IMPORT">
+		<cache usage="read-write" />
+		<id name="publishImportId" column="BRIDGE_PUBLICATION_IMPORT_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="publishId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="PUBLISH_ID" />
+		<property name="stdId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="STD_ID" />
+		<property name="selectInd" type="com.liferay.portal.dao.orm.hibernate.StringType" column="SELECTION_ID" />
+		<property name="regionId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="RGN_ID" />
+		<property name="status" type="com.liferay.portal.dao.orm.hibernate.StringType" column="VLD_STAT_CD" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.BridgePublishLangImpl" table="BRIDGE_PUBLISH_LANG">
+		<id name="publishLangId" column="BRIDGE_PUBLISH_LANG_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="publishId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="PUBLISH_ID" />
+		<property name="regionId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="RGN_ID" />
+		<property name="localeCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LOCALE_CD" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.BridgePublishPreviewImpl" table="BRIDGE_PUBLISH">
+		<cache usage="read-write" />
+		<id name="stdId" column="STD_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="taxonomyTitle" type="com.liferay.portal.dao.orm.hibernate.StringType" column="TAX_TITLE_TXT" />
+		<property name="title" type="com.liferay.portal.dao.orm.hibernate.StringType" column="TITLE" />
+		<property name="path" type="com.liferay.portal.dao.orm.hibernate.StringType" column="PATH" />
+		<property name="parentStdId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="PRNT_STD_ID" />
+		<property name="currentTitle" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CURR_TITLE" />
+		<property name="type" type="com.liferay.portal.dao.orm.hibernate.StringType" column="STD_TYP" />
+		<property name="displayOrder" type="com.liferay.portal.dao.orm.hibernate.LongType" column="DISP_ORDER_NBR" />
+		<property name="taxonomyId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="TAXONOMY_ID" />
+		<property name="parentTaxonomyId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="PRNT_TAXONOMY_ID" />
+		<property name="indexOrder" type="com.liferay.portal.dao.orm.hibernate.LongType" column="INDX_ORDER" />
+		<property name="level" type="com.liferay.portal.dao.orm.hibernate.LongType" column="LVL" />
+		<property name="levelSortOrder" type="com.liferay.portal.dao.orm.hibernate.LongType" column="HIER_LVL_NBR" />
+		<property name="status" type="com.liferay.portal.dao.orm.hibernate.StringType" column="STATUS" />
+		<property name="imageCount" type="com.liferay.portal.dao.orm.hibernate.LongType" column="IMG_ATCH" />
+		<property name="attachmentCount" type="com.liferay.portal.dao.orm.hibernate.LongType" column="STD_ATCH" />
+		<property name="xRefCount" access="com.liferay.portal.dao.orm.hibernate.CamelCasePropertyAccessor" type="com.liferay.portal.dao.orm.hibernate.LongType" column="STD_XREF" />
+		<property name="hotelLifeCycle" type="com.liferay.portal.dao.orm.hibernate.LongType" column="HTL_LFCCL" />
+		<property name="complianceCount" type="com.liferay.portal.dao.orm.hibernate.LongType" column="STD_CMPLY" />
+		<property name="hotelAttributes" type="com.liferay.portal.dao.orm.hibernate.StringType" column="HTL_ATTR" />
+		<property name="complianceDate" type="com.liferay.portal.dao.orm.hibernate.StringType" column="STD_CMPLY_DATE" />
+		<property name="stdReference" type="com.liferay.portal.dao.orm.hibernate.StringType" column="STD_REFERENCE" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.BridgePublishStateExImpl" table="BRIDGE_PUBLISH_STAT">
+		<cache usage="read-write" />
+		<composite-id name="primaryKey" class="com.ihg.brandstandards.db.service.persistence.BridgePublishStateExPK">
+			<key-property name="publishId" column="BRIDGE_PUBLISH_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+			<key-property name="stdId" column="STD_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		</composite-id>
+		<property name="taxonomyTitle" type="com.liferay.portal.dao.orm.hibernate.StringType" column="TAX_TITLE_TXT" />
+		<property name="title" type="com.liferay.portal.dao.orm.hibernate.StringType" column="TITLE" />
+		<property name="path" type="com.liferay.portal.dao.orm.hibernate.StringType" column="PATH" />
+		<property name="parentStdId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="PRNT_STD_ID" />
+		<property name="stateCd" type="com.liferay.portal.dao.orm.hibernate.StringType" column="STAT_CD" />
+		<property name="type" type="com.liferay.portal.dao.orm.hibernate.StringType" column="STD_TYP" />
+		<property name="manualType" type="com.liferay.portal.dao.orm.hibernate.StringType" column="MNL_TYP" />
+		<property name="count" type="com.liferay.portal.dao.orm.hibernate.LongType" column="STAT_COUNT" />
+		<property name="displayOrder" type="com.liferay.portal.dao.orm.hibernate.LongType" column="DISP_ORDER_NBR" />
+		<property name="taxonomyId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="TAXONOMY_ID" />
+		<property name="parentTaxonomyId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="PRNT_TAXONOMY_ID" />
+		<property name="indexOrder" type="com.liferay.portal.dao.orm.hibernate.LongType" column="INDX_ORDER" />
+		<property name="level" type="com.liferay.portal.dao.orm.hibernate.LongType" column="LVL" />
+		<property name="levelSortOrder" type="com.liferay.portal.dao.orm.hibernate.LongType" column="HIER_LVL_NBR" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.BridgePublishStatusImpl" table="BRIDGE_PUBLISH_STAT">
+		<cache usage="read-write" />
+		<id name="publishStatusCode" column="BRIDGE_PUBLISH_STAT_CD" type="java.lang.String">
+			<generator class="assigned" />
+		</id>
+		<property name="publishStatusName" type="com.liferay.portal.dao.orm.hibernate.StringType" column="BRIDGE_PUBLISH_STAT_NM" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.BusImpactAssmtImpl" table="BUS_IMPACT_ASSMT_MNL">
+		<cache usage="read-write" />
+		<id name="busImpactAssmtId" column="BUS_IMPACT_ASSMT_MNL_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="stdId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="STD_ID" />
+		<property name="chain" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CHAIN_CD" />
+		<property name="region" type="com.liferay.portal.dao.orm.hibernate.StringType" column="RGN_CD" />
+		<property name="profileLossImpact" type="com.liferay.portal.dao.orm.hibernate.StringType" column="PROFIT_LOSS_IMPACT_CD" />
+		<property name="CapExpenseImpact" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CAP_EXPENSE_IMPACT_CD" />
+		<property name="ImplTimeScale" type="com.liferay.portal.dao.orm.hibernate.StringType" column="IMPLMNT_TIMESCALE_CD" />
+		<property name="changeFromRegional" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CHG_FROM_RGN_TO_GBL_DESC" />
+		<property name="biaComments" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CMT_TXT" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.ChainAttachmentsStandardsImpl" table="STD_ATTACHMENT_CHAIN">
+		<cache usage="read-write" />
+		<id name="chainAttachmentId" column="STD_ATTACHMENT_CHAIN_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="attachmentId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="STD_ATTACHEMENT_ID" />
+		<property name="localeCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LOCALE_CD" />
+		<property name="chainCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CHAIN_CD" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.ChainExternalLinkStandardsImpl" table="STD_EXTL_LINK_CHAIN">
+		<cache usage="read-write" />
+		<composite-id name="primaryKey" class="com.ihg.brandstandards.db.service.persistence.ChainExternalLinkStandardsPK">
+			<key-property name="extLinkId" column="STD_EXTL_LINK_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+			<key-property name="chainCode" column="CHAIN_CD" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		</composite-id>
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.ChainStandardsImpl" table="CHAIN_STD">
+		<cache usage="read-write" />
+		<composite-id name="primaryKey" class="com.ihg.brandstandards.db.service.persistence.ChainStandardsPK">
+			<key-property name="chainCode" column="CHAIN_CD" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+			<key-property name="stdId" column="STD_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		</composite-id>
+		<property name="statusId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="STAT_ID" />
+		<property name="isActive" type="com.liferay.portal.dao.orm.hibernate.StringType" column="ACTV_IND" />
+		<property name="lastPublishedDate" type="org.hibernate.type.TimestampType" column="LST_PUBLISHED_TS" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.CountryStandardsImpl" table="CTRY_STD">
+		<cache usage="read-write" />
+		<composite-id name="primaryKey" class="com.ihg.brandstandards.db.service.persistence.CountryStandardsPK">
+			<key-property name="country" column="CTRY_NM_CD" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+			<key-property name="stdId" column="STD_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		</composite-id>
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.CountryStandardsExtImpl" table="CTRY_STD">
+		<cache usage="read-write" />
+		<composite-id name="primaryKey" class="com.ihg.brandstandards.db.service.persistence.CountryStandardsExtPK">
+			<key-property name="countryCode" column="CTRY_NM_CD" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+			<key-property name="stdId" column="STD_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		</composite-id>
+		<property name="regionId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="RGN_ID" />
+		<property name="regionCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="RGN_CD" />
+		<property name="regionName" type="com.liferay.portal.dao.orm.hibernate.StringType" column="RGN_NM" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.DepartmentImpl" table="GEM_DEPT">
+		<cache usage="read-write" />
+		<id name="departmentId" column="GEM_DEPT_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="departmentName" type="com.liferay.portal.dao.orm.hibernate.StringType" column="GEM_DEPT_NM" />
+		<property name="description" type="com.liferay.portal.dao.orm.hibernate.StringType" column="GEM_DEPT_DESC" />
+		<property name="activeInd" type="com.liferay.portal.dao.orm.hibernate.StringType" column="ACTV_IND" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.ErrNotificationImpl" table="ERR_NOTIFICATION">
+		<cache usage="read-write" />
+		<id name="notificationId" column="ERR_NOTIFICATION_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="componentName" type="com.liferay.portal.dao.orm.hibernate.StringType" column="COMPONENT_NM" />
+		<property name="referenceId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="REF_ID" />
+		<property name="severity" type="com.liferay.portal.dao.orm.hibernate.StringType" column="SEVERITY_LVL_CD" />
+		<property name="title" type="com.liferay.portal.dao.orm.hibernate.StringType" column="ERR_TITLE_TXT" />
+		<property name="description" type="com.liferay.portal.dao.orm.hibernate.StringType" column="ERR_DESC" />
+		<property name="status" type="com.liferay.portal.dao.orm.hibernate.StringType" column="STAT_CD" />
+		<property name="publishId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="PUBLISH_ID" />
+		<property name="regionId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="RGN_ID" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.ExternalLinkStandardsImpl" table="STD_EXTL_LINK">
+		<cache usage="read-write" />
+		<id name="extLinkId" column="STD_EXTL_LINK_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="parentExtLinkId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="PRNT_STD_EXTL_LINK_ID" />
+		<property name="stdId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="STD_ID" />
+		<property name="url" type="com.liferay.portal.dao.orm.hibernate.StringType" column="URL_TXT" />
+		<property name="title" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LINK_TITLE_TXT" />
+		<property name="translationIndicator" type="com.liferay.portal.dao.orm.hibernate.StringType" column="XLAT_IND" />
+		<property name="localeCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LOCALE_CD" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.ExternalLinkStandardsCountryImpl" table="STD_LINK_CTRY">
+		<cache usage="read-write" />
+		<composite-id name="primaryKey" class="com.ihg.brandstandards.db.service.persistence.ExternalLinkStandardsCountryPK">
+			<key-property name="extLinkId" column="STD_EXTL_LINK_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+			<key-property name="countryCode" column="CTRY_NM_CD" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		</composite-id>
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.FlagCategoryImpl" table="FLAG_CATGY">
+		<cache usage="read-write" />
+		<composite-id name="primaryKey" class="com.ihg.brandstandards.db.service.persistence.FlagCategoryPK">
+			<key-property name="flagCatId" column="FLAG_CATGY_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+			<key-property name="activeInd" column="ACTV_IND" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		</composite-id>
+		<property name="parentCatId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="PRNT_FLAG_CATGY_ID" />
+		<property name="catOrField" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CATGY_CD" />
+		<property name="txtValue" type="com.liferay.portal.dao.orm.hibernate.StringType" column="FLAG_CATGY_VAL" />
+		<property name="orderNumber" type="com.liferay.portal.dao.orm.hibernate.LongType" column="DISP_ORDER_NBR" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.FlagStandardsImpl" table="FLAG_STD">
+		<cache usage="read-write" />
+		<composite-id name="primaryKey" class="com.ihg.brandstandards.db.service.persistence.FlagStandardsPK">
+			<key-property name="flagCatId" column="FLAG_CATGY_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+			<key-property name="stdId" column="STD_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		</composite-id>
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.GEMCategoryImpl" table="GEM_CATGY">
+		<cache usage="read-write" />
+		<id name="categoryId" column="GEM_CATGY_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="cmsCategoryId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="CMS_CATGY_ID" />
+		<property name="gemCategoryCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="GEM_CATGY_CD" />
+		<property name="gemPrntCategoryId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="GEM_PRNT_CATGY_ID" />
+		<property name="categoryName" type="com.liferay.portal.dao.orm.hibernate.StringType" column="GEM_CATGY_NM" />
+		<property name="categoryViewType" type="com.liferay.portal.dao.orm.hibernate.StringType" column="GEM_CATGY_VIEW_TYP" />
+		<property name="categoryAnsAll" type="com.liferay.portal.dao.orm.hibernate.StringType" column="GEM_CATGY_ANS_TXT" />
+		<property name="duplicatable" type="com.liferay.portal.dao.orm.hibernate.StringType" column="DUPLICATE_VAL_TXT" />
+		<property name="displayOrderNumber" type="com.liferay.portal.dao.orm.hibernate.LongType" column="DISP_ORDER_NBR" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.GEMChainMeasurementImpl" table="GEM_CHAIN_MSRMNT">
+		<cache usage="read-write" />
+		<id name="chainMeasurementId" column="GEM_CHAIN_MSRMNT_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="measurementId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="GEM_MSRMNT_ID" />
+		<property name="publishDeptId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="GEM_PUBLISH_DEPT_ID" />
+		<property name="publishId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="PUBLISH_ID" />
+		<property name="regionId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="RGN_ID" />
+		<property name="uniqueGroupId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="GEM_UNIQUE_GRP_ID" />
+		<property name="measurementItemCount" type="com.liferay.portal.dao.orm.hibernate.LongType" column="MSRMNT_ITEM_QTY" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.GEMCodeImpl" table="GEM_CD">
+		<cache usage="read-write" />
+		<id name="code" column="GEM_CD" type="java.lang.String">
+			<generator class="assigned" />
+		</id>
+		<property name="codeDesc" type="com.liferay.portal.dao.orm.hibernate.StringType" column="GEM_CD_DESC" />
+		<property name="codeVal" type="com.liferay.portal.dao.orm.hibernate.StringType" column="GEM_CD_VAL" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.GEMGeneratedReportImpl" table="GEM_GEN_RPT">
+		<cache usage="read-write" />
+		<id name="reportId" column="GEM_GEN_RPT_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="templateId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="GEM_TEMPLATE_ID" />
+		<property name="uniqueGroupId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="GEM_UNIQUE_GRP_ID" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.GEMGeneratedReportValImpl" table="GEM_GEN_RPT_VAL">
+		<cache usage="read-write" />
+		<composite-id name="primaryKey" class="com.ihg.brandstandards.db.service.persistence.GEMGeneratedReportValPK">
+			<key-property name="reportValId" column="GEM_GEN_RPT_VAL_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+			<key-property name="reportId" column="GEM_GEN_RPT_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		</composite-id>
+		<property name="columnId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="GEM_TEMPLATE_COL_ID" />
+		<property name="generatedValue" type="com.liferay.portal.dao.orm.hibernate.StringType" column="GEN_VAL" />
+		<property name="displayOrderNumber" type="com.liferay.portal.dao.orm.hibernate.LongType" column="DISP_ORDER_NBR" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.GEMManagementBucketImpl" table="GEM_MGT_BUCKET">
+		<cache usage="read-write" />
+		<id name="bucketId" column="GEM_MGT_BUCKET_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="bucketName" type="com.liferay.portal.dao.orm.hibernate.StringType" column="GEM_BUCKET_NM" />
+		<property name="departmentId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="GEM_DEPT_ID" />
+		<property name="activeInd" type="com.liferay.portal.dao.orm.hibernate.StringType" column="ACTV_IND" />
+		<property name="displayOrderNumber" type="com.liferay.portal.dao.orm.hibernate.LongType" column="DISP_ORDER_NBR" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.GEMManagementIdImpl" table="GEM_MGT_ID">
+		<cache usage="read-write" />
+		<id name="managementId" column="GEM_MGT_ID_KEY" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="chainCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="BRAND_CD" />
+		<property name="countryCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CTRY_NM_CD" />
+		<property name="value" type="com.liferay.portal.dao.orm.hibernate.StringType" column="GEM_MGT_ID" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.GEMMeasurementImpl" table="GEM_MSRMNT">
+		<cache usage="read-write" />
+		<id name="measurementId" column="GEM_MSRMNT_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="measurementName" type="com.liferay.portal.dao.orm.hibernate.StringType" column="GEM_MSRMNT_NM" />
+		<property name="measurementType" type="com.liferay.portal.dao.orm.hibernate.StringType" column="GEM_MSRMNT_TYP_CD" />
+		<property name="displayOrderNumber" type="com.liferay.portal.dao.orm.hibernate.LongType" column="DISP_ORDER_NBR" />
+		<property name="templateId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="GEM_TEMPLATE_ID" />
+		<property name="multiplierQty" type="com.liferay.portal.dao.orm.hibernate.LongType" column="GEM_MSRMNT_MULTR_QTY" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.GEMMeasurementBucketChainImpl" table="GEM_MSRMNT_BUCKET_CHAIN">
+		<cache usage="read-write" />
+		<id name="measurementBucketChainId" column="GEM_MSRMNT_BUCKET_CHAIN_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="bucketId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="GEM_MGT_BUCKET_ID" />
+		<property name="severityId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="GEM_SEVERITY_ID" />
+		<property name="measurementId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="GEM_MSRMNT_ID" />
+		<property name="publishDeptId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="GEM_PUBLISH_DEPT_ID" />
+		<property name="publishId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="PUBLISH_ID" />
+		<property name="regionId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="RGN_ID" />
+		<property name="subRegionCd" type="com.liferay.portal.dao.orm.hibernate.StringType" column="GEM_SUB_RGN_CD" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.GEMMeasurementFormulaImpl" table="GEM_MSRMNT_FORMULA">
+		<cache usage="read-write" />
+		<id name="formulaId" column="GEM_MSRMNT_FORMULA_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="publishId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="PUBLISH_ID" />
+		<property name="regionId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="RGN_ID" />
+		<property name="measurementId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="GEM_MSRMNT_ID" />
+		<property name="severityId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="GEM_SEVERITY_ID" />
+		<property name="subRegionLevelCd" type="com.liferay.portal.dao.orm.hibernate.StringType" column="GEM_SUB_RGN_LVL_CD" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.GEMMeasurementFormulaValueImpl" table="GEM_MSRMNT_FORMULA_DTL">
+		<cache usage="read-write" />
+		<id name="formulaValueId" column="GEM_MSRMNT_FORMULA_DTL_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="formulaId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="GEM_MSRMNT_FORMULA_ID" />
+		<property name="formulaType" type="com.liferay.portal.dao.orm.hibernate.StringType" column="GEM_MSRMNT_FORMULA_TYP" />
+		<property name="formulaValue" type="com.liferay.portal.dao.orm.hibernate.StringType" column="GEM_FORMULA_TXT" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.GEMMeasurementTypeImpl" table="GEM_MSRMNT_TYP">
+		<cache usage="read-write" />
+		<id name="measurementType" column="GEM_MSRMNT_TYP_CD" type="java.lang.String">
+			<generator class="assigned" />
+		</id>
+		<property name="measurementTypeDesc" type="com.liferay.portal.dao.orm.hibernate.StringType" column="GEM_MSRMNT_TYP_DESC" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.GEMQlReportImpl" table="QLTY_LEAD_RPT">
+		<id name="qlReportId" column="QLTY_LEAD_RPT_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="publishDeptId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="GEM_PUBLISH_DEPT_ID" />
+		<property name="publishId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="PUBLISH_ID" />
+		<property name="stdId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="STD_ID" />
+		<property name="bucketId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="GEM_MGT_BUCKET_ID" />
+		<property name="severityId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="GEM_SEVERITY_ID" />
+		<property name="measurementId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="GEM_MSRMNT_ID" />
+		<property name="triggerId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="GEM_TRIGGER_ID" />
+		<property name="categoryId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="GEM_CATGY_ID" />
+		<property name="displayOrderNumber" type="com.liferay.portal.dao.orm.hibernate.LongType" column="DISP_ORDER_NBR" />
+		<property name="regionId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="RGN_ID" />
+		<property name="complianceDueDays" type="com.liferay.portal.dao.orm.hibernate.LongType" column="CMPLY_DUE_DAY_NBR" />
+		<property name="glblMustMeasure" type="com.liferay.portal.dao.orm.hibernate.StringType" column="GBL_MUST_MEASURE_STD_IND" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.GEMRoleImpl" table="GEM_GRP">
+		<cache usage="read-write" />
+		<id name="gemGrpId" column="GEM_GRP_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="regionId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="RGN_ID" />
+		<property name="chainCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CHAIN_CD" />
+		<property name="gemGrpCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="GEM_GRP_CD" />
+		<property name="ownerGrpId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="OWNER_GRP_ID" />
+		<property name="ownerGrpName" type="com.liferay.portal.dao.orm.hibernate.StringType" column="OWNER_GRP_NM" />
+		<property name="busOwnerName" type="com.liferay.portal.dao.orm.hibernate.StringType" column="BUS_OWNER_NM" />
+		<property name="deligate1Name" type="com.liferay.portal.dao.orm.hibernate.StringType" column="DELEGATE_1_NM" />
+		<property name="deligate2Name" type="com.liferay.portal.dao.orm.hibernate.StringType" column="DELEGATE_2_NM" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.GEMScoringValueImpl" table="SCORING_VAL">
+		<cache usage="read-write" />
+		<id name="scoringId" column="SCORING_VAL_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="measurementBucketChainId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="GEM_MSRMNT_BUCKET_CHAIN_ID" />
+		<property name="totalMeasurement" type="com.liferay.portal.dao.orm.hibernate.LongType" column="TOT_MSRMNT_QTY" />
+		<property name="netMeasurement" type="com.liferay.portal.dao.orm.hibernate.LongType" column="NET_MSRMNT_QTY" />
+		<property name="nonCompliantMeasurement" type="com.liferay.portal.dao.orm.hibernate.LongType" column="NON_COMPLIANT_MSRMNT_QTY" />
+		<property name="nonCompliantMeasurementPercent" type="com.liferay.portal.dao.orm.hibernate.LongType" column="NON_COMPLIANT_MSRMNT_PCT" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.GEMSeverityImpl" table="GEM_SEVERITY">
+		<cache usage="read-write" />
+		<id name="severityId" column="GEM_SEVERITY_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="severityName" type="com.liferay.portal.dao.orm.hibernate.StringType" column="GEM_SEVERITY_NM" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.GEMStdCategoryImpl" table="GEM_STD_CATGY">
+		<cache usage="read-write" />
+		<id name="gemStdCategoryId" column="GEM_STD_CATGY_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="stdId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="STD_ID" />
+		<property name="categoryId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="GEM_CATGY_ID" />
+		<property name="templateType" type="com.liferay.portal.dao.orm.hibernate.StringType" column="TEMPLATE_TYP_CD" />
+		<property name="chainCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CHAIN_CD" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.GEMTemplateImpl" table="GEM_TEMPLATE">
+		<cache usage="read-write" />
+		<id name="templateId" column="GEM_TEMPLATE_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="templateName" type="com.liferay.portal.dao.orm.hibernate.StringType" column="TEMPLATE_NM" />
+		<property name="publishId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="PUBLISH_ID" />
+		<property name="regionId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="RGN_ID" />
+		<property name="templateType" type="com.liferay.portal.dao.orm.hibernate.StringType" column="TEMPLATE_TYP_CD" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.GEMTemplateCategoryImpl" table="GEM_TEMPLATE_CATGY">
+		<cache usage="read-write" />
+		<id name="templateCatgyId" column="GEM_TEMPLATE_CATGY_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="templateId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="GEM_TEMPLATE_ID" />
+		<property name="categoryId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="GEM_CATGY_ID" />
+		<property name="categoryViewType" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CATGY_VIEW_TYP" />
+		<property name="categoryAnsAll" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CATGY_ANS_TXT" />
+		<property name="duplicatable" type="com.liferay.portal.dao.orm.hibernate.StringType" column="DUPLICATABLE_IND" />
+		<property name="displayOrderNumber" type="com.liferay.portal.dao.orm.hibernate.LongType" column="DISP_ORDER_NBR" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.GEMTemplateColumnImpl" table="GEM_TEMPLATE_COL">
+		<cache usage="read-write" />
+		<id name="columnId" column="GEM_TEMPLATE_COL_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="templateId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="GEM_TEMPLATE_ID" />
+		<property name="columnName" type="com.liferay.portal.dao.orm.hibernate.StringType" column="COL_NM" />
+		<property name="valueType" type="com.liferay.portal.dao.orm.hibernate.StringType" column="VAL_DAT_TYP" />
+		<property name="defaultValue" type="com.liferay.portal.dao.orm.hibernate.StringType" column="DFLT_VAL_TXT" />
+		<property name="isMandatory" type="com.liferay.portal.dao.orm.hibernate.StringType" column="MAND_IND" />
+		<property name="displayOrderNumber" type="com.liferay.portal.dao.orm.hibernate.LongType" column="DISP_ORDER_NBR" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.GEMTemplateReferenceImpl" table="GEM_PUB_REF_TEMPLATE">
+		<cache usage="read-write" />
+		<id name="templateRefId" column="GEM_PUB_REF_TEMPLATE_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="templateId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="GEM_TEMPLATE_ID" />
+		<property name="publishDeptId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="GEM_PUBLISH_DEPT_ID" />
+		<property name="regionId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="RGN_ID" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.GEMTemplateValuesImpl" table="GEM_TEMPLATE_VAL">
+		<cache usage="read-write" />
+		<id name="valueId" column="GEM_TEMPLATE_VAL_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="columnId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="GEM_TEMPLATE_COL_ID" />
+		<property name="categoryId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="GEM_CATGY_ID" />
+		<property name="columnValue" type="com.liferay.portal.dao.orm.hibernate.StringType" column="COL_VAL" />
+		<property name="displayOrderNumber" type="com.liferay.portal.dao.orm.hibernate.LongType" column="DISP_ORDER_NBR" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.GEMTriggerImpl" table="GEM_TRIGGER">
+		<cache usage="read-write" />
+		<id name="triggerId" column="GEM_TRIGGER_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="publishDeptId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="GEM_PUBLISH_DEPT_ID" />
+		<property name="publishId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="PUBLISH_ID" />
+		<property name="question" type="com.liferay.portal.dao.orm.hibernate.StringType" column="TRIGGER_QSTN_TXT" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.GEMUniqueGroupImpl" table="GEM_UNIQUE_GRP">
+		<cache usage="read-write" />
+		<id name="uniqueGroupId" column="GEM_UNIQUE_GRP_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="publishDeptId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="GEM_PUBLISH_DEPT_ID" />
+		<property name="publishId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="PUBLISH_ID" />
+		<property name="groupName" type="com.liferay.portal.dao.orm.hibernate.StringType" column="GEM_GRP_NM" />
+		<property name="regionId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="RGN_ID" />
+		<property name="policyId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="GEM_PLCY_ID" />
+		<property name="levelId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="GEM_LVL_ID" />
+		<property name="groupType" type="com.liferay.portal.dao.orm.hibernate.StringType" column="GRP_TYP" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.GEMUniqueGroupCountryImpl" table="GEM_UNIQUE_GROUP_CTRY">
+		<cache usage="read-write" />
+		<id name="groupCountryId" column="GROUP_CTRY_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="uniqueGroupId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="GEM_UNIQUE_GRP_ID" />
+		<property name="countryCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CTRY_CD" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.GEMUniqueGroupStandardImpl" table="GEM_UNIQUE_GRP_DTL">
+		<cache usage="read-write" />
+		<id name="groupStandardId" column="GEM_UNIQUE_GRP_DTL_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="groupId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="GEM_UNIQUE_GRP_ID" />
+		<property name="stdId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="STD_ID" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.GlossaryImpl" table="GLOSSARY">
+		<cache usage="read-write" />
+		<id name="glossaryId" column="GLOSSARY_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="glossaryTermText" type="com.liferay.portal.dao.orm.hibernate.StringType" column="GLOSSARY_TERM_TXT" />
+		<property name="glossaryTermDesc" type="com.liferay.portal.dao.orm.hibernate.StringType" column="GLOSSARY_TERM_DESC" />
+		<property name="activeInd" type="com.liferay.portal.dao.orm.hibernate.StringType" column="ACTV_IND" />
+		<property name="glossaryOwner" type="com.liferay.portal.dao.orm.hibernate.LongType" column="OWNER_RGN_ID" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.GlossaryExtImpl" table="GLOSSARY">
+		<cache usage="read-write" />
+		<id name="glossaryId" column="GLOSSARY_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="activeInd" type="com.liferay.portal.dao.orm.hibernate.StringType" column="ACTV_IND" />
+		<property name="glossaryTermText" type="com.liferay.portal.dao.orm.hibernate.StringType" column="GLOSSARY_TERM_TXT" />
+		<property name="glossaryTermDesc" type="com.liferay.portal.dao.orm.hibernate.StringType" column="GLOSSARY_TERM_DESC" />
+		<property name="glossaryRegions" type="com.liferay.portal.dao.orm.hibernate.StringType" column="REGIONS" />
+		<property name="glossaryChains" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CHAINS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.GlossaryRegionNavImpl" table="GLOSSARY_RGN_NAV">
+		<cache usage="read-write" />
+		<id name="glossaryRgnNavId" column="GLOSSARY_RGN_NAV_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="glossaryId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="GLOSSARY_ID" />
+		<property name="regionId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="RGN_ID" />
+		<property name="navItemText" type="com.liferay.portal.dao.orm.hibernate.StringType" column="NAVIGATION_ITEM_TXT" />
+		<property name="activeInd" type="com.liferay.portal.dao.orm.hibernate.StringType" column="ACTV_IND" />
+		<property name="chainCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CHAIN_CD" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.GlossaryTranslateImpl" table="GLOSSARY_XLAT">
+		<cache usage="read-write" />
+		<id name="glossaryXlatId" column="GLOSSARY_XLAT_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="glossaryId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="GLOSSARY_ID" />
+		<property name="langCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LOCALE_CD" />
+		<property name="glossaryTermText" type="com.liferay.portal.dao.orm.hibernate.StringType" column="GLOSSARY_TERM_TXT" />
+		<property name="glossaryTermDesc" type="com.liferay.portal.dao.orm.hibernate.StringType" column="GLOSSARY_TERM_DESC" />
+		<property name="isValidTermTxt" type="com.liferay.portal.dao.orm.hibernate.StringType" column="TERM_XLAT_IND" />
+		<property name="isValidDescTxt" type="com.liferay.portal.dao.orm.hibernate.StringType" column="DESC_XLAT_IND" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.HistManualAttachmentImpl" table="MNL_ATTACHMENT">
+		<cache usage="read-write" />
+		<id name="histManualId" column="HST_MNL_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="attachmentPath" type="com.liferay.portal.dao.orm.hibernate.StringType" column="ATTACHMENT_PATH_TXT" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREATE_BY" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREATE_DATE" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LAST_UPD_BY" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LAST_UPD_DATE" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.HistManualChainImpl" table="MNL_CHN">
+		<cache usage="read-write" />
+		<composite-id name="primaryKey" class="com.ihg.brandstandards.db.service.persistence.HistManualChainPK">
+			<key-property name="chainCode" column="CHN_CD" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+			<key-property name="histManualId" column="HST_MNL_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		</composite-id>
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREATE_BY" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREATE_DATE" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LAST_UPD_BY" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LAST_UPD_DATE" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.HistManualRegionImpl" table="MNL_RGN">
+		<cache usage="read-write" />
+		<composite-id name="primaryKey" class="com.ihg.brandstandards.db.service.persistence.HistManualRegionPK">
+			<key-property name="regionCode" column="RGN_CD" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+			<key-property name="histManualId" column="HST_MNL_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		</composite-id>
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREATE_BY" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREATE_DATE" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LAST_UPD_BY" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LAST_UPD_DATE" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.HistManualsImpl" table="HIST_MNL">
+		<cache usage="read-write" />
+		<id name="histManualId" column="HST_MNL_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="title" type="com.liferay.portal.dao.orm.hibernate.StringType" column="MNL_TITLE" />
+		<property name="type" type="com.liferay.portal.dao.orm.hibernate.StringType" column="MNL_TYP" />
+		<property name="pubDate" type="org.hibernate.type.TimestampType" column="PUBLISH_DT" />
+		<property name="status" type="com.liferay.portal.dao.orm.hibernate.StringType" column="STAT_DESC" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREATE_BY" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREATE_DATE" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LAST_UPD_BY" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LAST_UPD_DATE" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.ImageImpl" table="IMAGE">
+		<cache usage="read-write" />
+		<id name="imageId" column="IMAGE_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="imageUuId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="IMAGE_UUID" />
+		<property name="imageDesc" type="com.liferay.portal.dao.orm.hibernate.StringType" column="IMAGE_DESC" />
+		<property name="imageTitle" type="com.liferay.portal.dao.orm.hibernate.StringType" column="IMAGE_TITLE_TXT" />
+		<property name="imageSize" type="com.liferay.portal.dao.orm.hibernate.StringType" column="IMAGE_SIZE_KILOBYTE_QTY" />
+		<property name="imageType" type="com.liferay.portal.dao.orm.hibernate.StringType" column="IMAGE_TYP" />
+		<property name="smallImageId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="SMALL_IMAGE_ID" />
+		<property name="imageDimension" type="com.liferay.portal.dao.orm.hibernate.StringType" column="IMAGE_DIM_TXT" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.JobQueueImpl" table="JOB_QUEUE">
+		<id name="jobId" column="JOB_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="jobOwner" type="com.liferay.portal.dao.orm.hibernate.StringType" column="JOB_OWNER" />
+		<property name="jobType" type="com.liferay.portal.dao.orm.hibernate.StringType" column="JOB_TYP" />
+		<property name="metadata" type="com.liferay.portal.dao.orm.hibernate.StringType" column="METADATA_TXT" />
+		<property name="link" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LINK_TXT" />
+		<property name="notificationEmail" type="com.liferay.portal.dao.orm.hibernate.StringType" column="NOTIFICAtiON_EMAIL_ID" />
+		<property name="startTime" type="org.hibernate.type.TimestampType" column="STRT_TS" />
+		<property name="endTime" type="org.hibernate.type.TimestampType" column="END_TS" />
+		<property name="status" type="com.liferay.portal.dao.orm.hibernate.StringType" column="STAT_CD" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.MustPublishImpl" table="BRIDGE_GBL_PUBLISH">
+		<cache usage="read-write" />
+		<id name="stdId" column="STD_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="parentId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="PRNT_STD_ID" />
+		<property name="title" type="com.liferay.portal.dao.orm.hibernate.StringType" column="TITLE" />
+		<property name="stdType" type="com.liferay.portal.dao.orm.hibernate.StringType" column="STD_TYPE" />
+		<property name="path" type="com.liferay.portal.dao.orm.hibernate.StringType" column="PATH" />
+		<property name="currentPath" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CURR_PATH" />
+		<property name="regionCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="RGN_CD" />
+		<property name="amer" type="com.liferay.portal.dao.orm.hibernate.StringType" column="AMER" />
+		<property name="amea" type="com.liferay.portal.dao.orm.hibernate.StringType" column="AMEA" />
+		<property name="euro" type="com.liferay.portal.dao.orm.hibernate.StringType" column="EURO" />
+		<property name="gc" type="com.liferay.portal.dao.orm.hibernate.StringType" column="GC" />
+		<property name="status" type="com.liferay.portal.dao.orm.hibernate.StringType" column="STAT_DESC" />
+		<property name="displayOrder" type="com.liferay.portal.dao.orm.hibernate.LongType" column="DISP_ORDER_NBR" />
+		<property name="taxonomyId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="TAXONOMY_ID" />
+		<property name="parentTaxonomyId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="PRNT_TAXONOMY_ID" />
+		<property name="indexOrder" type="com.liferay.portal.dao.orm.hibernate.LongType" column="INDX_ORDER" />
+		<property name="level" type="com.liferay.portal.dao.orm.hibernate.LongType" column="LVL" />
+		<property name="levelSortOrder" type="com.liferay.portal.dao.orm.hibernate.LongType" column="HIER_LVL_NBR" />
+		<property name="isGlobal" type="com.liferay.portal.dao.orm.hibernate.StringType" column="GBL_RGN_IND" />
+		<property name="framework" type="com.liferay.portal.dao.orm.hibernate.StringType" column="FRAMEWORK_STD_IND" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.PublicationImpl" table="PUBLISH">
+		<cache usage="read-write" />
+		<id name="publishId" column="PUBLISH_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="publishVerId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="PUBLISH_VER_ID" />
+		<property name="publishStatCd" type="com.liferay.portal.dao.orm.hibernate.StringType" column="PUBLISH_STAT_CD" />
+		<property name="chainCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CHAIN_CD" />
+		<property name="publishEnvName" type="com.liferay.portal.dao.orm.hibernate.StringType" column="PUBLISH_ENVIRONMENT_NM" />
+		<property name="publishLocaleList" type="com.liferay.portal.dao.orm.hibernate.StringType" column="PUBLISHED_LOCALE_LIST_TXT" />
+		<property name="publishDate" type="org.hibernate.type.TimestampType" column="PUBLISH_DT" />
+		<property name="publishContentType" type="com.liferay.portal.dao.orm.hibernate.StringType" column="PUBLISH_CONTENT_TYP" />
+		<property name="parentPublishId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="PRNT_PUBLISH_ID" />
+		<property name="validateTranslation" type="com.liferay.portal.dao.orm.hibernate.StringType" column="VLD_XLAT_IND" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.PublishCountryStandardImpl" table="PUBLISH_CTRY_STD">
+		<cache usage="read-write" />
+		<id name="publishCountryStdId" column="PUBLISH_CTRY_STD_ID" type="java.lang.String">
+			<generator class="assigned" />
+		</id>
+		<property name="publishVerId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="PUBLISH_STD_VER_ID" />
+		<property name="countryCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CTRY_NM_CD" />
+		<property name="expiredRefTxt" type="com.liferay.portal.dao.orm.hibernate.StringType" column="EXPIRED_BY_REF_TXT" />
+		<property name="publishStatCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="PUBLISH_STAT_CD" />
+		<property name="stdComplyDeadlineDate" type="org.hibernate.type.TimestampType" column="STD_CMPLY_DEADLINE_DT" />
+		<property name="orderNumber" type="com.liferay.portal.dao.orm.hibernate.LongType" column="DISP_ORDER_NBR" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.PublishDeptImpl" table="GEM_PUBLISH_DEPT">
+		<cache usage="read-write" />
+		<id name="publishDeptId" column="GEM_PUBLISH_DEPT_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="deptId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="GEM_DEPT_ID" />
+		<property name="publishId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="PUBLISH_ID" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.PublishedPdfListImpl" table="PUBLISHED_PDF_LIST">
+		<id name="pdfId" column="PDF_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="pdfChainCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="PDF_CHAIN_CD" />
+		<property name="pdfCtryCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="PDF_CTRY_CD" />
+		<property name="pdfBuildType" type="com.liferay.portal.dao.orm.hibernate.StringType" column="PDF_BUILD_TYP" />
+		<property name="pdfYearNumber" type="com.liferay.portal.dao.orm.hibernate.IntegerType" column="PDF_YR_NBR" />
+		<property name="pdfLocaleCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="PDF_LOCALE_CD" />
+		<property name="pdfVersionNumber" type="com.liferay.portal.dao.orm.hibernate.LongType" column="PDF_VER_NBR" />
+		<property name="pdfFileName" type="com.liferay.portal.dao.orm.hibernate.StringType" column="PDF_FILE_NM" />
+		<property name="pdfFileURLText" type="com.liferay.portal.dao.orm.hibernate.StringType" column="PDF_FILE_URL_TXT" />
+		<property name="publishId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="PUBLISH_ID" />
+		<property name="pageSizeOrientationType" type="com.liferay.portal.dao.orm.hibernate.StringType" column="PAGE_SIZE_ORIENTATION_TYP" />
+		<property name="createdBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.PublishExtStdImpl" table="PUBLISH_STD">
+		<cache usage="read-write" />
+		<id name="stdId" column="STD_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="compDate" type="org.hibernate.type.TimestampType" column="CMPLY_DT" />
+		<property name="parentId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="PRNT_STD_ID" />
+		<property name="title" type="com.liferay.portal.dao.orm.hibernate.StringType" column="TITLE_TXT" />
+		<property name="expiredIds" type="com.liferay.portal.dao.orm.hibernate.StringType" column="EXPIRED_BY_REF_TXT" />
+		<property name="regionCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="RGN_CD" />
+		<property name="isGlobal" type="com.liferay.portal.dao.orm.hibernate.StringType" column="GBL_RGN_IND" />
+		<property name="framework" type="com.liferay.portal.dao.orm.hibernate.StringType" column="FRAMEWORK_STD_IND" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.PublishParmImpl" table="PUBLISH_PARM">
+		<cache usage="read-write" />
+		<id name="publishParmId" column="PUBLISH_PARM_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="publishId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="PUBLISH_ID" />
+		<property name="parmName" type="com.liferay.portal.dao.orm.hibernate.StringType" column="PARM_NM" />
+		<property name="parmValue" type="com.liferay.portal.dao.orm.hibernate.StringType" column="PARM_VAL" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.PublishQueueImpl" table="PUBLISH_QUEUE">
+		<cache usage="read-write" />
+		<id name="publishQueueId" column="PUBLISH_QUEUE_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="publishFileText" type="com.liferay.portal.dao.orm.hibernate.StringType" column="PUBLISH_FILE_TXT" />
+		<property name="publishEnvironment" type="com.liferay.portal.dao.orm.hibernate.StringType" column="PUBLISH_ENVIRONMENT_NM" />
+		<property name="schedulePublish" type="org.hibernate.type.TimestampType" column="SCHED_PUBLISH_TS" />
+		<property name="queueStatCd" type="com.liferay.portal.dao.orm.hibernate.StringType" column="QUEUE_STAT_CD" />
+		<property name="chainCd" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CHAIN_CD" />
+		<property name="notificationEmailId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="NOTIFICATION_EMAIL_ID" />
+		<property name="scheduleStart" type="org.hibernate.type.TimestampType" column="SCHED_STRT_TS" />
+		<property name="scheduleEnd" type="org.hibernate.type.TimestampType" column="SCHED_END_TS" />
+		<property name="expectedProdPublishDt" type="org.hibernate.type.TimestampType" column="EXPT_PROD_PUBLISH_DT" />
+		<property name="publishId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="PUBLISH_ID" />
+		<property name="publishLocaleList" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LOCALE_LIST_TXT" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.PublishStandardsExtImpl" table="PUBLISH_STD">
+		<cache usage="read-write" />
+		<id name="publishStdId" column="PUBLISH_STD_VER_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="publishId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="PUBLISH_ID" />
+		<property name="stdId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="STD_ID" />
+		<property name="parentPublishId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="PRNT_STD_ID" />
+		<property name="stdTyp" type="com.liferay.portal.dao.orm.hibernate.StringType" column="STD_TYP" />
+		<property name="title" type="com.liferay.portal.dao.orm.hibernate.StringType" column="TITLE_TXT" />
+		<property name="prevPublishTitle" type="com.liferay.portal.dao.orm.hibernate.StringType" column="PREV_PUBLISH_TITLE_TXT" />
+		<property name="description" type="com.liferay.portal.dao.orm.hibernate.StringType" column="STD_DESC" />
+		<property name="prevDescription" type="com.liferay.portal.dao.orm.hibernate.StringType" column="PREV_PUBLISH_STD_DESC" />
+		<property name="author" type="com.liferay.portal.dao.orm.hibernate.StringType" column="AUTHOR_NM_TXT" />
+		<property name="businessOwner" type="com.liferay.portal.dao.orm.hibernate.StringType" column="BUS_OWNER_NM" />
+		<property name="effectiveDate" type="org.hibernate.type.TimestampType" column="EFF_DT" />
+		<property name="implDate" type="org.hibernate.type.TimestampType" column="CMPLY_DT" />
+		<property name="prevCmplyDate" type="org.hibernate.type.TimestampType" column="PREV_CMPLY_DT" />
+		<property name="waiver" type="com.liferay.portal.dao.orm.hibernate.StringType" column="WAIVER_IND" />
+		<property name="status" type="com.liferay.portal.dao.orm.hibernate.StringType" column="STAT_DESC" />
+		<property name="category" type="com.liferay.portal.dao.orm.hibernate.StringType" column="AREA_CATGY_CD" />
+		<property name="createdBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREATOR_SCRN_NM" />
+		<property name="change" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CHNG_DESC" />
+		<property name="isGlobal" type="com.liferay.portal.dao.orm.hibernate.StringType" column="GBL_RGN_IND" />
+		<property name="regionCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="RGN_CD" />
+		<property name="notes" type="com.liferay.portal.dao.orm.hibernate.StringType" column="NOTE_TXT" />
+		<property name="framework" type="com.liferay.portal.dao.orm.hibernate.StringType" column="FRAMEWORK_STD_IND" />
+		<property name="internalReference" type="com.liferay.portal.dao.orm.hibernate.StringType" column="STD_MGR_ID" />
+		<property name="region" type="com.liferay.portal.dao.orm.hibernate.StringType" column="REGION_IDENTIFIER" />
+		<property name="statusIdentifier" type="com.liferay.portal.dao.orm.hibernate.StringType" column="STATUS_IDENTIFIER" />
+		<property name="sortOrder" type="com.liferay.portal.dao.orm.hibernate.LongType" column="DISP_ORDER_NBR" />
+		<property name="localeCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LOCALE_CD" />
+		<property name="taxonomyId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="TAXONOMY_ID" />
+		<property name="prntTaxonomyId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="PRNT_TAXONOMY_ID" />
+		<property name="attachmentExists" type="com.liferay.portal.dao.orm.hibernate.StringType" column="ATTACHMENT_EXISTS" />
+		<property name="attachmentList" type="com.liferay.portal.dao.orm.hibernate.StringType" column="ATTACH_LST" />
+		<property name="linkExists" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LINK_EXISTS" />
+		<property name="linkList" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LINK_LST" />
+		<property name="imageExists" type="com.liferay.portal.dao.orm.hibernate.StringType" column="IMG_EXISTS" />
+		<property name="stdXrefListStdId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="XREF_LST_STD_ID" />
+		<property name="attachmentStatus" type="com.liferay.portal.dao.orm.hibernate.StringType" column="attch_Stat_cd" />
+		<property name="linkStatus" type="com.liferay.portal.dao.orm.hibernate.StringType" column="link_stat_cd" />
+		<property name="imageStatus" type="com.liferay.portal.dao.orm.hibernate.StringType" column="img_stat_cd" />
+		<property name="imageIdList" type="com.liferay.portal.dao.orm.hibernate.StringType" column="IMG_LST_ID" />
+		<property name="indexOrder" type="com.liferay.portal.dao.orm.hibernate.LongType" column="INDEX_ORDER" />
+		<property name="publishTaxonomyId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="PUBLISH_TAXONOMY_ID" />
+		<property name="parentTaxonomyId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="PRNT_PUBLISH_TAXONOMY_ID" />
+		<property name="indexTitle" type="com.liferay.portal.dao.orm.hibernate.StringType" column="INDEX_TITLE" />
+		<property name="indexLvl" type="com.liferay.portal.dao.orm.hibernate.LongType" column="LVL" />
+		<property name="taxonomyPath" type="com.liferay.portal.dao.orm.hibernate.StringType" column="PATH" />
+		<property name="levelSortOrder" type="com.liferay.portal.dao.orm.hibernate.LongType" column="HIER_LVL_NBR" />
+		<property name="indexDescription" type="com.liferay.portal.dao.orm.hibernate.StringType" column="TAXONOMY_DESC" />
+		<property name="matchedId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="matched_Id" />
+		<property name="expiryDate" type="org.hibernate.type.TimestampType" column="EXPR_DT" />
+		<property name="prevExpiryDate" type="org.hibernate.type.TimestampType" column="PREV_EXPR_DT" />
+		<property name="expiredStdId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="EXPIRED_BY_REF" />
+		<property name="flagStdId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="FLAG_ID" />
+		<property name="prevFlagStdId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="PREV_FLAG_ID" />
+		<property name="titleChange" type="com.liferay.portal.dao.orm.hibernate.StringType" column="TITLE_CHANGE" />
+		<property name="cmplyChange" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CMPLY_CHANGE" />
+		<property name="exprChange" type="com.liferay.portal.dao.orm.hibernate.StringType" column="EXPR_CHANGE" />
+		<property name="hlcChange" type="com.liferay.portal.dao.orm.hibernate.StringType" column="HCL_CHANGE" />
+		<property name="changedStatus" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CHANGED_STAT" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.PublishStdImpl" table="PUBLISH_STD">
+		<cache usage="read-write" />
+		<id name="publishStdVerId" column="PUBLISH_STD_VER_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="stdId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="STD_ID" />
+		<property name="parentId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="PRNT_STD_ID" />
+		<property name="stdTyp" type="com.liferay.portal.dao.orm.hibernate.StringType" column="STD_TYP" />
+		<property name="title" type="com.liferay.portal.dao.orm.hibernate.StringType" column="TITLE_TXT" />
+		<property name="description" type="com.liferay.portal.dao.orm.hibernate.StringType" column="STD_DESC" />
+		<property name="author" type="com.liferay.portal.dao.orm.hibernate.StringType" column="AUTHOR_NM_TXT" />
+		<property name="businessOwner" type="com.liferay.portal.dao.orm.hibernate.StringType" column="BUS_OWNER_NM" />
+		<property name="effectiveDate" type="org.hibernate.type.TimestampType" column="EFF_DT" />
+		<property name="implDate" type="org.hibernate.type.TimestampType" column="IMPLMNT_DEADLINE_DT" />
+		<property name="waiver" type="com.liferay.portal.dao.orm.hibernate.StringType" column="WAIVER_IND" />
+		<property name="status" type="com.liferay.portal.dao.orm.hibernate.StringType" column="STAT_DESC" />
+		<property name="category" type="com.liferay.portal.dao.orm.hibernate.StringType" column="AREA_CATGY_CD" />
+		<property name="createdBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREATOR_SCRN_NM" />
+		<property name="change" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CHNG_DESC" />
+		<property name="isGlobal" type="com.liferay.portal.dao.orm.hibernate.StringType" column="GBL_RGN_IND" />
+		<property name="regionCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="RGN_CD" />
+		<property name="notes" type="com.liferay.portal.dao.orm.hibernate.StringType" column="NOTE_TXT" />
+		<property name="framework" type="com.liferay.portal.dao.orm.hibernate.StringType" column="FRAMEWORK_STD_IND" />
+		<property name="internalReference" type="com.liferay.portal.dao.orm.hibernate.StringType" column="STD_MGR_ID" />
+		<property name="orderNumber" type="com.liferay.portal.dao.orm.hibernate.LongType" column="DISP_ORDER_NBR" />
+		<property name="statusIdentifier" type="com.liferay.portal.dao.orm.hibernate.LongType" column="STATUS_IDENTIFIER" />
+		<property name="regionIdentifier" type="com.liferay.portal.dao.orm.hibernate.LongType" column="REGION_IDENTIFIER" />
+		<property name="publishId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="PUBLISH_ID" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.PublishTaxonomyImpl" table="PUBLISH_TAXONOMY">
+		<id name="publishTaxId" column="PUBLISH_TAXONOMY_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="publishId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="PUBLISH_ID" />
+		<property name="taxId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="TAXONOMY_ID" />
+		<property name="publishParentId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="PRNT_PUBLISH_TAXONOMY_ID" />
+		<property name="title" type="com.liferay.portal.dao.orm.hibernate.StringType" column="TITLE_TXT" />
+		<property name="desc" type="com.liferay.portal.dao.orm.hibernate.StringType" column="TAXONOMY_DESC" />
+		<property name="imageLoc" type="com.liferay.portal.dao.orm.hibernate.StringType" column="IMAGE_PATH_TXT" />
+		<property name="createdBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREATOR_SCRN_NM" />
+		<property name="position" type="com.liferay.portal.dao.orm.hibernate.LongType" column="HIER_LVL_NBR" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.PublishTaxonomyExtImpl" table="PUBLISH_TAXONOMY">
+		<cache usage="read-write" />
+		<id name="publishTaxId" column="PUBLISH_TAXONOMY_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="publishParentId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="PRNT_PUBLISH_TAXONOMY_ID" />
+		<property name="title" type="com.liferay.portal.dao.orm.hibernate.StringType" column="TITLE_TXT" />
+		<property name="lvl" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LVL" />
+		<property name="path" type="com.liferay.portal.dao.orm.hibernate.StringType" column="PATH" />
+		<property name="levelSortOrder" type="com.liferay.portal.dao.orm.hibernate.LongType" column="HIER_LVL_NBR" />
+		<property name="publishId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="PUBLISH_ID" />
+		<property name="indexOrder" type="com.liferay.portal.dao.orm.hibernate.LongType" column="INDX_ORDER" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.SpecialWordDictionaryImpl" table="SPCL_WORD_DICTIONARY">
+		<cache usage="read-write" />
+		<id name="specialWordId" column="SPCL_WORD_DICTIONARY_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="replacedWordTxt" type="com.liferay.portal.dao.orm.hibernate.StringType" column="REPLCD_WORD_TXT" />
+		<property name="replacementWordTxt" type="com.liferay.portal.dao.orm.hibernate.StringType" column="REPLCMNT_WORD_TXT" />
+		<property name="localeCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LOCALE_CD" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.SpreadSheetAttributeUpdateImpl" table="SPREADSHEET_ATTR_UPDT">
+		<cache usage="read-write" />
+		<id name="speardSheetId" column="SPREADSHEET_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="requestTitle" type="com.liferay.portal.dao.orm.hibernate.StringType" column="UPDT_RQST_TITLE_TXT" />
+		<property name="status" type="com.liferay.portal.dao.orm.hibernate.StringType" column="UPDT_RQST_STAT_CD" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+		<property name="spreadSheet" type="com.liferay.portal.dao.orm.hibernate.StringType" column="SPREADSHEET_TXT" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.StandardsImpl" table="STD">
+		<cache usage="read-write" />
+		<id name="stdId" column="STD_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="parentId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="PRNT_STD_ID" />
+		<property name="stdTyp" type="com.liferay.portal.dao.orm.hibernate.StringType" column="STD_TYP" />
+		<property name="title" type="com.liferay.portal.dao.orm.hibernate.StringType" column="TITLE_TXT" />
+		<property name="description" type="com.liferay.portal.dao.orm.hibernate.StringType" column="STD_DESC" />
+		<property name="author" type="com.liferay.portal.dao.orm.hibernate.StringType" column="AUTHOR_NM_TXT" />
+		<property name="businessOwner" type="com.liferay.portal.dao.orm.hibernate.StringType" column="BUS_OWNER_NM" />
+		<property name="effectiveDate" type="org.hibernate.type.TimestampType" column="EFF_DT" />
+		<property name="implDate" type="org.hibernate.type.TimestampType" column="IMPLMNT_DEADLINE_DT" />
+		<property name="waiver" type="com.liferay.portal.dao.orm.hibernate.StringType" column="WAIVER_IND" />
+		<property name="status" type="com.liferay.portal.dao.orm.hibernate.StringType" column="STAT_DESC" />
+		<property name="category" type="com.liferay.portal.dao.orm.hibernate.StringType" column="AREA_CATGY_CD" />
+		<property name="createdBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREATOR_SCRN_NM" />
+		<property name="change" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CHNG_DESC" />
+		<property name="isGlobal" type="com.liferay.portal.dao.orm.hibernate.StringType" column="GBL_RGN_IND" />
+		<property name="regionCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="RGN_CD" />
+		<property name="notes" type="com.liferay.portal.dao.orm.hibernate.StringType" column="NOTE_TXT" />
+		<property name="framework" type="com.liferay.portal.dao.orm.hibernate.StringType" column="FRAMEWORK_STD_IND" />
+		<property name="internalReference" type="com.liferay.portal.dao.orm.hibernate.StringType" column="STD_MGR_ID" />
+		<property name="orderNumber" type="com.liferay.portal.dao.orm.hibernate.LongType" column="DISP_ORDER_NBR" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+		<property name="statusId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="STAT_ID" />
+		<property name="regionId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="RGN_ID" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.StandardsAuthorsImpl" table="STD_AUTHOR">
+		<cache usage="read-write" />
+		<id name="stdAuthorId" column="STD_AUTHOR_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="stdId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="std_Id" />
+		<property name="authorName" type="com.liferay.portal.dao.orm.hibernate.StringType" column="AUTHOR_NM" />
+		<property name="isPrimary" type="com.liferay.portal.dao.orm.hibernate.StringType" column="PRIM_IND" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.StandardsChainImagesImpl" table="STD_IMAGE_CHAIN">
+		<cache usage="read-write" />
+		<composite-id name="primaryKey" class="com.ihg.brandstandards.db.service.persistence.StandardsChainImagesPK">
+			<key-property name="stdImageId" column="STD_IMAGE_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+			<key-property name="chainCode" column="CHAIN_CD" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		</composite-id>
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.StandardsComplianceImpl" table="STD_CMPLY">
+		<cache usage="read-write" />
+		<id name="stdComplianceId" column="STD_CMPLY_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="stdId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="STD_ID" />
+		<property name="countryCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CTRY_NM_CD" />
+		<property name="chainCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CHAIN_CD" />
+		<property name="complianceExpiryDate" type="org.hibernate.type.TimestampType" column="CMPLY_EXPR_DT" />
+		<property name="complianceExpiryRule" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CMPLY_EXPR_RULE_CD" />
+		<property name="complianceRuleMonths" type="com.liferay.portal.dao.orm.hibernate.LongType" column="CMPLY_RULE_MO_QTY" />
+		<property name="RuleDate" type="com.liferay.portal.dao.orm.hibernate.StringType" column="RULE_DT_CD" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.StandardsComplianceExtImpl" table="STD_CMPLY">
+		<cache usage="read-write" />
+		<id name="stdComplianceId" column="STD_CMPLY_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="stdId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="STD_ID" />
+		<property name="countryCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CTRY_NM_CD" />
+		<property name="regionCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="RGN_CD" />
+		<property name="chainCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CHAIN_CD" />
+		<property name="complianceExpiryDate" type="org.hibernate.type.TimestampType" column="CMPLY_EXPR_DT" />
+		<property name="complianceExpiryRule" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CMPLY_EXPR_RULE_CD" />
+		<property name="complianceRuleMonths" type="com.liferay.portal.dao.orm.hibernate.LongType" column="CMPLY_RULE_MO_QTY" />
+		<property name="RuleDate" type="com.liferay.portal.dao.orm.hibernate.StringType" column="RULE_DT_CD" />
+		<property name="expiryDate" type="com.liferay.portal.dao.orm.hibernate.StringType" column="EXPR_DT" />
+		<property name="complianceDateString" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CMPLY_DT_STR" />
+		<property name="expiryDateString" type="com.liferay.portal.dao.orm.hibernate.StringType" column="EXPR_DT_STR" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.StandardsCountryImpl" table="BRNDSTND_CTRY">
+		<cache usage="read-write" />
+		<id name="countryNameCode" column="CTRY_NM_CD" type="java.lang.String">
+			<generator class="assigned" />
+		</id>
+		<property name="regionId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="RGN_ID" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.StandardsCountryChainImpl" table="STD_CTRY_CHAIN">
+		<composite-id name="primaryKey" class="com.ihg.brandstandards.db.service.persistence.StandardsCountryChainPK">
+			<key-property name="stdId" column="STD_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+			<key-property name="countryCode" column="CTRY_NM_CD" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+			<key-property name="chainCode" column="CHAIN_CD" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		</composite-id>
+		<property name="regionCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="RGN_CD" />
+		<property name="compDate" type="org.hibernate.type.TimestampType" column="CMPLY_DT" />
+		<property name="exprDate" type="org.hibernate.type.TimestampType" column="EXPR_DT" />
+		<property name="expiredIds" type="com.liferay.portal.dao.orm.hibernate.StringType" column="EXPIRED_BY_REF_TXT" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.StandardsCountryExtImpl" table="BRNDSTND_CTRY">
+		<cache usage="read-write" />
+		<id name="rowNum" column="ROWNUM" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="countryCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CTRY_NM_CD" />
+		<property name="flag" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CTRY_FLAG" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.StandardsCountryImagesImpl" table="STD_IMAGE_CTRY">
+		<cache usage="read-write" />
+		<composite-id name="primaryKey" class="com.ihg.brandstandards.db.service.persistence.StandardsCountryImagesPK">
+			<key-property name="stdImageId" column="STD_IMAGE_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+			<key-property name="countryCode" column="CTRY_NM_CD" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		</composite-id>
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.StandardsCrossReferenceImpl" table="STD_XREF">
+		<cache usage="read-write" />
+		<composite-id name="primaryKey" class="com.ihg.brandstandards.db.service.persistence.StandardsCrossReferencePK">
+			<key-property name="stdId" column="REFERRING_STD_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+			<key-property name="xrefStdId" column="REFERENCED_STD_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+		</composite-id>
+		<property name="dispOrderNumber" type="com.liferay.portal.dao.orm.hibernate.LongType" column="DISP_ORDER_NBR" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.StandardsDisplayOrderImpl" table="STD_DISPLAY_ORDER">
+		<cache usage="read-write" />
+		<composite-id name="primaryKey" class="com.ihg.brandstandards.db.service.persistence.StandardsDisplayOrderPK">
+			<key-property name="stdId" column="STD_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+			<key-property name="regionCode" column="RGN_CD" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+			<key-property name="chainCode" column="CHAIN_CD" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		</composite-id>
+		<property name="displayOrder" type="com.liferay.portal.dao.orm.hibernate.LongType" column="DISP_ORDER_NBR" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.StandardsDisplayOrderExtImpl" table="STD_DISPLAY_ORDER">
+		<cache usage="read-write" />
+		<id name="stdId" column="STD_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="title" type="com.liferay.portal.dao.orm.hibernate.StringType" column="TITLE_TXT" />
+		<property name="isGlobal" type="com.liferay.portal.dao.orm.hibernate.StringType" column="GBL_RGN_IND" />
+		<property name="framework" type="com.liferay.portal.dao.orm.hibernate.StringType" column="FRAMEWORK_STD_IND" />
+		<property name="chainCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CHAIN_CD" />
+		<property name="regionCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="RGN_CD" />
+		<property name="displayOrder" type="com.liferay.portal.dao.orm.hibernate.LongType" column="DISP_ORDER_NBR" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.StandardsExtImpl" table="STD">
+		<cache usage="read-write" />
+		<composite-id name="primaryKey" class="com.ihg.brandstandards.db.service.persistence.StandardsExtPK">
+			<key-property name="stdId" column="STD_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+			<key-property name="auditLogId" column="WORKFLOW_ACTV_LOG_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+			<key-property name="stdManual" column="STD_MANUAL_FLG" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+			<key-property name="stdCorporateDepartment" column="STD_CORP_DEPMNT_FLG" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+			<key-property name="stdBrandCd" column="STD_BRAND_CD" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+			<key-property name="biImpactAssmntId" column="BI_ASSMT_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+			<key-property name="stdCountryCd" column="STD_CTRY_CD" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		</composite-id>
+		<property name="stdPrntId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="STD_PRNT_STD_ID" />
+		<property name="stdOrigStdId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="STD_ORIG_STD_ID" />
+		<property name="stdPubStatCd" type="com.liferay.portal.dao.orm.hibernate.StringType" column="STD_PUBLISH_STAT_CD" />
+		<property name="stdType" type="com.liferay.portal.dao.orm.hibernate.StringType" column="STD_TYP" />
+		<property name="stdTitle" type="com.liferay.portal.dao.orm.hibernate.StringType" column="STD_TITLE_TXT" />
+		<property name="stdDescription" type="com.liferay.portal.dao.orm.hibernate.StringType" column="STD_DESC" />
+		<property name="stdBusinessOwner" type="com.liferay.portal.dao.orm.hibernate.StringType" column="STD_BUS_OWNER_NM" />
+		<property name="stdStatus" type="com.liferay.portal.dao.orm.hibernate.StringType" column="STD_STAT_DESC" />
+		<property name="stdAuthor" type="com.liferay.portal.dao.orm.hibernate.StringType" column="STD_AUTHOR_NM" />
+		<property name="stdCategory" type="com.liferay.portal.dao.orm.hibernate.StringType" column="STD_AREA_CATGY_CD" />
+		<property name="stdGlobal" type="com.liferay.portal.dao.orm.hibernate.StringType" column="STD_GBL_RGN_IND" />
+		<property name="stdRegionCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="STD_RGN_CD" />
+		<property name="stdFramework" type="com.liferay.portal.dao.orm.hibernate.StringType" column="FRAMEWORK_STD_IND" />
+		<property name="stdChange" type="com.liferay.portal.dao.orm.hibernate.StringType" column="STD_CHNG_DESC" />
+		<property name="stdCreatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="STD_CREATOR_SCRN_NM" />
+		<property name="stdUpdatedDate" type="org.hibernate.type.TimestampType" column="STD_LST_UPDT_TS" />
+		<property name="stdImageCount" type="com.liferay.portal.dao.orm.hibernate.LongType" column="STD_IMG_CNT" />
+		<property name="stdImageTitle" type="com.liferay.portal.dao.orm.hibernate.StringType" column="STD_IMG_TITLE" />
+		<property name="stdInternalReference" type="com.liferay.portal.dao.orm.hibernate.StringType" column="STD_MGR_ID" />
+		<property name="stdOrderNumber" type="com.liferay.portal.dao.orm.hibernate.LongType" column="DISP_ORDER_NBR" />
+		<property name="indexId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="INDX_TAXONOMY_ID" />
+		<property name="indexOrigId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="ORIG_INDX_TAXONOMY_ID" />
+		<property name="indexPrntId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="INDX_PRNT_TAXONOMY_ID" />
+		<property name="indexTitle" type="com.liferay.portal.dao.orm.hibernate.StringType" column="INDX_TITLE_TXT" />
+		<property name="indexLevel" type="com.liferay.portal.dao.orm.hibernate.LongType" column="INDX_LEVEL" />
+		<property name="indexLevelSortOrder" type="com.liferay.portal.dao.orm.hibernate.LongType" column="INDX_HIER_LVL_NBR" />
+		<property name="indexPath" type="com.liferay.portal.dao.orm.hibernate.StringType" column="INDX_PATH" />
+		<property name="auditLogComments" type="com.liferay.portal.dao.orm.hibernate.StringType" column="AUDIT_LOG_TXT" />
+		<property name="auditLogTitle" type="com.liferay.portal.dao.orm.hibernate.StringType" column="AUDIT_LOG_TITLE_TXT" />
+		<property name="auditLogDate" type="org.hibernate.type.TimestampType" column="AUDIT_LOG_UPD_TS" />
+		<property name="auditLogStatus" type="com.liferay.portal.dao.orm.hibernate.StringType" column="AUDIT_LOG_CURRENT_STAT_CD" />
+		<property name="auditLogPrevStatus" type="com.liferay.portal.dao.orm.hibernate.StringType" column="AUDIT_LOG_PREV_STAT_CD" />
+		<property name="histManualDesc" type="com.liferay.portal.dao.orm.hibernate.StringType" column="MNL_TITLE" />
+		<property name="secLangIndexTitle" type="com.liferay.portal.dao.orm.hibernate.StringType" column="SEC_LANG_INDX_TITLE" />
+		<property name="secLangIndexDesc" type="com.liferay.portal.dao.orm.hibernate.StringType" column="SEC_LANG_INDX_DESC" />
+		<property name="secLangIndexImgPath" type="com.liferay.portal.dao.orm.hibernate.StringType" column="SEC_LANG_INDX_IMG_PATH" />
+		<property name="secLangStdTitle" type="com.liferay.portal.dao.orm.hibernate.StringType" column="SEC_LANG_STD_TITLE" />
+		<property name="secLangStdDesc" type="com.liferay.portal.dao.orm.hibernate.StringType" column="SEC_LANG_STD_DESC" />
+		<property name="biChangeTypeCd" type="com.liferay.portal.dao.orm.hibernate.StringType" column="BI_CHG_FROM_RGN" />
+		<property name="biRegionCd" type="com.liferay.portal.dao.orm.hibernate.StringType" column="BI_RGN_CD" />
+		<property name="biProfileLossImpactCd" type="com.liferay.portal.dao.orm.hibernate.StringType" column="BI_PROFIT_LOSS_IMPACT_CD" />
+		<property name="biCapExpenseImpactCd" type="com.liferay.portal.dao.orm.hibernate.StringType" column="BI_CAP_EXPENSE_IMPACT_CD" />
+		<property name="biImplTimeScaleCd" type="com.liferay.portal.dao.orm.hibernate.StringType" column="BI_IMPLMNT_TIMESCALE_CD" />
+		<property name="biComments" type="com.liferay.portal.dao.orm.hibernate.StringType" column="BI_DESC" />
+		<property name="biBrandCd" type="com.liferay.portal.dao.orm.hibernate.StringType" column="BI_CHAIN_CD" />
+		<property name="stdCrossReferences" type="com.liferay.portal.dao.orm.hibernate.StringType" column="REFERENCED_STD_ID" />
+		<property name="auditBrand" type="com.liferay.portal.dao.orm.hibernate.StringType" column="AUDIT_BRAND" />
+		<property name="globalRule" type="com.liferay.portal.dao.orm.hibernate.LongType" column="GLBL_RUL" />
+		<property name="ameaRule" type="com.liferay.portal.dao.orm.hibernate.LongType" column="AMEA_RUL" />
+		<property name="amerRule" type="com.liferay.portal.dao.orm.hibernate.LongType" column="AMER_RUL" />
+		<property name="euroRule" type="com.liferay.portal.dao.orm.hibernate.LongType" column="EURO_RUL" />
+		<property name="gcRule" type="com.liferay.portal.dao.orm.hibernate.LongType" column="GC_RUL" />
+		<property name="expires" type="com.liferay.portal.dao.orm.hibernate.StringType" column="EXPIRES" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.StandardsHistoricalManualImpl" table="STD_MNL">
+		<cache usage="read-write" />
+		<id name="stdMnlId" column="STD_MNL_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="stdId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="STD_ID" />
+		<property name="histManualId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="HST_MNL_ID" />
+		<property name="change" type="com.liferay.portal.dao.orm.hibernate.StringType" column="MNL_CHNG_DESC" />
+		<property name="title" type="com.liferay.portal.dao.orm.hibernate.StringType" column="STD_MNL_TITLE" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREATE_BY" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREATE_DATE" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LAST_UPD_BY" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LAST_UPD_DATE" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.StandardsImagesImpl" table="STD_IMAGE">
+		<cache usage="read-write" />
+		<id name="stdImageId" column="STD_IMAGE_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="parentImageId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="PRNT_STD_IMAGE_ID" />
+		<property name="imageId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="IMAGE_ID" />
+		<property name="stdId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="STD_ID" />
+		<property name="localeCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LOCALE_CD" />
+		<property name="imageTitle" type="com.liferay.portal.dao.orm.hibernate.StringType" column="IMAGE_TITLE_TXT" />
+		<property name="imageSortOrder" type="com.liferay.portal.dao.orm.hibernate.LongType" column="SORT_ORDER_NBR" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.StandardsLocaleImpl" table="BRNDSTND_LOCALE">
+		<cache usage="read-write" />
+		<id name="localeCode" column="LOCALE_CD" type="java.lang.String">
+			<generator class="assigned" />
+		</id>
+		<property name="countryCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CTRY_CD" />
+		<property name="localeName" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LOCALE_NM" />
+		<property name="languageCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LANG_CD" />
+		<property name="orderNumber" type="com.liferay.portal.dao.orm.hibernate.LongType" column="DISP_ORDER_NBR" />
+		<property name="isActive" type="com.liferay.portal.dao.orm.hibernate.StringType" column="ACTV_IND" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.StandardsRegionImpl" table="BRNDSTND_RGN">
+		<cache usage="read-write" />
+		<id name="regionId" column="RGN_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="regionCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="RGN_CD" />
+		<property name="regionType" type="com.liferay.portal.dao.orm.hibernate.StringType" column="RGN_TYP_CD" />
+		<property name="regionName" type="com.liferay.portal.dao.orm.hibernate.StringType" column="RGN_NM" />
+		<property name="isActive" type="com.liferay.portal.dao.orm.hibernate.StringType" column="ACTV_IND" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.StandardsRegionChainImpl" table="STD_RGN_CHAIN">
+		<cache usage="read-write" />
+		<composite-id name="primaryKey" class="com.ihg.brandstandards.db.service.persistence.StandardsRegionChainPK">
+			<key-property name="stdId" column="STD_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+			<key-property name="regionCode" column="RGN_CD" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+			<key-property name="chainCode" column="CHAIN_CD" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		</composite-id>
+		<property name="compDate" type="org.hibernate.type.TimestampType" column="CMPLY_DT" />
+		<property name="expiredIds" type="com.liferay.portal.dao.orm.hibernate.StringType" column="EXPIRED_BY_REF_TXT" />
+		<property name="complianceRule" type="com.liferay.portal.dao.orm.hibernate.LongType" column="CMPLY_RULE_MO_NBR" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.StandardsRegionLocaleImpl" table="BRNDSTND_RGN_LOCALE">
+		<cache usage="read-write" />
+		<composite-id name="primaryKey" class="com.ihg.brandstandards.db.service.persistence.StandardsRegionLocalePK">
+			<key-property name="regionId" column="RGN_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+			<key-property name="localeCode" column="LOCALE_CD" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		</composite-id>
+		<property name="isDefault" type="com.liferay.portal.dao.orm.hibernate.StringType" column="DFLT_LANG_IND" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.StandardsStatusImpl" table="STAT">
+		<cache usage="read-write" />
+		<id name="statusId" column="STAT_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="statusCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="STAT_CD" />
+		<property name="title" type="com.liferay.portal.dao.orm.hibernate.StringType" column="STAT_TITLE_TXT" />
+		<property name="regionId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="RGN_ID" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.StandardsTranslateImpl" table="STD_XLAT">
+		<cache usage="read-write" />
+		<composite-id name="primaryKey" class="com.ihg.brandstandards.db.service.persistence.StandardsTranslatePK">
+			<key-property name="stdId" column="STD_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+			<key-property name="localeCode" column="LOCALE_CD" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		</composite-id>
+		<property name="title" type="com.liferay.portal.dao.orm.hibernate.StringType" column="TITLE_TXT" />
+		<property name="description" type="com.liferay.portal.dao.orm.hibernate.StringType" column="STD_DESC" />
+		<property name="note" type="com.liferay.portal.dao.orm.hibernate.StringType" column="NOTE_TXT" />
+		<property name="comment" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CMT_TXT" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+		<property name="isValidTxt" type="com.liferay.portal.dao.orm.hibernate.StringType" column="TITLE_TXT_VLD_IND" />
+		<property name="isValidCntxt" type="com.liferay.portal.dao.orm.hibernate.StringType" column="STD_DESC_VLD_IND" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.TaxonomyImpl" table="Taxonomy">
+		<id name="taxId" column="TAXONOMY_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="parentId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="PRNT_TAXONOMY_ID" />
+		<property name="title" type="com.liferay.portal.dao.orm.hibernate.StringType" column="TITLE_TXT" />
+		<property name="desc" type="com.liferay.portal.dao.orm.hibernate.StringType" column="TAXONOMY_DESC" />
+		<property name="imageLoc" type="com.liferay.portal.dao.orm.hibernate.StringType" column="IMAGE_PATH_TXT" />
+		<property name="createdBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREATOR_SCRN_NM" />
+		<property name="position" type="com.liferay.portal.dao.orm.hibernate.LongType" column="HIER_LVL_NBR" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.TaxonomyExtImpl" table="Taxonomy">
+		<cache usage="read-write" />
+		<id name="taxId" column="TAXONOMY_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="parentId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="PRNT_TAXONOMY_ID" />
+		<property name="title" type="com.liferay.portal.dao.orm.hibernate.StringType" column="TITLE_TXT" />
+		<property name="desc" type="com.liferay.portal.dao.orm.hibernate.StringType" column="TAXONOMY_DESC" />
+		<property name="imageLoc" type="com.liferay.portal.dao.orm.hibernate.StringType" column="IMAGE_PATH_TXT" />
+		<property name="lvl" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LVL" />
+		<property name="path" type="com.liferay.portal.dao.orm.hibernate.StringType" column="PATH" />
+		<property name="levelSortOrder" type="com.liferay.portal.dao.orm.hibernate.LongType" column="HIER_LVL_NBR" />
+		<property name="indexOrder" type="com.liferay.portal.dao.orm.hibernate.LongType" column="INDX_ORDER" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.TaxonomyStandardsImpl" table="TAXONOMY_STD">
+		<cache usage="read-write" />
+		<id name="stdId" column="STD_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="taxId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="TAXONOMY_ID" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.TaxonomyTranslateImpl" table="TAXONOMY_XLAT">
+		<cache usage="read-write" />
+		<composite-id name="primaryKey" class="com.ihg.brandstandards.db.service.persistence.TaxonomyTranslatePK">
+			<key-property name="taxId" column="TAXONOMY_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+			<key-property name="localeCode" column="LOCALE_CD" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		</composite-id>
+		<property name="title" type="com.liferay.portal.dao.orm.hibernate.StringType" column="TITLE_TXT" />
+		<property name="desc" type="com.liferay.portal.dao.orm.hibernate.StringType" column="TAXONOMY_DESC" />
+		<property name="imageLoc" type="com.liferay.portal.dao.orm.hibernate.StringType" column="IMAGE_PATH_TXT" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.TreeXMLImpl" table="XML">
+		<id name="ID" column="XML_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="XMLLOB" type="com.liferay.portal.dao.orm.hibernate.StringType" column="XML_CLOB" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.UIElementImpl" table="UI_ELEM">
+		<cache usage="read-write" />
+		<id name="elementId" column="UI_ELEM_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="elementKey" type="com.liferay.portal.dao.orm.hibernate.StringType" column="UI_ELEM_KEY" />
+		<property name="moduleName" type="com.liferay.portal.dao.orm.hibernate.StringType" column="TGT_MODULE_NM" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.UIElementTranslateImpl" table="UI_ELEM_XLAT">
+		<cache usage="read-write" />
+		<composite-id name="primaryKey" class="com.ihg.brandstandards.db.service.persistence.UIElementTranslatePK">
+			<key-property name="elementId" column="UI_ELEM_ID" type="com.liferay.portal.dao.orm.hibernate.LongType" />
+			<key-property name="localeCode" column="LOCALE_CD" type="com.liferay.portal.dao.orm.hibernate.StringType" />
+		</composite-id>
+		<property name="elementValue" type="com.liferay.portal.dao.orm.hibernate.StringType" column="ELEM_VAL" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.UniqueGroupImpl" table="UNIQUE_GRP">
+		<cache usage="read-write" />
+		<id name="uniqueGroupId" column="UNIQUE_GRP_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="publishId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="PUBLISH_ID" />
+		<property name="groupName" type="com.liferay.portal.dao.orm.hibernate.StringType" column="GRP_NM" />
+		<property name="regionId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="RGN_ID" />
+		<property name="groupType" type="com.liferay.portal.dao.orm.hibernate.StringType" column="UNIQUE_GRP_TYP_CD" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.UniqueGroupCountryImpl" table="UNIQUE_GRP_CTRY">
+		<cache usage="read-write" />
+		<id name="groupCountryId" column="UNIQUE_GRP_CTRY_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="uniqueGroupId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="UNIQUE_GRP_ID" />
+		<property name="countryCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CTRY_NM_CD" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.UniqueGroupStandardImpl" table="UNIQUE_GRP_STD">
+		<cache usage="read-write" />
+		<id name="groupStandardId" column="UNIQUE_GRP_STD_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="groupId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="UNIQUE_GRP_ID" />
+		<property name="stdId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="STD_ID" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.UserPreferenceImpl" table="USR_PREF">
+		<id name="preferenceId" column="PREF_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="userId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="USR_ID" />
+		<property name="langCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LOCALE_CD" />
+		<property name="pdfLangCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="PDF_LOCALE_CD" />
+		<property name="buildType" type="com.liferay.portal.dao.orm.hibernate.StringType" column="BUILD_TYP" />
+		<property name="chainCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CHAIN_CD" />
+		<property name="reportType" type="com.liferay.portal.dao.orm.hibernate.StringType" column="RPT_TYP" />
+		<property name="paperSize" type="com.liferay.portal.dao.orm.hibernate.StringType" column="RPT_PAPER_SIZE" />
+		<property name="itemsPerPage" type="com.liferay.portal.dao.orm.hibernate.StringType" column="ITEMS_PER_PAGE" />
+		<property name="infoDisplay" type="com.liferay.portal.dao.orm.hibernate.StringType" column="INFO_DISP" />
+		<property name="CountryCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CTRY_NM_CD" />
+		<property name="unsubscribeEmail" type="com.liferay.portal.dao.orm.hibernate.StringType" column="UNSUBSCRIBE_CMT_EML" />
+		<property name="moduleName" type="com.liferay.portal.dao.orm.hibernate.StringType" column="MODULE_NM" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.UserSearchCriteriaImpl" table="USR_SEARCH_CRIT">
+		<cache usage="read-write" />
+		<id name="userSearchId" column="USR_SEARCH_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="searchName" type="com.liferay.portal.dao.orm.hibernate.StringType" column="SEARCH_NM" />
+		<property name="searchCriteria" type="com.liferay.portal.dao.orm.hibernate.StringType" column="SEARCH_CRIT" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+		<property name="moduleName" type="com.liferay.portal.dao.orm.hibernate.StringType" column="MODULE_NM" />
+	</class>
+	<class name="com.ihg.brandstandards.db.model.impl.WorkflowImpl" table="WORKFLOW_ACTV_LOG">
+		<cache usage="read-write" />
+		<id name="workflowActvtId" column="WORKFLOW_ACTV_LOG_ID" type="long">
+			<generator class="assigned" />
+		</id>
+		<property name="objectId" type="com.liferay.portal.dao.orm.hibernate.LongType" column="OBJECT_ID" />
+		<property name="objectType" type="com.liferay.portal.dao.orm.hibernate.StringType" column="OBJECT_TYP" />
+		<property name="status" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CURRENT_STAT_CD" />
+		<property name="prevStatus" type="com.liferay.portal.dao.orm.hibernate.StringType" column="PREV_STAT_CD" />
+		<property name="title" type="com.liferay.portal.dao.orm.hibernate.StringType" column="TITLE_TXT" />
+		<property name="comment" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CMT_TXT" />
+		<property name="createdBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="USR_SCRN_NM" />
+		<property name="chainCode" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CHAIN_CD" />
+		<property name="creatorId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdDate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="updatedBy" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedDate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+</hibernate-mapping>

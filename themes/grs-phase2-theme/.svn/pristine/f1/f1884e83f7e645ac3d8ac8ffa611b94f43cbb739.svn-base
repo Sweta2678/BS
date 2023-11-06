@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE look-and-feel PUBLIC "-//Liferay//DTD Look and Feel 6.2.0//EN" "http://www.liferay.com/dtd/liferay-look-and-feel_6_2_0.dtd">
+
+<look-and-feel>
+	<compatibility>
+		<version>6.2.10+</version>
+	</compatibility>
+	<theme id="grs" name="grs">
+		<settings>
+			<setting configurable="true" key="portlet-setup-show-borders-default" value="false" />
+			<setting configurable="true" key="about-page-url" value="/web/grs-communications/about"/>
+			<setting configurable="true" key="change-network-page-url" value="/web/grs-change-network/home"/>
+			<setting configurable="true" key="implementation-page-url" value="/web/grs-implementation/home"/>
+			<setting configurable="true" key="roadmap-page-url" value="/web/grs-communications/roadmap"/>
+			<setting configurable="true" key="calendar-page-url" value="/web/grs-communications/calendar"/>
+			<setting configurable="true" key="blog-page-url" value="/web/grs-communications/blog"/>
+			<setting configurable="true" key="article-landing-page-url" value="/web/grs-communications/articles"/>
+			<setting configurable="true" key="discussion-landing-page-url" value="/web/grs-communications/discussions"/>
+			<setting configurable="true" key="asset-library-page-url" value="/web/grs-communications/document-repository"/>
+			<setting configurable="true" key="glossary-page-url" value="/web/grs-communications/terminology"/>
+			<setting configurable="true" key="training-page-url" value="/web/grs-communications/training"/>
+			<setting configurable="true" key="faq-page-url" value="/web/grs-communications/faq"/>
+			<setting configurable="true" key="feedback-page-url" value="/web/grs-communications/feedback"/>		
+		</settings>
+	</theme>
+
+</look-and-feel>

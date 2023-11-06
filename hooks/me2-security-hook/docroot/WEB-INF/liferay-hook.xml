@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hook PUBLIC "-//Liferay//DTD Hook 6.2.0//EN" "http://www.liferay.com/dtd/liferay-hook_6_2_0.dtd">
+
+<hook>
+	<!-- Reading the Bookmark Key & Values  -->
+   	<portal-properties>content/IHG_Keys_Bookmark.properties</portal-properties>
+   
+    <!-- Bookmark Service Wraper Class  -->
+	<service>
+		<service-type>com.liferay.portlet.bookmarks.service.BookmarksEntryLocalService</service-type>
+		<service-impl>com.ihg.portlet.bookmarks.CustomBookmarksEntryLocalServiceImpl</service-impl>
+	</service>
+	<service>
+		<service-type>com.liferay.portlet.documentlibrary.service.DLAppLocalService</service-type>
+		<service-impl>com.ihg.portlet.security.document.CustomDLAppLocalServiceImpl</service-impl>
+	</service>
+	<service>
+		<service-type>com.liferay.portal.service.GroupLocalService</service-type>
+		<service-impl>com.ihg.portlet.security.community.CustomGroupLocalServiceImpl</service-impl>
+	</service>
+	
+	<!--  I am Writing Strut-->  
+	<struts-action>
+    	<struts-action-path>/document_library/edit_file_entry</struts-action-path>
+    	<struts-action-impl>
+    		com.ihg.portlet.security.document.CustomDocumentStrut
+    	</struts-action-impl>
+	</struts-action>
+	<!-- End I am Writing Strut -->
+</hook>

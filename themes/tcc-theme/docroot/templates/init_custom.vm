@@ -1,0 +1,56 @@
+#*
+This file allows you to override and define new Velocity variables.
+*#
+#set ($ihgSiteMainURL = $theme_settings.getProperty("ihg-site-main-url"))
+#set ($ihgNewsAndReleaseSiteURL = $theme_settings.getProperty("ihg-news-and-release-site-url"))
+#set ($siteHomePageURL = $theme_settings.getProperty("site-home-page-url"))
+#set ($ihgRewardClubExternalUrl = $theme_settings.getProperty("ihg-reward-club-external-url"))
+#set ($ihgChangePasswordUrl = 'https://login-qa.ihg.com/forms/iam/smpwservices.fcc?SMAUTHREASON=34&SMAGENTNAME=adciamssoq1-login&TARGET=https://login-qa.ihg.com/forms/iam/pwchange_success.html')
+
+#set($roleLocalService = $serviceLocator.findService("com.liferay.portal.service.RoleLocalService"))
+#set($userGroupRoleLocalService= $serviceLocator.findService("com.liferay.portal.service.UserGroupRoleLocalService"))
+#set($role_u1 = $roleLocalService.getRole($company_id, "Global Content Admin"))
+#set($corporateUserRole = $roleLocalService.getRole($company_id, "User Type Corporate Only"))
+#set($role_u4 = $roleLocalService.getRole($company_id, "Administrator"))
+#set($role_u1_id = $role_u1.getRoleId())
+#set($corporateUserRoleId = $corporateUserRole.getRoleId())
+#set($role_u4_id = $role_u4.getRoleId())
+#set ($user_role_ids = $user.getRoleIds())
+#set ($hasRole = false)
+#set ($hasSignatureRole = false)
+#set ($hasVirtuosoRole = false)
+#if($is_signed_in)
+	#foreach($user_role_id in $user_role_ids)
+	    #if($user_role_id == $role_u1_id || $user_role_id == $role_u4_id || $user_role_id == $corporateUserRoleId)
+	        #set($hasRole = true)
+	    #end
+	#end
+#end
+
+#if(!$hasRole && $is_signed_in)
+    #set($ugUsrRoles = $userGroupRoleLocalService.getUserGroupRoles($user.getUserId(),$group_id))
+	#foreach($ugUsrRole in $ugUsrRoles)
+	    #if($ugUsrRole.getRole().getName() == "TCC_SIGNATURE")
+			#set ($hasSignatureRole = true)
+		#elseif($ugUsrRole.getRole().getName() == "TCC_VIRTUOSO")
+			#set ($hasVirtuosoRole = true)
+		#elseif($ugUsrRole.getRole().getName() == "IHG Content Publisher" || $ugUsrRole.getRole().getName() == "IHG Super Content Publisher")
+			 #set($hasRole = true)
+		#end
+	#end
+#end
+
+#if(!$hasRole && $is_signed_in)
+   #set($contentPublisher = $roleLocalService.getRole($company_id, "IHG Content Publisher"))
+   #set($superContentPublisher = $roleLocalService.getRole($company_id, "IHG Super Content Publisher"))
+   #set($hasUserIHGContentPublisherGroupRole = $userGroupRoleLocalService.hasUserGroupRole($user.getUserId(),$group_id,$contentPublisher.getRoleId()))
+   #set($hasUserIHGSuperContentPublisherGroupRole = $userGroupRoleLocalService.hasUserGroupRole($user.getUserId(),$group_id,$superContentPublisher.getRoleId()))
+   #if(!$hasUserIHGContentPublisherGroupRole && $hasUserIHGSuperContentPublisherGroupRole)
+   	 #set($hasRole = true)
+   #end
+#end
+
+#if($hasRole && $is_signed_in)
+    #set ($hasSignatureRole = true)
+    #set ($hasVirtuosoRole = true)
+#end

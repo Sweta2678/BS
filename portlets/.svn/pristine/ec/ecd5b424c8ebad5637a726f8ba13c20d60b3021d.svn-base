@@ -1,0 +1,25 @@
+name=BSHotel
+module-group-id=liferay
+module-incremental-version=1
+tags=
+short-description=
+change-log=
+page-url=http://www.liferay.com
+author=Liferay, Inc.
+licenses=EE
+portal-dependency-jars=\
+    jstl-api.jar,\
+    jstl-impl.jar,\
+    dom4j.jar,\
+    commons-lang.jar,\
+    commons-codec.jar,\
+    spring-context.jar,\
+    spring-beans.jar,\
+    spring-asm.jar,\
+    spring-core.jar,\
+    spring-expression.jar
+portal-dependency-tlds=\
+    c.tld,\
+    liferay-portlet.tld
+long-description=
+liferay-versions=6.2.10+

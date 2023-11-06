@@ -1,0 +1,41 @@
+.aui {
+.cross_note {
+    color: #000000;
+    display: inline-block;
+    font-style: italic;
+    padding-left: 30px;
+}
+.cross_headers {
+    color: #878787;
+    margin: 20px 0 0;
+    padding: 0;
+}
+.cross_search_items {
+    background-color: #F7F7F7;
+    border: 1px solid #CCCCCC;
+    padding: 20px;
+    width: 800px;
+}
+#cross_search_add,#addButton {
+    cursor: pointer;
+    float: right;
+    margin-right: 5px;
+}
+.cross_order {
+    border: 1px solid #CCCCCC;
+    width: 840px;
+}
+.cross_order tr.cross_order_header th {
+    background-color: #959595;
+    border: medium none;
+    font-weight: bold;
+}
+.cross_order tr td {
+    border: 1px solid #CCCCCC;
+    padding: 5px;
+}
+.delete_cross_item {
+    display: block;
+    text-align: center;
+}
+}

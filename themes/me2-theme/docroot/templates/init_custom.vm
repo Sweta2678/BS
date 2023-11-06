@@ -1,0 +1,57 @@
+#*
+This file allows you to override and define new Velocity variables.
+*#
+
+#set ($startTime = $dateTool.getSystemTime())
+
+#set ($logFactory = $portal.getClass().forName('com.liferay.portal.kernel.log.LogFactoryUtil'))
+#set ($log = $logFactory.getLog('Me2-Theme'))
+
+#set ($isIHGAdmin=false)
+#foreach ($role in $user.getRoles())
+      #if ($role.getName() == "IHG Admin")
+            #set ($isIHGAdmin=true)
+      #end
+#end
+
+#set ($expandoValueLocalService = $serviceLocator.findService("com.liferay.portlet.expando.service.ExpandoValueLocalService"))
+#set ($userType = $expandoValueLocalService.getData($company_id,"com.liferay.portal.model.User","CUSTOM_FIELDS","User Type",$user_id))
+
+#* Analytics portlet is included two times, one from init_custom and other from portal_normal.vm. So commented below call *#
+#*set($instanceId = 'd4Go')*#
+#*set ($welcome_portlet_id='me2analytics_WAR_me2analyticsportlet_INSTANCE_${instanceId}')*#
+#*$theme.runtime($welcome_portlet_id)*#
+
+#set ($merlinSession = $portal.getClass().forName("com.ihg.me2.utils.session.MerlinSession"))
+
+#if ((! $merlinSession) && ("$!merlinSession" == ""))
+
+	#set ($seesionMgtType = $merlinSession.get($theme_display.getUser().getScreenName(), "MGTTYP"))
+	#set ($seesionUserType = $merlinSession.get($theme_display.getUser().getScreenName(), "USRTYP"))
+	
+#end
+
+#set ($analyticsId = $propsUtil.get("ihg.merlin.newsroom.google.analytics.id"))
+
+#set ($assetEntryService = $serviceLocator.findService("com.liferay.portlet.asset.service.AssetEntryLocalService"))
+#set ($assetEntry =$assetEntryService.getEntry("com.liferay.portal.model.Group", $layout.getGroup().getGroupId()))
+#set ($isTeamspaceTagged = $assetEntry.getTagNames().contains("teamspace"))
+#set ($isInitiativeTagged = $assetEntry.getTagNames().contains("initiative"))
+#set ($isConferenceTagged = $assetEntry.getTagNames().contains("conference"))
+#set ($isBlogTagged = $assetEntry.getTagNames().contains("blog"))
+#set ($isDepartmentType = "false")
+#set ($isAboutIHGType = "false")
+#set ($isOurTravel = "false")
+#set ($showResourcesAndLinksPopup = "true")
+#set ($isOurRoom = "false")
+
+#set ($organizationLocalService = $serviceLocator.findService("com.liferay.portal.service.OrganizationLocalService"))
+#set ($ourPeopleOrganizationName = "Our People")
+#set ($aboutIHGOrganizationName = "About IHG")
+
+#set ($userPreferredName = $expandoValueLocalService.getData($company_id,"com.liferay.portal.model.User","CUSTOM_FIELDS","Preferred Name",$user_id))
+#if ($userPreferredName && $userPreferredName!="")
+	#set ($userPreferredName = $userPreferredName + " " + $user.getLastName())
+#else
+	#set ($userPreferredName = $user.getFirstName() + " " + $user.getLastName())
+#end

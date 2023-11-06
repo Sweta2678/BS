@@ -1,0 +1,52 @@
+@charset "utf-8";
+.aui {
+/** UI Element Portlet CSS - START */
+.search_left_panel, .search_right_panel {
+	float: left;
+	width: 49%;
+}
+.usedinmultis {
+	width: 220px !important;
+}
+.ui-multiselect, .multis {
+	width: 220px !important;
+}
+#ExportElementModal button.ui-multiselect {
+	width: 220px !important;
+}
+button.ui-multiselect {
+	width: 220px !important;
+}
+.uielem_btn {
+	float: right !important;
+	margin: 3px 5px 0;
+}
+.wrap_field {
+	display: block;
+	float: left;
+	height: auto;
+	overflow: hidden;
+	word-wrap: break-word;
+ //width:100px;
+}
+select#searchLanguage, select#secondLanguage {
+	width: 190px;
+}
+#uielement span.wrapper_span {
+	display: block;
+	font-size: 12px;
+	float: left;
+	width: 200px;
+	text-align: right;
+	padding: 5px 20px 0 0;
+}
+.uiElementImportPopup {
+	height: auto !important;
+	width: auto !important;
+}
+.uiElementImportPopup-content .modal-body{
+	height: auto !important;
+	width: auto !important;
+}
+/** UI Element Portlet CSS - END */
+}

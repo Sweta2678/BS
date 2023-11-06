@@ -1,0 +1,49 @@
+.aui .help_icon {
+	*display: inline-block;
+	padding-left: 5px; 
+}
+.aui .tooltip {
+	cursor: pointer;
+	position: relative;
+	color: #fff;
+	display: inline;
+	opacity: 1;
+	z-index: 0; 
+}
+.aui .tooltip span {
+	margin-left: -999999px;
+	position: absolute;
+	*text-decoration: none; 
+}
+.aui .tooltip:hover span {
+	border-radius: 5px 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+	-webkit-box-shadow: 3px 3px rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: 3px 3px rgba(0, 0, 0, 0.1);
+	font-family:Arial, sans-serif;
+	position: absolute;
+	/* position: relative; */
+	left: 1.75em;
+	xbottom: 1em;
+	z-index: 1110;
+	margin-left: 0;
+	/* width: 250px; */
+	text-align: left;
+	padding: 5px;
+	font-size: 12px;
+	color: #fff;
+	background-color: #7ea8d5;
+	border-color: #5e8ab9;
+	width: 200px;
+	*text-decoration: none; 
+}
+.aui .help_icon.tooltip {position: static;}
+.aui .help_icon.tooltip:hover span {left: auto;}
+.aui .classic {
+	padding: 0.8em 1em;
+	background: #FFFFAA;
+	border: 1px solid #FFAD33;
+	*text-decoration: none; 
+}

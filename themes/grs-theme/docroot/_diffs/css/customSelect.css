@@ -1,0 +1,44 @@
+
+a.ui-selectmenu {
+    background-color: #fff;
+    color: #666;
+    border-radius: 3px;
+    padding: 3px 10px;
+    position: relative;
+    border: 0;
+    border: 1px solid #666;
+    text-align: left;
+    font-size: 18px;
+    height: 30px;
+	}
+	.ui-selectmenu-menu li a, .ui-selectmenu-status{
+	line-height: 1.5em !important;
+	}
+a.ui-selectmenu:focus,
+a.ui-selectmenu.focus,
+a.ui-selectmenu:hover,
+a.ui-state-active {
+	text-decoration:none;
+	}
+ a.ui-selectmenu span.ui-selectmenu-icon {
+	background: url(/amea-comm-theme/images/selectboxArrow.png) no-repeat;
+    width: 13px;
+    height: 9px;
+	}
+.ui-selectmenu { display: block; position:relative; height:2em; text-decoration: none; overflow:hidden;cursor:pointer; }
+.ui-selectmenu-icon { position:absolute; right:7px; margin-top:-2px; top:16px;width:10px;height:6px; }
+#global-feedback-button .ui-selectmenu-icon{margin-top:0}
+
+.ui-selectmenu { display: block; position:relative; height:2em; text-decoration: none; overflow:hidden;cursor:pointer; }
+ul.ui-selectmenu-menu { padding:0; margin:0; list-style:none; position:absolute; top: 0; visibility: hidden; overflow: auto;border-radius:10px;border:1px solid #d6d6d6;background-color:#fff; margin-top: 8px; z-index: 1000; border-radius: 0px;
+    padding: 0 6px;}
+ul#global-feedback-menu.ui-selectmenu-menu {margin-top:5px;border-radius:10px}
+ul.ui-selectmenu-open { visibility: visible; }
+.ui-selectmenu-menu li { padding:0; margin:0; display: block;padding:0 3px;font-size:13px;background-color:#fff }
+.ui-selectmenu-menu li:hover{background-color:#fff}
+.ui-selectmenu-menu li a,.ui-selectmenu-status {line-height: 1.5em; letter-spacing: -0.3px; display:block;  outline:none; text-decoration:none;font-size:18px; padding-left: 10px;}
+.ui-selectmenu-menu li a{color:#666 !important;font-weight:normal}
+ul.ui-selectmenu-menu .ui-state-hover{border:0}
+
+
+

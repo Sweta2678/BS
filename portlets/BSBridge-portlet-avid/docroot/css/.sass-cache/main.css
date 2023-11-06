@@ -1,0 +1,12 @@
+label.error {
+  color: red;
+  font-size: 0.8em;
+  margin-left: 0.5em; }
+
+.aui .btn-primary-DB, .aui .btn-primary-DB:focus, .aui .btn-primary-DB:hover {
+  background-color: #235ba3;
+  background-image: linear-gradient(to bottom, #3a75c4, #003571); }
+
+.aui table.specs.must-publish-list tbody tr td.align-center {
+  width: 202px; }
+

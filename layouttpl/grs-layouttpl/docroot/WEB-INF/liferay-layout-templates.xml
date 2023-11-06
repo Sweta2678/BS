@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE layout-templates PUBLIC "-//Liferay//DTD Layout Templates 6.2.0//EN" "http://www.liferay.com/dtd/liferay-layout-templates_6_2_0.dtd">
+
+<layout-templates>
+	<custom>
+		<layout-template id="grs" name="GRS Home Layout">
+			<template-path>/grs.tpl</template-path>
+			<wap-template-path>/grs.wap.tpl</wap-template-path>
+			<thumbnail-path>/grs.png</thumbnail-path>
+		</layout-template>
+		<layout-template id="grs_70_30" name="grs_70_30">
+			<template-path>/grs_70_30.tpl</template-path>
+			<wap-template-path>/grs_70_30.wap.tpl</wap-template-path>
+			<thumbnail-path>/grs_70_30.png</thumbnail-path>
+		</layout-template>
+		<layout-template id="grs_100_80_20" name="grs_100_80_20">
+			<template-path>/grs_100_80_20.tpl</template-path>
+			<wap-template-path>
+				/grs_100_80_20.wap.tpl
+			</wap-template-path>
+			<thumbnail-path>/grs_100_80_20.png</thumbnail-path>
+		</layout-template>
+		<layout-template id="grs1005050" name="grs_100_50_50">
+			<template-path>/grs1005050.tpl</template-path>
+			<wap-template-path>/grs1005050.wap.tpl</wap-template-path>
+			<thumbnail-path>/grs1005050.png</thumbnail-path>
+		</layout-template>
+		<layout-template id="grs_100" name="grs_100">
+			<template-path>/grs_100.tpl</template-path>
+			<wap-template-path>
+				/grs_100.wap.tpl
+			</wap-template-path>
+			<thumbnail-path>/grs_100.png</thumbnail-path>
+		</layout-template>
+	</custom>
+</layout-templates>

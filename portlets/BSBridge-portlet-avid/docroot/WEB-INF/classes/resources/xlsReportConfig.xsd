@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="reports" type="reportList"/>
+  <xs:complexType name="reportList">
+    <xs:sequence>
+      <xs:element ref="report" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="report" type="reportConfig"/>
+  <xs:complexType name="reportConfig">
+    <xs:sequence>
+      <xs:element ref="index" minOccurs="1"/>
+      <xs:element ref="record" minOccurs="1"/>
+      <xs:element name="selectClause" type="xs:string" minOccurs="0"/>
+      <xs:element name="table" type="xs:string" minOccurs="0"/>
+      <xs:element name="whereClause" type="xs:string" minOccurs="0"/>
+      <xs:element name="secLanguage" type="xs:string"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="name" type="xs:string" use="required"/>
+    <xs:attribute name="active" type="xs:boolean" use="required"/>
+    <xs:attribute name="feature" type="xs:string" default="StandardAdmin"/>
+    <xs:attribute name="qualifier" type="xs:string"/>
+    <xs:attribute name="requireSecondLang" type="xs:boolean" default="false"/>
+    <xs:attribute name="report_type" type="xs:string"/>
+  </xs:complexType>
+  
+  <xs:element name="index" type="indexConfig"/>
+  <xs:complexType name="indexConfig">
+    <xs:sequence>
+      <xs:element ref="field" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:element name="record" type="recordConfig"/>
+  <xs:complexType name="recordConfig">
+    <xs:sequence>
+      <xs:element ref="field" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="records_on_row_for_same_index" type="xs:int" default="1"/>
+    <xs:attribute name="filter_out" type="xs:string"/>
+    <xs:attribute name="record_type" type="xs:string"/>
+  </xs:complexType>
+
+  <xs:element name="field" type="fieldMapping"/>
+  <xs:complexType name="fieldMapping">
+    <xs:attribute name="xls_column_name" type="xs:string" use="required"/>
+    <xs:attribute name="xls_column_width" type="xs:int" use="required"/>
+    <xs:attribute name="class_field_name" type="xs:string" use="required"/>
+    <xs:attribute name="return_entries" type="xs:string"/>
+    <xs:attribute name="default_value_from" type="xs:string"/>
+    <xs:attribute name="field_type" type="xs:string"/>
+    <xs:attribute name="value" type="xs:long"/>
+    <xs:attribute name="show_translation" type="xs:boolean" default="false"/>
+  </xs:complexType>
+
+</xs:schema>

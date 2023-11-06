@@ -1,0 +1,37 @@
+<!-- Footer -->
+<footer id="footer" class="tcc-foot" role="contentinfo">
+		<div class="foot-copy">&copy;2010-2016 IHG. All rights reserved. Most hotels are independently owned and operated. Shanghai ICP Record Number 09027645</div>
+		
+		<div class="foooter-hotel-global-nav-main">
+			<div class="foooter-hotel-global-nav">
+				 <div class="footer-rectangle-border">
+            <div class="pRelative"> <a class="IHG-logo" href="http://www.ihg.com" target="_blank"><span style="display:none" title="IHG Logo">IHG Logo</span></a> </div>
+            <div class="footer-brand-container">
+            <div class="brands-container">
+            		<a title="InterContinental" href="http://www.ichotelsgroup.com/h/d/ic/1/en/home" target="_blank" class="ic-logo"><span style="display:none" title="Intercontinental">Intercontinental</span></a>
+                    <a title="Kimpton" href="https://www.kimptonhotels.com/" target="_blank" class="Kimpton-logo"><span style="display:none" title="Kimpton">Kimptonl</span></a>
+                    <a title="Hualuxe" href="http://www.ihgplc.com/index.asp?pageid=856" target="_blank" class="hualuxe-logo"><span style="display:none"  title="Hualuxe">Hualuxe</span></a>
+                      <a title="Holiday Inn" href="http://www.holidayinn.com/hotels/us/en/reservation"  target="_blank" class="H-Inn-logo"><span style="display:none" title="Holiday Inn">Holiday Inn</span></a>
+                       <a title="Holiday Inn Express" href="http://www.hiexpress.com/hotels/us/en/reservation" target="_blank" class="H-Exp-logo"><span style="display:none" title="Holiday Inn Express">Holiday Inn Express</span></a>
+                        <a title="Staybridge Suites" href="http://www.ichotelsgroup.com/h/d/sb/1/en/home" target="_blank" class="SB-logo"><span style="display:none" title="StayBridge Suites">StayBridge Suites</span></a> 
+                         <a title="Hotel Indigo" href="http://www.ichotelsgroup.com/h/d/in/1/en/home" target="_blank" class="HI-logo"><span style="display:none" title="Hotel Indigo">Hotel Indigo</span></a>
+                         <a title="Even Hotels" href="http://www.evenhotels.com" target="_blank" class="EH-logo"><span style="display:none" title="Even Hotels">Even Hotels</span></a>
+                    <a title="Crowne Plaza" href="http://www.ichotelsgroup.com/crowneplaza/hotels/us/en/reservation" 
+			target="_blank" class="CP-logo"><span style="display:none" title="Crowne Plaza">Crowne Plaza</span></a>
+           <a title="Holiday Inn Club Vacation" href="http://www.ichotelsgroup.com/holidayinnclubvacations/hotels/us/en/reservation" target="_blank" class="H-Club-logo"><span style="display:none" title="Holiday Inn Club Vacation">Holiday Inn Club Vacation</span></a>          
+                      <a title="Holiday Inn Resort" href="http://www.ichotelsgroup.com/holidayinnresorts/hotels/us/en/reservation" target="_blank" class="H-Resort-logo"><span style="display:none" title="Holiday Inn Resort">Holiday Inn Resort</span></a>
+                      
+                       <a title="Candlewood Suites" href="http://www.ichotelsgroup.com/candlewood/hotels/us/en/reservation" target="_blank" class="CW-logo"><span style="display:none" title="Candelwood Suites">Candelwood Suites</span></a>
+                    
+                       </div>
+                       <div class="fLeft">
+                       <a title="IHG Rewards Club" href="http://www.ihgrewardsclub.com"  target="_blank" class="IHG-RC-logo"><span style="display:none" title="IHG Rewards Club">IHG Rewards</span></a>
+                       </div>
+            
+            </div><!--end of footer brand container -->
+          </div>  <!--end of footer-rectangle border -->
+          <div class="disclaimer">*IHG&reg; Rewards Club not applicable to Kimpton&reg; Hotels and Restaurants; to be included at a future date.</div>
+			</div>
+			
+		</div>
+	</footer>

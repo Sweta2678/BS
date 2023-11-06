@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE display PUBLIC "-//Liferay//DTD Display 6.2.0//EN" "http://www.liferay.com/dtd/liferay-display_6_2_0.dtd">
+
+<display>
+	<category name="GRS">
+		<portlet id="feedback"></portlet>
+		<portlet id="article-listing"></portlet>
+		<portlet id="top-picks"></portlet>
+		<portlet id="discussion"></portlet>
+		<portlet id="homepage-carousel"></portlet>
+		<portlet id="article-detail"></portlet>
+		<portlet id="latest-article"></portlet>
+		<portlet id="directory"></portlet>
+		<portlet id="change-network-navigation"></portlet>
+		<portlet id="whats-happening"></portlet>
+		<portlet id="faq"></portlet>
+		<portlet id="most-commented-discussion"></portlet>
+		<portlet id="asset-library"></portlet>
+		<portlet id="search"></portlet>
+		<portlet id="subscription"></portlet>
+		<portlet id="activitynotification"></portlet>
+		<portlet id="notificationicon"></portlet>	
+		<portlet id="hotelimplementationhome"></portlet>
+	</category>
+</display>

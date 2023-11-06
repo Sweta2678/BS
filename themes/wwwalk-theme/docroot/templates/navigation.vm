@@ -1,0 +1,69 @@
+<nav class="$nav_css_class class="notranslate"" id="navigation" role="navigation">
+	<ul aria-label="#language ("site-pages")" role="menubar">
+		##<a title="Skip Navigation" class="accessibility" href="#skiptocontent">Skip Navigation</a>
+		#if ("Merlin" == $community_name)
+				<li class="selected">
+			#else
+				<li>
+			#end
+			<a onmousedown="_gaq.push(['_trackEvent', 'Navigation', 'My Merlin', 'Home']);" href="/web/merlin" ><span>My Merlin</span></a>
+		</li>
+		#if ("Newsroom" == $community_name)
+			<li class="selected clearfix" id="mainnav-news">
+		#else
+			<li class="" id="mainnav-news" >
+		#end
+			<a onmousedown="_gaq.push(['_trackEvent', 'Navigation', 'Newsroom', 'Home']);"  href="/web/news/home"><span>Newsroom</span></a>
+			#if ($community_name == "Newsroom")
+				<ul class="mLeft-119 secnav-news">
+					#set ($groupName = "Newsroom")
+					#parse ("$full_templates_path/secondary_navigation.vm")
+	            </ul>
+				<span class="appendHeight"></span>
+			#end
+		</li>
+		#if ("App Store" == $community_name)
+				<li class="selected">
+			#else
+				<li>
+			#end
+			<a id="applications" class="app_url" onmousedown="_gaq.push(['_trackEvent', 'Navigation', 'Applications', 'Home']);"  href="/web/applications/home"><span>Applications</span></a>
+		</li>
+		#if ("Departments" == $community_name|| "true" == $isDepartmentType)
+				<li class="selected">
+			#else
+				<li>
+			#end
+			<a onmousedown="_gaq.push(['_trackEvent', 'Navigation', 'Departments', 'Home']);"  href="/web/depts" ><span>Departments</span></a>
+		</li>
+		#if ("teamspaces" == $community_name || "true" == $isTeamspaceTagged)
+				<li class="selected">
+			#else
+				<li>
+			#end
+			<a onmousedown="_gaq.push(['_trackEvent', 'Navigation', 'Teamspaces', 'Home']);"  href="/web/teamspaces/home" ><span>Teamspaces</span></a>
+		</li>
+			#if ("Initiatives" == $community_name || "true" == $isInitiativeTagged)
+				<li class="selected">
+			#else
+				<li>
+			#end
+			<a onmousedown="_gaq.push(['_trackEvent', 'Navigation', 'Initiatives', 'Home']);"  href="/web/initiatives/home" ><span>Initiatives</span></a>
+		</li>
+		#if ("Conferences" == $community_name || "true" == $isConferenceTagged)
+				<li class="selected clearfix">
+			#else
+				<li>
+			#end
+			<a onmousedown="_gaq.push(['_trackEvent', 'Navigation', 'Conferences', 'Home']);"  href="/web/conferences/home" ><span>Conferences &amp; Events</span></a>
+			#if( "true" == $isConferenceTagged)
+				<ul class="mLeft-683 secnav-conf">
+			  		#set ( $groupName = $community_name)
+					#parse ("$full_templates_path/secondary_navigation.vm")
+               	</ul>
+               	<span class="appendHeight"></span>
+			#end
+		</li>
+	</ul>
+</nav>
+##<a title="skipcontent" id="skiptocontent"></a>

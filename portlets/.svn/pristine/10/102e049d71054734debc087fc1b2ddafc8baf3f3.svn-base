@@ -1,0 +1,577 @@
+package com.ihg.brandstandards.util;
+
+import java.io.PrintWriter;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.portlet.ResourceRequest;
+import javax.portlet.ResourceResponse;
+
+import com.ihg.brandstandards.db.model.TreeXML;
+import com.ihg.brandstandards.db.service.TreeXMLLocalServiceUtil;
+import com.ihg.me2.utils.session.MerlinCache;
+import com.liferay.portal.kernel.dao.search.SearchContainer;
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.util.StackTraceUtil;
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.Validator;
+import com.liferay.portal.model.Role;
+
+/**
+ * Project Level utils goes here in this class. Utils include Constants variables and methods that required in all portlets.
+ * Please note portlet level utilities goes in {Portlet}Util. Example: StandardsUtil, TaxonomyUtil.
+ * 
+ * @author Vipul_D
+ * 
+ */
+public class BrandStandardsUtil extends BSCommonUtil
+{
+    private static final Log LOG = LogFactoryUtil.getLog(BrandStandardsUtil.class);
+
+    public static final String STD_TYPE_STANDARD = "STD";
+
+    public static final String STD_TYPE_SPEC = "SPEC";
+
+    public static final String STD_TYPE_GDLN = "GDLN";
+
+    public static final String FLAG_CAT_TYPE_CAT = "CAT";
+
+    public static final String FLAG_CAT_TYPE_FIELD = "FLD";
+
+    // Author Roles
+    public static final String AUTHORS_GLOBAL_ROLE = "BRND_STND_GLBL_AUTHOR";
+
+    public static final String AUTHORS_AMER_ROLE = "BRND_STND_AMER_AUTHOR";
+
+    public static final String AUTHORS_AMEA_ROLE = "BRND_STND_AMEA_AUTHOR";
+
+    public static final String AUTHORS_EUROPE_ROLE = "BRND_STND_EURO_AUTHOR";
+
+    public static final String AUTHORS_GC_ROLE = "BRND_STND_GC_AUTHOR";
+    // 
+
+    // Viewer Roles
+
+    public static final String VIEWERS_GLOBAL_ROLE = "BRND_STND_GLBL_STD_VIEWER";
+
+    public static final String VIEWERS_AMER_ROLE = "BRND_STND_AMER_STD_VIEWER";
+
+    public static final String VIEWERS_AMEA_ROLE = "BRND_STND_AMEA_STD_VIEWER";
+
+    public static final String VIEWERS_EUROPE_ROLE = "BRND_STND_EURO_STD_VIEWER";
+
+    public static final String VIEWERS_GC_ROLE = "BRND_STND_GC_STD_VIEWER";
+    // 
+
+    public static final String BRANDSTAND_ADMIN_ROLE = "ADMINISTRATOR";
+
+    public static final String INDEX_ADMIN_ROLE = "BRND_STND_INDEX_ADMIN";
+
+    // Approver Roles
+    public static final String APPROVER_GLBL_ROLE = "BRND_STND_GLBL_APPROVERS";
+
+    public static final String APPROVER_AMER_ROLE = "BRND_STND_AMER_APPROVERS";
+
+    public static final String APPROVER_AMEA_ROLE = "BRND_STND_AMEA_APPROVERS";
+
+    public static final String APPROVER_EUROPE_ROLE = "BRND_STND_EUROPE_APPROVERS";
+
+    public static final String APPROVER_GC_ROLE = "BRND_STND_GC_APPROVERS";
+    // 
+
+    public static final String TECHNICAL_WRITERS_ROLE = "BRND_STND_TECHNICAL_WRITERS";
+
+    public static final String TECHNICAL_WRITERS_GLOBAL_ROLE = "BRND_STND_GLBL_TECH_WRITERS";
+
+    public static final String TECHNICAL_WRITERS_AMER_ROLE = "BRND_STND_AMER_TECH_WRITERS";
+
+    public static final String TECHNICAL_WRITERS_AMEA_ROLE = "BRND_STND_AMEA_TECH_WRITERS";
+
+    public static final String TECHNICAL_WRITERS_EUROPE_ROLE = "BRND_STND_EURO_TECH_WRITERS";
+
+    public static final String TECHNICAL_WRITERS_GC_ROLE = "BRND_STND_GC_TECH_WRITERS";
+
+    public static final String BUSINESS_OWNERS_ROLE = "BRND_STND_BUS_OWNERS";
+
+    public static final String BUSINESS_OWNERS_GLOBAL_ROLE = "BRND_STND_GLBL_BUS_OWNERS";
+
+    public static final String BUSINESS_OWNERS_AMER_ROLE = "BRND_STND_AMER_BUS_OWNERS";
+
+    public static final String BUSINESS_OWNERS_AMEA_ROLE = "BRND_STND_AMEA_BUS_OWNERS";
+
+    public static final String BUSINESS_OWNERS_EUROPE_ROLE = "BRND_STND_EURO_BUS_OWNERS";
+
+    public static final String BUSINESS_OWNERS_GC_ROLE = "BRND_STND_GC_BUS_OWNERS";
+
+    public static final String BRND_STND_PUBLISH_ADMIN = "BRND_STND_PUBLISH_ADMIN";
+
+    public static final String BRND_STND_SUPER_ADMIN = "BRND_STND_SUPER_ADMIN";
+    
+    public static final String BRND_STND_COMPLIANCE_IMPORT = "BRND_STND_COMPLIANCE_IMPORT";
+
+    public static final String REQUEST_PARAM_ID = "id";
+
+    public static final String REQUEST_PARAM_STD_ID = "prntid";
+
+    public static final String REQUEST_PARAM_OBJ_TYP = "objTyp";
+
+    public static final String REQUEST_PARAM_PAGE_NUM = "pageNum";
+
+    public static final String REQUEST_PARAM_REC_PER_PAGE = "recPerPage";
+
+    public static final int DEFAULT_ITEMS_PER_PAGE = SearchContainer.DEFAULT_DELTA;
+
+    private static Map<String, String> REGIONS;
+
+    private static Map<String, Map<String, String>> COUNTRIES;
+
+    private static List<String> APPROVERS;
+
+    public static final String REGION_GLBL = "GLBL";
+
+    public static final String REGION_AMER = "AMER";
+
+    public static final String REGION_AMEA = "AMEA";
+
+    public static final String REGION_EUROPE = "EURO";
+
+    public static final String REGION_GC = "GC";
+
+    public static final String REGION_GLOBAL = "GLBL";
+
+    public static final String BS_IMG_GALLERY_FOLDER = "IG_FOLDER";
+
+    public static final String BS_IMG_CATALOG_FILE = "BrandStandardsImageCatalog.pdf";
+
+    public static final String BS_IMG_FOLDER = "images";
+
+    public static final String DEFAULT_LOCALE = "en_GB";
+
+    public static final long DEFAULT_PARENT_KEY = -1;
+
+    public static final String STANDARDS_TRANSLATE_OBJ_TYPE = "STDXLAT";
+
+    public static final String REQUEST_PARAM_HIDDEN_IMAGES = "hidden_images";
+    
+    public static final String MANAGE_COUNTRIES_ROLE = "BRND_STND_MANAGE_COUNTRIES";
+
+    /**
+     * Verify if Map is null or empty.
+     * 
+     * @param obj - map
+     * @return - true/false
+     */
+    @SuppressWarnings("rawtypes")
+    public static boolean isNullOrBlank(final Map obj)
+    {
+        return obj == null || obj.isEmpty();
+    }
+
+    /**
+     * Verify if List is null or empty.
+     * 
+     * @param obj - list
+     * @return - true/false
+     */
+    @SuppressWarnings("rawtypes")
+    public static boolean isNullOrBlank(final List obj)
+    {
+        return obj == null || obj.isEmpty();
+    }
+
+    /**
+     * Verify of value of object is null or empty string.
+     * 
+     * @param obj - object
+     * @return true/false
+     */
+    public static boolean IsNullOrBlank(final Object obj)
+    {
+        return obj == null || obj.toString().isEmpty();
+    }
+
+    /**
+     * Get string value or empty string.
+     * 
+     * @param obj - value
+     * @return - value
+     */
+    public static String getValueOrBlank(final Object obj)
+    {
+        return obj == null ? "" : obj.toString();
+    }
+
+    /**
+     * This utility method is used specially to handle whitespaces at the end
+     * 
+     * @param obj - value
+     * @return - value
+     */
+    public static String getTrimmedValueOrBlank(final Object obj)
+    {
+        return obj == null ? "" : obj.toString().trim();
+    }
+    
+    public static String getRegionCode(long regionId)
+    {
+        String regionCd;
+        if (regionId == 2)
+        {
+            regionCd = REGION_AMER;
+        }
+        else if (regionId == 3)
+        {
+            regionCd = REGION_AMEA;
+        }
+        else if (regionId == 4)
+        {
+            regionCd = REGION_EUROPE;
+        }
+        else if (regionId == 5)
+        {
+            regionCd = REGION_GC;
+        }
+        else
+        {
+            regionCd = REGION_GLOBAL;
+        }
+        
+        return regionCd;
+    }
+
+    public static long getRegionId(String regionCd)
+    {
+        long regionId;
+        if (REGION_AMER.equals(regionCd))
+        {
+            regionId = 2;
+        }
+        else if (REGION_AMEA.equals(regionCd))
+        {
+            regionId = 3;
+        }
+        else if (REGION_EUROPE.equals(regionCd))
+        {
+            regionId = 4;
+        }
+        else if (REGION_GC.equals(regionCd))
+        {
+            regionId = 5;
+        }
+        else
+        {
+            // REGION_GLOBAL;
+            regionId = 1;
+        }
+        
+        return regionId;
+    }
+    
+    /**
+     * Get Regions.
+     * 
+     * @return map of regions
+     */
+    public static synchronized Map<String, String> getRegions()
+    {
+        if (REGIONS == null)
+        {
+            REGIONS = new LinkedHashMap<String, String>();
+            REGIONS.put(REGION_AMEA, "AMEA");
+            REGIONS.put(REGION_AMER, "Americas");
+            REGIONS.put(REGION_EUROPE, "Europe");
+            REGIONS.put(REGION_GC, "Greater China");
+        }
+        return REGIONS;
+    }
+
+    /**
+     * Get approvers.
+     * 
+     * @return list of approvers.
+     */
+    public static synchronized List<String> getApprovers()
+    {
+        if (APPROVERS == null)
+        {
+            APPROVERS = new ArrayList<String>();
+            APPROVERS.add(APPROVER_GLBL_ROLE);
+            APPROVERS.add(APPROVER_AMER_ROLE);
+            APPROVERS.add(APPROVER_AMEA_ROLE);
+            APPROVERS.add(APPROVER_EUROPE_ROLE);
+            APPROVERS.add(APPROVER_GC_ROLE);
+            APPROVERS.add(BrandStandardsUtil.BRND_STND_SUPER_ADMIN);
+        }
+        return APPROVERS;
+    }
+
+    /**
+     * Get Index tree.
+     * 
+     * @param request - request
+     * @param response - response
+     */
+    public static void xmlTaxonomy(final ResourceRequest request, final ResourceResponse response, Log LOG)
+    {
+        response.setContentType("text/xml");
+        try
+        {
+            final PrintWriter out = response.getWriter();
+            //ActionUtil.insertAdminXML(1l);
+            final TreeXML treeXmlTbl = getXMLTreeTaxonomy(1L);
+            if (treeXmlTbl != null)
+            {
+                final StringBuffer xmlSb = new StringBuffer(treeXmlTbl.getXMLLOB());
+                out.write(xmlSb.toString());
+            }
+            out.flush();
+            out.close();
+        }
+        catch (Exception ex)
+        {
+            LOG.error(StackTraceUtil.getStackTrace(ex));
+        }
+    }
+
+    public static TreeXML getXMLTreeTaxonomy(final Long id) throws SystemException
+    {
+        TreeXML xml = null;
+        try
+        {
+            xml = TreeXMLLocalServiceUtil.getTreeXML(id);
+        }
+        catch (PortalException ex)
+        {
+            LOG.error(StackTraceUtil.getStackTrace(ex));
+        }
+        return xml;
+    }
+
+    /**
+     * Get Brand Codes.
+     * 
+     * @return map
+     */
+    public static Map<String, String> chainCodeMap()
+    {
+        Map<String, String> chnCdMap = null;
+        if (MerlinCache.getCacheMap("BRNDSTD_CHN") != null) {
+            final Map<String, Object> chnFullMap = (Map<String, Object>) MerlinCache.getCacheMap("BRNDSTD_CHN");
+            chnCdMap = (Map<String, String>) chnFullMap.get("SECURITY_VALUES");
+        } else {
+            chnCdMap = new LinkedHashMap<String, String>();
+            chnCdMap.put("IC", "InterContinental Hotels");
+            chnCdMap.put("IR", "InterContinental Resorts");
+            chnCdMap.put("HI", "Holiday Inn");
+            chnCdMap.put("EX", "Holiday Inn Express");
+            chnCdMap.put("RS", "Holiday Inn Resort");
+            chnCdMap.put("CV", "Holiday Inn Club Vacations");
+            chnCdMap.put("CP", "Crowne Plaza Hotels");
+            chnCdMap.put("CR", "Crowne Plaza Resorts");
+            chnCdMap.put("UL", "HUALUXE Hotels & Resorts");
+            chnCdMap.put("IN", "Hotel Indigo");
+            chnCdMap.put("VN", "EVEN Hotels");
+            chnCdMap.put("SB", "Staybridge Suites");
+            chnCdMap.put("CW", "Candlewood Suites");
+            chnCdMap.put("VA", "avid hotels");
+            chnCdMap.put("KI", "Kimpton");
+            chnCdMap.put("RE", "Regent");
+            chnCdMap.put("VX", "voco");
+        }
+        return chnCdMap;
+    }
+
+    /**
+     * 
+     * @param arlRole
+     * @return String
+     */
+    public static String getUserRegionFromUserRole(List<Role> arlRole)
+    {
+        String region = new String();
+        try
+        {
+            for (Role role : arlRole)
+            {
+                String roleName = role.getName();
+                if (roleName.contains("GLBL") || roleName.equals(BRANDSTAND_ADMIN_ROLE)
+                        || roleName.equals(BUSINESS_OWNERS_ROLE) || roleName.equals(TECHNICAL_WRITERS_ROLE))
+                {
+                    region = REGION_GLBL;
+                    break;
+                }
+                if (roleName.contains("AMER"))
+                {
+                    region = REGION_AMER;
+                    break;
+                }
+                if (roleName.contains("AMEA"))
+                {
+                    region = REGION_AMEA;
+                    break;
+                }
+                if (roleName.contains("GC"))
+                {
+                    region = REGION_GC;
+                    break;
+                }
+                if (roleName.contains("EURO"))
+                {
+                    region = REGION_EUROPE;
+                    break;
+                }
+
+            }
+        }
+        catch (Exception e)
+        {
+            LOG.error(e);
+        }
+        return region;
+    }
+
+    /**
+     * 
+     * @param arlRole
+     * @return String
+     * @author Chintan Akhani
+     */
+    public static String getAuthorRoleFromUserRole(List<Role> arlRole)
+    {
+        String authorRole = new String();
+        try
+        {
+            for (Role role : arlRole)
+            {
+                String roleName = role.getName().toUpperCase();
+                if (AUTHORS_GLOBAL_ROLE.equals(roleName) || BRANDSTAND_ADMIN_ROLE.equals(roleName) || 
+                    BUSINESS_OWNERS_ROLE.equals(roleName) || TECHNICAL_WRITERS_ROLE.equals(roleName))
+                {
+                    authorRole = AUTHORS_GLOBAL_ROLE;
+                    break;
+                }
+                if (AUTHORS_AMER_ROLE.equals(roleName))
+                {
+                    authorRole = AUTHORS_AMER_ROLE;
+                    break;
+                }
+                if (AUTHORS_AMEA_ROLE.equals(roleName))
+                {
+                    authorRole = AUTHORS_AMEA_ROLE;
+                    break;
+                }
+                if (AUTHORS_GC_ROLE.equals(roleName))
+                {
+                    authorRole = AUTHORS_GC_ROLE;
+                    break;
+                }
+                if (AUTHORS_EUROPE_ROLE.equals(roleName))
+                {
+                    authorRole = AUTHORS_EUROPE_ROLE;
+                    break;
+                }
+
+            }
+        }
+        catch (Exception e)
+        {
+            LOG.error(e);
+        }
+        return authorRole;
+    }
+
+    /**
+     * This method will return the translated date based language & date params passed to it. 
+     * This just a utility method. We have written this method here because this method is called form Navigation.vm.
+     * @author Lakshminarayana Mummanedi
+     * @param publishedDate
+     * @param localeCD
+     * @return String
+     */
+    public static String getFormatedDate(Date publishedDate, String localeCD, Map<String, String> obsmLanguageUtil)
+    {
+        DateFormat formatter = new SimpleDateFormat("dd MMM yyyy");
+        String formatedDate = formatter.format(publishedDate);
+        StringBuilder newDate = new StringBuilder();
+        String[] dateArr = formatedDate.split(" ");
+        String year = dateArr[2];
+        String month = dateArr[1];
+        String day = dateArr[0];
+        String monthValue = null;
+        if (Validator.isNotNull(obsmLanguageUtil.get("bs.month." + month.toLowerCase())))
+        {
+            monthValue = obsmLanguageUtil.get("bs.month." + month.toLowerCase());
+        }
+
+        if ("zh_CN".equals(localeCD))
+        {
+            newDate.append(year);
+            String dateConstant = obsmLanguageUtil.get("bs.constant.day");
+            String yearConstant = obsmLanguageUtil.get("bs.constant.year");
+            if (Validator.isNotNull(yearConstant))
+            {
+                newDate.append(yearConstant);
+            }
+            if (Validator.isNotNull(monthValue))
+            {
+                newDate.append(monthValue);
+            }
+            else if (Validator.isNotNull(month))
+            {
+                newDate.append(month);
+            }
+
+            newDate.append(day);
+            if (Validator.isNotNull(dateConstant))
+            {
+                newDate.append(dateConstant);
+            }
+        }
+        else
+        {
+            newDate.append(day);
+            newDate.append(StringPool.SPACE);
+            if (Validator.isNotNull(monthValue))
+            {
+                newDate.append(monthValue);
+            }
+            else if (Validator.isNotNull(month))
+            {
+                newDate.append(month);
+            }
+            newDate.append(StringPool.SPACE);
+            newDate.append(year);
+        }
+
+        return newDate.toString();
+    }
+    
+    /**
+     * 
+     * @param ctry
+     * @param region
+     * @return
+     */
+    public static String getCountryList (String ctry, String region) {
+    	StringBuffer countryStr = null;
+    	Map<String,String> countryName = BrandStandardsUtil.getCountries().get(region);
+    	for (String value :ctry.split(StringPool.SEMICOLON)) {
+    		if (countryStr == null) {
+    			countryStr = new StringBuffer();
+    			countryStr.append(countryName.get(value));
+    		} else {
+    			countryStr.append(StringPool.COMMA);
+    			countryStr.append(countryName.get(value));
+    		}
+    	}
+    	return countryStr.toString();
+    }
+}

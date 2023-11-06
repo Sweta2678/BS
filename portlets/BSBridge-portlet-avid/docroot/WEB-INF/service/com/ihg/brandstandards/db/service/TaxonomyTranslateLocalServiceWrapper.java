@@ -1,0 +1,344 @@
+/**
+ * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
+ *
+ * The contents of this file are subject to the terms of the Liferay Enterprise
+ * Subscription License ("License"). You may not use this file except in
+ * compliance with the License. You can obtain a copy of the License by
+ * contacting Liferay, Inc. See the License for the specific language governing
+ * permissions and limitations under the License, including but not limited to
+ * distribution rights of the Software.
+ *
+ *
+ *
+ */
+
+package com.ihg.brandstandards.db.service;
+
+import com.liferay.portal.service.ServiceWrapper;
+
+/**
+ * Provides a wrapper for {@link TaxonomyTranslateLocalService}.
+ *
+ * @author Mummanedi
+ * @see TaxonomyTranslateLocalService
+ * @generated
+ */
+public class TaxonomyTranslateLocalServiceWrapper
+	implements TaxonomyTranslateLocalService,
+		ServiceWrapper<TaxonomyTranslateLocalService> {
+	public TaxonomyTranslateLocalServiceWrapper(
+		TaxonomyTranslateLocalService taxonomyTranslateLocalService) {
+		_taxonomyTranslateLocalService = taxonomyTranslateLocalService;
+	}
+
+	/**
+	* Adds the taxonomy translate to the database. Also notifies the appropriate model listeners.
+	*
+	* @param taxonomyTranslate the taxonomy translate
+	* @return the taxonomy translate that was added
+	* @throws SystemException if a system exception occurred
+	*/
+	@Override
+	public com.ihg.brandstandards.db.model.TaxonomyTranslate addTaxonomyTranslate(
+		com.ihg.brandstandards.db.model.TaxonomyTranslate taxonomyTranslate)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _taxonomyTranslateLocalService.addTaxonomyTranslate(taxonomyTranslate);
+	}
+
+	/**
+	* Creates a new taxonomy translate with the primary key. Does not add the taxonomy translate to the database.
+	*
+	* @param taxonomyTranslatePK the primary key for the new taxonomy translate
+	* @return the new taxonomy translate
+	*/
+	@Override
+	public com.ihg.brandstandards.db.model.TaxonomyTranslate createTaxonomyTranslate(
+		com.ihg.brandstandards.db.service.persistence.TaxonomyTranslatePK taxonomyTranslatePK) {
+		return _taxonomyTranslateLocalService.createTaxonomyTranslate(taxonomyTranslatePK);
+	}
+
+	/**
+	* Deletes the taxonomy translate with the primary key from the database. Also notifies the appropriate model listeners.
+	*
+	* @param taxonomyTranslatePK the primary key of the taxonomy translate
+	* @return the taxonomy translate that was removed
+	* @throws PortalException if a taxonomy translate with the primary key could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	@Override
+	public com.ihg.brandstandards.db.model.TaxonomyTranslate deleteTaxonomyTranslate(
+		com.ihg.brandstandards.db.service.persistence.TaxonomyTranslatePK taxonomyTranslatePK)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return _taxonomyTranslateLocalService.deleteTaxonomyTranslate(taxonomyTranslatePK);
+	}
+
+	/**
+	* Deletes the taxonomy translate from the database. Also notifies the appropriate model listeners.
+	*
+	* @param taxonomyTranslate the taxonomy translate
+	* @return the taxonomy translate that was removed
+	* @throws SystemException if a system exception occurred
+	*/
+	@Override
+	public com.ihg.brandstandards.db.model.TaxonomyTranslate deleteTaxonomyTranslate(
+		com.ihg.brandstandards.db.model.TaxonomyTranslate taxonomyTranslate)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _taxonomyTranslateLocalService.deleteTaxonomyTranslate(taxonomyTranslate);
+	}
+
+	@Override
+	public com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery() {
+		return _taxonomyTranslateLocalService.dynamicQuery();
+	}
+
+	/**
+	* Performs a dynamic query on the database and returns the matching rows.
+	*
+	* @param dynamicQuery the dynamic query
+	* @return the matching rows
+	* @throws SystemException if a system exception occurred
+	*/
+	@Override
+	@SuppressWarnings("rawtypes")
+	public java.util.List dynamicQuery(
+		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _taxonomyTranslateLocalService.dynamicQuery(dynamicQuery);
+	}
+
+	/**
+	* Performs a dynamic query on the database and returns a range of the matching rows.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.ihg.brandstandards.db.model.impl.TaxonomyTranslateModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param dynamicQuery the dynamic query
+	* @param start the lower bound of the range of model instances
+	* @param end the upper bound of the range of model instances (not inclusive)
+	* @return the range of matching rows
+	* @throws SystemException if a system exception occurred
+	*/
+	@Override
+	@SuppressWarnings("rawtypes")
+	public java.util.List dynamicQuery(
+		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery, int start,
+		int end) throws com.liferay.portal.kernel.exception.SystemException {
+		return _taxonomyTranslateLocalService.dynamicQuery(dynamicQuery, start,
+			end);
+	}
+
+	/**
+	* Performs a dynamic query on the database and returns an ordered range of the matching rows.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.ihg.brandstandards.db.model.impl.TaxonomyTranslateModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param dynamicQuery the dynamic query
+	* @param start the lower bound of the range of model instances
+	* @param end the upper bound of the range of model instances (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @return the ordered range of matching rows
+	* @throws SystemException if a system exception occurred
+	*/
+	@Override
+	@SuppressWarnings("rawtypes")
+	public java.util.List dynamicQuery(
+		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery, int start,
+		int end,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _taxonomyTranslateLocalService.dynamicQuery(dynamicQuery, start,
+			end, orderByComparator);
+	}
+
+	/**
+	* Returns the number of rows that match the dynamic query.
+	*
+	* @param dynamicQuery the dynamic query
+	* @return the number of rows that match the dynamic query
+	* @throws SystemException if a system exception occurred
+	*/
+	@Override
+	public long dynamicQueryCount(
+		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _taxonomyTranslateLocalService.dynamicQueryCount(dynamicQuery);
+	}
+
+	/**
+	* Returns the number of rows that match the dynamic query.
+	*
+	* @param dynamicQuery the dynamic query
+	* @param projection the projection to apply to the query
+	* @return the number of rows that match the dynamic query
+	* @throws SystemException if a system exception occurred
+	*/
+	@Override
+	public long dynamicQueryCount(
+		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery,
+		com.liferay.portal.kernel.dao.orm.Projection projection)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _taxonomyTranslateLocalService.dynamicQueryCount(dynamicQuery,
+			projection);
+	}
+
+	@Override
+	public com.ihg.brandstandards.db.model.TaxonomyTranslate fetchTaxonomyTranslate(
+		com.ihg.brandstandards.db.service.persistence.TaxonomyTranslatePK taxonomyTranslatePK)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _taxonomyTranslateLocalService.fetchTaxonomyTranslate(taxonomyTranslatePK);
+	}
+
+	/**
+	* Returns the taxonomy translate with the primary key.
+	*
+	* @param taxonomyTranslatePK the primary key of the taxonomy translate
+	* @return the taxonomy translate
+	* @throws PortalException if a taxonomy translate with the primary key could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	@Override
+	public com.ihg.brandstandards.db.model.TaxonomyTranslate getTaxonomyTranslate(
+		com.ihg.brandstandards.db.service.persistence.TaxonomyTranslatePK taxonomyTranslatePK)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return _taxonomyTranslateLocalService.getTaxonomyTranslate(taxonomyTranslatePK);
+	}
+
+	@Override
+	public com.liferay.portal.model.PersistedModel getPersistedModel(
+		java.io.Serializable primaryKeyObj)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return _taxonomyTranslateLocalService.getPersistedModel(primaryKeyObj);
+	}
+
+	/**
+	* Returns a range of all the taxonomy translates.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.ihg.brandstandards.db.model.impl.TaxonomyTranslateModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param start the lower bound of the range of taxonomy translates
+	* @param end the upper bound of the range of taxonomy translates (not inclusive)
+	* @return the range of taxonomy translates
+	* @throws SystemException if a system exception occurred
+	*/
+	@Override
+	public java.util.List<com.ihg.brandstandards.db.model.TaxonomyTranslate> getTaxonomyTranslates(
+		int start, int end)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _taxonomyTranslateLocalService.getTaxonomyTranslates(start, end);
+	}
+
+	/**
+	* Returns the number of taxonomy translates.
+	*
+	* @return the number of taxonomy translates
+	* @throws SystemException if a system exception occurred
+	*/
+	@Override
+	public int getTaxonomyTranslatesCount()
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _taxonomyTranslateLocalService.getTaxonomyTranslatesCount();
+	}
+
+	/**
+	* Updates the taxonomy translate in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
+	*
+	* @param taxonomyTranslate the taxonomy translate
+	* @return the taxonomy translate that was updated
+	* @throws SystemException if a system exception occurred
+	*/
+	@Override
+	public com.ihg.brandstandards.db.model.TaxonomyTranslate updateTaxonomyTranslate(
+		com.ihg.brandstandards.db.model.TaxonomyTranslate taxonomyTranslate)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _taxonomyTranslateLocalService.updateTaxonomyTranslate(taxonomyTranslate);
+	}
+
+	/**
+	* Returns the Spring bean ID for this bean.
+	*
+	* @return the Spring bean ID for this bean
+	*/
+	@Override
+	public java.lang.String getBeanIdentifier() {
+		return _taxonomyTranslateLocalService.getBeanIdentifier();
+	}
+
+	/**
+	* Sets the Spring bean ID for this bean.
+	*
+	* @param beanIdentifier the Spring bean ID for this bean
+	*/
+	@Override
+	public void setBeanIdentifier(java.lang.String beanIdentifier) {
+		_taxonomyTranslateLocalService.setBeanIdentifier(beanIdentifier);
+	}
+
+	@Override
+	public java.lang.Object invokeMethod(java.lang.String name,
+		java.lang.String[] parameterTypes, java.lang.Object[] arguments)
+		throws java.lang.Throwable {
+		return _taxonomyTranslateLocalService.invokeMethod(name,
+			parameterTypes, arguments);
+	}
+
+	@Override
+	public void clearCache() {
+		_taxonomyTranslateLocalService.clearCache();
+	}
+
+	@Override
+	public com.ihg.brandstandards.db.model.TaxonomyTranslate getTaxonomyTranslateObject() {
+		return _taxonomyTranslateLocalService.getTaxonomyTranslateObject();
+	}
+
+	@Override
+	public com.ihg.brandstandards.db.model.TaxonomyTranslate getTaxTransByTaxLangId(
+		long taxId, java.lang.String localeCd)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _taxonomyTranslateLocalService.getTaxTransByTaxLangId(taxId,
+			localeCd);
+	}
+
+	@Override
+	public com.ihg.brandstandards.db.model.TaxonomyTranslate addTaxonomyTranslation(
+		com.ihg.brandstandards.db.model.TaxonomyTranslate taxonomyTranslation)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _taxonomyTranslateLocalService.addTaxonomyTranslation(taxonomyTranslation);
+	}
+
+	/**
+	 * @deprecated As of 6.1.0, replaced by {@link #getWrappedService}
+	 */
+	public TaxonomyTranslateLocalService getWrappedTaxonomyTranslateLocalService() {
+		return _taxonomyTranslateLocalService;
+	}
+
+	/**
+	 * @deprecated As of 6.1.0, replaced by {@link #setWrappedService}
+	 */
+	public void setWrappedTaxonomyTranslateLocalService(
+		TaxonomyTranslateLocalService taxonomyTranslateLocalService) {
+		_taxonomyTranslateLocalService = taxonomyTranslateLocalService;
+	}
+
+	@Override
+	public TaxonomyTranslateLocalService getWrappedService() {
+		return _taxonomyTranslateLocalService;
+	}
+
+	@Override
+	public void setWrappedService(
+		TaxonomyTranslateLocalService taxonomyTranslateLocalService) {
+		_taxonomyTranslateLocalService = taxonomyTranslateLocalService;
+	}
+
+	private TaxonomyTranslateLocalService _taxonomyTranslateLocalService;
+}

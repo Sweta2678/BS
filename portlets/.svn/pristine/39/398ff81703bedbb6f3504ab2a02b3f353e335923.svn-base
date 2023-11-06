@@ -1,0 +1,672 @@
+package com.ihg.brandstandards.bridge.portlet;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
+import javax.portlet.ActionRequest;
+import javax.portlet.ActionResponse;
+import javax.portlet.PortletException;
+import javax.portlet.PortletRequestDispatcher;
+import javax.portlet.ProcessAction;
+import javax.portlet.RenderRequest;
+import javax.portlet.RenderResponse;
+import javax.portlet.ResourceRequest;
+import javax.portlet.ResourceResponse;
+
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+
+import com.ihg.brandstandards.bridge.model.BridgePublishAppModel;
+import com.ihg.brandstandards.bridge.util.BrandStandardsUtil;
+import com.ihg.brandstandards.bridge.util.BridgeCommonUtil;
+import com.ihg.brandstandards.bridge.util.BridgeConstants;
+import com.ihg.brandstandards.bridge.util.MustPublishUtilities;
+import com.ihg.brandstandards.bridge.util.XlsModelData;
+import com.ihg.brandstandards.bridge.util.XlsSheetIterator;
+import com.ihg.brandstandards.custom.model.Preferences;
+import com.ihg.brandstandards.db.NoSuchBridgePublishCountryException;
+import com.ihg.brandstandards.db.NoSuchBridgePublishException;
+import com.ihg.brandstandards.db.model.BridgePublish;
+import com.ihg.brandstandards.db.model.BridgePublishCountry;
+import com.ihg.brandstandards.db.model.BridgePublishStateEx;
+import com.ihg.brandstandards.db.model.BridgePublishStatus;
+import com.ihg.brandstandards.db.model.Publication;
+import com.ihg.brandstandards.db.service.BridgePublishCountryLocalServiceUtil;
+import com.ihg.brandstandards.db.service.BridgePublishLocalServiceUtil;
+import com.ihg.brandstandards.db.service.BridgePublishStateExLocalServiceUtil;
+import com.ihg.brandstandards.db.service.BridgePublishStatusLocalServiceUtil;
+import com.ihg.brandstandards.db.service.SpreadSheetAttributeUpdateLocalServiceUtil;
+import com.ihg.brandstandards.db.service.StandardsRegionLocalServiceUtil;
+import com.ihg.brandstandards.db.service.persistence.BridgePublishStateExFinderImpl;
+import com.liferay.portal.kernel.dao.orm.QueryUtil;
+import com.liferay.portal.kernel.dao.search.SearchContainer;
+import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.upload.UploadPortletRequest;
+import com.liferay.portal.kernel.util.ListUtil;
+import com.liferay.portal.kernel.util.ParamUtil;
+import com.liferay.portal.kernel.util.StackTraceUtil;
+import com.liferay.portal.kernel.util.StringPool;
+import com.liferay.portal.kernel.util.WebKeys;
+import com.liferay.portal.model.Role;
+import com.liferay.portal.model.User;
+import com.liferay.portal.service.RoleLocalServiceUtil;
+import com.liferay.portal.theme.ThemeDisplay;
+import com.liferay.portal.util.PortalUtil;
+
+public class EditStatesPortlet extends BrandStandardsBridgePortlet {
+    
+    private static final Log LOG = LogFactoryUtil.getLog(EditStatesPortlet.class);
+    
+    @Override
+    public void doView(RenderRequest renderRequest, RenderResponse renderResponse) throws IOException, PortletException
+    {
+    	boolean isSuperAdmin = false;
+        boolean isGlobalUser = false;
+        try 
+        {
+            long userId = PortalUtil.getUserId(renderRequest);
+            List<Role> roles = new ArrayList<Role>();
+            roles = RoleLocalServiceUtil.getUserRoles(userId);
+            for(Role role:roles)
+            {
+            	if(role.getName().equals("BRND_STND_SUPER_ADMIN"))
+            	{
+            		renderRequest.setAttribute("superUser", "SUPER");
+            	}
+            	else
+            	{
+            		renderRequest.setAttribute("superUser", "REGIONAL");
+            	}
+            	if(role.getName().equals("BRND_STND_BRIDGE_GLBL_ADMIN"))
+            	{
+            		renderRequest.setAttribute("globalUser", "GLOBAL");
+            	}
+            	else
+            	{
+            		renderRequest.setAttribute("superUser", "REGIONAL");
+            	}
+            }
+            if (userId > 1)
+            {
+                renderRequest.setAttribute("loggedIn", true);
+                String regionCd = null;
+                String chainCd = null;
+                Preferences preferences = getBridgeUserPreferences(renderRequest);
+                if (preferences != null)
+                {
+                    chainCd = preferences.getBrand();
+                    regionCd = preferences.getRegionCode();
+                }
+                
+				Publication publish = getActiveBridgePublication(chainCd);
+                if(publish!=null && publish.getPublishDate() != null)
+                {
+					long regionId = StandardsRegionLocalServiceUtil.getRegionIdByCode(regionCd);
+					
+					String selState = renderRequest.getParameter("byState");
+                    boolean selSt = selState!=null && !"".equals(selState); 
+					String selById = renderRequest.getParameter("byId");
+					String notFound = selById!=null && !selById.equals("")? selById: "";
+					List<String> notFoundList = new LinkedList<String>( Arrays.asList(notFound.split(StringPool.SPACE)));
+					List<BridgePublishStateEx> publishStateList =  null;
+					List<BridgePublishAppModel> statePojos = new ArrayList<BridgePublishAppModel>();
+
+					// Is Subsequent Publication
+					String allReadOnly = BrandStandardsUtil.isReadOnlyForEditStates("PRODUCTION", chainCd);
+					LOG.debug("Is All Read ONly :: "+ allReadOnly);
+					
+					// Get the List:::
+					publishStateList =  BridgePublishStateExLocalServiceUtil.getBridgePublishStateExByRegionBrand(chainCd, regionId, selState, selById);
+					if(publishStateList!=null && publishStateList.size() > 0)
+					{
+						for(BridgePublishStateEx stateEx: publishStateList)
+						{
+							if(stateEx.getType().equals(BridgeConstants.TYPE_STD))
+							{
+								BridgePublishAppModel statePojo = new BridgePublishAppModel();
+								//notFound = notFound.replace(""+stateEx.getStdId() + StringPool.SPACE, StringPool.BLANK);
+								notFoundList.remove(stateEx.getStdId() + "");
+								statePojo.setStdId(stateEx.getStdId());
+								statePojo.setTitle(stateEx.getTitle());
+								statePojo.setCount(stateEx.getCount());
+								statePojo.setState(stateEx.getStateCd());
+								statePojo.setStdType(stateEx.getType());
+								statePojo.setManual(stateEx.getManualType());
+								statePojo.setTaxonomyPath(stateEx.getPath().replace(stateEx.getTaxonomyTitle(), ""));
+								statePojo.setTaxonomyText(stateEx.getTaxonomyTitle());
+								statePojo.setPublishId(stateEx.getPublishId());
+                                statePojo.setDisplayOrder(stateEx.getDisplayOrder());
+                                statePojo.setIndexOrder(stateEx.getIndexOrder());
+                                statePojo.setParentTaxonomyId(stateEx.getParentTaxonomyId());
+                                statePojo.setTaxonomyId(stateEx.getTaxonomyId());
+                                statePojo.setLevel(stateEx.getLevel());
+                                statePojo.setIndexSortOrder(stateEx.getLevelSortOrder());
+                                LOG.debug("STDID : "+ stateEx.getStdId() + " Manual:  " + stateEx.getManualType() + " READONLY; "+isReadOnly(stateEx, allReadOnly));
+								statePojo.setReadOnly(isReadOnly(stateEx, allReadOnly));
+                                statePojos.add(statePojo);
+							}
+						}
+						MustPublishUtilities.updateIndexOrder(statePojos);
+					    statePojos = MustPublishUtilities.sortRecords(statePojos);
+						for(BridgePublishAppModel stdPojo : statePojos)
+						{
+							List<BridgePublishAppModel> specPojos = new ArrayList<BridgePublishAppModel>();
+							List<BridgePublishAppModel> gdlnPojos = new ArrayList<BridgePublishAppModel>();
+							for(BridgePublishStateEx stateEx: publishStateList)
+							{
+								if(stdPojo.getStdId()==stateEx.getParentStdId() && !stateEx.getType().equals(BridgeConstants.TYPE_STD) && (!selSt || (selSt && selState.equalsIgnoreCase(stateEx.getStateCd()))))
+                                {
+
+									BridgePublishAppModel childPojo = new BridgePublishAppModel();
+									//notFound = notFound.replace("" + stateEx.getStdId() + StringPool.SPACE, StringPool.BLANK);
+									notFoundList.remove(stateEx.getStdId() + "");
+									childPojo.setStdId(stateEx.getStdId());
+									childPojo.setTitle(stateEx.getTitle());
+									childPojo.setCount(stateEx.getCount());
+									childPojo.setState(stateEx.getStateCd());
+									childPojo.setTaxonomyText(stateEx.getTaxonomyTitle());
+									childPojo.setTaxonomyPath(stateEx.getPath().replace(stateEx.getTaxonomyTitle(), ""));
+									childPojo.setPublishId(stateEx.getPublishId());
+									childPojo.setStdType(stateEx.getType());
+									childPojo.setManual(stateEx.getManualType());
+									LOG.debug("STDID : "+ stateEx.getStdId() + " Manual:  " + stateEx.getManualType() + " READONLY; "+isReadOnly(stateEx, allReadOnly));
+									childPojo.setReadOnly(isReadOnly(stateEx, allReadOnly));
+									if(stateEx.getType().equals(BridgeConstants.TYPE_SPEC))
+									{
+										specPojos.add(childPojo);
+									}
+									else
+									{
+										gdlnPojos.add(childPojo);
+									}
+								}
+							}
+							stdPojo.setSpecifications(specPojos);
+							stdPojo.setGuidelines(gdlnPojos);
+	                        Collections.sort(stdPojo.getSpecifications(), new SpecsGuidelinesSortBySTDId());
+	                        Collections.sort(stdPojo.getGuidelines(), new SpecsGuidelinesSortBySTDId());
+						}
+					}
+
+					if(selSt && statePojos!=null)
+                    {
+                        Iterator<BridgePublishAppModel> it = statePojos.iterator();
+                        while(it.hasNext())
+                        {
+                            BridgePublishAppModel stdPojo = it.next();
+                            if((stdPojo.getSpecifications()!=null && stdPojo.getSpecifications().size() < 1) && 
+                               (stdPojo.getGuidelines()!=null && stdPojo.getGuidelines().size() < 1) 
+                                  && !stdPojo.getState().equals(selState))
+                            {
+                                it.remove();
+                            }    
+                        }
+                    }
+
+					SearchContainer<BridgePublishAppModel> searchContainer = BridgeCommonUtil.getBridgePublishAppSearchContainer(renderRequest, renderResponse);
+					searchContainer.setTotal(statePojos.size());
+					searchContainer.setEmptyResultsMessage("No Standards Available");
+					statePojos = ListUtil.subList(statePojos, searchContainer.getStart(), searchContainer.getEnd());
+
+					List<BridgePublishStatus> stateList =  BridgePublishStatusLocalServiceUtil.getBridgePublishStatuses(QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+					searchContainer.setResults(statePojos);
+					notFound = Arrays.toString(notFoundList.toArray());
+					notFound = notFound.replace("[", StringPool.BLANK).replace("]", StringPool.BLANK);
+					renderRequest.setAttribute("notFound", notFound.trim());
+					renderRequest.setAttribute("crntPg1",ParamUtil.get(renderRequest, "crntPg", StringPool.BLANK));
+					renderRequest.setAttribute("rcPrPg1",ParamUtil.get(renderRequest, "rcPrPg", StringPool.BLANK));
+					renderRequest.setAttribute("searchContainerObj", searchContainer);
+					renderRequest.setAttribute("byCountry", BridgePublishStateExFinderImpl.BY_CTRY);
+					renderRequest.setAttribute("statePojos", statePojos);
+					renderRequest.setAttribute("stateList", stateList);
+					renderRequest.setAttribute("byState", selState);
+					renderRequest.setAttribute("byId", selById);
+					renderRequest.setAttribute("allReadOnly", allReadOnly);
+					renderRequest.setAttribute("activePublish", true);
+				}
+                else
+                {
+                    renderRequest.setAttribute("activePublish", false);
+                }
+			}
+            else
+            {
+                renderRequest.setAttribute("loggedIn", false);
+            }
+        }
+        catch (SystemException e)
+        {
+            LOG.error(StackTraceUtil.getStackTrace(e));
+            renderRequest.setAttribute("errorMessage", e.getMessage());
+        }
+        super.doView(renderRequest, renderResponse);
+    }
+    
+    @Override
+    public void serveResource(ResourceRequest resourceRequest, ResourceResponse resourceResponse) throws IOException,
+            PortletException
+    {
+       final String resourceID = resourceRequest.getResourceID();
+       if ("ShowCountries".equalsIgnoreCase(resourceID))
+       {
+          showCountries(resourceRequest, resourceResponse); 
+       }
+       else if ("SaveState".equalsIgnoreCase(resourceID))
+       {
+           String publishId =  resourceRequest.getParameter("publishId");
+           String stateCd =  resourceRequest.getParameter("stateCd");
+           String message = BridgeConstants.SUCCESS_MESSAGE;
+           message = saveState(publishId, stateCd);
+           final PrintWriter writer = resourceResponse.getWriter();
+           writer.print(message);
+       }
+	   else if ("ExcelExport".equalsIgnoreCase(resourceID)) 
+       {
+           resourceResponse.setContentType("text/html; charset=UTF-8");
+           Preferences preferences = getBridgeUserPreferences(resourceRequest);
+           if (preferences != null)
+           {
+               ThemeDisplay themeDisplay = (ThemeDisplay)resourceRequest.getAttribute(WebKeys.THEME_DISPLAY);
+               User user =  themeDisplay.getUser();
+        	   long regionId = StandardsRegionLocalServiceUtil.getRegionIdByCode(preferences.getRegionCode());
+        	   String reportTitle = ParamUtil.getString(resourceRequest, "reportTitle");
+               addRequestToJobQueue(user, preferences.getRegionCode(), regionId, preferences.getBrand(), "BRIDGE", reportTitle);
+               //resourceRequest.setAttribute("chainCd", preferences.getBrand());
+               //resourceRequest.setAttribute("regionId", regionId+"");
+               //resourceRequest.setAttribute("regionCd", preferences.getRegionCode());
+           }
+           
+           resourceResponse.getWriter().write("An email with a link to your Report will be sent to you once the Report has been generated.");
+       }
+
+       super.serveResource(resourceRequest, resourceResponse);
+    }
+    
+    @ProcessAction(name = "SaveCountries")
+    public void SaveCountries(ActionRequest actionRequest,
+            ActionResponse actionResponse) throws IOException, PortletException 
+    {
+        String message = BridgeConstants.SUCCESS_MESSAGE;
+        message = saveCountriesState(actionRequest);
+        LOG.debug("Message " + message);
+        actionResponse.setRenderParameter("message", message);
+        actionResponse.setRenderParameter("crntPg", ParamUtil.get(actionRequest, "crntPg", StringPool.BLANK));
+        actionResponse.setRenderParameter("rcPrPg", ParamUtil.get(actionRequest, "rcPrPg", StringPool.BLANK));
+    }
+
+    @ProcessAction(name = "FilterData")
+    public void FilterData(ActionRequest actionRequest, ActionResponse actionResponse) throws IOException, PortletException
+    {
+        String statCd = ParamUtil.get(actionRequest, "byState", StringPool.BLANK);
+        String byId = ParamUtil.get(actionRequest, "byId", StringPool.BLANK);
+        if(statCd!=null)
+        {
+            actionResponse.setRenderParameter("byState", statCd);
+        }
+        if(byId != null)
+        {
+            actionResponse.setRenderParameter("byId", byId);
+        }
+    }
+
+    @ProcessAction(name = "ClearFilter")
+    public void ClearFilter(ActionRequest actionRequest, ActionResponse actionResponse) throws IOException, PortletException
+    {
+        LOG.debug("Edit State : Cleared Filter.");
+        actionResponse.setRenderParameter("byState", "");
+        actionResponse.setRenderParameter("byId", "");
+    }
+    
+    @ProcessAction(name= "ExcelImport")
+    public void ExcelImport(ActionRequest actionRequest,
+    		ActionResponse actionResponse) throws IOException, PortletException {
+    	excelImport(actionRequest);
+    }
+    
+    private PortletRequestDispatcher showCountries(final ResourceRequest resourceRequest,
+            final ResourceResponse resourceResponse)
+            throws PortletException, IOException
+    {
+        String publishId  =  resourceRequest.getParameter("publishId");
+        String crntPg  =  resourceRequest.getParameter("crntPg");
+        String rcPrPg  =  resourceRequest.getParameter("rcPrPg");
+        String readOnly = resourceRequest.getParameter("readOnly");
+        String regionCd = null;
+        Preferences preferences = getBridgeUserPreferences(resourceRequest);
+        if (preferences != null)
+        {
+            regionCd = preferences.getRegionCode();
+        }
+        String regionName = null;
+        List<BridgePublishCountry> countries = new ArrayList<BridgePublishCountry>();
+        try
+        {
+            if(publishId!=null && publishId.length() > 0)
+            {
+                countries = BridgePublishCountryLocalServiceUtil.getCountriesByPublishId(Long.valueOf(publishId));
+                List<BridgePublishStatus> stateList =  BridgePublishStatusLocalServiceUtil.getBridgePublishStatuses(QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+                resourceRequest.setAttribute("stateList", stateList);
+            }
+            regionName = getRegionName(regionCd);
+        }
+        catch (Exception e)
+        {
+            LOG.error(StackTraceUtil.getStackTrace(e));
+        }
+        resourceRequest.setAttribute("countryList", countries);
+        resourceRequest.setAttribute("region", regionName); 
+        resourceRequest.setAttribute("publishId", publishId);
+        resourceRequest.setAttribute("crntPg", crntPg);
+        resourceRequest.setAttribute("rcPrPg", rcPrPg);
+        resourceRequest.setAttribute("readOnly", readOnly);
+        resourceRequest.setAttribute("countryNameList", com.ihg.brandstandards.util.BrandStandardsUtil.getCountries().get(regionCd));
+        final PortletRequestDispatcher dispatcher = getPortletContext().getRequestDispatcher("/html/editStates/showCountries.jsp");
+        dispatcher.include(resourceRequest, resourceResponse);
+        return dispatcher;
+    }
+    
+    private String saveState(String publishId, String stateCd)
+    {
+        String message = BridgeConstants.SUCCESS_MESSAGE;
+        if(stateCd!=null && !stateCd.equals("") && !stateCd.equals("-1"))
+        {
+            List<BridgePublishCountry> bpCountries = new ArrayList<BridgePublishCountry>();
+            try
+            {
+                if(publishId!=null && publishId.length() > 0)
+                {
+                    bpCountries = BridgePublishCountryLocalServiceUtil.getCountriesByPublishId(Long.valueOf(publishId));
+                }
+                if(bpCountries!=null && bpCountries.size() > 0)
+                {
+                    for(BridgePublishCountry bpCountry: bpCountries)
+                    {
+                        bpCountry.setStatusCode(stateCd);
+                        BridgePublishCountryLocalServiceUtil.updateBridgePublishCountry(bpCountry);
+                    }
+                }
+            }catch(Exception exc)
+            {
+                message = exc.getMessage();
+            }
+        }
+        return message;
+    }
+    
+    private String saveCountriesState(ActionRequest actionRequest)
+    {
+        String message = BridgeConstants.SUCCESS_MESSAGE;
+        String publishId = ParamUtil.get(actionRequest, "publishId", StringPool.BLANK);
+        String allCountry = ParamUtil.get(actionRequest, BridgeConstants.ALL, StringPool.BLANK);
+        if(allCountry != null && !allCountry.equals("") && !allCountry.equals("-1"))
+        {
+           saveState(publishId, allCountry);
+        }
+        else
+        {
+            List<BridgePublishCountry> bpCountries = new ArrayList<BridgePublishCountry>();
+            try
+            {
+                if(publishId != null && publishId.length() > 0)
+                {
+                    bpCountries = BridgePublishCountryLocalServiceUtil.getCountriesByPublishId(Long.valueOf(publishId));
+                }
+                if(bpCountries != null && bpCountries.size() > 0)
+                {
+                    for(BridgePublishCountry bpCountry: bpCountries)
+                    {
+                        String statusCd = ParamUtil.get(actionRequest, bpCountry.getCountryCode(), StringPool.BLANK);
+                        if(statusCd != null && !statusCd.equals(""))
+                        {
+                            bpCountry.setStatusCode(statusCd);
+                            BridgePublishCountryLocalServiceUtil.updateBridgePublishCountry(bpCountry);
+                        }
+                    }
+                }
+            }catch(Exception exc)
+            {
+                message = exc.getMessage();
+            }
+        }
+        return message;
+    }
+    
+    private void excelImport(ActionRequest actionRequest)
+    {
+    	Preferences preferences = getBridgeUserPreferences(actionRequest);
+    	Publication publish = null;
+    	ThemeDisplay themeDisplay = (ThemeDisplay) actionRequest.getAttribute(WebKeys.THEME_DISPLAY);
+    	Map<String, String> countryNameMap = new LinkedHashMap<String, String>();
+    	long regionId = 0;
+        if (preferences != null)
+        {
+            regionId = StandardsRegionLocalServiceUtil.getRegionIdByCode(preferences.getRegionCode());
+            
+            actionRequest.setAttribute("chainCd", preferences.getBrand());
+            actionRequest.setAttribute("regionCd", regionId+"");
+            publish = getActiveBridgePublication(preferences.getBrand());
+            Map<String, Map<String, String>> regionCountryMap = com.ihg.brandstandards.util.BrandStandardsUtil.getCountries();
+			countryNameMap = regionCountryMap.get(preferences.getRegionCode());
+        }
+        UploadPortletRequest uploadRequest = PortalUtil.getUploadPortletRequest(actionRequest);
+        File file = uploadRequest.getFile("file");
+        XlsSheetIterator xlsSheetIterator = new XlsSheetIterator(file);
+        List<XlsModelData> xlsModelDataList = getDataListFromXLS(xlsSheetIterator);
+        String stdId = StringPool.BLANK;
+        XlsModelData row = null;
+        BridgePublish  bridgePublish = null;
+        String xlsFieldName = StringPool.BLANK;
+		String xlsCellValue = StringPool.BLANK;
+        if(xlsModelDataList.size() > 1)
+        {
+        	XlsModelData header = xlsModelDataList.get(0);
+        	Map<String,String> statusMap = getPublishStatus();
+        	for (int rowIndex=1 ; rowIndex < xlsModelDataList.size() ; rowIndex++)
+        	{
+        		row = xlsModelDataList.get(rowIndex);
+        		if (null != row)
+        		{
+        			stdId = row.getId();
+        			if (null != stdId && null != publish) 
+        			{
+        				bridgePublish  = getBridgePublish(publish.getPublishId(), Long.valueOf(stdId), regionId) ;
+        				if ( null != bridgePublish) 
+        				{
+	        				for(int columnIndex=1; columnIndex <= row.getColumnCount(); columnIndex++)
+	        				{
+	        					xlsFieldName = (String)header.get("c_" + columnIndex);
+	        					xlsCellValue = (String)row.get("c_" + columnIndex);
+	        					if (!BrandStandardsUtil.IsNullOrBlank(xlsFieldName) && !BrandStandardsUtil.IsNullOrBlank(xlsCellValue))
+	        					{
+	        						xlsFieldName = getCountryCodeByName(countryNameMap, xlsFieldName);
+	        						//xlsCellValue = statusMap.get(xlsCellValue);
+	        						BridgePublishCountry bridgeCountry = getBridgeCountryByPublishIdAndCountryCode(bridgePublish.getBridgePublishId(), xlsFieldName);
+		        					if ( null != bridgeCountry)
+		        					{
+		        						bridgeCountry.setStatusCode(xlsCellValue);
+		        						saveBridgePublishCountry(bridgeCountry);
+		        					}
+		        					else
+		        					{
+		        						LOG.info("BridgePublishCountry not found for (BridgePublishId :" +bridgePublish.getBridgePublishId() + ", CountryCode : " + xlsFieldName+ ")");
+		        					}
+	        					}
+	        					
+	        				}
+	        			} 
+        				else 
+        				{
+        					LOG.info("BridgePublish not found for (PublishId :" +publish.getPublishId() + ", StdID : " + stdId+ ")");
+        				}
+        			}
+        		}
+        	}
+        }
+        //Re-generate unique groups
+        //GEM Unique Groups
+        //addRequestInQueue(publish.getPublishId(), regionId, BridgeConstants.SA_REPORT_TYPE, preferences, themeDisplay.getUser());
+        //Bridge Unique Groups
+        addRequestInQueue(publish.getPublishId(), regionId, BridgeConstants.BRIDGE_GROUPS_TYPE, preferences, themeDisplay.getUser());
+    }
+    
+    private BridgePublish getBridgePublish(long publishId, long stdId, long regionId){
+    	try {
+				return BridgePublishLocalServiceUtil.getByPublishIdRegionIdAndStdId(publishId, regionId, stdId);
+		} catch (NumberFormatException e) {
+			LOG.error("NumberFormatException : BridgePublish not found for publishId, regionId, stdid (" + publishId +","+ regionId+","+ stdId+")" );
+		} catch (NoSuchBridgePublishException e) {
+			LOG.error("NoSuchBridgePublishException : BridgePublish not found for publishId, regionId, stdid (" + publishId +","+ regionId+","+ stdId+")" );
+		} catch (SystemException e) {
+			LOG.error("NoSuchBridgePublishException : BridgePublish not found for publishId, regionId, stdid (" + publishId +","+ regionId+","+ stdId+")" );
+		}
+    	return null;
+    }
+    
+    private BridgePublishCountry getBridgeCountryByPublishIdAndCountryCode(long publishid, String countryCode){
+    	try {
+			return  BridgePublishCountryLocalServiceUtil.getCountriesByPublishIdAndCountryCode(publishid, countryCode);
+		} catch (NoSuchBridgePublishCountryException e) {
+			LOG.error("NoSuchBridgePublishCountryException : BridgePublishCountry not found for publishId, countryCode, (" + publishid +","+ countryCode +")" );
+		} catch (SystemException e) {
+			LOG.error("SystemException : BridgePublishCountry not found for publishId, countryCode, (" + publishid +","+ countryCode +")" );
+		}
+    	return null;
+    }
+    
+    private List<XlsModelData> getDataListFromXLS(XlsSheetIterator xlsSheetIterator)
+    {
+    	try {
+			return xlsSheetIterator.processEditStateSpreadsheet();
+		} catch (InvalidFormatException e) {
+			LOG.error(StackTraceUtil.getStackTrace(e));
+		} catch (IOException e) {
+			LOG.error(StackTraceUtil.getStackTrace(e));
+		}
+    	return null;
+    }
+    
+    private void saveBridgePublishCountry(BridgePublishCountry bridgeCountry)
+    {
+    	try {
+			BridgePublishCountryLocalServiceUtil.updateBridgePublishCountry(bridgeCountry);
+			LOG.info("BridgePublishCountry status changed successfully for country : " + bridgeCountry.getCountryCode());
+		} catch (SystemException e) {
+			LOG.error(StackTraceUtil.getStackTrace(e));
+		}
+    }
+    
+    private String getCountryCodeByName(Map<String, String> countryNameMap,String countryName)
+    {
+    	 for ( String code : countryNameMap.keySet()){
+    		 String cntrName =countryNameMap.get(code);
+    		 if (null != cntrName && cntrName.equals(countryName))
+    		 {
+    			 return code;
+    		 }
+    	 }
+    	 return null;
+    }
+    
+    private Map<String,String> getPublishStatus()
+    {
+    	Map<String,String> statusMap = new LinkedHashMap<String, String>();
+    	try {
+			List<BridgePublishStatus> statusList = BridgePublishStatusLocalServiceUtil.getBridgePublishStatuses(QueryUtil.ALL_POS, QueryUtil.ALL_POS);
+			for(BridgePublishStatus status : statusList)
+			{
+				statusMap.put(status.getPublishStatusCode(), status.getPublishStatusName());
+			}
+		} catch (SystemException e) {
+			LOG.error(StackTraceUtil.getStackTrace(e));
+		}
+    	return statusMap;
+    }
+    
+    
+    /**
+     * @author Ketan.savaliya
+     */
+    static class SpecsGuidelinesSortBySTDId implements Comparator<BridgePublishAppModel>
+    {
+        /**
+         * @param o1 - Standards objects.
+         * @param o2 - Standards objects.
+         * @return integer.
+         */
+        public int compare(BridgePublishAppModel o1, BridgePublishAppModel o2)
+        {
+            int res = 0;
+            if (o1.getDisplayOrder() > 0L || o2.getDisplayOrder() > 0L)
+            {
+                Long object1 = o1.getDisplayOrder();
+                Long object2 = o2.getDisplayOrder();
+                res = object1.compareTo(object2);
+            }
+            else
+            {
+                Long object1 = o1.getStdId();
+                Long object2 = o2.getStdId();
+                res = object1.compareTo(object2);
+            }
+
+            return res;
+        }
+    }
+    
+    public boolean addRequestToJobQueue (User user, String regionCode, long regionId, String brandCode, String environment, String reportTitle) {
+    	
+    	boolean isRequestAdded = false;
+    	StringBuilder metadata = new StringBuilder();
+        metadata.append("<metadata>");
+        metadata.append("<type>").append("Edit State").append("</type>");
+        metadata.append("<params>");
+        metadata.append("<param name=\"REGION\">").append(regionCode).append("</param>");
+        metadata.append("<param name=\"REGIONID\">").append(regionId).append("</param>");
+        metadata.append("<param name=\"CHAIN_CD\">").append(brandCode).append("</param>");
+       
+        metadata.append("<param name=\"ENVIRONMENT\">").append(environment).append("</param>");
+        metadata.append("<param name=\"USER_NAME\">").append(user.getFullName()).append("</param>");
+        metadata.append("<param name=\"REPORT_TITLE\">").append(reportTitle).append("</param>");
+        metadata.append("</params>");
+        metadata.append("</metadata>");
+        isRequestAdded = SpreadSheetAttributeUpdateLocalServiceUtil.addToJobQueue(user, metadata.toString(), "EDIT_STATE");
+        return isRequestAdded;
+    }
+    
+    private boolean isReadOnly(BridgePublishStateEx stateEx, String allReadOnly)
+    {
+    	if(stateEx.getStateCd().equals("SELECT"))
+    	{
+    		return false;
+    	}
+    	else if(allReadOnly.equals("true"))
+		{
+			return true;
+		}
+    	else if(allReadOnly.equals("false"))
+		{
+			return false;
+		}
+		else if(allReadOnly.equals("TBD"))
+		{
+			if(stateEx.getManualType().equals("257"))
+			{
+				return false;
+			}
+			return true;
+		}
+		return false;
+    }
+}
+

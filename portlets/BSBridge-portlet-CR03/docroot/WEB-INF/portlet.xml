@@ -1,0 +1,901 @@
+<?xml version="1.0"?>
+
+<portlet-app xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd" version="2.0">
+	
+	<portlet>
+		<portlet-name>Summary</portlet-name>
+		<display-name>Summary</display-name>
+		<portlet-class>com.ihg.brandstandards.bridge.portlet.SummaryPortlet</portlet-class>
+		<init-param>
+			<name>view-template</name>
+			<value>/html/summary/view.jsp</value>
+		</init-param>
+        <init-param>
+            <name>add-process-action-success-action</name>
+            <value>false</value>
+        </init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+            <portlet-mode>view</portlet-mode>
+		</supports>
+		<portlet-info>
+			<title>Summary</title>
+			<short-title>Summary</short-title>
+			<keywords>Summary</keywords>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>MyPublication</portlet-name>
+		<display-name>My Publication</display-name>
+		<portlet-class>com.ihg.brandstandards.bridge.portlet.MyPublicationPortlet</portlet-class>
+		<init-param>
+			<name>view-template</name>
+			<value>/html/myPublication/view.jsp</value>
+		</init-param>
+		<init-param>
+			<name>add-process-action-success-action</name>
+			<value>false</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+            <portlet-mode>view</portlet-mode>
+            <portlet-mode>edit</portlet-mode>
+		</supports>
+		<portlet-info>
+			<title>My Publication</title>
+			<short-title>My Publication</short-title>
+			<keywords>My Publication</keywords>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>MyPublicationErrorDetails</portlet-name>
+		<display-name>MyPublicationErrorDetails</display-name>
+		<portlet-class>com.ihg.brandstandards.bridge.portlet.MyPublicationErrorDetailsPortlet</portlet-class>
+		<init-param>
+			<name>view-template</name>
+			<value>/html/myPublicationErrorDetails/view.jsp</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+		<portlet-info>
+			<title>MyPublicationErrorDetails</title>
+			<short-title>MyPublicationErrorDetails</short-title>
+			<keywords>MyPublicationErrorDetails</keywords>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+
+	<portlet>
+		<portlet-name>AddByImport</portlet-name>
+		<display-name>Add By Import</display-name>
+		<portlet-class>com.ihg.brandstandards.bridge.portlet.AddByImportPortlet</portlet-class>
+		<init-param>
+			<name>view-template</name>
+			<value>/html/addByImport/view.jsp</value>
+		</init-param>
+		<init-param>
+			<name>add-process-action-success-action</name>
+			<value>false</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+            <portlet-mode>view</portlet-mode>
+		</supports>
+		<portlet-info>
+			<title>Add By Import</title>
+			<short-title>Add By Import</short-title>
+			<keywords>Add By Import</keywords>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>EditStates</portlet-name>
+		<display-name>Edit States</display-name>
+		<portlet-class>com.ihg.brandstandards.bridge.portlet.EditStatesPortlet</portlet-class>
+		<init-param>
+			<name>view-template</name>
+			<value>/html/editStates/view.jsp</value>
+		</init-param>
+		<init-param>
+			<name>add-process-action-success-action</name>
+			<value>false</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+		<portlet-info>
+			<title>Edit States</title>
+			<short-title>Edit States</short-title>
+			<keywords>Edit States</keywords>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>Unpublish</portlet-name>
+		<display-name>Unpublish</display-name>
+		<portlet-class>com.ihg.brandstandards.bridge.portlet.UnpublishPortlet</portlet-class>
+		<init-param>
+			<name>view-template</name>
+			<value>/html/unpublish/view.jsp</value>
+		</init-param>
+		<init-param>
+			<name>add-process-action-success-action</name>
+			<value>false</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+		</supports>
+		<portlet-info>
+			<title>Unpublish</title>
+			<short-title>Unpublish</short-title>
+			<keywords>Unpublish</keywords>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>UpdatePreview</portlet-name>
+		<display-name>Update Preview</display-name>
+		<portlet-class>com.ihg.brandstandards.bridge.portlet.UpdatePreviewPortlet</portlet-class>
+		<init-param>
+			<name>view-template</name>
+			<value>/html/updatePreview/view.jsp</value>
+		</init-param>
+		<init-param>
+			<name>edit-template</name>
+			<value>/html/updatePreview/edit.jsp</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+            <portlet-mode>view</portlet-mode>
+            <portlet-mode>edit</portlet-mode>
+		</supports>
+		<portlet-info>
+			<title>Update Preview</title>
+			<short-title>Update Preview</short-title>
+			<keywords>Update Preview</keywords>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>ViewComplaince</portlet-name>
+		<display-name>View Compliance</display-name>
+		<portlet-class>com.ihg.brandstandards.bridge.portlet.ViewCompliancePortlet</portlet-class>
+		<init-param>
+			<name>view-template</name>
+			<value>/html/viewCompliance/view.jsp</value>
+		</init-param>
+		<init-param>
+			<name>edit-template</name>
+			<value>/html/viewCompliance/edit.jsp</value>
+		</init-param>
+        <init-param>
+            <name>add-process-action-success-action</name>
+            <value>false</value>
+        </init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+            <portlet-mode>view</portlet-mode>
+            <portlet-mode>edit</portlet-mode>
+		</supports>
+		<portlet-info>
+			<title>View Compliance</title>
+			<short-title>View Compliance</short-title>
+			<keywords>View Compliance</keywords>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>Preferences</portlet-name>
+		<display-name>Preferences</display-name>
+		<portlet-class>com.ihg.brandstandards.bridge.portlet.PreferencesPortlet</portlet-class>
+		<init-param>
+			<name>view-template</name>
+			<value>/html/preferences/view.jsp</value>
+		</init-param>
+		<init-param>
+			<name>edit-template</name>
+			<value>/html/preferences/editPreferences.jsp</value>
+		</init-param>
+		<init-param>
+			<name>add-process-action-success-action</name>
+			<value>false</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+			<portlet-mode>edit</portlet-mode>
+		</supports>
+		<portlet-info>
+			<title>Preferences</title>
+			<short-title>Preferences</short-title>
+			<keywords>Preferences</keywords>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>Progress</portlet-name>
+		<display-name>Progress</display-name>
+		<portlet-class>com.ihg.brandstandards.bridge.portlet.ProgressPortlet</portlet-class>
+		<init-param>
+			<name>view-template</name>
+			<value>/html/progress/view.jsp</value>
+		</init-param>
+		<init-param>
+			<name>add-process-action-success-action</name>
+			<value>false</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+		<portlet-info>
+			<title>Progress</title>
+			<short-title>Progress</short-title>
+			<keywords>Progress</keywords>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>ManagePublication</portlet-name>
+		<display-name>Manage Publication</display-name>
+		<portlet-class>com.ihg.brandstandards.bridge.portlet.ManagePublicationPortlet</portlet-class>
+		<init-param>
+			<name>view-template</name>
+			<value>/html/managePublication/view.jsp</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+		<portlet-info>
+			<title>Manage Publication</title>
+			<short-title>Manage Publication</short-title>
+			<keywords>Manage Publication</keywords>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>MustPublish</portlet-name>
+		<display-name>Must Publish</display-name>
+		<portlet-class>com.ihg.brandstandards.bridge.portlet.MustPublishPortlet</portlet-class>
+		<init-param>
+			<name>view-template</name>
+			<value>/html/mustPublish/view.jsp</value>
+		</init-param>
+		<init-param>
+			<name>edit-template</name>
+			<value>/html/mustPublish/edit.jsp</value>
+		</init-param>
+		<init-param>
+			<name>add-process-action-success-action</name>
+			<value>false</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+			<portlet-mode>edit</portlet-mode>
+		</supports>
+		<portlet-info>
+			<title>Must Publish</title>
+			<short-title>Must Publish</short-title>
+			<keywords>Must Publish</keywords>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>Unlock</portlet-name>
+		<display-name>Unlock</display-name>
+		<portlet-class>com.ihg.brandstandards.bridge.portlet.UnlockPortlet</portlet-class>
+		<init-param>
+			<name>view-template</name>
+			<value>/html/unlock/view.jsp</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+		<portlet-info>
+			<title>Unlock</title>
+			<short-title>Unlock</short-title>
+			<keywords>Unlock</keywords>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>sync-liferay-counter</portlet-name>
+		<display-name>Sync Liferay Counter</display-name>
+		<portlet-class>com.ihg.brandstandards.bridge.portlet.SyncLiferayCounterPortlet</portlet-class>
+		<init-param>
+			<name>view-template</name>
+			<value>/html/syncliferaycounter/view.jsp</value>
+		</init-param>
+		<init-param>
+			<name>edit-template</name>
+			<value>/html/syncliferaycounter/edit.jsp</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+			<portlet-mode>edit</portlet-mode>
+		</supports>
+		<portlet-info>
+			<title>Sync Liferay Counter</title>
+			<short-title>Sync Liferay Counter</short-title>
+			<keywords></keywords>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+	
+	<!-- ###################### Gem Portlets Configuration ###################### -->
+	
+	<portlet>
+	    <portlet-name>ManageGem</portlet-name>
+	    <display-name>Manage Gem</display-name>
+	    <portlet-class>com.ihg.brandstandards.gem.portlet.ManageGemPortlet</portlet-class>
+	    <init-param>
+	        <name>view-template</name>
+	        <value>/html/GEM/manage/view.jsp</value>
+	    </init-param>
+	    <expiration-cache>0</expiration-cache>
+	    <supports>
+	        <mime-type>text/html</mime-type>
+	        <portlet-mode>view</portlet-mode>
+	    </supports>
+	    <portlet-info>
+	        <title>Manage Gem</title>
+	        <short-title>Manage Gem</short-title>
+	        <keywords></keywords>
+	    </portlet-info>
+	    <security-role-ref>
+	        <role-name>administrator</role-name>
+	    </security-role-ref>
+	    <security-role-ref>
+	        <role-name>guest</role-name>
+	    </security-role-ref>
+	    <security-role-ref>
+	        <role-name>power-user</role-name>
+	    </security-role-ref>
+	    <security-role-ref>
+	        <role-name>user</role-name>
+	    </security-role-ref>
+	</portlet>
+    
+    <portlet>
+        <portlet-name>QualityLead</portlet-name>
+        <display-name>Quality Lead</display-name>
+        <portlet-class>com.ihg.brandstandards.gem.portlet.QualityLeadPortlet</portlet-class>
+        <init-param>
+            <name>view-jsp</name>
+            <value>/html/GEM/qualitylead/view.jsp</value>
+        </init-param>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>view</portlet-mode>
+        </supports>
+        <portlet-info>
+            <title>Quality Lead</title>
+            <short-title>Quality Lead</short-title>
+            <keywords></keywords>
+        </portlet-info>
+        <security-role-ref>
+            <role-name>administrator</role-name>
+        </security-role-ref>
+        <security-role-ref>
+            <role-name>guest</role-name>
+        </security-role-ref>
+        <security-role-ref>
+            <role-name>power-user</role-name>
+        </security-role-ref>
+        <security-role-ref>
+            <role-name>user</role-name>
+        </security-role-ref>
+    </portlet>
+    
+    <portlet>
+        <portlet-name>GemCategory</portlet-name>
+        <display-name>GEM Category</display-name>
+        <portlet-class>com.ihg.brandstandards.gem.portlet.GemCategoryPortlet</portlet-class>
+        <init-param>
+            <name>view-jsp</name>
+            <value>/html/GEM/category/view.jsp</value>
+        </init-param>
+        <init-param>
+            <name>add-process-action-success-action</name>
+            <value>false</value>
+        </init-param>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>view</portlet-mode>
+        </supports>
+        <portlet-info>
+            <title>GEM Category</title>
+            <short-title>GEM Category</short-title>
+            <keywords></keywords>
+        </portlet-info>
+        <security-role-ref>
+            <role-name>administrator</role-name>
+        </security-role-ref>
+        <security-role-ref>
+            <role-name>guest</role-name>
+        </security-role-ref>
+        <security-role-ref>
+            <role-name>power-user</role-name>
+        </security-role-ref>
+        <security-role-ref>
+            <role-name>user</role-name>
+        </security-role-ref>
+    </portlet>
+    
+    <portlet>
+        <portlet-name>GemRoles</portlet-name>
+        <display-name>GEM Roles</display-name>
+        <portlet-class>com.ihg.brandstandards.gem.portlet.GemRolesPortlet</portlet-class>
+        <init-param>
+            <name>view-jsp</name>
+            <value>/html/GEM/roles/view.jsp</value>
+        </init-param>
+        <init-param>
+			<name>add-process-action-success-action</name>
+			<value>false</value>
+		</init-param>
+        <expiration-cache>0</expiration-cache>
+        <supports>
+            <mime-type>text/html</mime-type>
+            <portlet-mode>view</portlet-mode>
+        </supports>
+        <portlet-info>
+            <title>GEM Roles</title>
+            <short-title>GEM Roles</short-title>
+            <keywords></keywords>
+        </portlet-info>
+        <security-role-ref>
+            <role-name>administrator</role-name>
+        </security-role-ref>
+        <security-role-ref>
+            <role-name>guest</role-name>
+        </security-role-ref>
+        <security-role-ref>
+            <role-name>power-user</role-name>
+        </security-role-ref>
+        <security-role-ref>
+            <role-name>user</role-name>
+        </security-role-ref>
+    </portlet>
+    
+    <portlet>
+		<portlet-name>GEMUpdatePreview</portlet-name>
+		<display-name>GEM Update Preview</display-name>
+		<portlet-class>com.ihg.brandstandards.gem.portlet.GEMUpdatePreviewPortlet</portlet-class>
+		<init-param>
+			<name>view-template</name>
+			<value>/html/GEM/updatePreview/view.jsp</value>
+		</init-param>
+		<init-param>
+			<name>edit-template</name>
+			<value>/html/GEM/updatePreview/edit.jsp</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+            <portlet-mode>view</portlet-mode>
+            <portlet-mode>edit</portlet-mode>
+		</supports>
+		<portlet-info>
+			<title>GEM Update Preview</title>
+			<short-title>GEM Update Preview</short-title>
+			<keywords>GEM Update Preview</keywords>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>GEMManagementId</portlet-name>
+		<display-name>GEM Management Id</display-name>
+		<portlet-class>com.ihg.brandstandards.gem.portlet.GEMManagementIdPortlet</portlet-class>
+		<init-param>
+			<name>view-template</name>
+			<value>/html/GEM/managementId/view.jsp</value>
+		</init-param>
+		<init-param>
+			<name>edit-template</name>
+			<value>/html/GEM/managementId/edit.jsp</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+            <portlet-mode>view</portlet-mode>
+            <portlet-mode>edit</portlet-mode>
+		</supports>
+		<portlet-info>
+			<title>GEM Management Id</title>
+			<short-title>GEM Management Id</short-title>
+			<keywords>GEM Management Id</keywords>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+	
+	<portlet>
+		<portlet-name>Document-Permission</portlet-name>
+		<display-name>Document Permission Portlet</display-name>
+		<portlet-class>com.ihg.brandstandards.bridge.portlet.DLPermissionPortlet</portlet-class>
+		<init-param>
+			<name>view-template</name>
+			<value>/html/managePermission/view.jsp</value>
+		</init-param>
+		<init-param>
+			<name>edit-jsp</name>
+			<value>/html/managePermission/edit.jsp</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+			<portlet-mode>edit</portlet-mode>
+		</supports>
+		<portlet-info>
+			<title>Document Permission Portlet</title>
+			<short-title>Document Permission Portlet</short-title>
+			<keywords>Document Permission Portlet</keywords>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+     <portlet>
+		<portlet-name>GemSupportForm</portlet-name>
+		<display-name>GEM Support Form</display-name>
+		<portlet-class>com.ihg.brandstandards.gem.portlet.GemSupportPortlet</portlet-class>
+		<init-param>
+			<name>view-template</name>
+			<value>/html/GEM/support/supportForm.jsp</value>
+		</init-param>
+		<init-param>
+			<name>edit-template</name>
+			<value>/html/GEM/support/edit.jsp</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+            <portlet-mode>view</portlet-mode>
+            <portlet-mode>edit</portlet-mode>
+		</supports>
+		<portlet-info>
+			<title>GEM Support Form</title>
+			<short-title>GEM Support Form</short-title>
+			<keywords>GEM Support Form</keywords>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+	<portlet>
+		<portlet-name>gem-department-admin</portlet-name>
+		<display-name>GEM Department Admin</display-name>
+		<portlet-class>com.ihg.brandstandards.gem.portlet.GEMDepartmentAdminPortlet</portlet-class>
+		<init-param>
+			<name>view-template</name>
+			<value>/html/GEM/departmentAdmin/view.jsp</value>
+		</init-param>
+		 <init-param>
+            <name>add-process-action-success-action</name>
+            <value>false</value>
+        </init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+            <portlet-mode>view</portlet-mode>
+		</supports>
+		<portlet-info>
+			<title>GEM Department Admin</title>
+			<short-title>GEM Department Admin</short-title>
+			<keywords>GEM Department Admin</keywords>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+	<portlet>
+		<portlet-name>gem-manage-duplicates</portlet-name>
+		<display-name>GEM Manage Duplicates</display-name>
+		<portlet-class>com.ihg.brandstandards.gem.portlet.GEMManageDuplicatesPortlet</portlet-class>
+		<init-param>
+			<name>view-template</name>
+			<value>/html/GEM/manageDuplicates/view.jsp</value>
+		</init-param>
+		 <init-param>
+            <name>add-process-action-success-action</name>
+            <value>false</value>
+        </init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+            <portlet-mode>view</portlet-mode>
+		</supports>
+		<portlet-info>
+			<title>GEM Manage Duplicates</title>
+			<short-title>GEM Manage Duplicates</short-title>
+			<keywords>GEM Manage Duplicates</keywords>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+	<portlet>
+		<portlet-name>gem-import-selections</portlet-name>
+		<display-name>GEM Import Selections</display-name>
+		<portlet-class>com.ihg.brandstandards.gem.portlet.GEMImportSelectionPortlet</portlet-class>
+		<init-param>
+			<name>view-template</name>
+			<value>/html/GEM/importSelections/view.jsp</value>
+		</init-param>
+		 <init-param>
+            <name>add-process-action-success-action</name>
+            <value>false</value>
+        </init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+            <portlet-mode>view</portlet-mode>
+		</supports>
+		<portlet-info>
+			<title>GEM Import Selections</title>
+			<short-title>GEM Import Selections</short-title>
+			<keywords>GEM Import Selections</keywords>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+</portlet-app>

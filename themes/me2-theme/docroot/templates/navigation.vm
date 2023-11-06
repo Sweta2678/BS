@@ -1,0 +1,95 @@
+<nav id="navigation" class="notranslate">
+	
+	<ul>
+		<a title="Skip Navigation" class="accessibility" href="#skiptocontent">Skip Navigation</a>
+		#if ("Merlin" == $community_name)
+				<li class="selected">
+			#else
+				<li>
+			#end
+			<a onmousedown="_gaq.push(['_trackEvent', 'Navigation', 'My Merlin', 'Home']);" href="/web/merlin/home" ><span>My Merlin</span></a>
+		</li>
+		#if ("Newsroom" == $community_name)
+			<li class="selected clearfix" id="mainnav-news">
+		#else
+			<li class="" id="mainnav-news" >
+		#end
+			<a onmousedown="_gaq.push(['_trackEvent', 'Navigation', 'Newsroom', 'Home']);"  href="/web/news/home"><span>Newsroom</span></a>
+			#if ($community_name == "Newsroom")
+				<ul class="mLeft-119 secnav-news">
+					#set ($groupName = "Newsroom")
+					#parse ("$full_templates_path/secondary_navigation.vm")
+	            </ul>
+				<span class="appendHeight"></span>
+			#end
+		</li>
+		#if ("App Store" == $community_name)
+				<li class="selected">
+			#else
+				<li>
+			#end
+			<a id="applications" class="app_url" onmousedown="_gaq.push(['_trackEvent', 'Navigation', 'Applications', 'Home']);"  href="/web/applications/home"><span>Applications</span></a>
+		</li>
+		#if ("Departments" == $community_name|| "true" == $isDepartmentType)
+				<li class="selected">
+			#else
+				<li>
+			#end
+			<a onmousedown="_gaq.push(['_trackEvent', 'Navigation', 'Departments', 'Home']);"  href="/web/depts" ><span>Departments</span></a>
+		</li>
+		#if ("teamspaces" == $community_name || "true" == $isTeamspaceTagged)
+				<li class="selected">
+			#else
+				<li>
+			#end
+			<a onmousedown="_gaq.push(['_trackEvent', 'Navigation', 'Teamspaces', 'Home']);"  href="/web/teamspaces/home" ><span>Teamspaces</span></a>
+		</li>
+			#if ("Initiatives" == $community_name || "true" == $isInitiativeTagged)
+				<li class="selected">
+			#else
+				<li>
+			#end
+			<a onmousedown="_gaq.push(['_trackEvent', 'Navigation', 'Initiatives', 'Home']);"  href="/web/initiatives/home" ><span>Initiatives</span></a>
+		</li>
+		#if ("Conferences" == $community_name || "true" == $isConferenceTagged || "Conference Template" == $community_name)
+				<li class="selected clearfix">
+			#else
+				<li>
+			#end
+			<a onmousedown="_gaq.push(['_trackEvent', 'Navigation', 'Conferences', 'Home']);"  href="/web/conferences/home" ><span>Conferences &amp; Events</span></a>
+			#if( "true" == $isConferenceTagged || "Conference Template" == $community_name)
+				<ul class="mLeft-683 secnav-conf">
+			  		#set ( $groupName = $community_name)
+					#parse ("$full_templates_path/secondary_navigation.vm")
+               	</ul>
+               	<span class="appendHeight"></span>
+			#end
+		</li>
+		#* -----------------------Commented Code starts here------------------
+			#foreach ($nav_item in $nav_items)
+				#if ($nav_item.isSelected())
+					<li class="selected">
+				#else
+					<li>
+				#end
+					<a href="$nav_item.getURL()" $nav_item.getTarget()><span>$nav_item.icon() $nav_item.getName()</span></a>
+	
+					#if ($nav_item.hasChildren())
+						<ul class="child-menu">
+							#foreach ($nav_child in $nav_item.getChildren())
+								#if ($nav_child.isSelected())
+									<li class="selected">
+								#else
+									<li>
+								#end
+									<a href="$nav_child.getURL()" $nav_child.getTarget()>$nav_child.getName()</a>
+								</li>
+							#end
+						</ul>
+					#end
+				</li>
+			#end
+		-----------------------Commented Code ends here------------------ *#
+	</ul>
+</nav>
+<a title="skipcontent" id="skiptocontent"></a>

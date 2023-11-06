@@ -1,0 +1,239 @@
+.aui {
+.filter_results_form {
+    width: 98%;
+}
+.portlet-msg-info
+{
+	display : none;
+}
+.search-pages
+{
+	width : 100%;
+}
+.brands label {
+	width: 473px;
+}
+table.filter_table tr td {
+	padding: 3px 5px 3px 5px;
+	}
+table.filter_table {
+
+	}
+button.ui-multiselect {
+    width: 473px !important;
+}
+input.input_checkbox_filter {
+    margin-top: 4px;	
+    }
+input.aui-field-input, input.input_text{
+    width: 670px;
+}
+input.adv_filter_text {
+    width: 670px;
+}
+input.date_input_filter {
+    border: 1px solid #D3D3D3;
+    color: #555555;
+    font-weight: normal;
+    padding: 5px 10px 5px 10px;
+    width: 210px; 
+    height: 15px;
+}
+img.ui-datepicker-trigger {
+    width: 27px !important;
+    height: 27px !important;
+}
+.clear_compliance_deadline, .clear_launch_date {
+    padding-top: 10px;
+}
+.clear_this_index {
+    padding-top: 5px;
+}
+.multi_sel_countries {
+    width: 260px;
+}
+.status_val_label {
+   padding: 0px 0px 0px 0px;
+} 
+.clear_filter {
+	clear:both;
+	font-size:0;
+	margin:0;
+	padding:0;
+	height:2px;
+	line-height:0;
+}
+
+
+ul.report_menu {
+    list-style:none; 
+    margin:0; 
+    padding:0;
+}
+ul.report_menu * {
+    margin:3px; 
+    padding:0;
+}
+ul.report_menu a {
+    display:block; 
+    color:#fff; 
+    text-decoration:none;
+}
+ul.report_menu li {
+    position:relative; 
+    float:left;  
+    margin-right:10px;
+    margin-top:4px;
+}
+ul.report_menu ul {
+    position:absolute; 
+/*
+    top:22px; 
+    left:0; 
+	background:#; 
+*/
+    top:15px; 
+    left:-3px; 
+    
+    display:none; 
+    opacity:0; 
+    list-style:none;
+}
+ul.report_menu ul li {
+    position:relative; 
+    border:1px solid #aaa; 
+    border-top:none; 
+    width:180px; 
+    margin:0;
+	font:11px Arial, sans-serif;
+	font-weight:bold;
+    height: 22px;
+}
+ul.report_menu ul li a {
+    display:block; 
+    padding:1px 7px 1px; 
+    background-color:#4D4D4D;
+}
+ul.report_menu ul li a:hover {
+    background-color:#959595; 
+}
+ul.report_menu ul ul {
+    left:148px; top:-1px;
+}
+.menuLinkLeft {
+    background-image:url(../images/button_left.png);
+	background-repeat:no-repeat;
+	float:left;
+	height:21px;
+	width:5px;
+    margin:0 !important; 
+}
+.menulink {
+    padding:0px 16px 3px;  
+    background-image:url(../images/button_middle.png); 
+	background-position:left top;
+	background-repeat:repeat-x;
+	color:#fff;
+	float:left;
+	font:11px Arial, sans-serif;
+	font-weight:bold;
+	height:22px;
+	padding:2px 5px 0 !important;
+	text-decoration:none;
+	text-shadow:none;
+    width:162px;
+    margin:0 !important; 
+}
+.menuLinkRight {
+	background:url(../images/button_right.png) no-repeat;
+	float:left;
+	height:21px;
+	width:5px;
+    margin:0 !important; 
+}
+ul.report_menu .sub {
+    background:#d1d1d1 url(../images/arrow.gif) 136px 8px no-repeat;
+}
+ul.report_menu .topline {
+    border-top:1px solid #aaa;
+}
+.input_radio_filter  {
+    margin-right: 10px;
+}
+.audit_date_filter_cel {
+/*    width:228px; */
+    width:258px; 
+}
+input.audit_date_input_filter {
+/*    width:186px; */
+    width:221px;
+    padding:4px;
+    margin-top:1px;
+   	border: 1px double #BFBFBF;
+/*  
+ 	border-bottom: 1px double #BFBFBF; 
+	border-top: 1px double #BFBFBF;
+	border-left:1px double #BFBFBF;
+	border-right:1px double #BFBFBF;
+*/
+}
+.ui-datepicker {
+    width: 19em !important;
+}
+.display_result_all_spec 
+{
+    background-color: #EB9900;
+    padding-top: 2px;
+}
+.disp_res_all_spec_lbl {
+    font-weight: bold;
+    font-size: 90%;
+    padding-left: 5px;
+    padding-right: 5px;
+    vertical-align: 2px;
+}
+.disp_res_all_spec_desc {
+    font-size: 90%;
+    color: white;
+    vertical-align: 2px;
+}
+.report_lang_select_div {
+    padding-left: 26px;
+    width: 348px;
+}
+.report_lang_select {
+    width: 100%;
+}
+
+.report_name {
+    width: 99%;
+}
+
+.help_icon {
+    padding-left: 0px !important;
+}
+
+ /* ######## CR 45 ########## */
+/*.disable_a_href .process{
+	background-image: url("../images/button_middle.png");
+}
+.disable_a_href .disable_a_tag{
+	pointer-events: none;
+	background:	#ccc;
+}*/
+.button.disable_a_href {
+    background-image: url("../images/button_left_D.png");
+}
+.disable_a_href a {
+    background-image: url("../images/button_middle_D.png");
+	pointer-events: none;
+}
+.button.disable_a_href span {
+    background: url("../images/button_right_D.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+
+.stdlist_main .short_page_subtitle {
+    width: 160px;
+}
+/* ######## END CR 45 ########## */
+}/*aui class ends here*/

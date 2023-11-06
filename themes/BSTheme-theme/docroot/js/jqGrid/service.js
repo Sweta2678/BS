@@ -1,0 +1,1 @@
+Liferay.Service.register("Liferay.Service.jqgrid", "com.meera.service");

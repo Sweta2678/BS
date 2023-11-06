@@ -1,0 +1,73 @@
+
+
+article-description-length=200
+blog-article-description-length=350
+article-listing-records-per-page=10
+article-listing-record-start=0
+discussion-description-length=200
+latest-article-description-length=90
+
+article-title-length=60
+
+article-detail-share-content-description=Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eleifend sed nunc id pharetra. Mauris lacus dui, semper eu turpis ut, posuere accumsan turpis. libero non magna tristique.
+
+feedback.file.maxsize=15728640
+feedback.type=Comment,\
+Question,\
+Request
+
+feedback.topic= IHG Concerto&trade; functionality / testing / user experience,\
+IHG Concerto&trade; integration with other systems / technology,\
+IHG Concerto&trade; strategy and program management,\
+IHG Concerto&trade; communications and engagement,\
+IHG Concerto&trade; implementation: training\\, delivery\\, support  
+
+#Attributes,\
+#Budget Guidance, \
+#Business Decisions,\
+#Business Strategy & Impacts,\
+#Change Management/Network,\
+#Change Leader, Communication,\
+#Consumer Insights,\
+#Glossary,\
+#GRS Integration with other IHG Systems,\
+#GRS Product Functionality,\
+#GRS Timeline,\
+#GRS User Interface,\
+#Hotel Impacts,\
+#Implementation,\
+#Legal,\
+#Owners,\
+#Product Management,\
+#Property Products and Systems (PMS, etc.),\
+#Support,\
+#Testing,\
+#Training,\
+#Kimpton
+
+feedback.mail.acknowledgement.subject=CONFIRMATION: Your Feedback Has Been Received
+feedback.mail.submission.subject=NOTIFICATION: New Feedback Has Been Received
+
+#user roles 
+ihg.global.content.admin.role.name=Global Content Admin
+ihg.content.publisher.role.name=IHG Content Publisher
+ihg.super.content.publisher.role.name=IHG Super Content Publisher
+ihg.global.admin.role.name=IHG Global Admin
+
+#Asset Category.
+VOCABULARY_ONE=Filter by Region
+VOCABULARY_TWO=Filter by Type
+#GLOBAL_VOCABULARY_NAME=Global Test
+#LOCAL_VOCABULARY_NAME=Test One
+
+#Site Search Result
+site-search-result-description-length=200
+
+#Subscription And Notification
+subscription-local-vocabulary-name=Social Wall Vocabulary
+
+grs.hotel.implentation.site= GRS Hotel Implementation
+
+#vanity-urls
+grs.regular.site.url=/web/concerto/home
+grs.hotel.site.url=/web/concerto-hotel-hub/home

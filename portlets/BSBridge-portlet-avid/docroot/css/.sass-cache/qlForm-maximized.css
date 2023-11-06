@@ -1,0 +1,9 @@
+.aui #wrapper, .aui .container {
+  width: 95% !important; }
+
+.aui .utilityRow {
+  width: 98% !important; }
+
+.aui #navigation, .aui .row-fluid .span12 {
+  width: 100% !important; }
+

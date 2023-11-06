@@ -1,0 +1,165 @@
+		<style>
+        .aui footer{padding:0px !important;}
+		#news-footer_kimpt{
+			width:850px !important;
+			margin-left:auto !important;
+			margin-right:auto !important;
+		}
+		.footer-rectangle-border_kimpt {
+	    border: 2px solid #e02914 !important;
+	    width: 846px !important;
+	    float: left !important;
+	    background-color: #fff !important;
+		}
+		.aui .pRelative_kimpt {
+    	position: absolute !important;
+		}
+		.IHG-logo_kimpt {
+	    background: url("/me2-theme/images/footer/IHG_brand_footer_4.png") no-repeat 0 0;
+	    width: 72px !important;
+	    height: 58px !important;
+	    position: absolute !important;
+	    left: -3px !important;
+	    top: -28px !important;
+		}
+		.footer-brand-container_kimpt {
+	    padding: 15px 0 15px 15px !important;
+	    float: left !important;
+		}
+		.brands-container_kimpt {
+	    float: left !important;
+	    border-right: 2px solid #c2c2c2 !important;
+	    margin-left: 68px !important;
+	    width: 625px !important;
+	    margin-right: 20px !important;
+		}
+		.ic-logo_kimpt, .hualuxe-logo_kimpt, .CP-logo_kimpt, .HI-logo_kimpt, .EH-logo_kimpt, .H-Inn-logo_kimpt, .H-Exp-logo_kimpt, .H-Resort-logo_kimpt, .H-Club-logo_kimpt, .SB-logo_kimpt, .CW-logo_kimpt, .IHG-RC-logo_kimpt, .Kimpton-logo_kimpt{
+	    background: url("/me2-theme/images/footer/IHG_brand_footer_4.png") no-repeat -73px -65px;
+	    width: 89px !important;
+	    height: 36px !important;
+	    display: block !important;
+	    float: left !important;
+	    margin-right: 41px !important;
+		}
+		.Kimpton-logo_kimpt {
+	    background-position: -212px -66px !important;
+	    width: 67px !important;
+	    height: 23px !important;
+	    margin-right: 30px !important;
+	    margin-top: 10px !important;
+		}
+		.hualuxe-logo_kimpt {
+		  background-position: -321px -66px !important;
+		  width: 68px !important;
+		  height: 46px !important;
+		}
+		.H-Inn-logo_kimpt {
+		  background-position: -428px -65px !important;
+		  width: 60px !important;
+		  height: 43px !important;
+		}
+		.H-Exp-logo_kimpt {
+		  background-position: -512px -65px !important;
+		  width: 53px !important;
+		  height: 26px !important;
+		  margin-right: 38px !important;
+		}
+		.SB-logo_kimpt {
+		  background-position: -614px -66px !important;
+		  width: 62px !important;
+		  height: 17px !important;
+		  margin-top: 7px !important;
+		  margin-right: 20px !important;
+		}
+		.HI-logo_kimpt {
+		  background-position: -95px -126px !important;
+		  width: 68px !important;
+		  height: 26px !important;
+		  margin-right: 61px !important;
+		  margin-top: 10px !important;
+		  clear: left !important;
+		}
+		.EH-logo_kimpt {
+		  background-position: -212px -126px !important;
+		  width: 59px !important;
+		  height: 28px !important;
+		  margin-top: 10px !important;
+		  margin-right: 35px !important;
+		}
+		.CP-logo_kimpt {
+		  background-position: -321px -126px !important;
+		  width: 71px !important;
+		  height: 26px !important;
+		  margin-right: 43px !important;
+		  margin-top: 10px !important;
+		}
+		.H-Club-logo_kimpt {
+		  background-position: -434px -126px !important;
+		  width: 52px !important;
+		  height: 26px !important;
+		  margin-right: 48px !important;
+		  margin-top: 10px !important;
+		}
+		.H-Resort-logo_kimpt {
+		  background-position: -512px -126px !important;
+		  width: 53px !important;
+		  height: 26px !important;
+		  margin-right: 37px !important;
+		  margin-top: 10px !important;
+		}
+		.CW-logo_kimpt {
+		  background-position: -614px -126px !important;
+		  width: 64px !important;
+		  height: 30px !important;
+		  margin-top: 10px !important;
+		  margin-right: 30px !important;
+		}
+		.fLeft_kimpt {
+			float: left !important;
+		}
+		.IHG-RC-logo_kimpt {
+		  background-position: -712px -97px !important;
+		  width: 94px !important;
+		  height: 23px !important;
+		  margin-right: 0 !important;
+		  margin-top: 32px !important;
+		}
+		.disclaimer_kimpt {
+		  font: normal 13px "Calibri",Arial,Helvetica,sans-serif !important;
+		  color: #a8a7a7 !important;
+		  text-align: right !important;
+		  margin-bottom: 30px !important;
+		}
+
+		</style>
+
+		<div class="body_kimpt">
+			<footer id="news-footer_kimpt">
+			  <div class="bgWhite_kimpt">
+
+					<div class="footer-rectangle-border_kimpt">
+		        <div class="pRelative_kimpt"> <a title="IHG Logo" href="http://www.ihg.com" target="_blank" class="IHG-logo_kimpt"><span style="display:none" title="IHG Logo">IHG Logo</span></a> </div>
+			      <div class="footer-brand-container_kimpt">
+			      	<div class="brands-container_kimpt">
+			        	<a title="InterContinental" href="http://www.ichotelsgroup.com/h/d/ic/1/en/home" target="_blank" class="ic-logo_kimpt"><span style="display:none" title="Intercontinental">Intercontinental</span></a>
+			          <a title="Kimpton" href="https://www.kimptonhotels.com/" target="_blank" class="Kimpton-logo_kimpt"><span style="display:none" title="Kimpton">Kimptonl</span></a>
+			          <a title="Hualuxe" href="http://www.ihgplc.com/index.asp?pageid=856" target="_blank" class="hualuxe-logo_kimpt"><span style="display:none"  title="Hualuxe">Hualuxe</span></a>
+			          <a title="Holiday Inn" href="http://www.holidayinn.com/hotels/us/en/reservation"  target="_blank" class="H-Inn-logo_kimpt"><span style="display:none" title="Holiday Inn">Holiday Inn</span></a>
+			          <a title="Holiday Inn Express" href="http://www.hiexpress.com/hotels/us/en/reservation" target="_blank" class="H-Exp-logo_kimpt"><span style="display:none" title="Holiday Inn Express">Holiday Inn Express</span></a>
+			          <a title="Staybridge Suites" href="http://www.ichotelsgroup.com/h/d/sb/1/en/home" target="_blank" class="SB-logo_kimpt"><span style="display:none" title="StayBridge Suites">StayBridge Suites</span></a>
+			          <a title="Hotel Indigo" href="http://www.ichotelsgroup.com/h/d/in/1/en/home" target="_blank" class="HI-logo_kimpt"><span style="display:none" title="Hotel Indigo">Hotel Indigo</span></a>
+			          <a title="Even Hotels" href="http://www.evenhotels.com" target="_blank" class="EH-logo_kimpt"><span style="display:none" title="Even Hotels">Even Hotels</span></a>
+			          <a href="http://www.ichotelsgroup.com/crowneplaza/hotels/us/en/reservation" target="_blank" class="CP-logo_kimpt"><span style="display:none" title="Crowne Plaza">Crowne Plaza</span></a>
+			          <a title="Holiday Inn Club Vacation" href="http://www.ichotelsgroup.com/holidayinnclubvacations/hotels/us/en/reservation" target="_blank" class="H-Club-logo_kimpt"><span style="display:none" title="Holiday Inn Club Vacation">Holiday Inn Club Vacation</span></a>
+			          <a title="Holiday Inn Resort" href="http://www.ichotelsgroup.com/holidayinnresorts/hotels/us/en/reservation" target="_blank" class="H-Resort-logo_kimpt"><span style="display:none" title="Holiday Inn Resort">Holiday Inn Resort</span></a>
+								<a title="Candlewood Suites" href="http://www.ichotelsgroup.com/candlewood/hotels/us/en/reservation" target="_blank" class="CW-logo_kimpt"><span style="display:none" title="Candelwood Suites">Candelwood Suites</span></a>
+		           </div>
+							 <div class="fLeft_kimpt">
+								 <a title="IHG Rewards Club" href="http://www.ihgrewardsclub.com"  target="_blank" class="IHG-RC-logo_kimpt"><span style="display:none" title="IHG Rewards Club">IHG Rewards</span></a>
+							 </div>
+						 </div><!--end of footer brand container -->
+					 </div>  <!--end of footer-rectangle border -->
+					 <div class="disclaimer_kimpt">*IHG&reg; Rewards Club not applicable to Kimpton&reg; Hotels and Restaurants; to be included at a future date.</div><!--end of footer link continer -->
+				 </div><!--end of .bgWhite -->
+		 	</footer>
+		</div>

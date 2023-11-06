@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+#parse ($init)
+
+<html class="$root_css_class" dir="#language ("lang.dir")" lang="$w3c_language_id">
+
+<head>
+	<title>OBSM - $the_title</title>
+
+	<meta content="initial-scale=1.0, width=device-width" name="viewport" />
+
+	$theme.include($top_head_include)
+	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="/BSHotel-theme/js/html5.js"></script>
+    <![endif]-->
+	
+	<script type="text/javascript" src="/BSHotel-theme/js/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="/BSHotel-theme/js/jquery-ui.js"></script>
+	<script type="text/javascript" src="/BSHotel-theme/js/treeAdmin/jquery.blockUI.js"></script>	
+	#if ($validator.isNotNull($brandCSS))
+		<link type="text/css" rel="stylesheet" href="$brandCSS" />
+	#end
+
+	###### Disable right button click #######
+	#if (!$permissionChecker.isOmniadmin())
+		<script type="text/javascript">
+		    $(function() {
+		        $(document).bind("contextmenu",function(e){
+		            return false;
+		        });
+		    });    
+		</script>
+	#end
+</head>
+
+<body class="$css_class">
+
+<!--<a href="#main-content" id="skip-to-content">#language ("skip-to-content")</a>-->
+
+$theme.include($body_top_include)
+
+#if ($is_signed_in)
+	#if ($permissionChecker.isOmniadmin() || $isIHGAdmin )
+		#dockbar()
+	#end
+#end
+
+<div class="container-fluid container" id="wrapper">
+	<div class="row">
+		<div class="span12 utilityRow">
+			<div class="pull-left">
+				<a href="/web/merlin/home" target="_blank" title="$merlinLink">$merlinLink</a>
+				#if ($isCMSUser == true )
+					 | <a href="/web/brand-standards/home" target="BS_CMS" title="CMS">CMS</a>
+				#end
+				
+				#if ($isBridgeUser == true )
+					 | <a href="/web/brand-standards/bridge" target="BS_Bridge" title="Bridge">Bridge</a>
+				#end
+				## | $headerTitle | $brandLink
+			</div>
+			<div class="pull-right">
+				#if($themeDisplay.getURLCurrent().contains("/hotel/"))
+					<a href="/web/brand-standards/hotel/glossary" title="$glossary">$glossary</a> | 
+				#elseif ($themeDisplay.getURLCurrent().contains("/staging/"))
+					<a href="/web/brand-standards/staging/glossary" title="$glossary">$glossary</a> | 
+				#end
+				
+				<a href="/web/merlin/support" title="$helpSupport" target="_blank">$helpSupport</a>
+			</div>
+		</div>
+	</div>
+	<div style="margin-top: 10px;" class="row">
+		<div style="margin-left: 0;" class="span5">
+			#if($themeDisplay.getURLCurrent().contains("/hotel/"))				
+				<a href="/web/brand-standards/hotel/home" title="$brandLink"><img title="$brandLink" alt="$brandLink" src="$brandLogo" class="logo"></a> 
+			#elseif ($themeDisplay.getURLCurrent().contains("/staging/"))				 
+				<a href="/web/brand-standards/staging/home" title="$brandLink"><img title="$brandLink" alt="$brandLink" src="$brandLogo" class="logo"></a>
+			#end			
+			<!-- <h1 style="display:inline; font-size:1.7em;" class="logo">$headerTitle</h1> -->
+		</div>
+		<div class="span7 utility">
+			<p>$welcomeMessage, $user_name, <a href="#" class="logout_link" title="$logoutMessage">$logoutMessage</a></p>
+			#set ($VOID = $velocityPortletPreferences.setValue('portlet-setup-show-borders', 'false'))
+			#set ($accessPortletId = "UserPreference_WAR_BSHotelportlet")$theme.runtime($accessPortletId,'', $velocityPortletPreferences.toString())
+			#set ($VOID = $velocityPortletPreferences.reset())
+		</div>
+	</div>
+	
+	<div id="logoutModal" title="$logoutModalLabel" style="display:none">
+		<div class="modal-body">
+			<p>$logoutModalMessage</p>
+		</div>
+		<div class="modal-footer">
+			<button class="btn pull-right logoutcancel">$logoutModalCancel</button>
+			<button class="btn btn-primary pull-right logoutdone" style="margin-right: 5px;">$logoutModalSubmit</button>
+		</div>
+	</div>
+	<!--<header id="banner" role="banner">
+		<div id="heading">
+			<h1 class="site-title">
+				<a class="$logo_css_class" href="$site_default_url" title="#language_format ("go-to-x", [$site_name])">
+					<img alt="$logo_description" height="$site_logo_height" src="$site_logo" width="$site_logo_width" />
+				</a>
+
+				#if ($show_site_name)
+					<span class="site-name" title="#language_format ("go-to-x", [$site_name])">
+						$site_name
+					</span>
+				#end
+			</h1>
+
+			<h2 class="page-title">
+				<span>$the_title</span>
+			</h2>
+		</div>
+
+		#if (!$is_signed_in)
+			<a data-redirect="$is_login_redirect_required" href="$sign_in_url" id="sign-in" rel="nofollow">$sign_in_text</a>
+		#end
+
+		#if ($has_navigation || $is_signed_in)
+			#parse ("$full_templates_path/navigation.vm")
+		#end
+	</header>-->
+	
+	#if ($has_navigation || $is_signed_in)
+		#parse ("$full_templates_path/navigation.vm")
+	#end
+	
+	<div id="content">
+		<!--<nav id="breadcrumbs">#breadcrumbs()</nav>-->
+
+		#if ($selectable)
+			$theme.include($content_include)
+		#else
+			$portletDisplay.recycle()
+
+			$portletDisplay.setTitle($the_title)
+
+			$theme.wrapPortlet("portlet.vm", $content_include)
+		#end
+	</div>
+
+	<footer class="row" id="footer" role="contentinfo">
+		<div style="display:none">
+			$velocityPortletPreferences.setValue("portlet-setup-show-borders", "false")
+			#set($instanceId = 'd3Go')
+			#set($myPortletId = "BSHotelanalytics_WAR_BSHotelportlet_INSTANCE_${instanceId}")
+			#set($locRenderedPortletContent = $theme.runtime($myPortletId, "", $velocityPortletPreferences.toString()))
+			$locRenderedPortletContent
+			$velocityPortletPreferences.reset()
+		</div>
+		#parse ("$full_templates_path/footer.vm")
+	</footer>
+</div>
+
+#set ($brandValue = '')
+#if ($validator.isNotNull($brandCSS))
+	#set ($brandValue = $brandCSS)
+#end
+
+<script type="text/javascript" src="/BSHotel-theme/js/jquery.highlight.js"></script>
+<script type="text/javascript" src="/BSHotel-theme/js/custom.js"></script>
+<script type="text/javascript" src="/BSHotel-theme/js/pageData.js"></script>
+<script type="text/javascript" src="/BSHotel-theme/js/interactive.js"></script>
+<script type="text/javascript" src="/BSHotel-theme/js/date.js"></script>
+
+<!-- Global Javascript variables for Google Analytics & Nitro Services and hack for Site-Minder Logout issue -->
+<script type="text/javascript">
+
+
+jQuery(window).load(function(){
+	var brandName = "$brandValue"; 
+	if (brandName == null || brandName == '' || typeof brandName == 'undefined' || brandName == 'null') {
+		$('.ui-widget-overlay').attr('style','opacity:1 !important;');
+		brandName = '';
+	}
+});
+
+document.cookie='LogOutCookie=/web/brand-standards/hotel/home; expires=Thu, 31 Dec 2020 22:00:00 UTC; path=/';
+	
+
+$(function() {
+
+// call for main navigation and dropdown - should be part of theme
+//$( "#menu" ).menu();
+
+ var menu = $('#menu');
+ 
+ 	menu.css('display','block');
+    menu.menu();
+    
+    var blurTimer;
+    var blurTimeAbandoned = 200;  // time in ms for when menu is consider no longer in focus
+    
+    menu.on('menufocus', function() {
+        clearTimeout(blurTimer);
+    });
+    
+    menu.on('menublur', function(event) {
+        blurTimer = setTimeout(function() {
+            menu.menu("collapseAll", null, true );
+        }, blurTimeAbandoned);
+    });
+    
+    /* script for megaMenu navigation - 04/07/2015 */
+	$(".ui-menu-item").on('mouseenter mouseleave', function() {
+		thisObj = $(this);
+		rootDiv = thisObj.find(".ui-menu");
+		childElement = rootDiv.find(".child");
+		if(childElement.length > 1) {
+			getChildWidth = $(childElement).outerWidth();
+			setWidth = childElement.length * (getChildWidth);
+			if(childElement.length > 3){
+				setWidth = getChildWidth * 3
+			}
+			rootDiv.css('minWidth', setWidth)
+		}
+	})
+	
+	$("#navigation .ui-menu .ui-menu-item .ui-menu .ui-menu-item:last-child").addClass("lastLI");
+
+}); /* end braces of JS call */	
+	
+	
+$(function() {
+//LogoutModal dialog call
+	$( "#logoutModal" ).dialog({
+		autoOpen: false,
+		width: 560,
+		resizable:false,
+		modal: true
+	});
+	$( ".logoutcancel" ).click(function() {
+		$( "#logoutModal" ).dialog( "close" );
+	});
+	$( ".logoutdone" ).click(function() {
+		$( "#logoutModal" ).dialog( "close" );
+		window.location.href="$themeDisplay.getURLSignOut()";
+	});
+	$( ".logout_link" ).click(function() {
+		$( "#logoutModal" ).css('display','block');
+		$( "#logoutModal" ).dialog( "open" );
+	});
+}); /* end braces of JS call */	
+
+</script>
+<!-- MONITOR: SUCCESS -->
+
+$theme.include($body_bottom_include)
+
+$theme.include($bottom_include)
+
+</body>
+
+</html>

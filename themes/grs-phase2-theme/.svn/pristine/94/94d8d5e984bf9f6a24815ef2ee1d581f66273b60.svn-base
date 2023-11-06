@@ -1,0 +1,30 @@
+#*
+This file allows you to override and define new Velocity variables.
+*#
+
+#set ($hasEditPermission=0)
+#set ($hasGroupMemberOfChangeNetworkCommunity=false)
+#set ($permissionChecker = $themeDisplay.getPermissionChecker())
+#set ($groupLocalService = $serviceLocator.findService("com.liferay.portal.service.GroupLocalService"))
+#set ($groupId = $groupLocalService.getGroup($company_id,"GRS Change Network").getGroupId())
+#set ($userGroupLocalService = $serviceLocator.findService("com.liferay.portal.service.UserGroupRoleLocalService"))
+#set ($roleLocalService = $serviceLocator.findService("com.liferay.portal.service.RoleLocalService"))
+
+
+	#if($userGroupLocalService.hasUserGroupRole($themeDisplay.getUserId(), $themeDisplay.getScopeGroupId(),"Global Content Admin", false) || 
+		$userGroupLocalService.hasUserGroupRole($themeDisplay.getUserId(), $themeDisplay.getScopeGroupId(),"IHG Content Publisher", false) ||
+		$userGroupLocalService.hasUserGroupRole($themeDisplay.getUserId(), $themeDisplay.getScopeGroupId(),"IHG Super Content Publisher", false) ||
+		$userGroupLocalService.hasUserGroupRole($themeDisplay.getUserId(), $groupId, "Global Content Admin", false) || 
+		$userGroupLocalService.hasUserGroupRole($themeDisplay.getUserId(), $groupId, "IHG Content Publisher", false) ||
+		$userGroupLocalService.hasUserGroupRole($themeDisplay.getUserId(), $groupId, "IHG Super Content Publisher", false) ||
+		$roleLocalService.hasUserRole($themeDisplay.getUserId(), $company_id, "IHG Global Admin", false) ||
+		$permissionChecker.isOmniadmin() || $permissionChecker.isGroupAdmin($themeDisplay.getScopeGroupId()) || $permissionChecker.isGroupAdmin($groupId) || 
+		$permissionChecker.isGroupMember($groupId))
+			#set ($hasEditPermission=1)
+	#end
+
+#set ($userImageUrl=$user.getPortraitURL($themeDisplay))			
+
+	#if($user.getPortraitId()==0)
+		#set ($userImageUrl="/grs-theme/images/userdefault.png")
+	#end	

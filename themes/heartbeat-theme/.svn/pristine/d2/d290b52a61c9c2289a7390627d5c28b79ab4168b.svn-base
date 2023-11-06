@@ -1,0 +1,8 @@
+ <div class="footer-wrapper">
+    <div class="footer-prof-img" title="Image">Prof Image</div>
+    <div class="right-footer">
+    <div class="footer-logo" title="Heartbeat logo">Footer Logo</div>
+    <div class="footer-txt">
+      <div>HeartBeat is the official global guest, owner and GM satisfaction measurement system of Six Continents Hotels, Inc. (SCH) and its subsidiaries and affiliates which are InterContinental Hotels Group companies (collectively IHG®) and is one of the best ways to measure love: For Guest HeartBeat, we measure how much our Guests love IHG Bran ded hotels. For Owner and GM HeartBeat, we measure how much our Owners and General Managers love IHG. </div>
+      <div> <a class="click" href="#">CLICK HERE TO READ MORE</a> </div>
+    </div>

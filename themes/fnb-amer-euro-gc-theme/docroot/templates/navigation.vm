@@ -1,0 +1,69 @@
+<nav class="$nav_css_class alignleft" id="navigation" role="navigation">
+	<ul class="cf">
+		#foreach ($nav_item in $nav_items)
+			#if ($nav_item.isSelected())
+				<li class="active">
+			#else
+				<li>
+			#end
+				
+				#if($nav_item.getName().equals("Contact Us"))
+
+                    $velocityPortletPreferences.setValue("portlet-setup-show-borders", "false")
+                    $theme.runtime("contactusamereurogc_WAR_fnbamereurogcportlet")
+                    $velocityPortletPreferences.reset()
+
+                #elseif($nav_item.getName().equals("CAREERS"))
+                	#if ($communityPageURL == "fnb-amer")
+					 <a href="http://www.IHGFBAmericas.com" target="_blank">$nav_item.icon() $languageUtil.get($locale,$nav_item.getName())<span></span></a>
+					#elseif($communityPageURL == "fnb-euro")
+					 <a href="http://www.ihg.com/jobs" target="_blank">$nav_item.icon() $languageUtil.get($locale,$nav_item.getName())<span></span></a>
+					#else
+					 <a href="http://www.ihg.com/jobs" target="_blank">$nav_item.icon() $languageUtil.get($locale,$nav_item.getName())<span></span></a>	
+					#end
+					
+				#else
+					<a href="$nav_item.getURL()" $nav_item.getTarget()>$nav_item.icon() $languageUtil.get($locale,$nav_item.getName().replace(" " , "-").replace("&amp;","-").replace("---","-"))<span></span></a>
+				#end
+
+				#if ($nav_item.hasChildren())
+					<ul class="child-menu">
+						#foreach ($nav_child in $nav_item.getChildren())
+							#if ($nav_child.isSelected())
+								<li class="active">
+							#else
+								<li>
+							#end
+
+							<a href="$nav_child.getURL()" $nav_child.getTarget()>$nav_child.getName()<span></span></a>
+							</li>
+						#end
+					</ul>
+				#end
+			</li>
+		#end
+	</ul>
+</nav>
+<div id="search" class="alignright">
+	<form id="searchbox_form" onsubmit="redirect('$theme_display.getPortalURL()/web$layout.getGroup().friendlyURL', '$locale');return false;">
+		<input class="textbox" title="#language("search-text")" id="siteSearchKeywords" name="search" value="" placeholder="Search..." type="text" onkeypress="validateKey(event);">
+		<input class="icons search" title="#language("search-text")"  type="submit">
+	</form>
+	<!--/#searchbox_form-->
+</div>
+<!--/#search-->
+
+<script type="text/javascript">
+			function redirect(url, locale){
+				if(locale == 'zh_CN'){
+					url = url.replace("web", "zh/web");
+				} 
+				url = url + "/search?q=" + document.getElementById("siteSearchKeywords").value ;
+	    		window.location.href = url;
+				}
+			function validateKey(event){
+				if(event.keyCode==13 && jQuery("#siteSearchKeywords").val().trim()==''){
+					event.preventDefault();
+				}
+			}
+</script>

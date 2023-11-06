@@ -1,0 +1,494 @@
+/**
+ * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
+ *
+ * The contents of this file are subject to the terms of the Liferay Enterprise
+ * Subscription License ("License"). You may not use this file except in
+ * compliance with the License. You can obtain a copy of the License by
+ * contacting Liferay, Inc. See the License for the specific language governing
+ * permissions and limitations under the License, including but not limited to
+ * distribution rights of the Software.
+ *
+ *
+ *
+ */
+
+package com.ihg.brandstandards.db.service;
+
+import com.liferay.portal.service.ServiceWrapper;
+
+/**
+ * Provides a wrapper for {@link GEMQlReportLocalService}.
+ *
+ * @author Mummanedi
+ * @see GEMQlReportLocalService
+ * @generated
+ */
+public class GEMQlReportLocalServiceWrapper implements GEMQlReportLocalService,
+	ServiceWrapper<GEMQlReportLocalService> {
+	public GEMQlReportLocalServiceWrapper(
+		GEMQlReportLocalService gemQlReportLocalService) {
+		_gemQlReportLocalService = gemQlReportLocalService;
+	}
+
+	/**
+	* Adds the g e m ql report to the database. Also notifies the appropriate model listeners.
+	*
+	* @param gemQlReport the g e m ql report
+	* @return the g e m ql report that was added
+	* @throws SystemException if a system exception occurred
+	*/
+	@Override
+	public com.ihg.brandstandards.db.model.GEMQlReport addGEMQlReport(
+		com.ihg.brandstandards.db.model.GEMQlReport gemQlReport)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _gemQlReportLocalService.addGEMQlReport(gemQlReport);
+	}
+
+	/**
+	* Creates a new g e m ql report with the primary key. Does not add the g e m ql report to the database.
+	*
+	* @param qlReportId the primary key for the new g e m ql report
+	* @return the new g e m ql report
+	*/
+	@Override
+	public com.ihg.brandstandards.db.model.GEMQlReport createGEMQlReport(
+		long qlReportId) {
+		return _gemQlReportLocalService.createGEMQlReport(qlReportId);
+	}
+
+	/**
+	* Deletes the g e m ql report with the primary key from the database. Also notifies the appropriate model listeners.
+	*
+	* @param qlReportId the primary key of the g e m ql report
+	* @return the g e m ql report that was removed
+	* @throws PortalException if a g e m ql report with the primary key could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	@Override
+	public com.ihg.brandstandards.db.model.GEMQlReport deleteGEMQlReport(
+		long qlReportId)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return _gemQlReportLocalService.deleteGEMQlReport(qlReportId);
+	}
+
+	/**
+	* Deletes the g e m ql report from the database. Also notifies the appropriate model listeners.
+	*
+	* @param gemQlReport the g e m ql report
+	* @return the g e m ql report that was removed
+	* @throws SystemException if a system exception occurred
+	*/
+	@Override
+	public com.ihg.brandstandards.db.model.GEMQlReport deleteGEMQlReport(
+		com.ihg.brandstandards.db.model.GEMQlReport gemQlReport)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _gemQlReportLocalService.deleteGEMQlReport(gemQlReport);
+	}
+
+	@Override
+	public com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery() {
+		return _gemQlReportLocalService.dynamicQuery();
+	}
+
+	/**
+	* Performs a dynamic query on the database and returns the matching rows.
+	*
+	* @param dynamicQuery the dynamic query
+	* @return the matching rows
+	* @throws SystemException if a system exception occurred
+	*/
+	@Override
+	@SuppressWarnings("rawtypes")
+	public java.util.List dynamicQuery(
+		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _gemQlReportLocalService.dynamicQuery(dynamicQuery);
+	}
+
+	/**
+	* Performs a dynamic query on the database and returns a range of the matching rows.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.ihg.brandstandards.db.model.impl.GEMQlReportModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param dynamicQuery the dynamic query
+	* @param start the lower bound of the range of model instances
+	* @param end the upper bound of the range of model instances (not inclusive)
+	* @return the range of matching rows
+	* @throws SystemException if a system exception occurred
+	*/
+	@Override
+	@SuppressWarnings("rawtypes")
+	public java.util.List dynamicQuery(
+		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery, int start,
+		int end) throws com.liferay.portal.kernel.exception.SystemException {
+		return _gemQlReportLocalService.dynamicQuery(dynamicQuery, start, end);
+	}
+
+	/**
+	* Performs a dynamic query on the database and returns an ordered range of the matching rows.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.ihg.brandstandards.db.model.impl.GEMQlReportModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param dynamicQuery the dynamic query
+	* @param start the lower bound of the range of model instances
+	* @param end the upper bound of the range of model instances (not inclusive)
+	* @param orderByComparator the comparator to order the results by (optionally <code>null</code>)
+	* @return the ordered range of matching rows
+	* @throws SystemException if a system exception occurred
+	*/
+	@Override
+	@SuppressWarnings("rawtypes")
+	public java.util.List dynamicQuery(
+		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery, int start,
+		int end,
+		com.liferay.portal.kernel.util.OrderByComparator orderByComparator)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _gemQlReportLocalService.dynamicQuery(dynamicQuery, start, end,
+			orderByComparator);
+	}
+
+	/**
+	* Returns the number of rows that match the dynamic query.
+	*
+	* @param dynamicQuery the dynamic query
+	* @return the number of rows that match the dynamic query
+	* @throws SystemException if a system exception occurred
+	*/
+	@Override
+	public long dynamicQueryCount(
+		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _gemQlReportLocalService.dynamicQueryCount(dynamicQuery);
+	}
+
+	/**
+	* Returns the number of rows that match the dynamic query.
+	*
+	* @param dynamicQuery the dynamic query
+	* @param projection the projection to apply to the query
+	* @return the number of rows that match the dynamic query
+	* @throws SystemException if a system exception occurred
+	*/
+	@Override
+	public long dynamicQueryCount(
+		com.liferay.portal.kernel.dao.orm.DynamicQuery dynamicQuery,
+		com.liferay.portal.kernel.dao.orm.Projection projection)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _gemQlReportLocalService.dynamicQueryCount(dynamicQuery,
+			projection);
+	}
+
+	@Override
+	public com.ihg.brandstandards.db.model.GEMQlReport fetchGEMQlReport(
+		long qlReportId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _gemQlReportLocalService.fetchGEMQlReport(qlReportId);
+	}
+
+	/**
+	* Returns the g e m ql report with the primary key.
+	*
+	* @param qlReportId the primary key of the g e m ql report
+	* @return the g e m ql report
+	* @throws PortalException if a g e m ql report with the primary key could not be found
+	* @throws SystemException if a system exception occurred
+	*/
+	@Override
+	public com.ihg.brandstandards.db.model.GEMQlReport getGEMQlReport(
+		long qlReportId)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return _gemQlReportLocalService.getGEMQlReport(qlReportId);
+	}
+
+	@Override
+	public com.liferay.portal.model.PersistedModel getPersistedModel(
+		java.io.Serializable primaryKeyObj)
+		throws com.liferay.portal.kernel.exception.PortalException,
+			com.liferay.portal.kernel.exception.SystemException {
+		return _gemQlReportLocalService.getPersistedModel(primaryKeyObj);
+	}
+
+	/**
+	* Returns a range of all the g e m ql reports.
+	*
+	* <p>
+	* Useful when paginating results. Returns a maximum of <code>end - start</code> instances. <code>start</code> and <code>end</code> are not primary keys, they are indexes in the result set. Thus, <code>0</code> refers to the first result in the set. Setting both <code>start</code> and <code>end</code> to {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS} will return the full result set. If <code>orderByComparator</code> is specified, then the query will include the given ORDER BY logic. If <code>orderByComparator</code> is absent and pagination is required (<code>start</code> and <code>end</code> are not {@link com.liferay.portal.kernel.dao.orm.QueryUtil#ALL_POS}), then the query will include the default ORDER BY logic from {@link com.ihg.brandstandards.db.model.impl.GEMQlReportModelImpl}. If both <code>orderByComparator</code> and pagination are absent, for performance reasons, the query will not have an ORDER BY clause and the returned result set will be sorted on by the primary key in an ascending order.
+	* </p>
+	*
+	* @param start the lower bound of the range of g e m ql reports
+	* @param end the upper bound of the range of g e m ql reports (not inclusive)
+	* @return the range of g e m ql reports
+	* @throws SystemException if a system exception occurred
+	*/
+	@Override
+	public java.util.List<com.ihg.brandstandards.db.model.GEMQlReport> getGEMQlReports(
+		int start, int end)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _gemQlReportLocalService.getGEMQlReports(start, end);
+	}
+
+	/**
+	* Returns the number of g e m ql reports.
+	*
+	* @return the number of g e m ql reports
+	* @throws SystemException if a system exception occurred
+	*/
+	@Override
+	public int getGEMQlReportsCount()
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _gemQlReportLocalService.getGEMQlReportsCount();
+	}
+
+	/**
+	* Updates the g e m ql report in the database or adds it if it does not yet exist. Also notifies the appropriate model listeners.
+	*
+	* @param gemQlReport the g e m ql report
+	* @return the g e m ql report that was updated
+	* @throws SystemException if a system exception occurred
+	*/
+	@Override
+	public com.ihg.brandstandards.db.model.GEMQlReport updateGEMQlReport(
+		com.ihg.brandstandards.db.model.GEMQlReport gemQlReport)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _gemQlReportLocalService.updateGEMQlReport(gemQlReport);
+	}
+
+	/**
+	* Returns the Spring bean ID for this bean.
+	*
+	* @return the Spring bean ID for this bean
+	*/
+	@Override
+	public java.lang.String getBeanIdentifier() {
+		return _gemQlReportLocalService.getBeanIdentifier();
+	}
+
+	/**
+	* Sets the Spring bean ID for this bean.
+	*
+	* @param beanIdentifier the Spring bean ID for this bean
+	*/
+	@Override
+	public void setBeanIdentifier(java.lang.String beanIdentifier) {
+		_gemQlReportLocalService.setBeanIdentifier(beanIdentifier);
+	}
+
+	@Override
+	public java.lang.Object invokeMethod(java.lang.String name,
+		java.lang.String[] parameterTypes, java.lang.Object[] arguments)
+		throws java.lang.Throwable {
+		return _gemQlReportLocalService.invokeMethod(name, parameterTypes,
+			arguments);
+	}
+
+	@Override
+	public void clearCache() {
+		_gemQlReportLocalService.clearCache();
+	}
+
+	@Override
+	public java.util.List<com.ihg.brandstandards.custom.gem.model.QualityLeadModel> getGEMQlReport(
+		long parentPublishId, long publishId, long regionId,
+		java.lang.String regionCd, java.lang.String brandCd,
+		java.lang.String stdIdLst, java.lang.String stdStatus,
+		java.lang.String stdOwner, long seCategory, java.lang.String stdRegion,
+		boolean isGlobalUser) {
+		return _gemQlReportLocalService.getGEMQlReport(parentPublishId,
+			publishId, regionId, regionCd, brandCd, stdIdLst, stdStatus,
+			stdOwner, seCategory, stdRegion, isGlobalUser);
+	}
+
+	@Override
+	public java.util.List<com.ihg.brandstandards.custom.gem.model.QualityLeadModel> getGEMQlReport(
+		java.lang.String query) {
+		return _gemQlReportLocalService.getGEMQlReport(query);
+	}
+
+	@Override
+	public boolean saveGEMQlReport(
+		java.util.List<com.ihg.brandstandards.custom.gem.model.QualityLeadModel> records,
+		long publishDeptId, long parentPublishId, long publishId,
+		long regionId, java.lang.String user, boolean isGlobalUser,
+		boolean isReSequence) {
+		return _gemQlReportLocalService.saveGEMQlReport(records, publishDeptId,
+			parentPublishId, publishId, regionId, user, isGlobalUser,
+			isReSequence);
+	}
+
+	@Override
+	public boolean populateScoringCounts(long puiblishDeptId,
+		long parentPublishId, long publishId, long seTemplateId, long regionId,
+		java.lang.String screenName) {
+		return _gemQlReportLocalService.populateScoringCounts(puiblishDeptId,
+			parentPublishId, publishId, seTemplateId, regionId, screenName);
+	}
+
+	@Override
+	public boolean syncBridgeGEMQlReport(long actvGemDeptId,
+		long actvGemPublishDeptId, long brdgPublishId, long actvGemPublishId,
+		long regionId, java.lang.String regionCd, java.lang.String brandCd,
+		java.lang.String screenName, java.lang.String user,
+		java.lang.String seManualType, java.lang.String saManualType,
+		java.lang.String wrManualType, boolean isGlobalUser) {
+		return _gemQlReportLocalService.syncBridgeGEMQlReport(actvGemDeptId,
+			actvGemPublishDeptId, brdgPublishId, actvGemPublishId, regionId,
+			regionCd, brandCd, screenName, user, seManualType, saManualType,
+			wrManualType, isGlobalUser);
+	}
+
+	@Override
+	public boolean updateQlWithDataFromLastPublication(long curPublishId,
+		long regionId) {
+		return _gemQlReportLocalService.updateQlWithDataFromLastPublication(curPublishId,
+			regionId);
+	}
+
+	@Override
+	public boolean updateQlWithDataFromPublication(long curPublishId,
+		long lstPublishId, long regionId) {
+		return _gemQlReportLocalService.updateQlWithDataFromPublication(curPublishId,
+			lstPublishId, regionId);
+	}
+
+	@Override
+	public long getQlCountByPublishIdRegionId(long publishId, long regionId) {
+		return _gemQlReportLocalService.getQlCountByPublishIdRegionId(publishId,
+			regionId);
+	}
+
+	@Override
+	public java.util.List<java.lang.String> getStdOwners(long publishId,
+		long regionId, java.lang.String regionCd) {
+		return _gemQlReportLocalService.getStdOwners(publishId, regionId,
+			regionCd);
+	}
+
+	@Override
+	public java.util.Map<java.lang.String, java.lang.String> getGemBktSeverityCatgyCounts(
+		long seTemplateId) {
+		return _gemQlReportLocalService.getGemBktSeverityCatgyCounts(seTemplateId);
+	}
+
+	@Override
+	public java.lang.String getScoringHeaderCounts(long seTemplateId,
+		long gemDepartmentId) {
+		return _gemQlReportLocalService.getScoringHeaderCounts(seTemplateId,
+			gemDepartmentId);
+	}
+
+	@Override
+	public java.util.Map<java.lang.String, java.lang.String> getGemBktSeverityCatgyTotalCounts(
+		long seTemplateId) {
+		return _gemQlReportLocalService.getGemBktSeverityCatgyTotalCounts(seTemplateId);
+	}
+
+	@Override
+	public java.util.List<com.ihg.brandstandards.custom.gem.model.GEMScoreModel> getScoringPoints(
+		long publishId, long regionId) {
+		return _gemQlReportLocalService.getScoringPoints(publishId, regionId);
+	}
+
+	@Override
+	public boolean setScoringPoints(
+		java.util.List<com.ihg.brandstandards.custom.gem.model.GEMScoreModel> scorePoints) {
+		return _gemQlReportLocalService.setScoringPoints(scorePoints);
+	}
+
+	@Override
+	public boolean isGlobalMustNotSelectedForMeasurement(long publishId,
+		long regionId) {
+		return _gemQlReportLocalService.isGlobalMustNotSelectedForMeasurement(publishId,
+			regionId);
+	}
+
+	/**
+	* @param query
+	* @return Map<String,String>
+	*/
+	@Override
+	public java.util.Map<java.lang.String, java.lang.String> getReportManualTypes(
+		java.lang.String query) {
+		return _gemQlReportLocalService.getReportManualTypes(query);
+	}
+
+	@Override
+	public java.util.Map<java.lang.String, java.lang.String> getGemPathFilterData(
+		java.lang.String query) {
+		return _gemQlReportLocalService.getGemPathFilterData(query);
+	}
+
+	@Override
+	public java.util.List<com.ihg.brandstandards.custom.gem.model.QualityLeadModel> getApplicableBrandsByStdId(
+		long deptId, long stdId, long regionId) {
+		return _gemQlReportLocalService.getApplicableBrandsByStdId(deptId,
+			stdId, regionId);
+	}
+
+	@Override
+	public java.util.List<com.ihg.brandstandards.db.model.GEMQlReport> getByPrntQlReportId(
+		long parentQlReportId)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _gemQlReportLocalService.getByPrntQlReportId(parentQlReportId);
+	}
+
+	@Override
+	public java.util.List<com.ihg.brandstandards.db.model.GEMQlReport> getByStdIdDuplicatePublishId(
+		long publishId, long regionId, long stdId, java.lang.String duplicate)
+		throws com.liferay.portal.kernel.exception.SystemException {
+		return _gemQlReportLocalService.getByStdIdDuplicatePublishId(publishId,
+			regionId, stdId, duplicate);
+	}
+
+	@Override
+	public java.util.List<com.ihg.brandstandards.custom.gem.model.QualityLeadModel> getGEMDuplicatesReport(
+		java.lang.String query) {
+		return _gemQlReportLocalService.getGEMDuplicatesReport(query);
+	}
+
+	@Override
+	public java.util.List<com.ihg.brandstandards.db.model.GEMQlReport> getSpecGdlnByStdIdPublishIdDuplicate(
+		long publishId, long regionId, long stdId,
+		java.lang.String duplicateInd, java.lang.String stdType) {
+		return _gemQlReportLocalService.getSpecGdlnByStdIdPublishIdDuplicate(publishId,
+			regionId, stdId, duplicateInd, stdType);
+	}
+
+	@Override
+	public boolean executeSelectImportProcedure(java.lang.String query) {
+		return _gemQlReportLocalService.executeSelectImportProcedure(query);
+	}
+
+	/**
+	 * @deprecated As of 6.1.0, replaced by {@link #getWrappedService}
+	 */
+	public GEMQlReportLocalService getWrappedGEMQlReportLocalService() {
+		return _gemQlReportLocalService;
+	}
+
+	/**
+	 * @deprecated As of 6.1.0, replaced by {@link #setWrappedService}
+	 */
+	public void setWrappedGEMQlReportLocalService(
+		GEMQlReportLocalService gemQlReportLocalService) {
+		_gemQlReportLocalService = gemQlReportLocalService;
+	}
+
+	@Override
+	public GEMQlReportLocalService getWrappedService() {
+		return _gemQlReportLocalService;
+	}
+
+	@Override
+	public void setWrappedService(
+		GEMQlReportLocalService gemQlReportLocalService) {
+		_gemQlReportLocalService = gemQlReportLocalService;
+	}
+
+	private GEMQlReportLocalService _gemQlReportLocalService;
+}

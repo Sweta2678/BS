@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+#parse ($init)
+
+<html class="$root_css_class" dir="#language ("lang.dir")" lang="$w3c_language_id">
+
+<head>
+	<title>Bridge - $the_title</title>
+
+	<meta content="initial-scale=1.0, width=device-width" name="viewport" />
+
+	$theme.include($top_head_include)
+	
+	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="/BSBridge-theme/js/html5.js"></script>
+    <![endif]-->
+	
+	<script type="text/javascript" src="/BSBridge-theme/js/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="/BSBridge-theme/js/jquery-ui.js"></script>
+	<script type="text/javascript" src="/BSBridge-theme/js/treeAdmin/jquery.msgBox.js"></script>
+	<script type="text/javascript" src="/BSBridge-theme/js/treeAdmin/jquery.blockUI.js"></script>
+	<link type="text/css" rel="stylesheet" href="/BSBridge-theme/css/msgBoxLight.css" />
+	
+	#if ($validator.isNotNull($brandCSS))
+		<link type="text/css" rel="stylesheet" href="$brandCSS" />
+	#end
+	
+	###### Disable right button click #######
+	#if (!$permissionChecker.isOmniadmin())	
+		<script type="text/javascript">
+		    $(function() {
+		        $(document).bind("contextmenu",function(e){
+		            return false;
+		        });
+		    });
+		</script>
+	#end
+</head>
+
+<body class="$css_class">
+#if($isUserOnGEMScope == true && $themeDisplay.getURLCurrent().contains("/gem/ql-scoring-maximize"))
+	<style type="text/css">
+		.aui #wrapper {
+			width: 95% !important
+		}
+		.aui .container {
+			width: 95% !important
+		}
+		.aui .utilityRow {
+			width: 98% !important
+		}
+		.aui #navigation {
+			width: 100% !important
+		}
+		.aui .row-fluid .span12 {
+			width: 100% !important
+		}
+		
+	</style>
+#end
+#set($rgnCd = $request.get("parameters").get("glblRgnCd"))
+
+$theme.include($body_top_include)
+
+#if ($is_signed_in)
+	#if ($permissionChecker.isOmniadmin() || $isIHGAdmin )
+		#dockbar()
+	#end
+#end
+
+<div class="container-fluid container" id="wrapper">
+	<div class="row">
+		<div class="span12 utilityRow">
+			<div class="pull-left">
+				#if($isCMSUser == true)
+					<a href="/web/brand-standards/home" target="BS_CMS" title="CMS"><strong>CMS</strong></a>  
+				#end
+				
+				#if($isCMSUser == true && $isOBSMUser == true)
+					 | 
+				#end
+				
+				#if($isOBSMUser == true)
+					 <a href="/web/brand-standards/hotel/home" target="BS_OBSM" title="OBSM"><strong>OBSM</strong></a>
+				#end
+				
+				#if($isBridgeUser == true && $isUserOnBridgeScope == false && ($isCMSUser == true || $isOBSMUser == true))
+					| 
+				#end
+				
+				#if($isBridgeUser == true && $isUserOnBridgeScope == false)
+					 <a href="/web/brand-standards/bridge" target="BS_Bridge" title="Bridge">Bridge</a>
+				#end
+				
+				#if($isGemUser == true && $isUserOnGEMScope == false && ($isCMSUser == true || $isOBSMUser == true || $isBridgeUser == true))
+					| 
+				#end
+				
+				#if($isGemUser == true && $isUserOnGEMScope == false)
+					<a href="/web/brand-standards/gem/ql-scoring" target="BS_GEM" title="Brand Standards Measurement"><strong>Brand Standards Measurement</strong></a>
+				#end
+			</div>
+			
+			#if($isUserOnBridgeScope == true)
+			<div class="pull-right">
+				#if ($isGlobalAdmin == true)
+					<a href="/web/brand-standards/bridge/progress?rgnCd=GLBL"><strong>GLOBAL</strong></a> | 
+					<a href="/web/brand-standards/bridge/summary?rgnCd=AMEA"><strong>AMEA</strong></a> | 
+					<a href="/web/brand-standards/bridge/summary?rgnCd=AMER"><strong>AMER</strong></a> | 
+					<a href="/web/brand-standards/bridge/summary?rgnCd=EURO"><strong>EURO</strong></a> | 
+					<a href="/web/brand-standards/bridge/summary?rgnCd=GC"><strong>GC</strong></a>
+				#end
+			</div>
+			#end
+			
+			#if($isUserOnGEMScope == true)
+			<div class="pull-right">
+					<a href="/web/brand-standards/gem/support-request" title="Support Request">Support Request</a>
+			</div>
+			#end
+		</div>
+	</div>
+	<div style="margin-top: 10px;" class="row">
+		#if($isUserOnGEMScope == true)
+		<div style="margin-left: 0; width: 406px;" class="pull-left">
+			#if($isUserOnGEMScope == true)
+				<a href="/web/brand-standards/gem" title="$brandLink"><img title="$brandLink" alt="$brandLink" src="$brandLogo" class="logo"></a>
+			#else
+				<a href="/web/brand-standards/bridge" title="$brandLink"><img title="$brandLink" alt="$brandLink" src="$brandLogo" class="logo"></a>
+			#end
+			<h1 style="display:inline; font-size:1.5em;" class="logo">Standards Measurement</h1>
+		</div>
+		#else
+		<div style="margin-left: 0;" class="span5 pull-left">
+			<a href="/web/brand-standards/bridge" title="$brandLink"><img title="$brandLink" alt="$brandLink" src="$brandLogo" class="logo"></a>
+			<h1 style="display:inline; font-size:1.7em;" class="logo">Bridge</h1>
+		</div>
+        #end
+		
+        #if($isUserOnGEMScope == true)
+		<div style="width: 510px;" class="utility pull-right">
+			<p>$welcomeMessage, $user_name, <a href="#" class="logout_link" title="$logoutMessage">$logoutMessage</a></p>
+			#set ($VOID = $velocityPortletPreferences.setValue('portlet-setup-show-borders', 'false'))
+			#set ($accessPortletId = "Preferences_WAR_BSBridgeportlet")$theme.runtime($accessPortletId,'', $velocityPortletPreferences.toString())
+			#set ($VOID = $velocityPortletPreferences.reset())
+			<!--<p>Welcome, Alison, <a href="#">Logout</a></p>
+			<small>You are adjusting the next <u>Americas</u> publication for <u id="brandLabel">Holiday Inn Express</u> &nbsp;&nbsp;<a class="btn btn-mini" href="#"><i class="icon-cog"></i> Change</a></small>	-->		
+		</div>
+        #else
+		<div class="span7 utility pull-right">
+			<p>$welcomeMessage, $user_name, <a href="#" class="logout_link" title="$logoutMessage">$logoutMessage</a></p>
+			#set ($VOID = $velocityPortletPreferences.setValue('portlet-setup-show-borders', 'false'))
+			#set ($accessPortletId = "Preferences_WAR_BSBridgeportlet")$theme.runtime($accessPortletId,'', $velocityPortletPreferences.toString())
+			#set ($VOID = $velocityPortletPreferences.reset())
+			<!--<p>Welcome, Alison, <a href="#">Logout</a></p>
+			<small>You are adjusting the next <u>Americas</u> publication for <u id="brandLabel">Holiday Inn Express</u> &nbsp;&nbsp;<a class="btn btn-mini" href="#"><i class="icon-cog"></i> Change</a></small>	-->		
+		</div>
+        #end
+	</div>
+	
+	<div id="logoutModal" title="$logoutModalLabel" style="display:none">
+		<div class="modal-body">
+			<p>$logoutModalMessage</p>
+		</div>
+		<div class="modal-footer">
+			<button class="btn pull-right logoutcancel">$logoutModalCancel</button>
+			<button class="btn btn-primary pull-right logoutdone" style="margin-right: 5px;">$logoutModalSubmit</button>
+		</div>
+	</div>
+
+	#if ($has_navigation || $is_signed_in)
+		#if ($themeDisplay.getURLCurrent().contains("/gem/") || $themeDisplay.getURLCurrent().endsWith("/gem"))
+			#parse ("$full_templates_path/navigation_gem.vm")
+		#else
+			#parse ("$full_templates_path/navigation.vm")
+		#end
+	#end
+	
+	<div id="content">
+		#if ($selectable)
+			$theme.include($content_include)
+		#else
+			$portletDisplay.recycle()
+
+			$portletDisplay.setTitle($the_title)
+
+			$theme.wrapPortlet("portlet.vm", $content_include)
+		#end
+	</div>
+
+	<footer class="row" id="footer" role="contentinfo">
+		<div style="display:none">
+			$velocityPortletPreferences.setValue("portlet-setup-show-borders", "false")
+			#set($instanceId = 'd3Go')
+			#set($myPortletId = "BSHotelanalytics_WAR_BSHotelportlet_INSTANCE_${instanceId}")
+			#set($locRenderedPortletContent = $theme.runtime($myPortletId, "", $velocityPortletPreferences.toString()))
+			$locRenderedPortletContent
+			$velocityPortletPreferences.reset()
+		</div>
+		<!-- div align="center">
+			<img src="/BSBridge-theme/images/footer.jpg" alt="Brand Standards" title="Brand Standards" />
+		</div-->
+		#parse ("$full_templates_path/footer.vm")
+	</footer>
+	<div class="clear"></div>
+</div>
+
+#set ($brandValue = '')
+#if ($validator.isNotNull($brandCSS))
+	#set ($brandValue = $brandCSS)
+#end
+
+<script type="text/javascript" src="/BSBridge-theme/js/jquery.highlight.js"></script>
+<script type="text/javascript" src="/BSBridge-theme/js/custom.js"></script>
+<script type="text/javascript" src="/BSBridge-theme/js/pageData.js"></script>
+<script type="text/javascript" src="/BSBridge-theme/js/interactive.js"></script>
+<script type="text/javascript" src="/BSBridge-theme/js/date.js"></script>
+
+<!-- Global Javascript variables for Google Analytics & Nitro Services and hack for Site-Minder Logout issue -->
+<script type="text/javascript">
+
+
+jQuery(window).load(function(){
+	var brandName = "$brandValue"; 
+	if (brandName == null || brandName == '' || typeof brandName == 'undefined' || brandName == 'null') {
+		$('.ui-widget-overlay').attr('style','opacity:1 !important;');
+		brandName = '';
+	}
+});
+
+document.cookie='LogOutCookie=/web/brand-standards/hotel/home; expires=Thu, 31 Dec 2020 22:00:00 UTC; path=/';
+	
+
+$(function() {
+
+// call for main navigation and dropdown - should be part of theme
+//$( "#menu" ).menu();
+
+ var menu = $('#menu');
+ 
+ 	menu.css('display','block');
+    menu.menu();
+    
+    var blurTimer;
+    var blurTimeAbandoned = 200;  // time in ms for when menu is consider no longer in focus
+    
+    menu.on('menufocus', function() {
+        clearTimeout(blurTimer);
+    });
+    
+    menu.on('menublur', function(event) {
+        blurTimer = setTimeout(function() {
+            menu.menu("collapseAll", null, true );
+        }, blurTimeAbandoned);
+    });	
+	
+
+}); /* end braces of JS call */	
+	
+	
+$(function() {
+//LogoutModal dialog call
+	$( "#logoutModal" ).dialog({
+		autoOpen: false,
+		width: 560,
+		resizable:false,
+		modal: true
+	});
+	$( ".logoutcancel" ).click(function() {
+		$( "#logoutModal" ).dialog( "close" );
+	});
+	$( ".logoutdone" ).click(function() {
+		$( "#logoutModal" ).dialog( "close" );
+		window.location.href="$themeDisplay.getURLSignOut()";
+	});
+	$( ".logout_link" ).click(function() {
+		$( "#logoutModal" ).css('display','block');
+		$( "#logoutModal" ).dialog( "open" );
+	});
+}); /* end braces of JS call */	
+
+</script>
+<!-- MONITOR: SUCCESS -->
+$theme.include($body_bottom_include)
+
+$theme.include($bottom_include)
+
+</body>
+
+</html>

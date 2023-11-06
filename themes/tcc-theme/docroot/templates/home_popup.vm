@@ -1,0 +1,202 @@
+#set ($homepage_popup_URL = $portletURLFactory.create($request, "userregistrationprofile_WAR_tccportlet", $getterUtil.getLong($plid), "RENDER_PHASE"))
+#set ($VOID = $homepage_popup_URL.setWindowState("pop_up"))
+#set ($VOID = $homepage_popup_URL.setPortletMode("view"))
+## You can set parameters if you like
+#if($is_signed_in && "/nologinhome" != $layout.getFriendlyURL())
+	<div class="name-container"> <span>Welcome, </span><span>$user_name</span> </div>
+#end
+<div class="links-container">
+
+	#if($is_signed_in && "/nologinhome" != $layout.getFriendlyURL())	
+		<span class="mRight10 fLeft"> 
+			##<a href="" name="modal" title="Update Profile" onclick="runLightBox('updateProfile.jsp', '#dialog7', '$homepage_popup_URL',event);"> 
+			<a href="#" title="Update Profile"  onclick="showUpdateProfileLightBox();">
+				<span class="icon-text">Update Profile</span> 
+				<span class="update-profile-icon" >Icon for Update Profile</span> 
+			</a> 
+		</span> 
+		<span class="mRight10 fLeft"> 
+			##<a href="" name="modal" title="Change Password" onclick="runLightBox('changePassword.jsp', '#dialog3', '$homepage_popup_URL',event);">
+			<a href="${ihgChangePasswordUrl}" target="_blank" title="Change Password"> 
+				<span class="icon-text">Change Password</span> 
+				<span class="change-pwd-icon">Icon for Change Password</span> 
+			</a> 
+		</span> 
+		<span>
+		<a href="${sign_out_url}" name="logout" title="Logout"> <!-- Need to call appropriate method --> 
+				<span class="icon-text" >Logout</span> 
+				<span class="logout-icon" >Icon for Logout</span>
+
+		</a> 
+		</span>
+	
+		#else
+
+		<div class="register-now">Travel Consultant 
+		##	<a href="" name="modal" onclick="runLightBox('registration.jsp', '#dialog2', '$homepage_popup_URL',event);">Register Now</a>
+			<a href="#"  onclick="showRegistrationLightBox();">Register Now</a>
+		</div>
+		<div class="links-container cRight">
+			<span class="mRight10 fLeft"> 
+				##<a href="" name="modal" title="Forgot Password" onclick="runLightBox('forgotPassword.jsp', '#dialog6', '$homepage_popup_URL',event);"> 
+				<a href="#" title="Forgot Password" onclick="showForgotPasswordLightBox()">
+					<span class="icon-text">Forgot Password</span> 
+					<span class="forgot-pwd-icon">Icon for forgot password</span> 
+				</a>
+			</span>
+			<span class="fLeft"> 
+				<a href="$sign_in_url" title="Login"> 
+					<span class="icon-text">Login</span>  
+					<span class="login-icon" >Icon for login</span> 
+				</a>
+			</span>
+	</div>
+
+		#end
+		<!--links-container-->
+  </div>
+
+<script>
+// This is method is the heart of light box pop up functionality
+// The parameters should be passed properly to show light box
+function runLightBox(jspPageName, dialogName, jspUrl, event, dataString){
+	if (event!=null){
+		event.preventDefault();
+	}
+	
+	//Get the screen height and width
+	var maskHeight = $(document).height();
+	var maskWidth = $(window).width();
+	
+	//Set height and width to mask to fill up the whole screen
+	if($("#mask").length == 0) {
+		$('body').append('<div id="mask"></div>');
+	}
+	$('#mask').css({'width':maskWidth,'height':maskHeight});
+	$('#mask').fadeTo("fast",0.5);	
+	
+	//if mask is clicked
+	$('body').on('click', '#mask', function () {
+		$('.window').hide();
+        $(this).remove();
+        
+    });  
+	var portlet_base_url = jspUrl;
+	
+	if (dataString!=null && dataString!=''){
+		// for actionURL requests
+		jQuery.ajax({url:portlet_base_url,cache: false,type: "POST",data: dataString,dataType: "html",success:function(result){
+			try{
+				var dataArray = eval(result);
+				// if actionURL request is success then show the page
+				// which is defined in the server side
+				window.location.href=dataArray[1];
+			}catch(err){
+				// if the submit is not succesful
+				$("#boxes").empty();
+				$("#boxes").html(result);
+				runLightBoxUtilities(dialogName);
+			}
+		}});
+	}else{
+		// for resourceURL requests
+		if (jspPageName!=null){
+			var requestParam = "&pageName=" + jspPageName;
+			portlet_base_url = portlet_base_url + requestParam;
+		}
+		jQuery.ajax({url:portlet_base_url,cache: false,dataType: "html",success:function(result){
+			$("#boxes").empty();
+			$("#boxes").html(result);
+			runLightBoxUtilities(dialogName);
+		}});
+	}
+}
+
+// This function is used to define the light box's width and height dynamically
+// sets it in the center of the page
+ function runLightBoxUtilities(dialogName){
+	//Get the window height and width
+	var winH = $(window).height();
+	var winW = $(window).width();
+	var id = $(dialogName);
+		
+	//Set the popup window to center
+	$(id).css('top',  winH/2-$(id).height()/2);
+	$(id).css('left', winW/2-$(id).width()/2);
+	
+	//transition effect
+	$(dialogName).fadeOut('fast');
+	$(id).fadeIn(600); 
+	$(id).fadeTo("slow",1);
+	
+	//if close button is clicked
+	$('.window .close').click(function (e) {
+		//Cancel the link behavior
+		e.preventDefault();
+		$('.window').hide();
+		$('#mask').remove();
+	});
+ }
+ 
+ function showRegistrationLightBox(){
+ 	var url = '$homepage_popup_URL'+'&pageName=registration.jsp';
+ 	setPopupDimentions(650,780);
+	setPopupContent('<iframe src="'+url+'" frameborder="0" height="650" width="780" scrolling="no" id="tccFrame"></iframe>');
+	showPopup();
+}
+
+function showUpdateProfileLightBox(){	
+	var url = '$homepage_popup_URL'+'&pageName=updateProfile.jsp';
+	setPopupDimentions(650,500);
+	setPopupContent('<iframe src="'+url+'" frameborder="0" height="650" width="500" scrolling="no" id="tccFrame"></iframe>');
+	showPopup();
+}
+
+function showForgotPasswordLightBox(){
+	var url = '$homepage_popup_URL'+'&pageName=forgotPassword.jsp';
+	jQuery.ajax({
+	  	url :url,
+	  	data : {},
+	  	type: "POST",
+	  	dataType: "html"
+	}).done(function(data) {
+    	if (data != null && data != '' && typeof data != 'undefined') {
+    		setPopupContent(data);
+    		showPopup();
+    	}
+    	
+	}).fail( function(e) {
+		hidePopup();
+    });
+}
+
+/* <![CDATA[ */
+( function( $ ) {
+   $( 'a[href="#"]' ).click( function(e) {
+      e.preventDefault();
+   } );
+} )( jQuery );
+/* ]]> */
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

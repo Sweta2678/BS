@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!DOCTYPE layout-templates PUBLIC "-//Liferay//DTD Layout Templates 6.2.0//EN" "http://www.liferay.com/dtd/liferay-layout-templates_6_2_0.dtd">
+
+<layout-templates>
+	<custom>
+		<layout-template id="BSHotel" name="BS Hotel Templates">
+			<template-path>/BSHotel.tpl</template-path>
+			<wap-template-path>/BSHotel.wap.tpl</wap-template-path>
+			<thumbnail-path>/BSHotel.png</thumbnail-path>
+		</layout-template>
+	</custom>
+</layout-templates>

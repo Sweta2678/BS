@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="metadata">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="type" type="xs:string" minOccurs="1" maxOccurs="1" />
+                <xs:element ref="params" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+	
+    <xs:element name="params" type="paramList"/>
+	<xs:complexType name="paramList">
+		<xs:sequence>
+			<xs:element ref="param" minOccurs="1" maxOccurs="unbounded"/>
+            <xs:element ref="search"/>
+		</xs:sequence>
+	</xs:complexType>
+
+    <xs:element name="param" type="paramType" />
+    <xs:complexType name="paramType">
+<!-- 
+    <xs:complexContent>
+        <xs:extension base="fieldType">
+            <xs:sequence>
+                <xs:element name="field-a" minOccurs="1" maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:extension>
+    </xs:complexContent>
+ -->    
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="name" type="xs:string" use="required" />
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:element name="search">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="field" minOccurs="1" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="name" type="xs:string" use="required" />
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="field" type="fieldType" />
+    <xs:complexType name="fieldType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="name" type="xs:string" use="required" />
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+  
+</xs:schema>

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!DOCTYPE hook PUBLIC "-//Liferay//DTD Hook 6.2.0//EN" "http://www.liferay.com/dtd/liferay-hook_6_2_0.dtd">
+
+<hook>
+    <custom-jsp-global>false</custom-jsp-global>
+	<service>
+    	<service-type>com.liferay.portlet.messageboards.service.MBMessageLocalService</service-type>
+    	<service-impl>com.ihg.merlin2.socialnetworking.impl.WallMBMessageLocalServiceImpl</service-impl>
+	</service>
+</hook>

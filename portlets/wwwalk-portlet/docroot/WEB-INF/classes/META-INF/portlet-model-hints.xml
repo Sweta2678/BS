@@ -1,0 +1,266 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="com.ihg.www.common.model.AccountActivity">
+		<field name="activityId" type="long" />
+		<field name="mnemonicCode" type="String" />
+		<field name="rfpTitleText" type="String" />
+		<field name="rateCategoryCode" type="String" />
+		<field name="activityType" type="String" />
+		<field name="activityReference" type="long" />
+		<field name="action" type="String" />
+		<field name="fieldName" type="String" />
+		<field name="oldValue" type="String" />
+		<field name="newValue" type="String" />
+		<field name="comments" type="String" />
+		<field name="createUserId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updateUserId" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.www.common.model.AccountAvgPercPricing">
+		<field name="acctPricingId" type="int" />
+		<field name="roomId" type="int" />
+		<field name="wishRoomAvgPerc" type="double" />
+		<field name="wantRoomAvgPerc" type="double" />
+		<field name="walkRoomAvgPerc" type="double" />
+		<field name="userName" type="String" />
+		<field name="createdate" type="Date" />
+		<field name="updateBy" type="String" />
+		<field name="updatedate" type="Date" />
+	</model>
+	<model name="com.ihg.www.common.model.AccountOwner">
+		<field name="acctOwnerId" type="long" />
+		<field name="acctOwnerType" type="String" />
+		<field name="username" type="String" />
+		<field name="firstName" type="String" />
+		<field name="lastName" type="String" />
+		<field name="email" type="String" />
+		<field name="primaryBackupId" type="long" />
+		<field name="secondaryBackupId" type="long" />
+		<field name="autoEscalateInd" type="String" />
+		<field name="createUserId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updateUserId" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.www.common.model.AccountPricing">
+		<field name="acctPricingId" type="int" />
+		<field name="mnemonicCode" type="String" />
+		<field name="rateCategoryCode" type="String" />
+		<field name="pricingYearNumber" type="int" />
+		<field name="franchiseGrpName" type="String" />
+		<field name="lraCostAmount" type="double" />
+		<field name="currencyCode" type="String" />
+		<field name="breakfastIndicator" type="boolean" />
+		<field name="breakfastFee" type="double" />
+		<field name="breakfastVariance" type="double" />
+		<field name="internetIndicator" type="boolean" />
+		<field name="internetFee" type="double" />
+		<field name="internetVariance" type="double" />
+		<field name="parkingIndicator" type="boolean" />
+		<field name="parkingFee" type="double" />
+		<field name="parkingVariance" type="double" />
+		<field name="commissionIndicator" type="boolean" />
+		<field name="commissionRate" type="double" />
+		<field name="commissionVariance" type="double" />
+		<field name="taxIndicator" type="String" />
+		<field name="taxFlatPerc" type="String" />
+		<field name="taxRate" type="double" />
+		<field name="taxRateVariance" type="double" />
+		<field name="streetCornerText" type="String" />
+		<field name="rfpName" type="String" />
+		<field name="finalSubmitIndicator" type="String" />
+		<field name="kadIndicator" type="String" />
+		<field name="rateGuidanceIndicator" type="boolean" />
+		<field name="lraGuidanceIndicator" type="boolean" />
+		<field name="rfpApprovedIndicator" type="boolean" />
+		<field name="wishVariance" type="double" />
+		<field name="wantVariance" type="double" />
+		<field name="walkVariance" type="double" />
+		<field name="userName" type="String" />
+		<field name="createdate" type="Date" />
+		<field name="updateBy" type="String" />
+		<field name="updatedate" type="Date" />
+		<field name="serviceFeeIncludeInd" type="String" />
+		<field name="serviceFeeType" type="String" />
+		<field name="serviceFeeAmount" type="double" />
+		<field name="serviceFeeVariance" type="double" />
+		<field name="vatFeeIncludeInd" type="String" />
+		<field name="vatFeeType" type="String" />
+		<field name="vatFeeAmount" type="double" />
+		<field name="vatFeeVariance" type="double" />
+		<field name="initLoadIndicator" type="String" />
+	</model>
+	<model name="com.ihg.www.common.model.AccountPricingSeasonal">
+		<field name="acctPricingId" type="int" />
+		<field name="seasonId" type="int" />
+		<field name="roomId" type="int" />
+		<field name="seasonStartDate" type="Date" />
+		<field name="seasonEndDate" type="Date" />
+		<field name="wishPercentage" type="double" />
+		<field name="wantPercentage" type="double" />
+		<field name="walkPercentage" type="double" />
+		<field name="lraWishRate" type="double" />
+		<field name="lraWantRate" type="double" />
+		<field name="lraWalkRate" type="double" />
+		<field name="nlraWishRate" type="double" />
+		<field name="nlraWantRate" type="double" />
+		<field name="nlraWalkRate" type="double" />
+		<field name="userName" type="String" />
+		<field name="createdate" type="Date" />
+		<field name="updateBy" type="String" />
+		<field name="updatedate" type="Date" />
+	</model>
+	<model name="com.ihg.www.common.model.ArtExtra">
+		<field name="mnemonicCode" type="String" />
+		<field name="rateCategoryCode" type="String" />
+		<field name="rateCategoryName" type="String" />
+		<field name="accountType" type="String" />
+		<field name="totalRoomNetQty" type="int" />
+		<field name="busyRoomNetQty" type="int" />
+		<field name="totalAvgDailyRate" type="String" />
+		<field name="totalRevenueAmount" type="String" />
+		<field name="displacedRevenueAmount" type="String" />
+		<field name="currencyCode" type="String" />
+		<field name="lraCost" type="String" />
+		<field name="wishRateGuidance" type="double" />
+		<field name="wantRateGuidance" type="double" />
+		<field name="walkRateGuidance" type="double" />
+		<field name="acctQuadNumber" type="int" />
+		<field name="userName" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.www.common.model.Currency">
+		<field name="currencyCode" type="String" />
+		<field name="currencyName" type="String" />
+		<field name="userName" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.www.common.model.PricingExtra">
+		<field name="mnemonicCode" type="String" />
+		<field name="rfpTitleText" type="String" />
+		<field name="rateCategoryCode" type="String" />
+		<field name="regionCode" type="String" />
+		<field name="countryName" type="String" />
+		<field name="cityName" type="String" />
+		<field name="corpAccountName" type="String" />
+		<field name="currencyCode" type="String" />
+		<field name="mgmtCompanyName" type="String" />
+		<field name="breakfastIndicator" type="boolean" />
+		<field name="parkingIndicator" type="boolean" />
+		<field name="internetIndicator" type="boolean" />
+		<field name="taxIndicator" type="String" />
+		<field name="taxFlatPerc" type="String" />
+		<field name="commissionIndicator" type="boolean" />
+		<field name="breakfastFee" type="double" />
+		<field name="parkingFee" type="double" />
+		<field name="internetFee" type="double" />
+		<field name="taxRate" type="double" />
+		<field name="commissionRate" type="double" />
+		<field name="rfpExportIndicator" type="boolean" />
+		<field name="lraIndicator" type="boolean" />
+		<field name="hotelName" type="String" />
+		<field name="userName" type="String" />
+		<field name="createdate" type="Date" />
+		<field name="updateBy" type="String" />
+		<field name="updatedate" type="Date" />
+		<field name="chainCode" type="String" />
+		<field name="serviceFeeIncludeInd" type="String" />
+		<field name="serviceFeeType" type="String" />
+		<field name="serviceFeeAmount" type="double" />
+		<field name="vatFeeIncludeInd" type="String" />
+		<field name="vatFeeType" type="String" />
+		<field name="vatFeeAmount" type="double" />
+		<field name="initExportCode" type="String" />
+		<field name="newHotelIndicator" type="String" />
+	</model>
+	<model name="com.ihg.www.common.model.RegionChainAccountMetrics">
+		<field name="regionCode" type="String" />
+		<field name="chainCode" type="String" />
+		<field name="wishPercentage" type="double" />
+		<field name="wantPercentage" type="double" />
+		<field name="walkPercentage" type="double" />
+		<field name="roomNightQuntity" type="int" />
+		<field name="createUserId" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="updateUserId" type="String" />
+		<field name="updateDate" type="Date" />
+		<field name="wishHighPercentage" type="double" />
+		<field name="wantHighPercentage" type="double" />
+		<field name="walkHighPercentage" type="double" />
+		<field name="artMatchIndicator" type="String" />
+	</model>
+	<model name="com.ihg.www.common.model.RFPAccountOwner">
+		<field name="mnemonicCode" type="String" />
+		<field name="rfpTitleText" type="String" />
+		<field name="rateCategoryCode" type="String" />
+		<field name="acctOwnerId" type="long" />
+		<field name="acctReviewerId" type="long" />
+		<field name="acceptanceRateInd" type="String" />
+		<field name="acctLockedInd" type="String" />
+		<field name="acceptanceDueDate" type="Date" />
+		<field name="hotelEmail" type="String" />
+		<field name="createUserId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updateUserId" type="String" />
+		<field name="updatedDate" type="Date" />
+		<field name="regionCode" type="String" />
+		<field name="rfpBypassWorkFlowInd" type="String" />
+	</model>
+	<model name="com.ihg.www.common.model.RFPCommnets">
+		<field name="rfpCommentSequenceNumber" type="long" />
+		<field name="mnemonicCode" type="String" />
+		<field name="rfpTitleText" type="String" />
+		<field name="rateCategoryCode" type="String" />
+		<field name="userName" type="String" />
+		<field name="reviewCommnentIndicator" type="boolean" />
+		<field name="createUserId" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="updateUserId" type="String" />
+		<field name="updateDate" type="Date" />
+		<field name="rfpCommentsText" type="String" />
+	</model>
+	<model name="com.ihg.www.common.model.RFPSeason">
+		<field name="mnemonicCode" type="String" />
+		<field name="rfpTitleText" type="String" />
+		<field name="seasonId" type="int" />
+		<field name="seasonStartDate" type="Date" />
+		<field name="seasonEndDate" type="Date" />
+		<field name="userName" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.www.common.model.RFPSeasonRoom">
+		<field name="mnemonicCode" type="String" />
+		<field name="rfpTitleText" type="String" />
+		<field name="seasonId" type="int" />
+		<field name="roomId" type="int" />
+		<field name="roomRateAmt" type="String" />
+		<field name="userName" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updatedBy" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+	<model name="com.ihg.www.common.model.Workflow">
+		<field name="mnemonicCode" type="String" />
+		<field name="rfpTitleText" type="String" />
+		<field name="rateCategoryCode" type="String" />
+		<field name="intialApproverId" type="long" />
+		<field name="currentApproverId" type="long" />
+		<field name="workflowStartDate" type="Date" />
+		<field name="escalation1Date" type="Date" />
+		<field name="escalation2Date" type="Date" />
+		<field name="escalation3Date" type="Date" />
+		<field name="status" type="String" />
+		<field name="createUserId" type="String" />
+		<field name="createdDate" type="Date" />
+		<field name="updateUserId" type="String" />
+		<field name="updatedDate" type="Date" />
+	</model>
+</model-hints>

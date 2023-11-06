@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+#parse ($init)
+<html class="$root_css_class" dir="#language ("lang.dir")" lang="$w3c_language_id">
+<meta name="google-translate-customization" content="$propsUtil.get("me2.google_translation_id")"></meta>
+
+<head>
+	<title>$the_title</title>
+
+	<meta content="initial-scale=1.0, width=device-width" name="viewport" />
+	$theme.include($top_head_include)
+	<script src="$javascript_folder/jquery-1.11.1.min.js" type="text/javascript"></script>
+	<script src="$javascript_folder/jquery.ui.js" type="text/javascript"></script>
+	<script src="$javascript_folder/html5.js" type="text/javascript"></script>
+	<script type="text/javascript" src="$javascript_folder/jquery.als-1.6.min.js"></script>
+	<script type="text/javascript" src="$javascript_folder/jquery.als-1.6_Second.min.js"></script>
+	<script type="text/javascript" src="$javascript_folder/jquery.als-1.6_Third.min.js"></script>
+	<script type="text/javascript" src="$javascript_folder/jquery.customSelect.js"></script>
+	<script src="$javascript_folder/custom.js" type="text/javascript"></script>
+	<script src="$javascript_folder/page-main.js" type="text/javascript"></script>
+	<script src="$javascript_folder/jquery.paging.min.js"></script>
+	<script src="$javascript_folder/jquery.imageGallery.js" type="text/javascript" charset="utf-8"></script>
+	<script src="$javascript_folder/TCC_Custom.js" type="text/javascript"></script>
+	<script src="$javascript_folder/popup.js" type="text/javascript"></script>
+</head>
+
+<body class="$css_class">
+
+<a href="#main-content" class="hidden" id="skip-to-content">#language ("skip-to-content")</a>
+
+$theme.include($body_top_include)
+
+#if ($is_signed_in)
+	#dockbar()
+#end
+
+<div class="container-fluid" id="wrapper">
+	<div class="login_Pos_box">					
+			##parse ("$full_templates_path/home_popup.vm")
+			<!-- User Registration Portlet -->
+			#set ($VOID = $velocityPortletPreferences.setValue("portlet-setup-show-borders", "false"))
+			#set ($VOID = $velocityPortletPreferences.setValue("window-state", "pop_up"))
+			#set ($VOID = $theme.runtime("userregistrationprofile_WAR_tccportlet", "", $velocityPortletPreferences.toString()))  
+			#set ($VOID = $velocityPortletPreferences.reset())
+			#set($brandSellingArticleContent = "")
+		</div> <!--mTop12 fRight-->
+	<header id="banner" role="banner">
+		#if("/home" == $layout.getFriendlyURL())
+					<div class="header-container loggedOut">
+				#else
+				    <div class="header-container">
+				#end
+
+					<div class="topbar">
+						<div class="wrapper">
+
+							<div>
+    							#if ($has_navigation)
+                                 ##parse ("$full_templates_path/navigation.vm")
+                                 #set ($VOID = $velocityPortletPreferences.setValue("portlet-setup-show-borders", "false"))
+                                 #set ($VOID = $theme.runtime("tccnavigation_WAR_tccportlet", "", $velocityPortletPreferences.toString()))  
+                                   $velocityPortletPreferences.reset()
+                                #end
+                     
+								<div class="select-language" id="google_translate_element">
+								</div>
+								<div class="globalsearch-container" id="tccSiteSearchKeywordsDivId">
+									   <form name="tccSiteSearch" onsubmit="event.preventDefault();" title="Search Form" class="row">
+									       <fieldset>
+										        <input type="text" id="tccSiteSearchKeywords" onblur="if(this.value == '') { this.value = 'Search'; }" onfocus="if(this.value == 'Search') { this.value = ''; }" value="Search" name="" title=""/>
+										        <input type="button" value="" name="" title="Click to search" onClick="tccSiteSearchFormSubmit(); "/>
+									    	</fieldset>
+									    </form>
+										</fieldset>
+									</form>
+								</div><!--end of search container -->
+							</div>  <!--nav-->
+						</div>
+					</div>  <!--topbar-->
+					<div class="white-container">
+					<div class="wrapper">
+
+						<div>
+							<div class="logo-container"><a href="$siteHomePageURL" title="IHG Site" onmousedown="_gaq.push(['_trackEvent', 'Header','Header_LinkClick','TCC Logo']);"><img src="$themeDisplay.getPathThemeImages()/new_tcc_logo.png" alt="TCC Logo" title="TCC Logo"></a></div>
+							<div class="header-buttons">
+      	<ul>
+			#set ($brandSellingContentJournalArticle = $journalArticleLocalService.getArticleByUrlTitle($themeDisplay.getScopeGroupId(),"brand-selling-megamenu"))
+			#if ($brandSellingContentJournalArticle != "")
+				#set ($brandSelling_content_article_id = $brandSellingContentJournalArticle.getArticleId())
+				#set ($brandSellingArticleContent = $journalContentUtil.getContent($themeDisplay.getScopeGroupId(), $brandSelling_content_article_id, null, $locale.toString(), $themeDisplay))
+			#end
+        	<li class="select-brand"><a href="#">Select a brand</a>
+			 $brandSellingArticleContent
+			</li>
+           <li><a href='$ihgSiteMainURL' target="_blank" onmousedown="_gaq.push(['_trackEvent', 'Header','Header_LinkClick','Find a property']);">Find a property</a></li>
+        </ul>
+      </div>
+	  </div>
+							
+						</div>
+						</div>
+		
+					
+					<!--   This is promo code block -->
+					#if("/home" == $layout.getFriendlyURL())
+						#parse("$full_templates_path/homepage_promo.vm")
+					#end
+					
+			</div><!--header container -->
+	</header>
+	
+	<div id="content">
+		<!--<nav id="breadcrumbs">#breadcrumbs()</nav>-->
+
+		#if ($selectable)
+			$theme.include($content_include)
+			$theme.include($themeServletContext, "/jsp/popup.jsp")
+		#else
+			$portletDisplay.recycle()
+
+			$portletDisplay.setTitle($the_title)
+
+			$theme.wrapPortlet("portlet.vm", $content_include)
+		#end
+	</div>
+
+	<footer>
+		&copy;2010-2016 IHG. All rights reserved. Most hotels are independently owned and operated. Shanghai ICP Record Number 09027645
+	</footer>
+</div><!--end of wrapper id -->
+	<div class="wrapper">
+		<div id="boxes">
+		</div>
+	</div>
+
+</div> <!--wrapper-->
+
+$theme.include($body_bottom_include)
+
+$theme.include($bottom_include)
+
+</body>
+
+</html>
+<script type="text/javascript">
+
+	// This is new Liferay 6.2
+
+	var logoutCookieURl = location.protocol + '//' + location.host;
+
+	if(location.host.indexOf('ihgagent.com') > -1){
+		document.cookie='LogOutCookie='+logoutCookieURl+'; expires=Thu, 31 Dec 2020 22:00:00 UTC; path=/';
+	}
+
+	if (jQuery("img[alt='Add Web Content']").length <= 0){
+		jQuery("img[alt='Edit Web Content']").attr("style","display:none");
+	}
+
+	if(location.host.indexOf('ihgagent.com') > -1 && jQuery("div[id='_145_dockbar']").length > 0){
+		jQuery("div[id='_145_dockbar']").attr("style","display:none");
+	}
+
+
+	var newScript = document.createElement('script');
+	newScript.type = 'text/javascript';
+	var d = new Date();
+	var source = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit' + '&tStamp=' + d.getTime();
+	newScript.src = source;
+	
+	// When we add this script to the head, the request is sent off.
+	document.getElementsByTagName('head')[0].appendChild(newScript);
+
+	function googleTranslateElementInit() {
+  		new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+};
+
+$(document).keypress(function(e) {
+    if(e.which == 13) 
+    {
+    	  if($('#tccSiteSearchKeywordsDivId input:focus').size()>0)
+          {
+    		  tccSiteSearchFormSubmit();
+          }
+       
+    }
+});
+
+function tccSiteSearchFormSubmit(){
+    var searchString = document.getElementById("tccSiteSearchKeywords").value ;
+    if (searchString != 'Search') {
+		if (!/\d/.test(searchString) && !/[a-zA-Z]/.test(searchString)){
+			alert("Please enter a valid keyword.");
+			return false;
+		}else{
+			searchString= searchString.replace(/&/g,"%26amp;").replace(/>/g,"%26gt;").replace(/</g,"%26lt;").replace(/\'/g,"%26apos;").replace(/\"/g,"%26quot;").toLowerCase();
+			var url = "/web/tcc/search?q=" + searchString ;
+			window.location.href = url;
+		}
+	}else{
+	    return false;
+	}
+}
+</script>
+
+
+<script>
+$(document).ready(function(){
+$('.searchcontainer-content .table-data tr:nth-child(even)').find('.odd_res').css('background', 'transparent')
+})
+</script>
+<script>
+/* detect IE
+ * returns version of IE or false
+ */
+function detectIE() {
+  var ua = window.navigator.userAgent;
+  var msie = ua.indexOf('MSIE ');
+  if (msie > 0) {
+    // IE 10 or older => return version number
+    return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+  }
+  var trident = ua.indexOf('Trident/');
+  if (trident > 0) {
+    // IE 11 => return version number
+    var rv = ua.indexOf('rv:');
+    return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
+  }
+  var edge = ua.indexOf('Edge/');
+  if (edge > 0) {
+    // Edge (IE 12+) => return version number
+    return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
+  }
+  // other browser
+  return false;
+}
+
+var IEversion = detectIE();
+
+if (IEversion !== false) {
+  $('html').addClass ('ie ie'+IEversion);
+}
+</script>
+<script>
+$(".cours_Offr .amen_ListItem:even").addClass('bgcolor')
+</script>
+#set ($VOID = $velocityPortletPreferences.setValue("portlet-setup-show-borders", "false"))
+#set ($VOID = $theme.runtime("tccanalytics_WAR_tccportlet_INSTANCE_oxZ7", "", $velocityPortletPreferences.toString()))  
+$velocityPortletPreferences.reset()
+
+

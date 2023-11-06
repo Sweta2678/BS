@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+
+#parse ($init)
+
+<html class="$root_css_class" dir="#language ("lang.dir")" lang="$w3c_language_id">
+
+<head>
+	<title>$the_title</title>
+	<meta content="initial-scale=1.0, width=device-width" name="viewport" />
+
+	$theme.include($top_head_include)
+	
+	<script src="$javascript_folder/jquery-1.9.1.js" type="text/javascript"></script>
+</head>
+
+<body class="$css_class">
+
+<a href="#main-content" id="skip-to-content">#language ("skip-to-content")</a>
+
+$theme.include($body_top_include)
+
+#if ($is_signed_in && $hasDockbarPermission==1)
+	#dockbar()
+#end
+<div class="main-wrapper">
+<div class="container-fluid" id="wrapper">
+	<!--<header id="banner" role="banner">
+		<div id="heading">
+			<h1 class="site-title">
+				<a class="$logo_css_class" href="$site_default_url" title="#language_format ("go-to-x", [$site_name])">
+					<img alt="$logo_description" height="$site_logo_height" src="$site_logo" width="$site_logo_width" />
+				</a>
+
+				#if ($show_site_name)
+					<span class="site-name" title="#language_format ("go-to-x", [$site_name])">
+						$site_name
+					</span>
+				#end
+			</h1>
+
+			<h2 class="page-title">
+				<span>$the_title</span>
+			</h2>
+		</div>
+
+		#if (!$is_signed_in)
+			<a data-redirect="$is_login_redirect_required" href="$sign_in_url" id="sign-in" rel="nofollow">$sign_in_text</a>
+		#end
+
+		#if ($has_navigation || $is_signed_in)
+			#parse ("$full_templates_path/navigation.vm")
+		#end
+	</header>
+	-->
+	<div style="display:none">
+	$velocityPortletPreferences.setValue("portlet-setup-show-borders", "false")
+	#set($notificationIconPortletId = "notificationicon_WAR_grsportlet")
+	$theme.runtime($notificationIconPortletId,"", $velocityPortletPreferences.toString())
+	$velocityPortletPreferences.reset()
+	</div>
+	
+<!--Header Start-->
+	<header>
+    <div class="container-fluid headtop">
+      <div class="head-wrap">
+        <div class="span8 left-head">
+          <div class="sub-lft-head"> 
+		<span class="">
+          <button class="btn-default dropdown-toggle hamber-btn" type="button" data-toggle="dropdown"></button>
+          <!-- Hambergur start-->
+          <ul class="dropdown-menu hambarger">
+            <li><a href="$theme_settings.getProperty('about-page-url')"><i class="fa fa-home"></i>About IHG Concerto&trade;</a></li>
+            #if($hasEditPermission==1 && $is_signed_in)
+            	<li><a href="$theme_settings.getProperty('change-network-page-url')"><i class="fa fa-group"></i>Change Network</a></li>
+            #end
+            
+            #if($hasHotelImplementationPermission==1 && $is_signed_in)	
+            <li class="dropdown-submenu"><a href="$theme_settings.getProperty('implementation-page-url')"><i class="fa fa-flag-checkered"></i>Hotel Hub: For Owners & Hotels</a>
+              <ul class="dropdown-menu">
+                <li><a href="$theme_settings.getProperty('hotel-impl-about-page-url')"><i class="fa fa-home"></i>About IHG Concerto&trade;</a></li>
+                <li><a href="$theme_settings.getProperty('hotel-impl-global-page-url')"><i class="fa fa-globe"></i>Global News & Updates</a></li>
+                <li class="dropdown-submenu"> <a href="$theme_settings.getProperty('hotel-impl-regions-page-url')"><i class="fa fa-globe"></i>Regional Portals</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="$theme_settings.getProperty('hotel-impl-amer-page-url')">Americas</a></li>
+                    <li><a href="$theme_settings.getProperty('hotel-impl-euro-page-url')">Europe, Middle East, Asia and Africa</a></li>
+                    <li><a href="$theme_settings.getProperty('hotel-impl-gc-page-url')">Greater China</a></li>
+                  </ul>
+                </li>
+                <li><a href="$theme_settings.getProperty('hotel-impl-rollout-page-url')"><i class="fa fa-map-o"></i>Rollout Map</a></li>
+                <!--<li><a href="$theme_settings.getProperty('hotel-impl-gallery-page-url')"><i class="fa fa-image"></i>GRS Sneak Peek Gallery</a></li>
+                <li><a href="$theme_settings.getProperty('hotel-impl-discussions-page-url')"><i class="fa fa-comments"></i>Social Wall</a></li>-->
+              </ul>
+            </li>
+            #end
+            <li><a href="$theme_settings.getProperty('training-page-url')"><i class="fa fa-graduation-cap"></i>Training</a></li>
+            <li><a href="$theme_settings.getProperty('roadmap-page-url')"><i class="fa fa-road"></i>Program Timeline</a></li>
+            <li><a href="$theme_settings.getProperty('blog-page-url')"><i class="fa fa-rss"></i>Craig's Blog</a></li>
+            <li><a href="$theme_settings.getProperty('article-landing-page-url')"><i class="fa fa-newspaper-o"></i>Articles</a></li>
+            <li><a href="$theme_settings.getProperty('discussion-landing-page-url')"><i class="fa fa-comments"></i>Social Wall</a></li>
+			<li id="assetLibraryPage"><a href="$theme_settings.getProperty('asset-library-page-url')"><i class="fa fa-cloud-download"></i>Educational Series</a></li>
+			<li id="terminologyPage"><a href="$theme_settings.getProperty('glossary-page-url')"><i class="fa fa-list"></i>Terminology</a></li>
+			<li id="faqPage"><a href="$theme_settings.getProperty('faq-page-url')"><i class="fa fa-question-circle"></i>Frequently Asked Questions</a></li>
+			<li id="feedbackFormPage"><a href="$theme_settings.getProperty('feedback-page-url')"><i class="fa fa-envelope-o"></i>Questions | Suggestions | Feedback</a></li>
+			<li id="commentingPolicy"><a href="#" data-target="#commentingpolicy"	data-toggle="modal"><i class="fa fa-comments"></i>Commenting Policy</a></li>
+          </ul>
+          <!-- Hambergur start--> 
+          </span> 
+			<span>
+			<a class="grsSiteLogo" href="/web/concerto/home">
+            	<span class="grslogo"></span>
+            	<span class="mirrologo">IHG Concerto™ Microsite</span>
+            </a>
+			</span>
+		</div>
+        </div>
+        <div class="pull-right">
+	         <div class="sub-cent-head">
+	          <form name="grsGlobalSiteSearch" onsubmit="event.preventDefault();" title="Search Form" class="row">
+	          <span class="serchbox">
+	            <input type="text" id="grsGlobalSiteSearchKeywords" onblur="if(this.value == '') { this.value = 'search...'; }" 
+         			onfocus="if(this.value == 'search...') { this.value = ''; }" value="search..." name="" autocomplete="off">
+	        	<input type="submit" title="Click to search" name="searchBtn" class="searchBtn" onclick="grsGlobalSiteSearchFormSubmit();">
+	        	
+	          </span>
+	          </form>
+	        </div>
+	        <div class="right-head">
+	          <div class="sub-rgt-head">
+	            <span class="userlogo"><img src="$userImageUrl"/>
+					<label class="notification-alrt">
+						<img src="/grs-theme/images/notificationicon.png"/>
+					</label>
+				</span>
+	            <span class="slct-box">
+	              <section class="main">
+	                <div class="wrapper-demo">
+	                  <div id="dd" class="wrapper-dropdown-3">
+	                    <a href="#">$user.getFirstName()</a>
+	                    <ul class="dropdown">
+	                      <li><a href="$notifications_url">Notifications & Subscriptions</a></li>
+	                      <li><a href="$sign_out_url"></i>Log Out</a></li>
+	                    </ul>
+	                  </div>
+	                </div>
+	              </section>
+	            </span>
+	          </div>
+         </div>
+        </div>
+      </div>
+    </div>
+  </header>
+<!--Header end-->
+<!--Hamburger menu start-->
+ <!-- <div class="hambarger" id="hambarger-menu">
+  	<ul class="nav-hamber">
+    	<li id="aboutGRSPage"><a href="$theme_settings.getProperty('about-page-url')"><i class="fa fa-home"></i>About GRS</a></li>
+    	        
+         #if($hasEditPermission==1 && $is_signed_in)
+         	<li id="changeNetworkPage"><a href="$theme_settings.getProperty('change-network-page-url')"><i class="fa fa-group"></i>Change Network</a></li>
+         #end
+        
+         #if($hasHotelImplementationPermission==1 && $is_signed_in)
+         	<li><a href="$theme_settings.getProperty('implementation-page-url')"><i class="fa fa-flag-checkered"></i>Implementation</a></li>         	
+         #end
+	
+		<li id="trainingPage"><a href="$theme_settings.getProperty('training-page-url')"><i class="fa fa-graduation-cap"></i>Training</a></li>
+        <li id="timeLinePage"><a href="$theme_settings.getProperty('roadmap-page-url')"><i class="fa fa-road"></i>Program Timeline</a></li>
+    <!--<li id="calendarPage"><a href="$theme_settings.getProperty('calendar-page-url')"><i class="fa fa-calendar"></i>Calendar</a></li>-->
+   <!--     <li id="craigBlogPage"><a href="$theme_settings.getProperty('blog-page-url')"><i class="fa fa-rss"></i>Craig's Blog</a></li>
+        <li id="articlePage"><a href="$theme_settings.getProperty('article-landing-page-url')"><i class="fa fa-newspaper-o"></i>Articles</a></li>
+        <li id="discussionPage"><a href="$theme_settings.getProperty('discussion-landing-page-url')"><i class="fa fa-comments"></i>Social Wall</a></li>
+		<li id="assetLibraryPage"><a href="$theme_settings.getProperty('asset-library-page-url')"><i class="fa fa-cloud-download"></i>Educational Series</a></li>
+        <li id="terminologyPage"><a href="$theme_settings.getProperty('glossary-page-url')"><i class="fa fa-list"></i>Terminology</a></li>
+        <li id="faqPage"><a href="$theme_settings.getProperty('faq-page-url')"><i class="fa fa-question-circle"></i>Frequently Asked Questions</a></li>
+        <li id="feedbackFormPage"><a href="$theme_settings.getProperty('feedback-page-url')"><i class="fa fa-envelope-o"></i>Questions | Suggestions | Feedback</a></li>
+        <li id="commentingPolicy"><a href="#" data-target="#commentingpolicy"	data-toggle="modal"><i class="fa fa-comments"></i>Commenting Policy</a></li>
+    </ul>
+    </div>
+	
+  <!--Hamburger menu end-->
+  
+  <!-- Commenting Policy popup start-->
+	#if($commentingPolicyArticle.getArticleId())
+	<div class="modal fade commentpolicy" id="commentingpolicy" role="dialog">
+		<div class="modal-dialog">
+			<div class="modal-content sharewrapper">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>				
+					$commentingPolicyContent								
+				</div>
+				<div class="modal-body"></div>
+			</div>
+		</div>
+	</div>
+	#end
+ <!--Commenting Policy popup end-->
+
+	<div id="content" class="maincontent">
+		<!--<nav id="breadcrumbs">#breadcrumbs()</nav>-->
+		#if ($selectable)
+			$theme.include($content_include)
+		#else
+			$portletDisplay.recycle()
+			$portletDisplay.setTitle($the_title)
+			$theme.wrapPortlet("portlet.vm", $content_include)			
+		#end
+		#set ($currenturl = $themeDisplay.getURLCurrent())
+		#if ($currenturl.contains("/manage-polls"))
+		<div>
+			$velocityPortletPreferences.setValue("portlet-setup-show-borders", "false")			
+			#set($pollsPortletId = "25")
+			$theme.runtime($pollsPortletId,"", $velocityPortletPreferences.toString())
+			$velocityPortletPreferences.reset()
+		</div>
+		#end
+	</div>
+    <div class="footerContent">
+       <div class="wrap">	 
+     #parse ("fnb-amer-euro-gc-theme_SERVLET_CONTEXT_/templates/brand_bar.vm")
+	 <div class="bottmup">
+    	<div class="left-bottmup"><a href="/web/concerto/feedback">Submit IHG Concerto&trade; Program Questions</a></div>
+        <div class="right-bottmup"><a href="">BACK TO TOP<span><img title="logo" alt="logo" src="/grs-theme/images/footer-icon.png"></span></a></div>
+    </div>
+	</div></div> 
+</div>
+
+	<div style="display:none">
+		$velocityPortletPreferences.setValue("portlet-setup-show-borders", "false")
+		#set($instanceId = 'r7Ya')
+		#set($myPortletId = "me2analytics_WAR_me2analyticsportlet_INSTANCE_${instanceId}")
+		#set($locRenderedPortletContent = $theme.runtime($myPortletId, "", $velocityPortletPreferences.toString()))
+		$locRenderedPortletContent
+		$velocityPortletPreferences.reset()
+	</div>
+<!-- Theme core JavaScript inclued start
+    ================================================== -->	
+	<script src="$javascript_folder/bootstrap.js" type="text/javascript"></script>
+	<script src="$javascript_folder/jquery.jcarousel.min.js" type="text/javascript"></script>
+	<script src="$javascript_folder/html5.js" type="text/javascript"></script>
+	<script src="$javascript_folder/jquery-ui.1.8.22.min.js" type="text/javascript"></script>
+	<script src="$javascript_folder/custom-selectbox.js" type="text/javascript"></script>
+	<script src="$javascript_folder/prettyCheckable.js" type="text/javascript"></script>
+	<script src="$javascript_folder/jquery.cookie.js" type="text/javascript"></script>
+	<script src="$javascript_folder/custom.js" type="text/javascript"></script>
+	<script>
+		$(document).ready(function(){
+			$('.dropdown-submenu a.test').on("click", function(e){
+			$(this).next('ul').toggle('slow');
+			e.stopPropagation();
+			e.preventDefault();
+			});
+		});
+	</script>
+<!--	<script>
+	$( ".hambarger" ).hide();
+	$( ".hamber-butn" ).click(function() {
+	$( ".hambarger" ).slideToggle( "slow", function() {
+	});
+	});
+	</script>
+	-->
+	<!-- Theme core JavaScript inclued end
+    ================================================== -->	
+$theme.include($body_bottom_include)
+
+$theme.include($bottom_include)
+
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE display PUBLIC "-//Liferay//DTD Display 6.2.0//EN" "http://www.liferay.com/dtd/liferay-display_6_2_0.dtd">
+
+<display>
+	<category name="Brand-Standards-Bridge">
+		<portlet id="Summary" />
+		<portlet id="MyPublication" />
+		<portlet id="AddByImport" />
+		<portlet id="EditStates" />
+		<portlet id="Unpublish" />
+		<portlet id="UpdatePreview" />
+		<portlet id="ViewComplaince" />
+		<portlet id="Preferences" />
+		<portlet id="Progress" />
+		<portlet id="ManagePublication" />
+		<portlet id="MustPublish" />
+		<portlet id="Unlock" />
+		<portlet id="sync-liferay-counter" />
+		<portlet id="Document-Permission" />
+		<portlet id="MyPublicationErrorDetails"></portlet>
+	</category>
+	<category name="Brand-Standards-GEM">
+	    <portlet id="ManageGem" />
+        <portlet id="QualityLead" />
+        <portlet id="GemCategory" />
+        <portlet id="GemRoles" />
+        <portlet id="GEMUpdatePreview" />
+        <portlet id="GEMManagementId" />
+        <portlet id="GemSupportForm" />
+         <portlet id="gem-department-admin" />
+         <portlet id="gem-manage-duplicates" />
+         <portlet id="gem-import-selections" />
+	</category>
+</display>

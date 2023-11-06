@@ -1,0 +1,172 @@
+/**
+ * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
+ *
+ * The contents of this file are subject to the terms of the Liferay Enterprise
+ * Subscription License ("License"). You may not use this file except in
+ * compliance with the License. You can obtain a copy of the License by
+ * contacting Liferay, Inc. See the License for the specific language governing
+ * permissions and limitations under the License, including but not limited to
+ * distribution rights of the Software.
+ *
+ *
+ *
+ */
+
+package com.ihg.brandstandards.db.service.impl;
+
+import java.util.List;
+import java.util.Map;
+
+import com.ihg.brandstandards.db.model.GEMQlReport;
+import com.ihg.brandstandards.db.service.base.GEMQlReportLocalServiceBaseImpl;
+import com.ihg.brandstandards.custom.gem.model.GEMScoreModel;
+import com.ihg.brandstandards.custom.gem.model.QualityLeadModel;
+import com.liferay.portal.kernel.exception.SystemException;
+
+/**
+ * The implementation of the g e m ql report local service.
+ *
+ * <p>
+ * All custom service methods should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the {@link com.ihg.brandstandards.db.service.GEMQlReportLocalService} interface.
+ *
+ * <p>
+ * This is a local service. Methods of this service will not have security checks based on the propagated JAAS credentials because this service can only be accessed from within the same VM.
+ * </p>
+ *
+ * @author Mummanedi
+ * @see com.ihg.brandstandards.db.service.base.GEMQlReportLocalServiceBaseImpl
+ * @see com.ihg.brandstandards.db.service.GEMQlReportLocalServiceUtil
+ */
+public class GEMQlReportLocalServiceImpl extends GEMQlReportLocalServiceBaseImpl {
+	/*
+	 * NOTE FOR DEVELOPERS:
+	 *
+	 * Never reference this interface directly. Always use {@link com.ihg.brandstandards.db.service.GEMQlReportLocalServiceUtil} to access the g e m ql report local service.
+	 */
+	public void clearCache(){
+		try {
+			gemQlReportPersistence.clearCache();
+		} catch (Exception e) {
+		}
+	}
+    public List<QualityLeadModel> getGEMQlReport(long parentPublishId, long publishId, long regionId, String regionCd, String brandCd,
+            String stdIdLst, String stdStatus, String stdOwner, long seCategory, String stdRegion, boolean isGlobalUser)
+    {
+        return gemQlReportFinder.getGEMQlReport(parentPublishId, publishId, regionId, regionCd, brandCd, stdIdLst, stdStatus, stdOwner, seCategory, stdRegion, isGlobalUser);
+    }
+    
+    public List<QualityLeadModel> getGEMQlReport(String query)
+    {
+        return gemQlReportFinder.getGEMQlReport(query);
+    }
+    
+    public boolean saveGEMQlReport(List<QualityLeadModel> records, long publishDeptId, long parentPublishId, long publishId, long regionId, String user, boolean isGlobalUser, boolean isReSequence)
+    {
+        return gemQlReportFinder.saveGEMQlReport(records, publishDeptId,  parentPublishId, publishId, regionId, user, isGlobalUser, isReSequence);
+    }
+    
+    public boolean populateScoringCounts(long puiblishDeptId, long parentPublishId, long publishId, long seTemplateId, long regionId, String screenName)
+    {
+        return gemQlReportFinder.populateScoringCounts(puiblishDeptId, parentPublishId, publishId, seTemplateId, regionId, screenName);
+    }
+    
+    public boolean syncBridgeGEMQlReport(long actvGemDeptId, long actvGemPublishDeptId, long brdgPublishId, long actvGemPublishId, long regionId, 
+    		String regionCd, String brandCd, String screenName, String user, String seManualType, 
+    		String saManualType, String wrManualType, boolean isGlobalUser)
+    {
+        //long recCnt = getQlCountByPublishIdRegionId(publishId, regionId);
+        
+        boolean success = gemQlReportFinder.syncBridgeGEMQlReport(actvGemDeptId, actvGemPublishDeptId, brdgPublishId, actvGemPublishId, regionId, regionCd, brandCd, screenName, user, 
+        		seManualType, saManualType, wrManualType, isGlobalUser);
+        /*if (recCnt == 0)
+        {
+            gemQlReportFinder.updateQlWithDataFromLastPublication(publishId, regionId);
+        }*/
+        
+        return success;
+    }
+    
+    public boolean updateQlWithDataFromLastPublication(long curPublishId, long regionId)
+    {
+        return gemQlReportFinder.updateQlWithDataFromLastPublication(curPublishId, regionId);
+    }
+    
+    public boolean updateQlWithDataFromPublication(long curPublishId, long lstPublishId, long regionId)
+    {
+        return gemQlReportFinder.updateQlWithDataFromPublication(curPublishId, lstPublishId, regionId);
+    }
+    
+    public long getQlCountByPublishIdRegionId(long publishId, long regionId)
+    {
+        return gemQlReportFinder.getQlCountByPublishIdRegionId(publishId, regionId);
+    }
+    
+    public List<String> getStdOwners(long publishId, long regionId, String regionCd)
+    {
+        return gemQlReportFinder.getStdOwners(publishId, regionId, regionCd);
+    }
+
+    public Map<String, String> getGemBktSeverityCatgyCounts(long seTemplateId) 
+    {
+    	return gemQlReportFinder.getGemBktSeverityCatgyCounts(seTemplateId);
+    }
+    
+    public String getScoringHeaderCounts(long seTemplateId,long gemDepartmentId)
+    {
+        return gemQlReportFinder.getScoringHeaderCounts(seTemplateId, gemDepartmentId);
+    }
+    
+    public Map<String, String> getGemBktSeverityCatgyTotalCounts(long seTemplateId)
+    {
+    	return gemQlReportFinder.getGemBktSeverityCatgyTotalCounts(seTemplateId);
+    }
+    
+    public List<GEMScoreModel> getScoringPoints(long publishId, long regionId)
+    {
+        return gemQlReportFinder.getScoringPoints(publishId, regionId);
+    }
+    
+    public boolean setScoringPoints(List<GEMScoreModel> scorePoints)
+    {
+        return gemQlReportFinder.setScoringPoints(scorePoints);
+    }
+    
+    public boolean isGlobalMustNotSelectedForMeasurement(long publishId, long regionId)
+    {
+        return gemQlReportFinder.isGlobalMustNotSelectedForMeasurement(publishId, regionId);
+    }
+    
+    /**
+     * 
+     * @param query
+     * @return Map<String,String>
+     */
+    public Map<String,String> getReportManualTypes (String query) {
+    	return gemQlReportFinder.getReportManualTypes(query);
+    }
+    
+    public Map<String, String> getGemPathFilterData(String query) {
+    	return gemQlReportFinder.getGemPathFilterData(query);
+    } 
+    
+    public List<QualityLeadModel> getApplicableBrandsByStdId(long deptId, long stdId, long regionId){
+    	return gemQlReportFinder.getApplicableBrandsByStdId(deptId, stdId, regionId);
+    }
+    public List<GEMQlReport> getByPrntQlReportId(long parentQlReportId) throws SystemException
+    {
+        return gemQlReportPersistence.findByparentQlReportId(parentQlReportId);
+    }
+    public List<GEMQlReport> getByStdIdDuplicatePublishId(long publishId,long regionId,long stdId,String  duplicate) throws SystemException
+    {
+        return gemQlReportPersistence.findBystdIdDuplicatePublishId(publishId,regionId,stdId, duplicate);
+    }
+    public List<QualityLeadModel> getGEMDuplicatesReport(String query)
+    {
+        return gemQlReportFinder.getGEMDuplicatesReport(query);
+    }
+    public List<GEMQlReport> getSpecGdlnByStdIdPublishIdDuplicate(long publishId, long regionId,long stdId,String duplicateInd,String stdType){
+		return gemQlReportFinder.getSpecGdlnByStdIdPublishIdDuplicate(publishId,regionId,stdId,duplicateInd,stdType);
+    	
+    }
+    
+}

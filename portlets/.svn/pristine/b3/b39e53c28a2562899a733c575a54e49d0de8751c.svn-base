@@ -1,0 +1,23 @@
+name=GRS Portlet
+module-group-id=liferay
+module-incremental-version=1
+tags=
+short-description=
+change-log=
+page-url=http://www.liferay.com
+author=Liferay, Inc.
+licenses=EE
+portal-dependency-jars=\
+    jstl-api.jar,\
+    jstl-impl.jar,\
+    dom4j.jar,\
+    jaxen.jar,\
+    velocity.jar,\
+    commons-collections.jar,\
+    commons-lang.jar
+portal-dependency-tlds=\
+    c.tld,\
+    fmt.tld,\
+    fn.tld
+long-description=
+liferay-versions=6.2.10+

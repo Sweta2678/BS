@@ -1,0 +1,7 @@
+#*
+This file allows you to override and define new Velocity variables.
+*#
+
+##Footer webcontent ID
+#set ($journalArticleLocalService = $serviceLocator.findService("com.liferay.portlet.journal.service.JournalArticleService"))
+#set($footerArticle = $journalArticleLocalService.getArticleByUrlTitle($themeDisplay.getScopeGroupId(),"heartbeat-footer"))

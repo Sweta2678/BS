@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-lazy="false" auto-import="false">
+	<import class="com.ihg.grs.common.model.Directory" />
+	<import class="com.ihg.grs.common.model.Feedback" />
+	<import class="com.ihg.grs.common.model.FeedbackDetail" />
+	<import class="com.ihg.grs.common.model.Glossary" />
+	<class name="com.ihg.grs.common.model.impl.DirectoryImpl" table="GRS_COMM.TEAM_MBR">
+		<cache usage="read-write" />
+		<id name="directoryId" column="TEAM_MBR_ID" type="int">
+			<generator class="assigned" />
+		</id>
+		<property name="firstName" type="com.liferay.portal.dao.orm.hibernate.StringType" column="TEAM_MBR_FRST_NM" />
+		<property name="lastName" type="com.liferay.portal.dao.orm.hibernate.StringType" column="TEAM_MBR_LST_NM" />
+		<property name="businessTitle" type="com.liferay.portal.dao.orm.hibernate.StringType" column="BUS_TITLE_NM" />
+		<property name="geoRegion" type="com.liferay.portal.dao.orm.hibernate.StringType" column="RGN_NM" />
+		<property name="role" type="com.liferay.portal.dao.orm.hibernate.StringType" column="ROLE_NM" />
+		<property name="regionType" type="com.liferay.portal.dao.orm.hibernate.StringType" column="ROLE_TYP_NM" />
+		<property name="organizationName" type="com.liferay.portal.dao.orm.hibernate.StringType" column="ORG_NM" />
+		<property name="portraitURL" type="com.liferay.portal.dao.orm.hibernate.StringType" column="PHOTO_URL_TXT" />
+		<property name="createdate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="createUserId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="lastUpdateUserId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+		<property name="email" type="com.liferay.portal.dao.orm.hibernate.StringType" column="TEAM_MBR_EMAIL_ID" />
+	</class>
+	<class name="com.ihg.grs.common.model.impl.FeedbackImpl" table="GRS_COMM.PORTAL_USR">
+		<cache usage="read-write" />
+		<id name="feedbackId" column="PORTAL_USR_ID" type="int">
+			<generator class="assigned" />
+		</id>
+		<property name="firstName" type="com.liferay.portal.dao.orm.hibernate.StringType" column="USR_FRST_NM" />
+		<property name="lastName" type="com.liferay.portal.dao.orm.hibernate.StringType" column="USR_LST_NM" />
+		<property name="title" type="com.liferay.portal.dao.orm.hibernate.StringType" column="BUS_TITLE_NM" />
+		<property name="email" type="com.liferay.portal.dao.orm.hibernate.StringType" column="USR_EMAIL_ID" />
+		<property name="onBehalfOf" type="com.liferay.portal.dao.orm.hibernate.StringType" column="ON_BEHALF_OF_NM" />
+		<property name="createUserId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="lastUpdateUserId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.grs.common.model.impl.FeedbackDetailImpl" table="GRS_COMM.PORTAL_FEEDBACK_DTL">
+		<cache usage="read-write" />
+		<id name="PORTAL_FEEDBACK_DTL_ID" type="int">
+			<generator class="assigned" />
+		</id>
+		<property name="feedbackId" type="com.liferay.portal.dao.orm.hibernate.IntegerType" column="PORTAL_USR_ID" />
+		<property name="feedbackType" type="com.liferay.portal.dao.orm.hibernate.StringType" column="FEEDBACK_TYP_NM" />
+		<property name="subject" type="com.liferay.portal.dao.orm.hibernate.StringType" column="SUBJECT_NM" />
+		<property name="message" type="com.liferay.portal.dao.orm.hibernate.StringType" column="MSG_TXT" />
+		<property name="fileName" type="com.liferay.portal.dao.orm.hibernate.StringType" column="FILE_NM" />
+		<one-to-one name="fileContentBlobModel" access="com.liferay.portal.dao.orm.hibernate.PrivatePropertyAccessor" class="com.ihg.grs.common.model.FeedbackDetailFileContentBlobModel" cascade="save-update" outer-join="false" constrained="true" />
+		<property name="createUserId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="lastUpdateUserId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+	<class name="com.ihg.grs.common.model.FeedbackDetailFileContentBlobModel" table="GRS_COMM.PORTAL_FEEDBACK_DTL" lazy="true">
+		<id name="PORTAL_FEEDBACK_DTL_ID" column="PORTAL_FEEDBACK_DTL_ID">
+			<generator class="foreign">
+				<param name="property">com.ihg.grs.common.model.impl.FeedbackDetailImpl</param>
+			</generator>
+		</id>
+		<property column="FILE_BLOB" name="fileContentBlob" type="blob" />
+	</class>
+	<class name="com.ihg.grs.common.model.impl.GlossaryImpl" table="GRS_COMM.GLOSSARY">
+		<cache usage="read-write" />
+		<id name="glossaryId" column="GLOSSARY_ID" type="int">
+			<generator class="assigned" />
+		</id>
+		<property name="term" type="com.liferay.portal.dao.orm.hibernate.StringType" column="GLOSSARY_TERM_TXT" />
+		<property name="description" type="com.liferay.portal.dao.orm.hibernate.StringType" column="GLOSSARY_DESC" />
+		<property name="activeIndicator" type="com.liferay.portal.dao.orm.hibernate.StringType" column="ACTV_IND" />
+		<property name="createUserId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="CREAT_USR_ID" />
+		<property name="createdate" type="org.hibernate.type.TimestampType" column="CREAT_TS" />
+		<property name="lastUpdateUserId" type="com.liferay.portal.dao.orm.hibernate.StringType" column="LST_UPDT_USR_ID" />
+		<property name="updatedate" type="org.hibernate.type.TimestampType" column="LST_UPDT_TS" />
+	</class>
+</hibernate-mapping>

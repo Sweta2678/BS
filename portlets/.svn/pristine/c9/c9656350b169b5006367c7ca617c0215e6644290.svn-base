@@ -1,0 +1,2314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 6.2.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_6_2_0.dtd">
+<service-builder package-path="com.ihg.brandstandards.db">
+    <author>Mummanedi</author>
+    <namespace>bsservices</namespace>
+ 
+    <!-- ################### Common Service Entity Configuration will go here ################### -->
+    
+    <entity name="UserPreference" cache-enabled="false" table="USR_PREF" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!-- PK fields -->
+        <column name="preferenceId" db-name="PREF_ID" type="long" primary="true" />
+
+		<!--  Regular fields -->
+		<column name="userId" db-name="USR_ID" type="long" />
+		<column name="langCode" db-name="LOCALE_CD" type="String" />
+		<column name="pdfLangCode" db-name="PDF_LOCALE_CD" type="String" />
+		<column name="buildType" db-name="BUILD_TYP" type="String" />
+		<column name="chainCode" db-name="CHAIN_CD" type="String" />
+		<column name="reportType" db-name="RPT_TYP" type="String" />
+		<column name="paperSize" db-name="RPT_PAPER_SIZE" type="String" />
+		<column name="itemsPerPage" db-name="ITEMS_PER_PAGE" type="String" />
+		<column name="infoDisplay" db-name="INFO_DISP" type="String" />
+		<column name="CountryCode" db-name="CTRY_NM_CD" type="String" />
+		<column name="unsubscribeEmail" db-name="UNSUBSCRIBE_CMT_EML" type="String" />
+		<column name="moduleName" db-name="MODULE_NM" type="String" />
+		<!-- Must to have fields as per DB Team -->
+		<column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+		<column name="createdDate" db-name="CREAT_TS" type="Date" />
+		<column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+		<column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+		
+		<!-- Finder methods -->
+		<finder name="preferenceId" return-type="UserPreferences">
+			<finder-column name="preferenceId" />
+		</finder>
+		<finder name="UserIdAndModule" return-type="UserPreferences">
+			<finder-column name="userId" />
+			<finder-column name="moduleName" />
+		</finder>
+	</entity>
+	
+	<!-- UI Element Portlet Tables Start -->
+	<entity name="UIElement" table="UI_ELEM" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+		<column name="elementId" db-name="UI_ELEM_ID" type="long" primary="true" />
+		<column name="elementKey" db-name="UI_ELEM_KEY" type="String" />
+		<column name="moduleName" db-name="TGT_MODULE_NM" type="String" />
+		<!-- Must to have fields as per DB Team -->
+		<column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+		<column name="createdDate" db-name="CREAT_TS" type="Date" />
+		<column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+		<column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+		<!-- Order -->
+		<order by="asc">
+			<order-column name="elementId" />
+		</order>
+		<!-- Finder methods -->
+		<finder name="ElementKey" return-type="UIElement">
+			<finder-column name="elementKey" />
+		</finder>
+		<finder name="ModuleName" return-type="Collection">
+			<finder-column name="moduleName" />
+		</finder>
+		<finder name="KeyAndModuleName" return-type="UIElement">
+			<finder-column name="elementKey" />
+			<finder-column name="moduleName" />
+		</finder>
+	</entity>
+	<entity name="UIElementTranslate" table="UI_ELEM_XLAT" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+		<column name="elementId" db-name="UI_ELEM_ID" type="long" primary="true" />
+		<column name="localeCode"  db-name="LOCALE_CD" type="String" primary="true" />
+		<column name="elementValue"  db-name="ELEM_VAL" type="String" />
+		<!-- Must to have fields as per DB Team -->
+		<column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+		<column name="createdDate" db-name="CREAT_TS" type="Date" />
+		<column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+		<column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+		<!-- Order -->
+		<order by="asc">
+			<order-column name="elementId" />
+		</order>
+		<!-- Finder methods -->
+		<finder name="ElementId" return-type="Collection">
+			<finder-column name="elementId" />
+		</finder>
+		<finder name="LocaleCode" return-type="Collection">
+			<finder-column name="localeCode" />
+		</finder>
+		<finder name="IdAndLocaleCode" return-type="UIElementTranslate">
+			<finder-column name="elementId" />
+			<finder-column name="localeCode" />
+		</finder>
+	</entity>
+	<!-- UI Element Portlet Tables End -->
+	
+	<entity name="FlagCategory"  table="FLAG_CATGY" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+	    <!-- PK fields -->
+		<column name="flagCatId" db-name="FLAG_CATGY_ID" type="long" primary="true"/>
+        <column name="activeInd" db-name="ACTV_IND" type="String" primary="true"/>
+        
+        <!--  Regular fields -->
+        <column name="parentCatId" db-name="PRNT_FLAG_CATGY_ID" type="long" />
+        <column name="catOrField" db-name="CATGY_CD" type="String" />
+        <column name="txtValue" db-name="FLAG_CATGY_VAL" type="String" />
+        <column name="orderNumber" db-name="DISP_ORDER_NBR" type="long"/>
+        
+        <!-- Must to have fields as per DB Team -->     
+        <column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+        <column name="createdDate" db-name="CREAT_TS" type="Date" />
+        <column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+        <column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+
+        <!--Order by Clause  -->
+        <order by="asc">
+            <order-column name="orderNumber"></order-column>
+        </order>
+        
+        <finder name="parentCatId" return-type="Collection">
+            <finder-column name="parentCatId" />
+            <finder-column name="activeInd" />
+        </finder>
+        
+        <finder name="catOrField" return-type="Collection">
+            <finder-column name="catOrField" />
+            <finder-column name="activeInd" />
+        </finder>
+    </entity>
+    
+    <entity name="StandardsRegion" table="BRNDSTND_RGN" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!-- PK fields -->
+        <column name="regionId" db-name="RGN_ID" type="long" primary="true"/>
+       <!--  Regular fields -->
+        <column name="regionCode" db-name="RGN_CD" type="String" />
+        <column name="regionType" db-name="RGN_TYP_CD" type="String"></column>
+        <column name="regionName" db-name="RGN_NM" type="String"></column>
+        <column name="isActive" db-name="ACTV_IND" type="String"></column>
+        <!-- Must to have fields as per DB Team -->     
+        <column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+        <column name="createdDate" db-name="CREAT_TS" type="Date" />
+        <column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+        <column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />        
+		<column name="parentRegionId" db-name="PRNT_RGN_ID"	 type="long" />
+
+        <finder name="regionId" return-type="StandardsRegion">
+            <finder-column name="regionId" />
+        </finder>
+        <finder name="RegionCode" return-type="StandardsRegion">
+            <finder-column name="regionCode" />
+        </finder>
+    </entity>
+
+    <entity name="StandardsCountry" table="BRNDSTND_CTRY" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <column name="countryNameCode" db-name="CTRY_NM_CD" type="String" primary="true" />
+        <column name="regionId" db-name="RGN_ID" type="long" />
+        <!-- Must to have fields as per DB Team -->
+        <column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+        <column name="createdDate" db-name="CREAT_TS" type="Date" />
+        <column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+        <column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+        <column name="subRegionId" db-name="SUB_RGN_ID" type="long" />
+        <!-- Order -->
+        <order by="asc">
+            <order-column name="regionId" />
+            <order-column name="countryNameCode" />
+        </order>
+        <!-- Finder methods -->
+        <finder name="RegionId" return-type="Collection">
+            <finder-column name="regionId" />
+        </finder>       
+    </entity>
+    
+    <entity name="StandardsLocale" table="BRNDSTND_LOCALE" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!-- PK fields -->
+        <column name="localeCode" db-name="LOCALE_CD" type="String" primary="true"/>
+        <!--  Regular fields -->
+        <column name="countryCode" db-name="CTRY_CD" type="String" />
+        <column name="localeName" db-name="LOCALE_NM" type="String"></column>
+        <column name="languageCode" db-name="LANG_CD" type="String"></column>
+        <column name="orderNumber" db-name="DISP_ORDER_NBR" type="long"></column>
+        <column name="isActive" db-name="ACTV_IND" type="String"></column>
+        <!-- Must to have fields as per DB Team -->     
+        <column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+        <column name="createdDate" db-name="CREAT_TS" type="Date" />
+        <column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+        <column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />        
+        
+        <order>
+            <order-column name="orderNumber" order-by="asc"/>
+        </order>
+        
+        <finder name="localeCode" return-type="StandardsLocale">
+            <finder-column name="localeCode" />
+        </finder>
+        <finder name="ActiveStatus" return-type="Collection">
+            <finder-column name="isActive" />
+        </finder>
+    </entity>
+    
+    <entity name="StandardsRegionLocale" table="BRNDSTND_RGN_LOCALE" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!-- PK fields -->
+        <column name="regionId" db-name="RGN_ID" type="long" primary="true"/>
+        <column name="localeCode" db-name="LOCALE_CD" type="String" primary="true"/>
+        <!--  Regular fields -->
+        <column name="isDefault" db-name="DFLT_LANG_IND" type="String" />
+        <!-- Must to have fields as per DB Team -->     
+        <column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+        <column name="createdDate" db-name="CREAT_TS" type="Date" />
+        <column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+        <column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />        
+
+        <finder name="regionId" return-type="Collection">
+            <finder-column name="regionId" />
+        </finder>
+        <finder name="regionIdIsDefault" return-type="StandardsRegionLocale">
+            <finder-column name="isDefault" />
+            <finder-column name="regionId" />
+        </finder>
+        <finder name="localeCodeRegionId" return-type="StandardsRegionLocale">
+            <finder-column name="localeCode" />
+            <finder-column name="regionId" />
+        </finder>
+    </entity>
+    
+    <entity name="PublishCountryStandard" table="PUBLISH_CTRY_STD" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!-- PK fields -->
+        <column name="publishCountryStdId" db-name="PUBLISH_CTRY_STD_ID" type="String" primary="true"/>
+              
+        <!--  Regular fields -->
+        <column name="publishVerId" db-name="PUBLISH_STD_VER_ID" type="long" />
+        <column name="countryCode" db-name="CTRY_NM_CD" type="String" />
+        <column name="expiredRefTxt" db-name="EXPIRED_BY_REF_TXT" type="String" />
+        <column name="publishStatCode" db-name="PUBLISH_STAT_CD" type="String" />
+        <column name="stdComplyDeadlineDate" db-name="STD_CMPLY_DEADLINE_DT" type="Date" />
+        <column name="orderNumber" db-name="DISP_ORDER_NBR" type="long" />
+                
+        <!-- Must to have fields as per DB Team -->
+        <column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+        <column name="createdDate" db-name="CREAT_TS" type="Date" />
+        <column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+        <column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+            
+        <finder name="publishVerIdCountry" return-type="PublishCountryStandard">
+            <finder-column name="publishVerId" />
+            <finder-column name="countryCode" />
+        </finder>
+        <finder name="publishCountryStdId" return-type="PublishCountryStandards">
+            <finder-column name="publishCountryStdId" />
+        </finder>
+    </entity>
+    
+    <entity name="Publication" table="PUBLISH" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!-- PK fields -->
+        <column name="publishId" db-name="PUBLISH_ID" type="long" primary="true" />
+        
+        <!--  Regular fields -->
+        <column name="publishVerId" db-name="PUBLISH_VER_ID" type="long" />
+        <column name="publishStatCd" db-name="PUBLISH_STAT_CD" type="String" />
+        <column name="chainCode" db-name="CHAIN_CD" type="String" />
+        <column name="publishEnvName" db-name="PUBLISH_ENVIRONMENT_NM" type="String" />
+        <column name="publishLocaleList" db-name="PUBLISHED_LOCALE_LIST_TXT" type="String" />
+        <column name="publishDate" db-name="PUBLISH_DT" type="Date" />
+        <column name="publishContentType" db-name="PUBLISH_CONTENT_TYP" type="String" />
+        <column name="parentPublishId" db-name="PRNT_PUBLISH_ID" type="long" />
+        <column name="validateTranslation" db-name="VLD_XLAT_IND" type="String" />
+        
+        <!-- Must to have fields as per DB Team -->
+        <column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+        <column name="createdDate" db-name="CREAT_TS" type="Date" />
+        <column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+        <column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+        
+        <finder name="ChainCodeAndStatus" return-type="Collection">
+            <finder-column name="chainCode" />
+            <finder-column name="publishStatCd" />
+        </finder>
+        <finder name="PublishStatEnvChn" return-type="Publication">
+            <finder-column name="publishStatCd" />
+            <finder-column name="publishEnvName" />
+            <finder-column name="chainCode" />
+        </finder>
+        <finder name="PublishEnvChn" return-type="Collection">
+            <finder-column name="publishEnvName" />
+            <finder-column name="chainCode" />
+        </finder>
+        <finder name="PublishObject" return-type="Publication">
+            <finder-column name="chainCode" />
+            <finder-column name="publishEnvName" />
+            <finder-column name="publishStatCd" />
+        </finder>
+        <finder name="PublishHistory" return-type="Collection" where="publishStatCd != 'DELETE'">
+            <finder-column name="chainCode" />
+            <finder-column name="publishEnvName" />
+        </finder>
+        <finder name="PublishInActiveHistory" return-type="Collection">
+            <finder-column name="chainCode" />
+            <finder-column name="publishEnvName" />
+            <finder-column name="publishStatCd" />
+        </finder>
+    </entity>
+    
+    <entity name="PublishQueue" table="PUBLISH_QUEUE" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!-- PK fields -->
+        <column name="publishQueueId" db-name="PUBLISH_QUEUE_ID" type="long" primary="true" />
+
+        <!--  Regular fields -->
+        <column name="publishFileText" db-name="PUBLISH_FILE_TXT" type="String" />
+        <column name="publishEnvironment" db-name="PUBLISH_ENVIRONMENT_NM" type="String" />
+        <column name="schedulePublish" db-name="SCHED_PUBLISH_TS" type="Date" />
+        <column name="queueStatCd" db-name="QUEUE_STAT_CD" type="String" />
+        <column name="chainCd" db-name="CHAIN_CD" type="String" />
+        <column name="notificationEmailId" db-name="NOTIFICATION_EMAIL_ID" type="String" />
+        <column name="scheduleStart" db-name="SCHED_STRT_TS" type="Date" />
+        <column name="scheduleEnd" db-name="SCHED_END_TS" type="Date" />        
+        <column name="expectedProdPublishDt" db-name="EXPT_PROD_PUBLISH_DT" type="Date" />        
+        <column name="publishId" db-name="PUBLISH_ID" type="long" />
+        <column name="publishLocaleList" db-name="LOCALE_LIST_TXT" type="String" />
+        
+        <!-- Must to have fields as per DB Team -->
+        <column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+        <column name="createdDate" db-name="CREAT_TS" type="Date" />
+        <column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+        <column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+                        
+        <order>
+            <order-column name="publishQueueId" order-by="desc"/>
+        </order>
+
+        <finder name="PublishQueueByEnvironment" return-type="Collection">
+            <finder-column name="publishEnvironment" />
+        </finder>
+
+        <finder name="PublishQueueId" return-type="PublishQueue">
+            <finder-column name="publishQueueId" />
+        </finder>
+
+        <finder name="PublishQueueByPublishId" return-type="PublishQueue">
+            <finder-column name="publishId" />
+        </finder>
+    </entity>
+    
+    <entity name="PublishStd" table="PUBLISH_STD" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!-- PK fields -->
+        <column name="publishStdVerId" db-name="PUBLISH_STD_VER_ID" type="long" primary="true" />
+        
+        <!--  Regular fields -->
+        <column name="stdId" db-name="STD_ID" type="long" />
+         <column name="parentId" db-name="PRNT_STD_ID" type="long" />
+         <column name="stdTyp" db-name="STD_TYP" type="String" />
+        <column name="title" db-name="TITLE_TXT" type="String" />
+        <column name="description" db-name="STD_DESC" type="String" />
+        <column name="author" db-name="AUTHOR_NM_TXT" type="String" />
+        <column name="businessOwner" db-name="BUS_OWNER_NM" type="String" />
+        <column name="effectiveDate" db-name="EFF_DT" type="Date" />
+        <column name="implDate" db-name="IMPLMNT_DEADLINE_DT" type="Date" />
+        <column name="waiver" db-name="WAIVER_IND" type="String" />
+        <column name="status"  db-name="STAT_DESC"  type="String" />
+        <column name="category"  db-name="AREA_CATGY_CD"  type="String" />
+        <column name="createdBy" db-name="CREATOR_SCRN_NM" type="String" />
+        <column name="change" db-name="CHNG_DESC" type="String"/>
+        <column name="isGlobal" db-name="GBL_RGN_IND" type="String" />
+        <column name="regionCode" db-name="RGN_CD" type="String" />
+        <column name="notes" db-name="NOTE_TXT" type="String" />
+        <column name="framework" db-name="FRAMEWORK_STD_IND" type="String" />
+        <column name="internalReference" db-name="STD_MGR_ID" type="String" />
+        <column name="orderNumber" db-name="DISP_ORDER_NBR" type="long" />
+        <column name="statusIdentifier" db-name="STATUS_IDENTIFIER" type="long" />
+        <column name="regionIdentifier" db-name="REGION_IDENTIFIER" type="long" />
+        <column name="publishId" db-name="PUBLISH_ID" type="long" />
+        
+        <!-- Must to have fields as per DB Team -->        
+        <column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+        <column name="createdDate" db-name="CREAT_TS" type="Date" />
+        <column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+        <column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+        
+        <finder name="publishForStdId" return-type="PublishStd">
+            <finder-column name="publishId" />
+            <finder-column name="stdId" />            
+        </finder>
+        <finder name="publishStdId" return-type="PublishStandards">
+            <finder-column name="publishStdVerId" />
+        </finder>
+        <finder name="stdTyp" return-type="PublishStandards">
+            <finder-column name="stdTyp" />
+        </finder>
+        <finder name="status" return-type="PublishStandards">
+            <finder-column name="status" />
+        </finder>
+        <finder name="parentPublishId" return-type="Collection">
+            <finder-column name="parentId" />
+        </finder>
+    </entity>
+    
+    <!-- Glossary Admin Portlet Table Start -->
+    <entity name="Glossary" table="GLOSSARY" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!-- PK fields -->
+        <column name="glossaryId" db-name="GLOSSARY_ID" type="long" primary="true" />
+
+        <!--  Regular fields -->
+        <column name="glossaryTermText" db-name="GLOSSARY_TERM_TXT" type="String" />
+        <column name="glossaryTermDesc" db-name="GLOSSARY_TERM_DESC" type="String" />
+        <column name="activeInd" db-name="ACTV_IND" type="String" />
+        <column name="glossaryOwner" db-name="OWNER_RGN_ID" type="long" />
+        
+        <!-- Must to have fields as per DB Team -->
+        <column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+        <column name="createdDate" db-name="CREAT_TS" type="Date" />
+        <column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+        <column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+        
+        <finder name="glossaryId" return-type="Collection">
+            <finder-column name="glossaryId" />
+            <finder-column name="glossaryTermText" comparator="LIKE" />
+        </finder>       
+        <finder name="glossaryTermText" return-type="Glossary">
+            <finder-column name="glossaryTermText" case-sensitive="false"/>
+        </finder>
+    </entity>
+    
+    <entity name="GlossaryRegionNav" table="GLOSSARY_RGN_NAV" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!-- PK fields -->
+        <column name="glossaryRgnNavId" db-name="GLOSSARY_RGN_NAV_ID" type="long" primary="true" />
+
+        <!--  Regular fields -->
+        <column name="glossaryId" db-name="GLOSSARY_ID" type="long" />
+        <column name="regionId" db-name="RGN_ID" type="long" />
+        <column name="navItemText" db-name="NAVIGATION_ITEM_TXT" type="String" />
+        <column name="activeInd" db-name="ACTV_IND" type="String" />
+        <column name="chainCode" db-name="CHAIN_CD" type="String" />
+        
+        <!-- Must to have fields as per DB Team -->
+        <column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+        <column name="createdDate" db-name="CREAT_TS" type="Date" />
+        <column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+        <column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+        
+        <order>
+            <order-column name="navItemText" order-by="asc"/>
+        </order>
+        
+        <finder name="glossaryIdAndRegionId" return-type="Collection">
+            <finder-column name="glossaryId" />
+            <finder-column name="regionId" />
+        </finder>
+        <finder name="glossaryIdRegionIdChainCode" return-type="GlossaryRegionNav">
+            <finder-column name="glossaryId" />
+            <finder-column name="regionId" />
+            <finder-column name="chainCode" />
+        </finder>
+        <finder name="glossaryRegionId" return-type="Collection">
+            <finder-column name="regionId" />
+            <finder-column name="chainCode" />
+            <finder-column name="activeInd" />
+            <finder-column name="navItemText" case-sensitive="false" />
+        </finder>
+        <finder name="allGlossaryRegionId" return-type="Collection">
+            <finder-column name="regionId" />
+            <finder-column name="chainCode" />
+            <finder-column name="activeInd" />
+        </finder>
+        <finder name="glossaryByChainCode" return-type="Collection">
+            <finder-column name="chainCode" />
+            <finder-column name="navItemText" case-sensitive="false"></finder-column>
+        </finder>
+        <finder name="glossaryId" return-type="Collection">
+            <finder-column name="glossaryId" />
+        </finder>
+    </entity>
+    
+    <entity name="GlossaryTranslate" table="GLOSSARY_XLAT" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!-- PK fields -->
+        <column name="glossaryXlatId" db-name="GLOSSARY_XLAT_ID" type="long" primary="true" />
+
+        <!--  Regular fields -->
+        <column name="glossaryId" db-name="GLOSSARY_ID" type="long" />
+        <column name="langCode" db-name="LOCALE_CD" type="String" />
+        <column name="glossaryTermText" db-name="GLOSSARY_TERM_TXT" type="String" />
+        <column name="glossaryTermDesc" db-name="GLOSSARY_TERM_DESC" type="String" />
+        <column name="isValidTermTxt" db-name="TERM_XLAT_IND" type="String" />
+        <column name="isValidDescTxt" db-name="DESC_XLAT_IND" type="String" />
+        
+        <!-- Must to have fields as per DB Team -->
+        <column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+        <column name="createdDate" db-name="CREAT_TS" type="Date" />
+        <column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+        <column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+        
+        <finder name="glossaryIdLocaleCode" return-type="GlossaryTranslate">
+            <finder-column name="glossaryId" />
+            <finder-column name="langCode" />
+        </finder>
+        <finder name="langCode" return-type="Collection">
+            <finder-column name="langCode" />
+        </finder>
+		<finder name="GlossaryId" return-type="Collection">
+			<finder-column name="glossaryId" />
+		</finder>
+	</entity>
+	
+	<!-- This is tempory table entiry config -->
+	<entity name="GlossaryExt" table="GLOSSARY" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+		<!-- PK fields -->
+		<column name="glossaryId" db-name="GLOSSARY_ID" type="long" primary="true" />
+		<column name="activeInd" db-name="ACTV_IND" type="String" />
+		<column name="glossaryTermText" db-name="GLOSSARY_TERM_TXT" type="String" />
+		<column name="glossaryTermDesc" db-name="GLOSSARY_TERM_DESC" type="String" />
+		<column name="glossaryRegions" db-name="REGIONS" type="String" />
+		<column name="glossaryChains" db-name="CHAINS" type="String" />
+	</entity>
+	<!-- Glossary Admin Portlet Table End -->
+	
+	<entity name="UserSearchCriteria" table="USR_SEARCH_CRIT" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!-- PK fields -->
+		<column name="userSearchId" db-name="USR_SEARCH_ID" type="long" primary="true"/>
+		 <!--  Regular fields -->
+       	<column name="searchName" db-name="SEARCH_NM" type="String"/>
+		<column name="searchCriteria" db-name="SEARCH_CRIT" type="String" />
+		<!-- Must to have fields as per DB Team -->		
+		<column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+		<column name="createdDate" db-name="CREAT_TS" type="Date" />
+		<column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+		<column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+		<column name="moduleName" db-name="MODULE_NM" type="String" />
+		
+		<finder name="SearchName" return-type="UserSearchCriteria">
+			<finder-column name="creatorId" />
+			<finder-column name="searchName" />
+		</finder>
+		<finder name="SearchNameCreatorId" return-type="UserSearchCriteria">
+			<finder-column name="creatorId" />
+			<finder-column name="searchName" />
+		</finder>
+	</entity>
+	
+	<!-- ################### BS ADMIN Portlet Service Entity Configuration will go here ################### -->
+	
+	<entity name="Taxonomy" cache-enabled="false" table="Taxonomy" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+		<!-- PK fields -->
+		<column name="taxId" db-name="TAXONOMY_ID" type="long" primary="true" />
+
+		<!--  Regular fields -->
+		<column name="parentId" db-name="PRNT_TAXONOMY_ID" type="long" />
+		<column name="title" db-name="TITLE_TXT" type="String" />
+		<column name="desc" db-name="TAXONOMY_DESC" type="String" />
+		<column name="imageLoc" db-name="IMAGE_PATH_TXT" type="String" />
+		<column name="createdBy" db-name="CREATOR_SCRN_NM" type="String" />
+		<column name="position" db-name="HIER_LVL_NBR" type="long" />
+		
+		<!-- Must to have fields as per DB Team -->
+		<column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+		<column name="createdDate" db-name="CREAT_TS" type="Date" />
+		<column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+		<column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+		
+		<!-- Finder methods -->
+
+		<finder name="taxId" return-type="Taxonomy">
+			<finder-column name="taxId" />
+		</finder>
+		<finder name="parentId" return-type="Collection">
+			<finder-column name="parentId" />
+		</finder>
+		<finder name="creatorId" return-type="Collection">
+			<finder-column name="creatorId" />
+		</finder>
+	</entity>
+	
+	<entity name="TaxonomyTranslate" table="TAXONOMY_XLAT" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+		<!-- PK fields -->
+		<column name="taxId" db-name="TAXONOMY_ID" type="long" primary="true" />
+		<column name="localeCode" db-name="LOCALE_CD" type="String" primary="true" />
+		
+		<!--  Regular fields -->
+		<column name="title" db-name="TITLE_TXT" type="String" />
+		<column name="desc" db-name="TAXONOMY_DESC" type="String" />
+		<column name="imageLoc" db-name="IMAGE_PATH_TXT" type="String" />
+		
+		<!-- Must to have fields as per DB Team -->
+		<column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+		<column name="createdDate" db-name="CREAT_TS" type="Date" />
+		<column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+		<column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+	</entity>
+	
+	<entity name="BrandTaxonomy" table="Brand_Taxonomy" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+		<!-- PK fields -->
+		<column name="id" db-name="BRAND_TAXONOMY_ID" type="long" primary="true" />
+
+		<!--  Regular fields -->
+		<column name="taxId" db-name="TAXONOMY_ID" type="long" />
+		<column name="chain" db-name="CHAIN_CD" type="String" />
+		<column name="title" db-name="TITLE_TXT" type="String" />
+		<column name="desc" db-name="BRAND_TAXOMOMY_DESC" type="String" />
+		<column name="imageLoc" db-name="IMAGE_PATH_TXT" type="String" />
+		<column name="createdBy" db-name="CREATOR_SCRN_NM" type="String" />
+		
+		<!-- Must to have fields as per DB Team -->		
+		<column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+		<column name="createdDate" db-name="CREAT_TS" type="Date" />
+		<column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+		<column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+
+		<!-- Finder methods -->
+		<finder name="id" return-type="BrandTaxonomy">
+			<finder-column name="id" />
+		</finder>
+		<finder name="taxId" return-type="Collection">
+			<finder-column name="taxId" />
+		</finder>
+		<finder name="chain" return-type="Collection">
+			<finder-column name="chain" />
+		</finder>
+		<finder name="TaxIdAndChainCd" return-type="BrandTaxonomy">
+			<finder-column name="taxId" />
+			<finder-column name="chain" />
+		</finder>
+		<finder name="creatorId" return-type="Collection">
+			<finder-column name="creatorId" />
+		</finder>
+	</entity>
+	
+	<entity name="BrandTaxonomyTranslate" table="BRAND_TAXONOMY_XLAT" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+		<!-- PK fields -->
+		<column name="brandTaxId" db-name="BRAND_TAXONOMY_ID" type="long" primary="true" />
+		<column name="localeCd" db-name="LOCALE_CD" type="String" primary="true" />
+		
+		<!--  Regular fields -->
+		<column name="title" db-name="TITLE_TXT" type="String" />
+		<column name="desc" db-name="BRAND_TAXONOMY_DESC" type="String" />
+		<column name="imageLoc" db-name="IMAGE_PATH_TXT" type="String" />
+		
+		<!-- Must to have fields as per DB Team -->
+		<column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+		<column name="createdDate" db-name="CREAT_TS" type="Date" />
+		<column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+		<column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+	</entity>
+	
+	<entity name="Standards" table="STD" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+		<!-- PK fields -->
+		<column name="stdId" db-name="STD_ID" type="long" primary="true" />
+		
+		<!--  Regular fields -->
+ 		<column name="parentId" db-name="PRNT_STD_ID" type="long" />
+ 		<column name="stdTyp" db-name="STD_TYP" type="String" />
+		<column name="title" db-name="TITLE_TXT" type="String" />
+		<column name="description" db-name="STD_DESC" type="String" />
+		<column name="author" db-name="AUTHOR_NM_TXT" type="String" />
+		<column name="businessOwner" db-name="BUS_OWNER_NM" type="String" />
+		<column name="effectiveDate" db-name="EFF_DT" type="Date" />
+		<column name="implDate" db-name="IMPLMNT_DEADLINE_DT" type="Date" />
+		<column name="waiver" db-name="WAIVER_IND" type="String" />
+		<column name="status"  db-name="STAT_DESC"  type="String" />
+		<column name="category"  db-name="AREA_CATGY_CD"  type="String" />
+		<column name="createdBy" db-name="CREATOR_SCRN_NM" type="String" />
+        <column name="change" db-name="CHNG_DESC" type="String"/>
+        <column name="isGlobal" db-name="GBL_RGN_IND" type="String" />
+		<column name="regionCode" db-name="RGN_CD" type="String" />
+		<column name="notes" db-name="NOTE_TXT" type="String" />
+		<column name="framework" db-name="FRAMEWORK_STD_IND" type="String" />
+        <column name="internalReference" db-name="STD_MGR_ID" type="String" />
+		<column name="orderNumber" db-name="DISP_ORDER_NBR" type="long" />
+		<!-- Must to have fields as per DB Team -->		
+		<column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+		<column name="createdDate" db-name="CREAT_TS" type="Date" />
+		<column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+		<column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+		<column name="statusId" db-name="STAT_ID" type="long" />
+		<column name="regionId" db-name="RGN_ID" type="long" />
+
+		<finder name="StdId" return-type="Standards">
+			<finder-column name="stdId" />
+		</finder>
+		
+		<finder name="ParentId" return-type="Collection" where="stdId!=parentId" >
+			<finder-column name="parentId" />
+		</finder>
+		
+		<finder name="stdTyp" return-type="Standards">
+			<finder-column name="stdTyp" />
+		</finder>
+		
+		<finder name="status" return-type="Standards">
+			<finder-column name="status" />
+		</finder>
+				
+        <finder name="Author" return-type="Collection">
+            <finder-column name="author" />
+        </finder>
+        
+        <finder name="BusinessOwner" return-type="Collection">
+            <finder-column name="businessOwner" />
+        </finder>
+        
+        <finder return-type="Collection" name="regionCodeAndParentId">
+        	<finder-column name="regionCode"></finder-column>
+        	<finder-column name="parentId"></finder-column>
+        </finder>
+	</entity>
+	
+	<entity name="TaxonomyStandards" table="TAXONOMY_STD" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+	    <!-- PK fields -->
+		<column name="stdId" db-name="STD_ID" type="long" primary="true"/>
+		
+		<!-- Must to have fields as per DB Team -->		
+	    <column name="taxId" db-name="TAXONOMY_ID" type="long"/>
+		<column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+		<column name="createdDate" db-name="CREAT_TS" type="Date" />
+		<column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+		<column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+		
+		<finder name="StdId" return-type="TaxonomyStandards">
+			<finder-column name="stdId" />
+		</finder>
+	</entity>
+	
+	<entity name="ChainStandards" table="CHAIN_STD" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+	    <!-- PK fields -->
+	    <column name="chainCode" db-name="CHAIN_CD" type="String" primary="true"/>
+		<column name="stdId" db-name="STD_ID" type="long" primary="true"/>
+		
+		<!--  Regular fields -->
+ 		<column name="statusId" db-name="STAT_ID" type="long" />
+ 		<column name="isActive" db-name="ACTV_IND" type="String" />
+ 		<column name="lastPublishedDate" db-name="LST_PUBLISHED_TS" type="Date" />
+
+		<!-- Must to have fields as per DB Team -->		
+		<column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+		<column name="createdDate" db-name="CREAT_TS" type="Date" />
+		<column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+		<column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+		
+		<finder name="StdId" return-type="Collection">
+			<finder-column name="stdId" />
+			<finder-column name="isActive" />
+		</finder>
+		<finder name="ChainCode" return-type="ChainStandards" >
+			<finder-column name="stdId" />
+			<finder-column name="chainCode" />
+			<finder-column name="isActive" />
+		</finder>
+		<finder name="ChainCodeAll" return-type="ChainStandards" >
+			<finder-column name="stdId" />
+			<finder-column name="chainCode" />
+		</finder>
+		<finder name="StdIdAll" return-type="Collection" >
+			<finder-column name="stdId" />
+		</finder>
+	</entity>
+	
+	<entity name="CountryStandards" table="CTRY_STD" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+	    <!-- PK fields -->
+	    <column name="country" db-name="CTRY_NM_CD" type="String" primary="true"/>
+		<column name="stdId" db-name="STD_ID" type="long" primary="true"/>
+		
+		<!-- Must to have fields as per DB Team -->		
+		<column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+		<column name="createdDate" db-name="CREAT_TS" type="Date" />
+		<column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+		<column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+		
+		<finder name="StdId" return-type="Collection">
+			<finder-column name="stdId" />
+		</finder>
+	</entity>
+	
+	
+	
+	<entity name="ExternalLinkStandards" table="STD_EXTL_LINK" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+	    <!-- PK fields -->
+		<column name="extLinkId" db-name="STD_EXTL_LINK_ID" type="long" primary="true"/>
+		<!--  Regular fields -->
+		<column name="parentExtLinkId" db-name="PRNT_STD_EXTL_LINK_ID" type="long" />
+		<column name="stdId" db-name="STD_ID" type="long"/>
+		<column name="url" db-name="URL_TXT" type="String" />
+		<column name="title" db-name="LINK_TITLE_TXT" type="String" />
+		<column name="translationIndicator" db-name="XLAT_IND" type="String" />
+		<column name="localeCode" db-name="LOCALE_CD" type="String" />		
+		<!-- Must to have fields as per DB Team -->		
+		<column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+		<column name="createdDate" db-name="CREAT_TS" type="Date" />
+		<column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+		<column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+		
+		<finder name="StdId" return-type="Collection">
+			<finder-column name="stdId" />
+		</finder>
+		
+		<finder name="ParentExtLinkId" return-type="Collection">
+			<finder-column name="parentExtLinkId" />
+		</finder>
+		
+		<finder name="parentIdStdIdLocaleCd" return-type="Collection">
+			<finder-column name="parentExtLinkId" />
+			<finder-column name="stdId" />
+			<finder-column name="localeCode" />
+		</finder>
+		
+		<finder name="StdIdLocaleCd" return-type="Collection">
+			<finder-column name="stdId" />
+			<finder-column name="localeCode" />
+		</finder>
+		
+		<finder name="ParentIdStdId" return-type="Collection" >
+			<finder-column name="parentExtLinkId" />
+			<finder-column name="stdId"  />
+		</finder>
+		<finder return-type="Collection" name="stdParents" where="parentExtLinkId=extLinkId">
+			<finder-column name="stdId" />
+		</finder>
+		<finder return-type="Collection" name="stdParentsLocaleCode" where="parentExtLinkId=extLinkId">
+			<finder-column name="stdId" />
+			<finder-column name="localeCode"></finder-column>
+		</finder>
+	</entity>
+
+	<entity name="ChainExternalLinkStandards" table="STD_EXTL_LINK_CHAIN" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+	    <!-- PK fields -->
+		<column name="extLinkId" db-name="STD_EXTL_LINK_ID" type="long" primary="true"/>
+		<column name="chainCode" db-name="CHAIN_CD" type="String" primary="true" />
+		<!--  Regular fields -->
+		
+		<!-- Must to have fields as per DB Team -->		
+		<column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+		<column name="createdDate" db-name="CREAT_TS" type="Date" />
+		<column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+		<column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+
+		<finder name="LinkId" return-type="Collection">
+			<finder-column name="extLinkId" />
+		</finder>
+	</entity>
+	
+	<entity name="AttachmentsStandards" table="STD_ATTACHMENT" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+	    <!-- PK fields -->
+		<column name="attachmentId" db-name="STD_ATTACHEMENT_ID" type="long" primary="true"/>
+		<column name="localeCode" db-name="LOCALE_CD" type="String" primary="true"/>
+		<!--  Regular fields -->
+		<column name="parentAttachmentId" db-name="PRNT_STD_ATTACHMENT_ID" type="long" />
+ 		<column name="stdId" db-name="STD_ID" type="long" />
+		<column name="type" db-name="ATTACHMENT_TYP" type="String" />
+		<column name="title" db-name="ATTACHMENT_TITLE_TXT" type="String" />
+		<column name="translationIndicator" db-name="XLAT_IND" type="String" />
+		<column name="attachmentPath" db-name="ATTACHMENT_PATH_TXT" type="String" />
+		
+		<!-- Must to have fields as per DB Team -->		
+		<column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+		<column name="createdDate" db-name="CREAT_TS" type="Date" />
+		<column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+		<column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+		
+		<finder name="StdId" return-type="Collection">
+			<finder-column name="stdId"  />
+		</finder>
+		<finder name="attachmentId" return-type="StandardsAttachments">
+			<finder-column name="attachmentId"  />
+		</finder>
+		<finder name="parentAttachmentId" return-type="Collection">
+			<finder-column name="parentAttachmentId" />
+		</finder>
+		<finder name="parentIdStdIdLocaleCd" return-type="Collection">
+			<finder-column name="parentAttachmentId" />
+			<finder-column name="stdId" />
+			<finder-column name="localeCode" />
+		</finder>
+		<finder name="StdIdLocaleCd" return-type="Collection">
+			<finder-column name="stdId" />
+			<finder-column name="localeCode" />
+		</finder>
+		<finder name="ParentIdStdId" return-type="Collection" >
+			<finder-column name="parentAttachmentId" />
+			<finder-column name="stdId"  />
+		</finder>
+		<finder name="ParentIdAttachId" return-type="StandardsAttachments">
+			<finder-column name="attachmentId"></finder-column>
+			<finder-column name="parentAttachmentId"></finder-column>
+		</finder>
+	</entity>
+	
+	<entity name="ChainAttachmentsStandards" table="STD_ATTACHMENT_CHAIN" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+	    <!-- PK fields -->
+		<column name="chainAttachmentId" db-name="STD_ATTACHMENT_CHAIN_ID" type="long" primary="true"/>
+		<!--  Regular fields -->
+		<column name="attachmentId" db-name="STD_ATTACHEMENT_ID" type="long" />
+		<column name="localeCode" db-name="LOCALE_CD" type="String" />
+		<column name="chainCode" db-name="CHAIN_CD" type="String" />
+		<!-- Must to have fields as per DB Team -->		
+		<column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+		<column name="createdDate" db-name="CREAT_TS" type="Date" />
+		<column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+		<column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+
+		<finder name="AttachmentId" return-type="Collection">
+			<finder-column name="attachmentId"  />
+		</finder>
+	</entity>
+	
+	<entity name="FlagStandards" table="FLAG_STD" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+	    <!-- PK fields -->
+	    <column name="flagCatId" db-name="FLAG_CATGY_ID" type="long" primary="true"/>
+		<column name="stdId" db-name="STD_ID" type="long" primary="true"/>
+		
+		<!-- Must to have fields as per DB Team -->		
+		<column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+		<column name="createdDate" db-name="CREAT_TS" type="Date" />
+		<column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+		<column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+		
+		<finder name="StdId" return-type="Collection">
+			<finder-column name="stdId" />
+		</finder>
+		<finder name="FlagCatId" return-type="FlagStandards">
+			<finder-column name="flagCatId" />
+		</finder>
+		<finder name="StandardAndCategoryId" return-type="FlagStandards">
+			<finder-column name="stdId" />
+			<finder-column name="flagCatId" />
+		</finder>
+	</entity>
+	
+	<entity name="Workflow" table="WORKFLOW_ACTV_LOG" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+	    <!-- PK fields -->
+	    <column name="workflowActvtId" db-name="WORKFLOW_ACTV_LOG_ID" type="long" primary="true"/>
+		
+		<!--  Regular fields -->
+		<column name="objectId" db-name="OBJECT_ID" type="long" />
+		<column name="objectType" db-name="OBJECT_TYP" type="String" />
+		<column name="status" db-name="CURRENT_STAT_CD" type="String" />
+		<column name="prevStatus" db-name="PREV_STAT_CD" type="String" />
+		<column name="title" db-name="TITLE_TXT" type="String" />
+		<column name="comment" db-name="CMT_TXT" type="String" />
+		<column name="createdBy" db-name="USR_SCRN_NM" type="String" />
+		<column name="chainCode" db-name="CHAIN_CD" type="String" />
+		<!-- Must to have fields as per DB Team -->		
+		<column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+		<column name="createdDate" db-name="CREAT_TS" type="Date" />
+		<column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+		<column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+	</entity>
+	
+	<entity name="TreeXML" table="XML" cache-enabled="false" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+	    <!-- PK fields -->
+	    <column name="ID" db-name="XML_ID" type="long" primary="true"/>
+	    <column name="XMLLOB" db-name="XML_CLOB" type="String"/>
+	    
+	    <!-- Must to have fields as per DB Team -->		
+		<column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+		<column name="createdDate" db-name="CREAT_TS" type="Date" />
+		<column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+		<column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+	</entity>
+    
+    <entity name="HistManuals" table="HIST_MNL" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+	    <!-- PK fields -->
+	    <column name="histManualId" db-name="HST_MNL_ID" type="long" primary="true"/>
+		
+		<!--  Regular fields -->
+		<column name="title" db-name="MNL_TITLE" type="String" />
+		<column name="type" db-name="MNL_TYP" type="String" />
+		<column name="pubDate" db-name="PUBLISH_DT" type="Date" />
+		<column name="status" db-name="STAT_DESC" type="String"/>
+				
+		<!-- Must to have fields as per DB Team -->		
+		<column name="creatorId" db-name="CREATE_BY" type="String" />
+		<column name="createdDate" db-name="CREATE_DATE" type="Date" />
+		<column name="updatedBy" db-name="LAST_UPD_BY" type="String" />
+		<column name="updatedDate" db-name="LAST_UPD_DATE" type="Date" />
+	</entity>
+
+	<entity name="StandardsHistoricalManual" table="STD_MNL" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!-- PK fields -->
+        <column name="stdMnlId" db-name="STD_MNL_ID" type="long" primary="true" />
+        
+        <!--  Regular fields -->
+        <column name="stdId" db-name="STD_ID" type="long" />
+        <column name="histManualId" db-name="HST_MNL_ID" type="long" />
+        <column name="change" db-name="MNL_CHNG_DESC" type="String" />
+        <column name="title" db-name="STD_MNL_TITLE" type="String" />
+        
+        <!-- Must to have fields as per DB Team -->     
+		<column name="creatorId" db-name="CREATE_BY" type="String" />
+		<column name="createdDate" db-name="CREATE_DATE" type="Date" />
+		<column name="updatedBy" db-name="LAST_UPD_BY" type="String" />
+		<column name="updatedDate" db-name="LAST_UPD_DATE" type="Date" />
+        
+        <finder name="StdId" return-type="Collection">
+            <finder-column name="stdId" />
+        </finder>
+        <finder name="HistManualId" return-type="Collection">
+			<finder-column name="histManualId" />
+		</finder>
+    </entity>
+	
+    <entity name="HistManualChain" table="MNL_CHN" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!-- PK fields -->
+        <column name="chainCode" db-name="CHN_CD" type="String" primary="true" />
+        <column name="histManualId" db-name="HST_MNL_ID" type="long" primary="true" />
+        
+        <!-- Must to have fields as per DB Team -->     
+		<column name="creatorId" db-name="CREATE_BY" type="String" />
+		<column name="createdDate" db-name="CREATE_DATE" type="Date" />
+		<column name="updatedBy" db-name="LAST_UPD_BY" type="String" />
+		<column name="updatedDate" db-name="LAST_UPD_DATE" type="Date" />
+		
+		<finder name="histManualId" return-type="Collection">
+			<finder-column name="histManualId" />
+		</finder>
+    </entity>
+    
+    <entity name="HistManualRegion" table="MNL_RGN" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!-- PK fields -->
+        <column name="regionCode" db-name="RGN_CD" type="String" primary="true" />
+        <column name="histManualId" db-name="HST_MNL_ID" type="long" primary="true" />
+        
+        <!-- Must to have fields as per DB Team -->     
+		<column name="creatorId" db-name="CREATE_BY" type="String" />
+		<column name="createdDate" db-name="CREATE_DATE" type="Date" />
+		<column name="updatedBy" db-name="LAST_UPD_BY" type="String" />
+		<column name="updatedDate" db-name="LAST_UPD_DATE" type="Date" />
+		
+		<finder name="histManualId" return-type="Collection">
+			<finder-column name="histManualId" />
+		</finder>
+    </entity>
+    
+    <entity name="HistManualAttachment" table="MNL_ATTACHMENT" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!-- PK fields -->
+        <column name="histManualId" db-name="HST_MNL_ID" type="long" primary="true" />
+        
+        <!-- Regular fields -->
+        <column name="attachmentPath" db-name="ATTACHMENT_PATH_TXT" type="String" />
+        
+        <!-- Must to have fields as per DB Team -->     
+		<column name="creatorId" db-name="CREATE_BY" type="String" />
+		<column name="createdDate" db-name="CREATE_DATE" type="Date" />
+		<column name="updatedBy" db-name="LAST_UPD_BY" type="String" />
+		<column name="updatedDate" db-name="LAST_UPD_DATE" type="Date" />
+    </entity>
+
+	<entity name="BusImpactAssmt" table="BUS_IMPACT_ASSMT_MNL" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+	    <!-- PK fields -->
+	    <column name="busImpactAssmtId" db-name="BUS_IMPACT_ASSMT_MNL_ID" type="long" primary="true"/>
+		
+		<!--  Regular fields -->
+		<column name="stdId" db-name="STD_ID" type="long" />
+		<column name="chain" db-name="CHAIN_CD" type="String" />
+		<column name="region" db-name="RGN_CD" type="String" />
+		<column name="profileLossImpact" db-name="PROFIT_LOSS_IMPACT_CD" type="String" />
+		<column name="CapExpenseImpact" db-name="CAP_EXPENSE_IMPACT_CD" type="String" />
+		<column name="ImplTimeScale" db-name="IMPLMNT_TIMESCALE_CD" type="String" />
+		<column name="changeFromRegional" db-name="CHG_FROM_RGN_TO_GBL_DESC" type="String" />
+		<column name="biaComments" db-name="CMT_TXT" type="String" />		
+		<!-- Must to have fields as per DB Team -->		
+		<column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+		<column name="createdDate" db-name="CREAT_TS" type="Date" />
+		<column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+		<column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+	</entity>
+	
+    <entity name="StandardsExt" table="STD" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory" human-name="Custom Query mapping between STD and Taxonomy tables.">
+        <!-- PK fields -->
+        <column name="stdId" db-name="STD_ID" type="long" primary="true" />
+        <column name="auditLogId" db-name="WORKFLOW_ACTV_LOG_ID" type="long" primary="true" />
+        <column name="stdManual" db-name="STD_MANUAL_FLG" type="String" primary="true" />
+        <column name="stdCorporateDepartment" db-name="STD_CORP_DEPMNT_FLG" type="String" primary="true" />
+        <column name="stdBrandCd" db-name="STD_BRAND_CD" type="String" primary="true" />
+        <column name="biImpactAssmntId" db-name="BI_ASSMT_ID" type="long" primary="true" />
+        <column name="stdCountryCd" db-name="STD_CTRY_CD" type="String" primary="true" />
+
+        <!--  Regular fields -->
+        <column name="stdPrntId" db-name="STD_PRNT_STD_ID" type="long" />
+        <column name="stdOrigStdId" db-name="STD_ORIG_STD_ID" type="long" />
+        <column name="stdPubStatCd" db-name="STD_PUBLISH_STAT_CD" type="String" />
+        <column name="stdType" db-name="STD_TYP" type="String" />
+        <column name="stdTitle" db-name="STD_TITLE_TXT" type="String" />
+        <column name="stdDescription" db-name="STD_DESC" type="String" />
+        <column name="stdBusinessOwner" db-name="STD_BUS_OWNER_NM" type="String" />
+        <column name="stdStatus" db-name="STD_STAT_DESC" type="String" />
+        <column name="stdAuthor" db-name="STD_AUTHOR_NM" type="String" />
+        <column name="stdCategory"  db-name="STD_AREA_CATGY_CD"  type="String" />
+        <column name="stdGlobal" db-name="STD_GBL_RGN_IND" type="String" />
+        <column name="stdRegionCode" db-name="STD_RGN_CD" type="String" />
+        <column name="stdFramework" db-name="FRAMEWORK_STD_IND" type="String" />
+        <column name="stdChange" db-name="STD_CHNG_DESC" type="String"/>
+        <column name="stdCreatedBy" db-name="STD_CREATOR_SCRN_NM" type="String" />
+        <column name="stdUpdatedDate" db-name="STD_LST_UPDT_TS" type="Date" />
+        <column name="stdImageCount" db-name="STD_IMG_CNT" type="long" />
+        <column name="stdImageTitle" db-name="STD_IMG_TITLE" type="String" />
+        <column name="stdInternalReference" db-name="STD_MGR_ID" type="String" />
+        <column name="stdOrderNumber" db-name="DISP_ORDER_NBR" type="long" />
+        <column name="indexId" db-name="INDX_TAXONOMY_ID" type="long" />
+        <column name="indexOrigId" db-name="ORIG_INDX_TAXONOMY_ID" type="long" />
+        <column name="indexPrntId" db-name="INDX_PRNT_TAXONOMY_ID" type="long" />
+        <column name="indexTitle" db-name="INDX_TITLE_TXT" type="String" />
+        <column name="indexLevel" db-name="INDX_LEVEL" type="long" />
+        <column name="indexLevelSortOrder" db-name="INDX_HIER_LVL_NBR" type="long" />
+        <column name="indexPath" db-name="INDX_PATH" type="String" />
+        <column name="auditLogComments" db-name="AUDIT_LOG_TXT" type="String" />
+        <column name="auditLogTitle" db-name="AUDIT_LOG_TITLE_TXT" type="String" />
+        <column name="auditLogDate" db-name="AUDIT_LOG_UPD_TS" type="Date" />
+        <column name="auditLogStatus" db-name="AUDIT_LOG_CURRENT_STAT_CD" type="String" />
+        <column name="auditLogPrevStatus" db-name="AUDIT_LOG_PREV_STAT_CD" type="String" />
+        <column name="histManualDesc" db-name="MNL_TITLE" type="String" />
+        
+        <column name="secLangIndexTitle" db-name="SEC_LANG_INDX_TITLE" type="String" />
+        <column name="secLangIndexDesc" db-name="SEC_LANG_INDX_DESC" type="String" />
+        <column name="secLangIndexImgPath" db-name="SEC_LANG_INDX_IMG_PATH" type="String" />
+        <column name="secLangStdTitle" db-name="SEC_LANG_STD_TITLE" type="String" />
+        <column name="secLangStdDesc" db-name="SEC_LANG_STD_DESC" type="String" />
+
+        <column name="biChangeTypeCd" db-name="BI_CHG_FROM_RGN" type="String" />
+        <column name="biRegionCd" db-name="BI_RGN_CD" type="String" />
+        <column name="biProfileLossImpactCd" db-name="BI_PROFIT_LOSS_IMPACT_CD" type="String" />
+        <column name="biCapExpenseImpactCd" db-name="BI_CAP_EXPENSE_IMPACT_CD" type="String" />
+        <column name="biImplTimeScaleCd" db-name="BI_IMPLMNT_TIMESCALE_CD" type="String" />
+        <column name="biComments" db-name="BI_DESC" type="String" />
+        <column name="biBrandCd" db-name="BI_CHAIN_CD" type="String" />
+        <column name="stdCrossReferences" db-name="REFERENCED_STD_ID" type="String" />
+        <column name="auditBrand" db-name="AUDIT_BRAND" type="String" />
+        <column name="globalRule" db-name="GLBL_RUL" type="long" />
+        <column name="ameaRule" db-name="AMEA_RUL" type="long" />
+        <column name="amerRule" db-name="AMER_RUL" type="long" />
+        <column name="euroRule" db-name="EURO_RUL" type="long" />
+        <column name="gcRule" db-name="GC_RUL" type="long" />
+        <column name="expires" db-name="EXPIRES" type="String" />
+        
+        <finder name="StdId" return-type="StandardsExt">
+            <finder-column name="stdId" />
+        </finder>
+    </entity>
+
+	<entity name="TaxonomyExt" table="Taxonomy" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory" human-name="Custom Query mapping to create index path.">
+		<!-- PK fields -->
+		<column name="taxId" db-name="TAXONOMY_ID" type="long" primary="true" />
+
+		<!--  Regular fields -->
+		<column name="parentId" db-name="PRNT_TAXONOMY_ID" type="long" />
+		<column name="title" db-name="TITLE_TXT" type="String" />
+		<column name="desc" db-name="TAXONOMY_DESC" type="String" />
+		<column name="imageLoc" db-name="IMAGE_PATH_TXT" type="String" />
+		<column name="lvl" db-name="LVL" type="String" />
+		<column name="path" db-name="PATH" type="String" />
+        <column name="levelSortOrder" db-name="HIER_LVL_NBR" type="long" />
+		<column name="indexOrder" db-name="INDX_ORDER" type="long" />
+		
+		<!-- Finder methods -->
+		<finder name="taxId" return-type="Taxonomy">
+			<finder-column name="taxId" />
+		</finder>
+	</entity>
+
+
+	<entity name="StandardsTranslate" table="STD_XLAT" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!-- PK fields -->
+		<column name="stdId" db-name="STD_ID" type="long" primary="true"/>
+		<column name="localeCode" db-name="LOCALE_CD" type="String" primary="true" />
+		<!--  Regular fields -->
+		<column name="title" db-name="TITLE_TXT" type="String"/>
+		<column name="description" db-name="STD_DESC" type="String"/>
+		<column name="note" db-name="NOTE_TXT" type="String"/>
+		<column name="comment" db-name="CMT_TXT" type="String"/>
+		<!-- Must to have fields as per DB Team -->		
+		<column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+		<column name="createdDate" db-name="CREAT_TS" type="Date" />
+		<column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+		<column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />        
+		<column name="isValidTxt" db-name="TITLE_TXT_VLD_IND" type="String" />
+		<column name="isValidCntxt" db-name="STD_DESC_VLD_IND" type="String" />
+		
+        <finder name="StdId" return-type="Collection">
+            <finder-column name="stdId" />
+        </finder>
+	</entity>
+	
+	<entity name="StandardsCrossReference" table="STD_XREF" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!-- PK fields -->
+		<column name="stdId" db-name="REFERRING_STD_ID" type="long" primary="true"/>
+		<column name="xrefStdId" db-name="REFERENCED_STD_ID" type="long" primary="true" />
+		<!--  Regular fields -->
+		<column name="dispOrderNumber" db-name="DISP_ORDER_NBR" type="long"/>
+		<!-- Must to have fields as per DB Team -->		
+		<column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+		<column name="createdDate" db-name="CREAT_TS" type="Date" />
+		<column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+		<column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />        
+
+        <finder name="StdId" return-type="Collection">
+            <finder-column name="stdId" />
+        </finder>
+		<finder name="refStdId" return-type="Collection">
+            <finder-column name="xrefStdId" />
+        </finder>
+	</entity>
+	
+	<entity name="StandardsRegionChain" table="STD_RGN_CHAIN" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!-- PK fields -->
+        <column name="stdId" db-name="STD_ID" type="long" primary="true" />
+        <column name="regionCode" db-name="RGN_CD" type="String" primary="true" />
+        <column name="chainCode" db-name="CHAIN_CD" type="String" primary="true" />
+
+        <!--  Regular fields -->
+       
+        <column name="compDate" db-name="CMPLY_DT" type="Date" />
+        <column name="expiredIds" db-name="EXPIRED_BY_REF_TXT" type="String" />
+        <column name="complianceRule" db-name="CMPLY_RULE_MO_NBR" type="long" />
+        <!-- Must to have fields as per DB Team -->
+        <column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+        <column name="createdDate" db-name="CREAT_TS" type="Date" />
+        <column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+        <column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+        
+        <finder name="stdIdChnCd" return-type="Collection">
+        	<finder-column name="stdId"></finder-column>
+        	<finder-column name="chainCode"></finder-column>
+        </finder>
+        <finder name="stdIdRgnCdChnCd" return-type="StandardsRegionChain">
+        	<finder-column name="stdId"></finder-column>
+        	<finder-column name="regionCode"></finder-column>
+        	<finder-column name="chainCode"></finder-column>
+        </finder>               
+    </entity>
+	
+	<entity name="StandardsCountryChain" table="STD_CTRY_CHAIN" cache-enabled="false" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!-- PK fields -->
+        <column name="stdId" db-name="STD_ID" type="long" primary="true" />
+        <column name="countryCode" db-name="CTRY_NM_CD" type="String" primary="true" />
+        <column name="chainCode" db-name="CHAIN_CD" type="String" primary="true" />
+       
+        <!--  Regular fields -->
+        <column name="regionCode" db-name="RGN_CD" type="String" />
+        <column name="compDate" db-name="CMPLY_DT" type="Date" />
+        <column name="exprDate" db-name="EXPR_DT" type="Date" />
+        <column name="expiredIds" db-name="EXPIRED_BY_REF_TXT" type="String" />
+       
+        <!-- Must to have fields as per DB Team -->
+        <column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+        <column name="createdDate" db-name="CREAT_TS" type="Date" />
+        <column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+        <column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+        
+        <finder name="stdIdDateChCode" return-type="Collection">
+            <finder-column name="stdId" />
+            <finder-column name="chainCode" />
+            <finder-column name="compDate" />
+        </finder>
+        
+        <finder name="StdIdChainRegion" return-type="Collection">
+            <finder-column name="stdId" />
+            <finder-column name="chainCode" />
+            <finder-column name="regionCode" />
+        </finder>
+
+        <finder name="StdIdChain" return-type="Collection">
+            <finder-column name="stdId" />
+            <finder-column name="chainCode" />
+        </finder>
+    </entity>
+    
+	<!-- This is tempory table entiry config -->
+	<entity name="PublishExtStd" table="PUBLISH_STD" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory" human-name="Custom Query mapping between PUBLISH_STD and STD_CTRY_CHAIN tables.">
+		<column name="compDate" db-name="CMPLY_DT" type="Date" />
+		<column name="stdId" db-name="STD_ID" type="long" primary="true"/>
+		<column name="parentId" db-name="PRNT_STD_ID" type="long" />
+		<column name="title" db-name="TITLE_TXT" type="String" />
+		<column name="expiredIds" db-name="EXPIRED_BY_REF_TXT" type="String" />
+		<column name="regionCode" db-name="RGN_CD" type="String" />
+		<column name="isGlobal" db-name="GBL_RGN_IND" type="String" />
+		<column name="framework" db-name="FRAMEWORK_STD_IND" type="String" />
+	</entity>
+ 
+	<entity name="StandardsAuthors" table="STD_AUTHOR" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+	    <!-- PK fields -->
+		<column name="stdAuthorId" db-name="STD_AUTHOR_ID" type="long" primary="true"/>
+		
+		<!--  Regular fields -->
+ 		<column name="stdId" db-name="std_Id" type="long" />
+		<column name="authorName" db-name="AUTHOR_NM" type="String" />
+		<column name="isPrimary" db-name="PRIM_IND" type="String" />
+		
+		<!-- Must to have fields as per DB Team -->		
+		<column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+		<column name="createdDate" db-name="CREAT_TS" type="Date" />
+		<column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+		<column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+		
+		<finder name="StdId" return-type="Collection">
+			<finder-column name="stdId" />
+		</finder>
+        <finder name="StdAuthor" return-type="Collection">
+            <finder-column name="authorName" />
+            <finder-column name="isPrimary" />
+        </finder>
+        <finder name="AuthorStdIdPrimary" return-type="Collection">
+            <finder-column name="stdId" />
+            <finder-column name="isPrimary" />
+        </finder>
+	</entity>
+
+	<entity name="Image" table="IMAGE" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+	    <!-- PK fields -->
+		<column name="imageId" db-name="IMAGE_ID" type="long" primary="true"/>
+		
+		<!--  Regular fields -->
+ 		<column name="imageUuId" db-name="IMAGE_UUID" type="String" />
+		<column name="imageDesc" db-name="IMAGE_DESC" type="String" />
+		<column name="imageTitle" db-name="IMAGE_TITLE_TXT" type="String" />
+		<column name="imageSize" db-name="IMAGE_SIZE_KILOBYTE_QTY" type="String" />
+		<column name="imageType" db-name="IMAGE_TYP" type="String" />
+		<column name="smallImageId" db-name="SMALL_IMAGE_ID" type="String" />
+		<column name="imageDimension" db-name="IMAGE_DIM_TXT" type="String" />
+		<!-- Must to have fields as per DB Team -->		
+		<column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+		<column name="createdDate" db-name="CREAT_TS" type="Date" />
+		<column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+		<column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+	</entity>
+	
+	<entity name="StandardsImages" table="STD_IMAGE" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+		<!-- PK fields -->
+		<column name="stdImageId" db-name="STD_IMAGE_ID" type="long" primary="true" />
+		<!-- Regular fields -->
+		<column name="parentImageId" db-name="PRNT_STD_IMAGE_ID" type="long" />
+		<column name="imageId" db-name="IMAGE_ID" type="long" />
+		<column name="stdId" db-name="STD_ID" type="long" />
+		<column name="localeCode" db-name="LOCALE_CD" type="String" />
+		<column name="imageTitle" db-name="IMAGE_TITLE_TXT" type="String" />
+		<column name="imageSortOrder" db-name="SORT_ORDER_NBR" type="long"></column>
+	
+		<!-- Must to have fields as per DB Team -->
+		<column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+		<column name="createdDate" db-name="CREAT_TS" type="Date" />
+		<column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+		<column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+	
+		<order>
+			<order-column name="imageSortOrder" order-by="asc" />
+		</order>
+	
+		<finder name="imageId" return-type="Collection">
+			<finder-column name="imageId" />
+		</finder>
+		<finder name="ImageIdStdIdLocaleCd" return-type="Collection">
+			<finder-column name="imageId"></finder-column>
+			<finder-column name="stdId" />
+			<finder-column name="localeCode" />
+		</finder>
+		<finder name="StdId" return-type="Collection">
+			<finder-column name="stdId" />
+		</finder>
+		<finder name="parentsStdId" return-type="Collection"
+			where="stdImageId=parentImageId">
+			<finder-column name="stdId" />
+		</finder>
+		<finder name="parentsStdIdLocaleCode" return-type="Collection"
+			where="stdImageId=parentImageId">
+			<finder-column name="stdId" />
+			<finder-column name="localeCode" />
+		</finder>
+		<finder name="ParentImageIdStdId" return-type="Collection">
+			<finder-column name="parentImageId" />
+			<finder-column name="stdId" />
+		</finder>
+		<finder name="ParentImageIdStdIdLocaleCd" return-type="Collection">
+			<finder-column name="parentImageId" />
+			<finder-column name="stdId" />
+			<finder-column name="localeCode" />
+		</finder>
+		<finder name="ParentId" return-type="Collection">
+			<finder-column name="parentImageId" />
+		</finder>
+	</entity>
+
+	<entity name="StandardsChainImages" table="STD_IMAGE_CHAIN" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!-- PK fields -->
+		<column name="stdImageId" db-name="STD_IMAGE_ID" type="long" primary="true"/>
+		<column name="chainCode" db-name="CHAIN_CD" type="String" primary="true" />
+       <!--  Regular fields -->
+		<!-- Must to have fields as per DB Team -->		
+		<column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+		<column name="createdDate" db-name="CREAT_TS" type="Date" />
+		<column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+		<column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+		
+    	<finder name="stdImageId" return-type="Collection">
+            <finder-column name="stdImageId" />
+        </finder>
+	</entity>
+	
+	<entity name="StandardsCountryImages" table="STD_IMAGE_CTRY" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!-- PK fields -->
+		<column name="stdImageId" db-name="STD_IMAGE_ID" type="long" primary="true"/>
+		<column name="countryCode" db-name="CTRY_NM_CD" type="String" primary="true" />
+       <!--  Regular fields -->
+		<!-- Must to have fields as per DB Team -->		
+		<column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+		<column name="createdDate" db-name="CREAT_TS" type="Date" />
+		<column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+		<column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+		
+    	<finder name="stdImageId" return-type="Collection">
+            <finder-column name="stdImageId" />
+        </finder>
+	</entity>
+	
+	<entity name="AttachmentsStandardsCountry" table="STD_ATTACHMENT_CTRY" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!-- PK fields -->
+		<column name="attachmentId" db-name="STD_ATTACHEMENT_ID" type="long" primary="true"/>
+		<column name="countryCode" db-name="CTRY_NM_CD" type="String" primary="true" />
+		<column name="localeCode" db-name="LOCALE_CD" type="String" primary="true" />
+       <!--  Regular fields -->
+		<!-- Must to have fields as per DB Team -->		
+		<column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+		<column name="createdDate" db-name="CREAT_TS" type="Date" />
+		<column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+		<column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+		
+    	<finder name="attachmentId" return-type="Collection">
+            <finder-column name="attachmentId" />
+        </finder>
+	</entity>
+	
+	<entity name="ExternalLinkStandardsCountry" table="STD_LINK_CTRY" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!-- PK fields -->
+		<column name="extLinkId" db-name="STD_EXTL_LINK_ID" type="long" primary="true"/>
+		<column name="countryCode" db-name="CTRY_NM_CD" type="String" primary="true" />
+       <!--  Regular fields -->
+		<!-- Must to have fields as per DB Team -->		
+		<column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+		<column name="createdDate" db-name="CREAT_TS" type="Date" />
+		<column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+		<column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+		
+    	<finder name="extLinkId" return-type="Collection">
+            <finder-column name="extLinkId" />
+        </finder>
+	</entity>
+	
+	<entity name="SpreadSheetAttributeUpdate" table="SPREADSHEET_ATTR_UPDT" local-service="true" remote-service="false" data-source="brandstandDataSource" 
+	session-factory="BRNDSTNDSessionFactory">
+		<column name="speardSheetId" db-name="SPREADSHEET_ID" type="long" primary="true"/>
+		<column name="requestTitle" db-name="UPDT_RQST_TITLE_TXT" type="String"/>
+		<column name="status" db-name="UPDT_RQST_STAT_CD" type="String" />
+		<column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+		<column name="createdDate" db-name="CREAT_TS" type="Date" />
+		<column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+		<column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+		<column name="spreadSheet" db-name="SPREADSHEET_TXT" type="String" />
+		<order>
+			<order-column name="updatedDate" order-by="desc"></order-column>
+		</order>
+		<finder name="status" return-type="Collection">
+			<finder-column name="status"></finder-column>
+		</finder>
+	</entity>
+	<!-- ################### BS HOTEL Portlet Service Entity Configuration will go here ################### -->
+	
+	<entity name="JobQueue" table="JOB_QUEUE" cache-enabled="false" local-service="true" remote-service="true" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+		<!-- PK fields -->
+		<column name="jobId" db-name="JOB_ID" type="long" primary="true" />
+
+		<!--  Regular fields -->
+		<column name="jobOwner" db-name="JOB_OWNER" type="String" />
+		<column name="jobType" db-name="JOB_TYP" type="String" />
+		<column name="metadata" db-name="METADATA_TXT" type="String" />
+		<column name="link" db-name="LINK_TXT" type="String" />
+		<column name="notificationEmail" db-name="NOTIFICAtiON_EMAIL_ID" type="String" />
+		<column name="startTime" db-name="STRT_TS" type="Date" />
+		<column name="endTime" db-name="END_TS" type="Date" />
+		<column name="status" db-name="STAT_CD" type="String" />
+		<!-- Must to have fields as per DB Team -->
+		<column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+		<column name="createdDate" db-name="CREAT_TS" type="Date" />
+		<column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+		<column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+		
+		<!-- Finder methods -->
+
+		<finder name="JobId" return-type="JobQueue">
+			<finder-column name="jobId" />
+		</finder>
+		<finder name="JobOwner" return-type="Collection">
+			<finder-column name="jobOwner" />
+		</finder>
+		<finder name="JobOwnerAndStatus" return-type="Collection">
+			<finder-column name="jobOwner" />
+			<finder-column name="status" />
+		</finder>
+		<finder name="JobType" return-type="Collection">
+			<finder-column name="jobType" />
+		</finder>
+		<finder name="JobTypeAndStatus" return-type="Collection">
+			<finder-column name="jobType" />
+			<finder-column name="status" />
+		</finder>
+		<finder name="JobOwnerAndType" return-type="Collection">
+			<finder-column name="jobOwner" />
+			<finder-column name="jobType" />
+		</finder>
+		<finder name="JobOwnerTypeAndStatus" return-type="Collection">
+			<finder-column name="jobOwner" />
+			<finder-column name="jobType" />
+			<finder-column name="status" />
+		</finder>
+	</entity>
+	
+	<entity name="PublishedPdfList" table="PUBLISHED_PDF_LIST"  cache-enabled="false" local-service="true"  remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+		<!-- PK fields -->
+		<column name="pdfId" db-name="PDF_ID" type="long" primary="true" />
+
+		<!--  Regular fields -->
+		<column name="pdfChainCode" db-name="PDF_CHAIN_CD" type="String" />
+		<column name="pdfCtryCode" db-name="PDF_CTRY_CD" type="String" />
+		<column name="pdfBuildType" db-name="PDF_BUILD_TYP" type="String" />
+		<column name="pdfYearNumber" db-name="PDF_YR_NBR" type="int" />
+		<column name="pdfLocaleCode" db-name="PDF_LOCALE_CD" type="String" />
+		<column name="pdfVersionNumber" db-name="PDF_VER_NBR" type="long" />
+		<column name="pdfFileName" db-name="PDF_FILE_NM" type="String" />
+		<column name="pdfFileURLText" db-name="PDF_FILE_URL_TXT" type="String" />
+		
+		<!-- Foreign Key to Publish table -->
+		<column name="publishId" db-name="PUBLISH_ID" type="long"/>
+		<column name="pageSizeOrientationType" db-name="PAGE_SIZE_ORIENTATION_TYP" type="String"/>
+		
+		<!-- Must to have fields as per DB Team -->
+		<column name="createdBy" db-name="CREAT_USR_ID" type="String" />
+		<column name="createdDate" db-name="CREAT_TS" type="Date" />
+		<column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+		<column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+		
+        <order>
+            <order-column name="updatedDate" order-by="asc"/>
+        </order>
+        
+		<!-- Finder methods -->
+		<finder name="PdfId" return-type="PublishedPdfList">
+			<finder-column name="pdfId" />
+		</finder>
+		<finder name="PublishId" return-type="Collection">
+			<finder-column name="publishId" />
+		</finder>
+		<finder name="PdfChainCode" return-type="Collection">
+			<finder-column name="pdfChainCode" />
+		</finder>
+		<finder name="PdfCtryCode" return-type="Collection">
+			<finder-column name="pdfCtryCode" />
+		</finder>
+		<finder name="PdfFileName" return-type="Collection">
+			<finder-column name="pdfFileName" />
+		</finder>
+		<finder name="PdfFileURLText" return-type="Collection">
+			<finder-column name="pdfFileURLText" />
+		</finder>
+		<finder name="PdfFileNameAndURL" return-type="Collection">
+			<finder-column name="pdfFileName" />
+			<finder-column name="pdfFileURLText" />
+		</finder>	
+		<finder name="PdfManualParams" return-type="Collection">
+			<finder-column name="publishId" />
+			<finder-column name="pdfCtryCode" />
+			<finder-column name="pdfLocaleCode" />
+			<finder-column name="pdfBuildType" />
+			<finder-column name="pageSizeOrientationType" />
+		</finder>
+		<finder name="PublishPdfManualParams" return-type="Collection">
+			<finder-column name="publishId" />
+			<finder-column name="pdfCtryCode" />
+			<finder-column name="pdfBuildType" />
+			<finder-column name="pageSizeOrientationType" />
+		</finder>
+		<finder name="PublishedPDFParams" return-type="Collection">
+			<finder-column name="publishId" />
+			<finder-column name="pdfCtryCode" />
+			<finder-column name="pdfBuildType" />
+		</finder>
+	</entity>
+	
+	<entity name="StandardsStatus" table="STAT" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!-- PK fields -->
+		<column name="statusId" db-name="STAT_ID" type="long" primary="true"/>
+
+		<!--  Regular fields -->
+		<column name="statusCode" db-name="STAT_CD" type="String"/>
+		<column name="title" db-name="STAT_TITLE_TXT" type="String"/>
+		<column name="regionId" db-name="RGN_ID" type="long"/>
+		<!-- Must to have fields as per DB Team -->		
+		<column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+		<column name="createdDate" db-name="CREAT_TS" type="Date" />
+		<column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+		<column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />        
+		
+		<order>
+            <order-column name="statusId" order-by="asc"/>
+        </order>
+        <finder name="RegionId" return-type="Collection">
+            <finder-column name="regionId" />
+        </finder>
+        <finder name="StatusCode" return-type="Collection">
+            <finder-column name="statusCode" />
+        </finder>
+	</entity>
+	
+	<entity name="PublishTaxonomy" cache-enabled="false" table="PUBLISH_TAXONOMY" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+
+		<!-- PK fields -->
+		<column name="publishTaxId" db-name="PUBLISH_TAXONOMY_ID" type="long" primary="true" />
+
+		<!--  Regular fields -->
+		<column name="publishId" db-name="PUBLISH_ID" type="long" />
+		<column name="taxId" db-name="TAXONOMY_ID" type="long" />
+		<column name="publishParentId" db-name="PRNT_PUBLISH_TAXONOMY_ID" type="long" />
+		<column name="title" db-name="TITLE_TXT" type="String" />
+		<column name="desc" db-name="TAXONOMY_DESC" type="String" />
+		<column name="imageLoc" db-name="IMAGE_PATH_TXT" type="String" />
+		<column name="createdBy" db-name="CREATOR_SCRN_NM" type="String" />
+		<column name="position" db-name="HIER_LVL_NBR" type="long" />
+		<!-- Must to have fields as per DB Team -->
+		<column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+		<column name="createdDate" db-name="CREAT_TS" type="Date" />
+		<column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+		<column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+		
+		<!-- Finder methods -->
+
+		<finder name="publishTaxId" return-type="PublishTaxonomy">
+			<finder-column name="taxId" />
+		</finder>
+		<finder name="publishParentId" return-type="Collection">
+			<finder-column name="publishParentId" />
+		</finder>
+		<finder name="creatorId" return-type="Collection">
+			<finder-column name="creatorId" />
+		</finder>
+	</entity>
+	
+	<entity name="PublishTaxonomyExt" table="PUBLISH_TAXONOMY" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory" human-name="Custom Query mapping to create index path.">
+
+		<!-- PK fields -->
+		<column name="publishTaxId" db-name="PUBLISH_TAXONOMY_ID" type="long" primary="true" />
+		
+		<!--  Regular fields -->
+		<column name="publishParentId" db-name="PRNT_PUBLISH_TAXONOMY_ID" type="long" />
+		<column name="title" db-name="TITLE_TXT" type="String" />
+		<column name="lvl" db-name="LVL" type="String" />
+		<column name="path" db-name="PATH" type="String" />
+        <column name="levelSortOrder" db-name="HIER_LVL_NBR" type="long" />
+        <column name="publishId" db-name="PUBLISH_ID" type="long" />
+        <column name="indexOrder" db-name="INDX_ORDER" type="long" />
+		<!-- Finder methods -->
+
+		<finder name="publishTaxId" return-type="PublishTaxonomy">
+			<finder-column name="publishTaxId" />
+		</finder>
+	</entity>	
+		
+	<entity name="PublishStandardsExt" table="PUBLISH_STD" local-service="true"  remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory" human-name="Custom Query mapping to createlist of standards with translations.">
+		<column name="publishStdId" db-name="PUBLISH_STD_VER_ID" type="long" primary="true" />
+		<!--  Regular fields -->
+		<column name="publishId" db-name="PUBLISH_ID" type="long" />
+		<column name="stdId" db-name="STD_ID" type="long" />
+ 		<column name="parentPublishId" db-name="PRNT_STD_ID" type="long" />
+ 		<column name="stdTyp" db-name="STD_TYP" type="String" />
+		<column name="title" db-name="TITLE_TXT" type="String" />
+		<column name="prevPublishTitle" db-name="PREV_PUBLISH_TITLE_TXT" type="String" />
+		<column name="description" db-name="STD_DESC" type="String" />
+		<column name="prevDescription" db-name="PREV_PUBLISH_STD_DESC" type="String" />
+		<column name="author" db-name="AUTHOR_NM_TXT" type="String" />
+		<column name="businessOwner" db-name="BUS_OWNER_NM" type="String" />
+		<column name="effectiveDate" db-name="EFF_DT" type="Date" />
+		<column name="implDate" db-name="CMPLY_DT" type="Date" />
+		<column name="prevCmplyDate" db-name="PREV_CMPLY_DT" type="Date" />
+		<column name="waiver" db-name="WAIVER_IND" type="String" />
+		<column name="status"  db-name="STAT_DESC"  type="String" />
+		<column name="category"  db-name="AREA_CATGY_CD"  type="String" />
+		<column name="createdBy" db-name="CREATOR_SCRN_NM" type="String" />
+        <column name="change" db-name="CHNG_DESC" type="String"/>
+        <column name="isGlobal" db-name="GBL_RGN_IND" type="String" />
+		<column name="regionCode" db-name="RGN_CD" type="String" />
+		<column name="notes" db-name="NOTE_TXT" type="String" />
+		<column name="framework" db-name="FRAMEWORK_STD_IND" type="String" />
+		<column name="internalReference" db-name="STD_MGR_ID" type="String" />
+		<column name="region" db-name="REGION_IDENTIFIER" type="String" />
+		<column name="statusIdentifier" db-name="STATUS_IDENTIFIER" type="String" />
+		<column name="sortOrder" db-name="DISP_ORDER_NBR" type="long" />
+		<column name="localeCode" db-name="LOCALE_CD" type="String" />
+		<column name="taxonomyId" db-name="TAXONOMY_ID" type="long" />
+        <column name="prntTaxonomyId" db-name="PRNT_TAXONOMY_ID" type="long" />
+		<column name="attachmentExists" db-name="ATTACHMENT_EXISTS" type="String" />
+        <column name="attachmentList" db-name="ATTACH_LST" type="String" />
+        <column name="linkExists" db-name="LINK_EXISTS" type="String" />
+		<column name="linkList" db-name="LINK_LST" type="String" />
+		<column name="imageExists" db-name="IMG_EXISTS" type="String" />
+        <column name="stdXrefListStdId" db-name="XREF_LST_STD_ID" type="String" />
+		<column name="attachmentStatus" db-name="attch_Stat_cd" type="String" />
+		<column name="linkStatus" db-name="link_stat_cd" type="String" />
+		<column name="imageStatus" db-name="img_stat_cd" type="String" />
+        <column name="imageIdList" db-name="IMG_LST_ID" type="String" />
+		<column name="indexOrder" db-name="INDEX_ORDER" type="long" />
+		<column name="publishTaxonomyId" db-name="PUBLISH_TAXONOMY_ID" type="long" />
+		<column name="parentTaxonomyId" db-name="PRNT_PUBLISH_TAXONOMY_ID" type="long" />
+		<column name="indexTitle" db-name="INDEX_TITLE" type="String" />
+		<column name="indexLvl" db-name="LVL" type="long" />
+		<column name="taxonomyPath" db-name="PATH" type="String" />
+        <column name="levelSortOrder" db-name="HIER_LVL_NBR" type="long" />
+       	<column name="indexDescription" db-name="TAXONOMY_DESC" type="String" />
+       	<column name="matchedId" db-name="matched_Id" type="String" />
+       	<column name="expiryDate" db-name="EXPR_DT" type="Date"/>
+       	<column name="prevExpiryDate" db-name="PREV_EXPR_DT" type="Date"/>
+        <column name="expiredStdId" db-name="EXPIRED_BY_REF" type="String" />
+       	<column name="flagStdId" db-name="FLAG_ID" type="String" />
+       	<column name="prevFlagStdId" db-name="PREV_FLAG_ID" type="String" />
+       	<column name="titleChange" db-name="TITLE_CHANGE" type="String" />
+       	<column name="cmplyChange" db-name="CMPLY_CHANGE" type="String" />
+       	<column name="exprChange" db-name="EXPR_CHANGE" type="String" />
+       	<column name="hlcChange" db-name="HCL_CHANGE" type="String" />
+       	<column name="changedStatus" db-name="CHANGED_STAT" type="String" />
+	</entity>
+	
+	<entity name="BrandArticle" local-service="true" remote-service="false">
+		<reference package-path="com.liferay.portlet.journal" entity="JournalArticle" />
+	</entity>
+	
+	<entity name="SpecialWordDictionary" table="SPCL_WORD_DICTIONARY" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+		<!-- PK fields -->
+		<column name="specialWordId" db-name="SPCL_WORD_DICTIONARY_ID" type="long" primary="true" />
+		<!--  Regular fields -->
+		<column name="replacedWordTxt" db-name="REPLCD_WORD_TXT" type="String" />
+		<column name="replacementWordTxt" db-name="REPLCMNT_WORD_TXT" type="String" />
+		<column name="localeCode" db-name="LOCALE_CD" type="String" />
+		<!-- Must to have fields as per DB Team -->
+		<column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+		<column name="createdDate" db-name="CREAT_TS" type="Date" />
+		<column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+		<column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+		<!-- Order -->
+		<order by="asc">
+			<order-column name="replacedWordTxt" />
+		</order>
+		<!-- Finder methods -->
+		<finder name="LocaleCode" return-type="Collection">
+			<finder-column name="localeCode" />
+		</finder>
+		<finder name="ReplacedWordTxtAndLocaleCode" return-type="SpecialWordDictionary">
+			<finder-column name="replacedWordTxt" />
+			<finder-column name="localeCode" />
+		</finder>
+		<finder name="ReplacementWordTxtAndLocaleCode" return-type="Collection">
+			<finder-column name="replacementWordTxt" />
+			<finder-column name="localeCode" />
+		</finder>
+	</entity>
+	
+	<!-- ################### BS BRIDGE Portlet Service Entity Configuration will go here ################### -->
+	<entity name="BridgePublishLang" table="BRIDGE_PUBLISH_LANG" local-service="true" remote-service="false" cache-enabled="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+		<column name="publishLangId" db-name="BRIDGE_PUBLISH_LANG_ID" type="long" primary="true" />
+		<column name="publishId" db-name="PUBLISH_ID" type="long" />
+		<column name="regionId" db-name="RGN_ID" type="long" />
+		<column name="localeCode" db-name="LOCALE_CD" type="String" />
+		<!-- Must to have fields as per DB Team -->
+		<column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+		<column name="createdDate" db-name="CREAT_TS" type="Date" />
+		<column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+		<column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+		<!-- Order -->
+		<order by="asc">
+			<order-column name="publishLangId" />
+		</order>
+		<!-- Finder methods -->
+		<finder name="Region" return-type="Collection">
+			<finder-column name="publishId" />
+			<finder-column name="regionId" />
+		</finder>
+		<finder name="RegionAndLocale" return-type="BridgePublishLang">
+			<finder-column name="publishId" />
+			<finder-column name="regionId" />
+			<finder-column name="localeCode" />
+		</finder>
+	</entity>
+	
+	<entity name="BridgePublish" table="BRIDGE_PUBLISH" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+		<column name="bridgePublishId" db-name="BRIDGE_PUBLISH_ID" type="long" primary="true" />
+		<column name="publishId" db-name="PUBLISH_ID" type="long" />
+		<column name="standardId" db-name="STD_ID" type="long" />
+		<column name="regionId" db-name="RGN_ID" type="long" />
+		<column name="unpublishInd" db-name="UNPUBLISH_IND" type="String" />
+		<!-- Must to have fields as per DB Team -->
+		<column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+		<column name="createdDate" db-name="CREAT_TS" type="Date" />
+		<column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+		<column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+		<!-- Order -->
+		<order by="asc">
+			<order-column name="bridgePublishId" />
+		</order>
+		<!-- Finder methods -->
+		<finder name="PublishId" return-type="Collection">
+			<finder-column name="publishId" />
+		</finder>
+		<finder name="PublishIdAndStdId" return-type="Collection">
+			<finder-column name="publishId" />
+			<finder-column name="standardId" />
+		</finder>
+		<finder name="PublishIdAndRegionId" return-type="Collection">
+			<finder-column name="publishId" />
+			<finder-column name="regionId" />
+		</finder>
+		<finder name="PublishIdRegionIdAndStdId" return-type="BridgePublish">
+			<finder-column name="publishId" />
+			<finder-column name="regionId" />
+			<finder-column name="standardId" />
+		</finder>
+	</entity>
+	
+	<entity name="BridgePublishCountry" table="BRIDGE_PUBLISH_CTRY" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+		<column name="publishCtryId" db-name="BRIDGE_PUBLISH_CTRY_ID" type="long" primary="true" />
+		<column name="bridgePublishId" db-name="BRIDGE_PUBLISH_ID" type="long" />
+		<column name="countryCode" db-name="CTRY_NM_CD" type="String" />
+		<column name="statusCode" db-name="BRIDGE_PUBLISH_STAT_CD" type="String" />
+		<column name="publishInd" db-name="PUBLISH_IND" type="String" />
+		<!-- Must to have fields as per DB Team -->
+		<column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+		<column name="createdDate" db-name="CREAT_TS" type="Date" />
+		<column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+		<column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+		<!-- Order -->
+		<order by="asc">
+			<order-column name="publishCtryId" />
+		</order>
+		<!-- Finder methods -->
+		<finder name="PublishId" return-type="Collection">
+			<finder-column name="bridgePublishId" />
+		</finder>
+		<finder name="BridgePublishIdAndCountryCode" return-type="BridgePublishCountry">
+			<finder-column name="bridgePublishId" />
+			<finder-column name="countryCode" />
+		</finder>
+	</entity>
+	
+	<entity name="BridgeGlobalPublishCountry" table="BRIDGE_GBL_PUBLISH_CTRY" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+		<column name="globalPublishCtryId" db-name="BRIDGE_GBL_PUBLISH_CTRY_ID" type="long" primary="true" />
+		<column name="globalPublishId" db-name="BRIDGE_GBL_PUBLISH_ID" type="long" />
+		<column name="countryCode" db-name="CTRY_NM_CD" type="String" />
+		<column name="publishInd" db-name="PUBLISH_IND" type="String" />
+		<!-- Must to have fields as per DB Team -->
+		<column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+		<column name="createdDate" db-name="CREAT_TS" type="Date" />
+		<column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+		<column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+		<!-- Order -->
+		<order by="asc">
+			<order-column name="globalPublishCtryId" />
+		</order>
+		<!-- Finder methods -->
+		<finder name="GlobalPublishId" return-type="Collection">
+			<finder-column name="globalPublishId" />
+		</finder>
+		<finder name="GlobalPublishIdAndCountryCode" return-type="BridgeGlobalPublishCountry">
+			<finder-column name="globalPublishId" />
+			<finder-column name="countryCode" />
+		</finder>
+	</entity>
+	
+	<entity name="BridgeGlobalPublish" table="BRIDGE_GBL_PUBLISH" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+		<column name="globalPublishId" db-name="BRIDGE_GBL_PUBLISH_ID" type="long" primary="true" />
+		<column name="publishId" db-name="PUBLISH_ID" type="long" />
+		<column name="stdId" db-name="STD_ID" type="long" />
+		<column name="mustPublishInd" db-name="MUST_PUBLISH_IND" type="String" />
+		<!-- Must to have fields as per DB Team -->
+		<column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+		<column name="createdDate" db-name="CREAT_TS" type="Date" />
+		<column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+		<column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+		<!-- Order -->
+		<order by="asc">
+			<order-column name="globalPublishId" />
+		</order>
+		<!-- Finder methods -->
+		<finder name="PublishIdAndStdId" return-type="BridgeGlobalPublish">
+			<finder-column name="publishId" />
+			<finder-column name="stdId" />
+		</finder>
+		<finder name="StdIdAndMustPublishInd" return-type="BridgeGlobalPublish">
+			<finder-column name="stdId" />
+			<finder-column name="mustPublishInd" />
+			<finder-column name="publishId" />
+		</finder>
+	</entity>
+	
+	<entity name="BridgePublishStatus" table="BRIDGE_PUBLISH_STAT" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+		<column name="publishStatusCode" db-name="BRIDGE_PUBLISH_STAT_CD" type="String" primary="true" />
+		<column name="publishStatusName" db-name="BRIDGE_PUBLISH_STAT_NM" type="String" />
+		<!-- Must to have fields as per DB Team -->
+		<column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+		<column name="createdDate" db-name="CREAT_TS" type="Date" />
+		<column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+		<column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+		<!-- Order -->
+		<order by="asc">
+			<order-column name="publishStatusCode" />
+		</order>
+		<!-- Finder methods -->
+	</entity>
+
+	<entity name="MustPublish" table="BRIDGE_GBL_PUBLISH" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+		<column name="parentId" db-name="PRNT_STD_ID" type="long" />
+		<column name="stdId" db-name="STD_ID" type="long"  primary="true"/>
+		<column name="title" db-name="TITLE" type="String" />
+		<column name="stdType" db-name="STD_TYPE" type="String" />
+		<!-- <column name="publishId" db-name="PUBLISH_ID" type="long" /> -->
+		<column name="path" db-name="PATH" type="String" />
+		<column name="currentPath" db-name="CURR_PATH" type="String" />
+		<column name="regionCode" db-name="RGN_CD" type="String" />
+		<column name="amer" db-name="AMER" type="String" />
+		<column name="amea" db-name="AMEA" type="String" />
+		<column name="euro" db-name="EURO" type="String" />
+		<column name="gc" db-name="GC" type="String" />
+		
+		<column name="status" db-name="STAT_DESC" type="String" />
+		<column name="displayOrder" db-name="DISP_ORDER_NBR" type="long" />
+		<column name="taxonomyId" db-name="TAXONOMY_ID" type="long" />
+		<column name="parentTaxonomyId" db-name="PRNT_TAXONOMY_ID" type="long" />
+		<column name="indexOrder" db-name="INDX_ORDER" type="long" />
+		<column name="level" db-name="LVL" type="long" />
+		<column name="levelSortOrder" db-name="HIER_LVL_NBR" type="long" />
+		<column name="isGlobal" db-name="GBL_RGN_IND" type="String" />
+		<column name="framework" db-name="FRAMEWORK_STD_IND" type="String" />
+		
+		<!-- Order -->
+		<order by="asc">
+			<order-column name="parentId" />
+		</order>
+		<!-- Finder methods -->
+	</entity>
+	
+
+	<entity name="StandardsCountryExt" table="BRNDSTND_CTRY" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+		<column name="rowNum" db-name="ROWNUM" type="long"  primary="true"/>
+		<column name="countryCode" db-name="CTRY_NM_CD" type="String"  />
+		<column name="flag" db-name="CTRY_FLAG" type="String" />
+	</entity>
+	
+	<entity name="BridgePublishStateEx" table="BRIDGE_PUBLISH_STAT" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+		<column name="publishId" db-name="BRIDGE_PUBLISH_ID" type="long" primary="true" />		
+		<column name="stdId" db-name="STD_ID" type="long" primary="true" />
+		<column name="taxonomyTitle" db-name="TAX_TITLE_TXT" type="String" />
+		<column name="title" db-name="TITLE" type="String" />
+		<column name="path" db-name="PATH" type="String" />
+		<column name="parentStdId" db-name="PRNT_STD_ID" type="long" />
+		<column name="stateCd" db-name="STAT_CD" type="String" />
+		<column name="type" db-name="STD_TYP" type="String" />
+		<column name="manualType" db-name="MNL_TYP" type="String" />
+		<column name="count" db-name="STAT_COUNT" type="long" />
+		<column name="displayOrder" db-name="DISP_ORDER_NBR" type="long" />
+		<column name="taxonomyId" db-name="TAXONOMY_ID" type="long" />
+		<column name="parentTaxonomyId" db-name="PRNT_TAXONOMY_ID" type="long" />
+		<column name="indexOrder" db-name="INDX_ORDER" type="long" />
+		<column name="level" db-name="LVL" type="long" />
+		<column name="levelSortOrder" db-name="HIER_LVL_NBR" type="long" />
+	</entity>
+	
+	<entity name="BridgePublishCountryStateEx" table="BRIDGE_PUBLISH_STAT" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+		
+		<column name="stdId" db-name="STD_ID" type="long" primary="true" />
+		<column name="CountryCode" db-name="CTRY_NM_CD" type="String" primary="true" />
+		
+		<column name="parentStdId" db-name="PRNT_STD_ID" type="long" />
+		<column name="type" db-name="STD_TYP" type="String" />
+		<column name="publishId" db-name="BRIDGE_PUBLISH_ID" type="long" />
+
+		<column name="stateCd" db-name="BRIDGE_PUBLISH_STAT_CD" type="String" />
+	</entity>	
+
+	<entity name="BridgePublishPreview" table="BRIDGE_PUBLISH" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+		<column name="stdId" db-name="STD_ID" type="long" primary="true" />
+		<column name="taxonomyTitle" db-name="TAX_TITLE_TXT" type="String" />
+		<column name="title" db-name="TITLE" type="String" />
+		<column name="path" db-name="PATH" type="String" />
+		<column name="parentStdId" db-name="PRNT_STD_ID" type="long" />
+		<column name="currentTitle" db-name="CURR_TITLE" type="String" />
+		<column name="type" db-name="STD_TYP" type="String" />
+		<column name="displayOrder" db-name="DISP_ORDER_NBR" type="long" />
+		<column name="taxonomyId" db-name="TAXONOMY_ID" type="long" />
+		<column name="parentTaxonomyId" db-name="PRNT_TAXONOMY_ID" type="long" />
+		<column name="indexOrder" db-name="INDX_ORDER" type="long" />
+		<column name="level" db-name="LVL" type="long" />
+		<column name="levelSortOrder" db-name="HIER_LVL_NBR" type="long" />
+		<column name="status" db-name="STATUS" type="String" />
+		<column name="imageCount" db-name="IMG_ATCH" type="long" />
+		<column name="attachmentCount" db-name="STD_ATCH" type="long" />
+		<column name="xRefCount" db-name="STD_XREF" type="long" />
+		<column name="hotelLifeCycle" db-name="HTL_LFCCL" type="long" />
+		<column name="complianceCount" db-name="STD_CMPLY" type="long" />
+		<column name="hotelAttributes" db-name="HTL_ATTR" type="String" />
+		<column name="complianceDate" db-name="STD_CMPLY_DATE" type="String" />
+		<column name="stdReference" db-name="STD_REFERENCE" type="String" />
+	</entity>
+
+    <entity name="BridgePublishImport" table="BRIDGE_PUBLISH_IMPORT" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!-- PK fields -->
+        <column name="publishImportId" db-name="BRIDGE_PUBLICATION_IMPORT_ID" type="long" primary="true" />
+
+        <!--  Regular fields -->
+        <column name="publishId" db-name="PUBLISH_ID" type="long" />
+        <column name="stdId" db-name="STD_ID" type="long" />
+        <column name="selectInd" db-name="SELECTION_ID" type="String" />
+        <column name="regionId" db-name="RGN_ID" type="long" />
+        <column name="status" db-name="VLD_STAT_CD" type="String" />
+
+        <!-- Must to have fields as per DB Team -->
+        <column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+        <column name="createdDate" db-name="CREAT_TS" type="Date" />
+        <column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+        <column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+
+        <!-- Finder methods -->
+        <finder name="PublishIdAndStdId" return-type="Collection">
+            <finder-column name="publishId" />
+            <finder-column name="stdId" />
+        </finder>
+
+        <!-- Finder methods -->
+        <finder name="PublishIdRegionIdStdId" return-type="BridgePublishImport">
+            <finder-column name="publishId" />
+            <finder-column name="regionId" />
+            <finder-column name="stdId" />
+        </finder>
+
+        <!-- Finder methods -->
+        <finder name="PublishIdAndRegionId" return-type="Collection">
+            <finder-column name="publishId" />
+            <finder-column name="regionId" />
+        </finder>
+
+        <!-- Finder methods -->
+        <finder name="PublishId" return-type="Collection">
+            <finder-column name="publishId" />
+        </finder>
+    </entity>
+    
+    <entity name="StandardsDisplayOrder" table="STD_DISPLAY_ORDER" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!-- PK fields -->
+        <column name="stdId" db-name="STD_ID" type="long" primary="true" />
+        <column name="regionCode" db-name="RGN_CD" type="String" primary="true"/>
+        <column name="chainCode" db-name="CHAIN_CD" type="String"  primary="true"/>
+        <!-- Other Fields -->
+        <column name="displayOrder" db-name="DISP_ORDER_NBR" type="long"/>
+    
+        <!-- Must to have fields as per DB Team -->
+        <column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+        <column name="createdDate" db-name="CREAT_TS" type="Date" />
+        <column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+        <column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+
+        <!-- Finder methods -->
+        <finder name="StdIdChainIdRegionCode" return-type="StandardsDisplayOrder">
+            <finder-column name="stdId" />
+            <finder-column name="chainCode" />
+            <finder-column name="regionCode" />
+        </finder>
+   	
+   		<finder name="ChainCodeRegionCode" return-type="Collection">
+            <finder-column name="chainCode" />
+            <finder-column name="regionCode" />
+        </finder>
+   
+   </entity>
+ 	
+ 	<entity name="StandardsDisplayOrderExt" table="STD_DISPLAY_ORDER" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!-- FK fields -->
+        <column name="stdId" db-name="STD_ID" type="long" primary="true" />
+        <!-- Regular fields -->
+        <column name="title" db-name="TITLE_TXT" type="String" />
+		<column name="isGlobal" db-name="GBL_RGN_IND" type="String" />
+    	<column name="framework" db-name="FRAMEWORK_STD_IND" type="String" />
+    	<column name="chainCode" db-name="CHAIN_CD" type="String"  />
+        <column name="regionCode" db-name="RGN_CD" type="String"   />
+        <column name="displayOrder" db-name="DISP_ORDER_NBR" type="long" />
+    	
+ 	</entity>
+ 
+    <entity name="StandardsCompliance" table="STD_CMPLY" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!-- PK fields -->
+        <column name="stdComplianceId" db-name="STD_CMPLY_ID" type="long" primary="true" />
+        
+        <!-- Other Fields -->
+        <column name="stdId" db-name="STD_ID" type="long"  />
+        <column name="countryCode" db-name="CTRY_NM_CD" type="String" />
+        <column name="chainCode" db-name="CHAIN_CD" type="String"  />
+        <column name="complianceExpiryDate" db-name="CMPLY_EXPR_DT" type="Date"/>
+        <column name="complianceExpiryRule" db-name="CMPLY_EXPR_RULE_CD" type="String"/>
+        <column name="complianceRuleMonths" db-name="CMPLY_RULE_MO_QTY" type="long"/>
+        <column name="RuleDate" db-name="RULE_DT_CD" type="String"/>
+        
+        <!-- Must to have fields as per DB Team -->
+        <column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+        <column name="createdDate" db-name="CREAT_TS" type="Date" />
+        <column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+        <column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+		
+		<finder name="StdChain" return-type="Collection">
+            <finder-column name="stdId" />
+            <finder-column name="chainCode" />
+        </finder>
+        
+        <finder name="StdChainCountry" return-type="StandardsCompliance">
+            <finder-column name="stdId" />
+            <finder-column name="chainCode" />
+            <finder-column name="countryCode" />
+        </finder>
+   
+   </entity>
+   
+   <entity name="StandardsComplianceExt" table="STD_CMPLY" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!-- PK fields -->
+        <column name="stdComplianceId" db-name="STD_CMPLY_ID" type="long" primary="true" />
+        
+        <!-- Other Fields -->
+        <column name="stdId" db-name="STD_ID" type="long"  />
+        <column name="countryCode" db-name="CTRY_NM_CD" type="String" />
+        <column name="regionCode" db-name="RGN_CD" type="String" />
+        <column name="chainCode" db-name="CHAIN_CD" type="String"  />
+        <column name="complianceExpiryDate" db-name="CMPLY_EXPR_DT" type="Date"/>
+        <column name="complianceExpiryRule" db-name="CMPLY_EXPR_RULE_CD" type="String"/>
+        <column name="complianceRuleMonths" db-name="CMPLY_RULE_MO_QTY" type="long"/>
+        <column name="RuleDate" db-name="RULE_DT_CD" type="String"/>
+        <column name="expiryDate" db-name="EXPR_DT" type="String"/>
+        <column name="complianceDateString" db-name="CMPLY_DT_STR" type="String"/>
+        <column name="expiryDateString" db-name="EXPR_DT_STR" type="String"/>
+   </entity>
+	
+	<entity name="CountryStandardsExt" table="CTRY_STD" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+	    
+	    <column name="countryCode" db-name="CTRY_NM_CD" type="String" primary="true"/>
+		<column name="stdId" db-name="STD_ID" type="long" primary="true"/>
+		<column name="regionId" db-name="RGN_ID" type="long" />
+		<column name="regionCode" db-name="RGN_CD" type="String" />
+		<column name="regionName" db-name="RGN_NM" type="String" />
+	</entity>
+	
+	<entity name="ErrNotification" table="ERR_NOTIFICATION" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+	    
+	    <column name="notificationId" db-name="ERR_NOTIFICATION_ID" type="long" primary="true"/>
+		<column name="componentName" db-name="COMPONENT_NM" type="String" />
+		<column name="referenceId" db-name="REF_ID" type="long" />
+		<column name="severity" db-name="SEVERITY_LVL_CD" type="String" />
+		<column name="title" db-name="ERR_TITLE_TXT" type="String" />
+		<column name="description" db-name="ERR_DESC" type="String" />
+		<column name="status" db-name="STAT_CD" type="String" />
+		<column name="publishId" db-name="PUBLISH_ID" type="long" />
+		<column name="regionId" db-name="RGN_ID" type="long" />
+		
+		<!-- Must to have fields as per DB Team -->
+        <column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+        <column name="createdDate" db-name="CREAT_TS" type="Date" />
+        <column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+        <column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+        
+        <!-- Finder method -->
+        <finder name="componentNameAndPublishId" return-type="Collection" >
+        	<finder-column name="componentName"></finder-column>
+        	<finder-column name="publishId"></finder-column>
+        	<finder-column name="referenceId"></finder-column>
+        </finder>
+
+        <finder name="ComponentNameAndReferenceId" return-type="Collection" >
+        	<finder-column name="componentName"></finder-column>
+        	<finder-column name="referenceId"></finder-column>
+        </finder>
+        
+        <finder name="ComponentNameStatusReferenceId" return-type="Collection" >
+        	<finder-column name="componentName"></finder-column>
+        	<finder-column name="status"></finder-column>
+        	<finder-column name="referenceId"></finder-column>
+        </finder>
+        
+        <finder name="ComponentNameStatusUserReferenceId" return-type="Collection" >
+        	<finder-column name="componentName"></finder-column>
+        	<finder-column name="status"></finder-column>
+        	<finder-column name="creatorId"></finder-column>
+        	<finder-column name="referenceId"></finder-column>
+        </finder>
+        
+	</entity>
+	
+	<entity name="UniqueGroup" table="UNIQUE_GRP" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!-- PK fields -->
+        <column name="uniqueGroupId" db-name="UNIQUE_GRP_ID" type="long" primary="true" />
+        
+        <!--  Regular fields -->
+        <column name="publishId" db-name="PUBLISH_ID" type="long" />
+        <column name="groupName" db-name="GRP_NM" type="String" />
+        <column name="regionId" db-name="RGN_ID" type="long" />
+        <column name="groupType" db-name="UNIQUE_GRP_TYP_CD" type="String" />
+        
+        <!-- Must to have fields as per DB Team -->
+        <column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+        <column name="createdDate" db-name="CREAT_TS" type="Date" />
+        <column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+        <column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+        
+        <!-- Finder method -->
+        <finder name="publicationAndRegion" return-type="Collection">
+        	<finder-column name="publishId" />
+        	<finder-column name="regionId" />
+        </finder>
+         
+    </entity>
+    
+    <entity name="UniqueGroupCountry" table="UNIQUE_GRP_CTRY" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+	    <column name="groupCountryId" db-name="UNIQUE_GRP_CTRY_ID" type="long"  primary="true" />
+	    <column name="uniqueGroupId" db-name="UNIQUE_GRP_ID" type="long" />
+	    <column name="countryCode" db-name="CTRY_NM_CD" type="String" />
+		<!-- Must to have fields as per DB Team -->
+        <column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+        <column name="createdDate" db-name="CREAT_TS" type="Date" />
+        <column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+        <column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+	</entity>
+	
+	<entity name="UniqueGroupStandard" table="UNIQUE_GRP_STD" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!-- PK fields -->
+	    <column name="groupStandardId" db-name="UNIQUE_GRP_STD_ID" type="long"  primary="true" />
+        
+        <!--  Regular fields -->
+	    <column name="groupId" db-name="UNIQUE_GRP_ID" type="long" />
+	    <column name="stdId" db-name="STD_ID" type="long" />
+		<!-- Must to have fields as per DB Team -->
+        <column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+        <column name="createdDate" db-name="CREAT_TS" type="Date" />
+        <column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+        <column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+	</entity>
+	
+ <!-- ###################  Service Entity For Progress And Summary page data store ################### -->
+     <entity name="BridgeProgressCategory" cache-enabled="false" table="BRIDGE_PUBLISH_PROGRESS_CATGY" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!-- PK fields -->
+        <column name="progressCategoryId" db-name="BRIDGE_PUB_PROGRESS_CATGY_ID" type="long" primary="true" />
+
+		<!--  Regular fields -->
+		<column name="progressCategoryName" db-name="BRIDGE_PUB_PROGRESS_CATGY_NM" type="String" />
+		<column name="displayOrderNumber" db-name="DISP_ORDER_NBR" type="long" />
+		
+		<!-- Must to have fields as per DB Team -->
+		<column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+		<column name="createdDate" db-name="CREAT_TS" type="Date" />
+		<column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+		<column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+		
+		<!-- Finder methods -->
+		<finder name="progressCategoryName" return-type="BridgeProgressCategory">
+			<finder-column name="progressCategoryName" />
+		</finder>
+	</entity>
+	
+	<entity name="BridgeProgressSubCategory" cache-enabled="false" table="BRIDGE_PUBLISH_PROGRESS_SUBCAT" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!-- PK fields -->
+        <column name="progressSubCategoryId" db-name="BRIDGE_PUB_PROGRESS_SUBCAT_ID" type="long" primary="true"  />
+
+		<!--  Regular fields -->
+		
+		<column name="progressCategoryId" db-name="BRIDGE_PUB_PROGRESS_CATGY_ID" type="long" />
+		<column name="categoryName" db-name="BRIDGE_PUB_PROGRESS_SUBCAT_NM" type="String" />
+		<column name="displayOrderNumber" db-name="DISP_ORDER_NBR" type="long" />
+		
+		<!-- Must to have fields as per DB Team -->
+		<column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+		<column name="createdDate" db-name="CREAT_TS" type="Date" />
+		<column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+		<column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+		
+		<!-- Finder methods -->
+		<finder name="bridgeProgressSubCategoryId" return-type="BridgeProgressSubCategory">
+			<finder-column name="progressSubCategoryId" />
+		</finder>
+		<!-- Finder methods -->
+		<finder name="progressCategoryId" return-type="Collection">
+			<finder-column name="progressCategoryId" />
+		</finder>
+	</entity>
+	
+    <entity name="BridgeProgressDiscrepancy" cache-enabled="false" table="BRIDGE_PUB_PROG_DISCREPANCY" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        
+        <column name="progressCategoryId" db-name="BRIDGE_PUB_PROGRESS_CATGY_ID" type="long"  primary="true"/>
+        <column name="progressSubCategoryId" db-name="BRIDGE_PUB_PROGRESS_SUBCAT_ID" type="long"  primary="true"/>
+
+		<!--  Regular fields -->
+		<column name="publishId" db-name="PUBLISH_ID" type="long"  primary="true"/>
+		<column name="regionId" db-name="RGN_ID" type="long"  primary="true"/>	
+		<column name="errorCount" db-name="ERR_QTY" type="long" />
+		
+		<!-- Must to have fields as per DB Team -->
+		<column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+		<column name="createdDate" db-name="CREAT_TS" type="Date" />
+		<column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+		<column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+		
+		<!-- Finder methods -->
+		<finder name="publicationPublishRgn" return-type="Collection">
+			<finder-column name="publishId" />
+			<finder-column name="regionId" />
+		</finder>
+		<finder name="publicationPublishRgnCategory" return-type="Collection">
+			<finder-column name="publishId" />
+			<finder-column name="regionId" />
+			<finder-column name="progressCategoryId" />
+		</finder>
+		<finder name="publicationPublishRgnCatSubCat" return-type="BridgeProgressDiscrepancy">
+			<finder-column name="publishId" />
+			<finder-column name="regionId" />
+			<finder-column name="progressCategoryId" />
+			<finder-column name="progressSubCategoryId" />
+		</finder>
+	</entity>
+	<!-- ################### Brand Standards GEM Portlet Service Entity Configuration Import ################### -->
+	<service-builder-import file="service-gem.xml" />
+</service-builder>

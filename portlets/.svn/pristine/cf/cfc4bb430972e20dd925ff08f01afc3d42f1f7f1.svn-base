@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="xlsRecords" type="xlsRecordListMapping"/>
+  <xs:complexType name="xlsRecordListMapping">
+    <xs:sequence>
+      <xs:element ref="xlsRecord" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:element name="xlsField" type="xlsFieldMapping"/>
+  <xs:complexType name="xlsFieldMapping">
+    <xs:attribute name="class_name" type="xs:string" use="required"/>
+    <xs:attribute name="class_field_name" type="xs:string" use="required"/>
+    <xs:attribute name="name" type="xs:string" use="required"/>
+    <xs:attribute name="xls_name" type="xs:string" use="required"/>
+    <xs:attribute name="type" type="xs:string" use="required"/>
+    <xs:attribute name="required" type="xs:boolean" use="optional"/>
+    <xs:attribute name="multi_value" type="xs:boolean" use="optional"/>
+    <xs:attribute name="encode_value" type="xs:boolean" use="optional"/>
+  </xs:complexType>
+
+  <xs:element name="xlsRecord" type="xlsRecordMapping"/>
+  <xs:complexType name="xlsRecordMapping">
+    <xs:sequence>
+      <xs:element ref="xlsField" minOccurs="1" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:string" use="required"/>
+    <xs:attribute name="type" type="xs:string" use="required"/>
+    <xs:attribute name="name" type="xs:string" use="required"/>
+    <xs:attribute name="class_name" type="xs:string" use="required"/>
+    <xs:attribute name="parent_id" type="xs:string" use="optional"/>
+  </xs:complexType>
+
+</xs:schema>
+

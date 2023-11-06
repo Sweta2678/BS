@@ -1,0 +1,173 @@
+/* Candlewood Suites Brand Specific CSS created by Kyle LeBlanc - 9/13/2013 */
+.aui a {
+  color: #b5121b; }
+.aui a:hover {
+  color: #b5121b; }
+.aui [class^="icon-"]:before,
+.aui [class*=" icon-"]:before {
+  content: ""; }
+.aui [class^="icon-"],
+.aui [class*=" icon-"] {
+  display: inline-block; }
+.aui #searchstandardaccordion [class*="span"] {
+  margin-left: 0; }
+.aui .columns-2 .portlet-column.portlet-column-first.span6.yui3-dd-drop {
+  width: 500px !important;
+  float: left; }
+.aui .columns-2 .portlet-column.portlet-column-last.span6.yui3-dd-drop {
+  float: left;
+  margin-left: 0 !important;
+  width: 460px !important; }
+.aui .well.well-small ul {
+  margin: 0 0 9px 25px; }
+.aui #navigation .ui-menu .ui-menu-item {
+  /*background-color: #002467;*/
+  background-color: #003f87; }
+.aui #navigation .ui-menu.ui-widget-content .ui-state-focus, .aui #navigation .ui-menu.ui-widget-content .ui-state-active, .aui #navigation .ui-menu .active > a, .aui #navigation .ui-menu .ui-menu-item a:hover, .aui #navigation .ui-menu .active a:focus, .aui #navigation .ui-menu .ui-menu-item:hover {
+  background-color: #b5121b; }
+.aui #navigation .ui-menu .ui-menu-item .ui-menu .ui-menu-item a:hover, .aui #navigation .ui-menu .ui-menu-item .ui-menu .ui-menu-item a:focus, .aui #navigation .ui-menu .ui-menu-item .ui-menu .ui-menu-item:hover > a, .aui #navigation .ui-menu .ui-menu-item .ui-menu.ui-widget-content .ui-state-active {
+  background-color: #002465;
+  background-image: linear-gradient(to bottom, #7a92c2, #002465); }
+.aui .btn-primary, .aui .btn-primary:focus {
+  background-color: #7a92c2;
+  background-image: -moz-linear-gradient(top, #7a92c2, #002465);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#7a92c2), to(#002465));
+  background-image: -webkit-linear-gradient(top, #7a92c2, #002465);
+  background-image: -o-linear-gradient(top, #7a92c2, #002465);
+  background-image: linear-gradient(to bottom, #7a92c2, #002465);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff7a92c2', endColorstr='#ff002465', GradientType=0);
+  *background-color: #7a92c2;
+  background-position: 0 0;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */ }
+.aui .btn-primary:hover,
+.aui .btn-primary:active,
+.aui .btn-primary.active,
+.aui .btn-primary.disabled,
+.aui .btn-primary[disabled] {
+  color: #ffffff;
+  background-color: #002465;
+  background-position: 0 0; }
+.aui .btn-primary:active,
+.aui .btn-primary.active {
+  background-color: #002465 \9; }
+.aui .btn-warning {
+  background-color: #f09433;
+  background-image: -moz-linear-gradient(top, #f5a34d, #e87d0d);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f5a34d), to(#e87d0d));
+  background-image: -webkit-linear-gradient(top, #f5a34d, #e87d0d);
+  background-image: -o-linear-gradient(top, #f5a34d, #e87d0d);
+  background-image: linear-gradient(to bottom, #f5a34d, #e87d0d);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff5a34d', endColorstr='#ffe87d0d', GradientType=0);
+  *background-color: #e87d0d; }
+.aui .btn-warning:hover,
+.aui .btn-warning:active,
+.aui .btn-warning.active,
+.aui .btn-warning.disabled,
+.aui .btn-warning[disabled] {
+  color: #ffffff;
+  background-color: #e87d0d;
+  *background-color: #d0700c; }
+.aui .btn-warning:active,
+.aui .btn-warning.active {
+  background-color: #b8630a \9; }
+.aui .btn-danger {
+  background-color: #da4f49;
+  background-image: -moz-linear-gradient(top, #ee5f5b, #bd362f);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ee5f5b), to(#bd362f));
+  background-image: -webkit-linear-gradient(top, #ee5f5b, #bd362f);
+  background-image: -o-linear-gradient(top, #ee5f5b, #bd362f);
+  background-image: linear-gradient(to bottom, #ee5f5b, #bd362f);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffee5f5b', endColorstr='#ffbd362f', GradientType=0);
+  *background-color: #bd362f; }
+.aui .btn-danger:hover,
+.aui .btn-danger:active,
+.aui .btn-danger.active,
+.aui .btn-danger.disabled,
+.aui .btn-danger[disabled] {
+  color: #ffffff;
+  background-color: #bd362f;
+  *background-color: #a9302a; }
+.aui .btn-danger:active,
+.aui .btn-danger.active {
+  background-color: #942a25 \9; }
+.aui .btn-success {
+  background-color: #5bb75b;
+  background-image: -moz-linear-gradient(top, #62c462, #51a351);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#62c462), to(#51a351));
+  background-image: -webkit-linear-gradient(top, #62c462, #51a351);
+  background-image: -o-linear-gradient(top, #62c462, #51a351);
+  background-image: linear-gradient(to bottom, #62c462, #51a351);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff62c462', endColorstr='#ff51a351', GradientType=0);
+  *background-color: #51a351; }
+.aui .btn-success:hover,
+.aui .btn-success:active,
+.aui .btn-success.active,
+.aui .btn-success.disabled,
+.aui .btn-success[disabled] {
+  color: #ffffff;
+  background-color: #51a351;
+  *background-color: #499249; }
+.aui .btn-success:active,
+.aui .btn-success.active {
+  background-color: #408140 \9; }
+.aui .btn-info {
+  background-color: #49afcd;
+  background-image: -moz-linear-gradient(top, #5bc0de, #2f96b4);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#5bc0de), to(#2f96b4));
+  background-image: -webkit-linear-gradient(top, #5bc0de, #2f96b4);
+  background-image: -o-linear-gradient(top, #5bc0de, #2f96b4);
+  background-image: linear-gradient(to bottom, #5bc0de, #2f96b4);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff5bc0de', endColorstr='#ff2f96b4', GradientType=0);
+  *background-color: #2f96b4; }
+.aui .btn-info:hover,
+.aui .btn-info:active,
+.aui .btn-info.active,
+.aui .btn-info.disabled,
+.aui .btn-info[disabled] {
+  color: #ffffff;
+  background-color: #2f96b4;
+  *background-color: #2a85a0; }
+.aui .btn-info:active,
+.aui .btn-info.active {
+  background-color: #24748c \9; }
+.aui .btn-inverse {
+  background-color: #363636;
+  background-image: -moz-linear-gradient(top, #444444, #222222);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#444444), to(#222222));
+  background-image: -webkit-linear-gradient(top, #444444, #222222);
+  background-image: -o-linear-gradient(top, #444444, #222222);
+  background-image: linear-gradient(to bottom, #444444, #222222);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff444444', endColorstr='#ff222222', GradientType=0);
+  *background-color: #222222; }
+.aui .btn-inverse:hover,
+.aui .btn-inverse:active,
+.aui .btn-inverse.active,
+.aui .btn-inverse.disabled,
+.aui .btn-inverse[disabled] {
+  color: #ffffff;
+  background-color: #222222;
+  *background-color: #151515; }
+.aui .btn-inverse:active,
+.aui .btn-inverse.active {
+  background-color: #080808 \9; }
+.aui .btn-link {
+  color: #3a75c4; }
+.aui .btn-link:hover {
+  color: #295289; }
+.aui .banner_title {
+  background: none repeat scroll 0 0 #002465;
+  border-top: 6px solid #7a92c2; }
+.aui .ui-widget-header {
+  background: none repeat scroll 0 0 #002465; }
+.aui h3.ui-accordion-header.ui-state-default, .aui h3.ui-accordion-header.ui-state-hover, .aui h3.ui-accordion-header.ui-state-focus {
+  color: #002465; }
+.aui .ui-icon-triangle-1-s {
+  background: url("../images/chevron.png") no-repeat scroll -384px -32px transparent !important; }
+.aui .ui-icon-triangle-1-e {
+  background: url("../images/chevron.png") no-repeat scroll -384px 0 transparent !important; }
+.aui .ui-dialog-titlebar-close.ui-state-default, .aui .ui-dialog-titlebar-close.ui-state-hover, .aui .ui-dialog-titlebar-close.ui-state-focus {
+  background: none;
+  border: 0px; }
+.aui .label-info, .aui .badge-info, .aui .hotel_lifecycle_attr {
+  background-color: #c76e20 !important; }
+

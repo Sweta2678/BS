@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app id="WebApp_ID" version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+  <display-name>BSAdmin-portlet</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <jsp-config>
+    <taglib>
+      <taglib-uri>http://java.sun.com/portlet_2_0</taglib-uri>
+      <taglib-location>
+  			/WEB-INF/tld/liferay-portlet.tld
+  		</taglib-location>
+    </taglib>
+  </jsp-config>
+  
+  <servlet>
+		<servlet-name>AttributeUpdateScheduler</servlet-name>
+		<servlet-class>com.ihg.brandstandards.servlet.AttributeUpdateServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>AttributeUpdateScheduler</servlet-name>
+		<url-pattern>/attributeUpdateRequest/*</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>AttributeDeleteScheduler</servlet-name>
+		<servlet-class>com.ihg.brandstandards.servlet.AttributeDeleteServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>AttributeDeleteScheduler</servlet-name>
+		<url-pattern>/attributeDeleteRequest/*</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>PurgeAllPublicationScheduler</servlet-name>
+		<servlet-class>com.ihg.brandstandards.servlet.PurgeAllPublicationServlet</servlet-class>
+	</servlet>
+	
+		<servlet-mapping>
+		<servlet-name>PurgeAllPublicationScheduler</servlet-name>
+		<url-pattern>/purgeAllPublicationRequest/*</url-pattern>
+	</servlet-mapping>
+	
+</web-app>

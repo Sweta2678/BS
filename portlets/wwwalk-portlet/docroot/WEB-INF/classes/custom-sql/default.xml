@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<custom-sql>
+<sql id="primaryReviewerQuery" >
+<![CDATA[
+SELECT acct.primary_reviewer,
+  case when acct.backup_reviewer_1 is not null then acct.backup_reviewer_1 else  'Not Assigned' END,
+  case when acct.backup_reviewer_2 is not null then acct.backup_reviewer_2 else  'Not Assigned' END,  
+  acct.mnemonic_cd,
+  acct.RATE_CATGY_CD,
+  acct.RFP_TITLE_TXT,
+  acct.WORKFLOW_STAT_CD,
+  acct.rgn_cd ,
+  acct.CURRENT_REVIEWER
+   ,ROWNUM RNUM
+FROM
+  (SELECT acc1.acct_owner_id,
+    acc1.frst_nm
+    ||' '
+    ||acc1.lst_nm primary_reviewer,
+    (SELECT acc2.frst_nm
+      ||' '
+      ||acc2.lst_nm
+    FROM WISHWALK.acct_owner acc2
+    WHERE acc2.acct_owner_id =acc1.ACCT_OWNER_PRIM_BACKUP_ID
+    ) backup_reviewer_1,
+    (SELECT acc2.frst_nm
+      ||' '
+      ||acc2.lst_nm
+    FROM WISHWALK.acct_owner acc2
+    WHERE acc2.acct_owner_id =acc1.ACCT_OWNER_SEC_BACKUP_ID
+    ) backup_reviewer_2,
+    rfp.mnemonic_cd acct_mnemonic_cd,
+    rfp.rfp_title_txt acct_rfp_title_txt,
+    rfp.RATE_CATGY_CD acct_RATE_CATGY_CD,
+    WF.mnemonic_cd mnemonic_cd,
+    WF.RFP_TITLE_TXT RFP_TITLE_TXT,
+    WF.RATE_CATGY_CD RATE_CATGY_CD,
+    WF.CURRENT_APPR_Id CURRENT_APPR_Id,
+    WF.WORKFLOW_STAT_CD WORKFLOW_STAT_CD,
+    PE.rgn_cd rgn_cd ,
+    (SELECT acc2.frst_nm
+      ||' '
+      ||acc2.lst_nm
+    FROM WISHWALK.acct_owner acc2
+    WHERE acc2.acct_owner_id =WF.CURRENT_APPR_Id
+    ) CURRENT_REVIEWER
+  FROM WISHWALK.WWW_WORKFLOW wf,
+    WISHWALK.pricing_extr pe,
+    WISHWALK.acct_owner acc1
+  RIGHT JOIN WISHWALK.rfp_acct_owner rfp
+  ON rfp.acct_reviewer_id           = acc1.acct_owner_id
+  WHERE (acc1.acct_owner_id         = ?
+  OR acc1.acct_owner_sec_backup_id  = ?
+  OR acc1.ACCT_OWNER_PRIM_BACKUP_ID =? )
+  AND wf.mnemonic_cd                = pe.mnemonic_cd
+  AND wf.RFP_TITLE_TXT              = pe.RFP_TITLE_TXT
+  AND wf.RATE_CATGY_CD              = pe.RATE_CATGY_CD
+  AND wf.mnemonic_cd                = rfp.mnemonic_cd
+  AND wf.RFP_TITLE_TXT              = rfp.RFP_TITLE_TXT
+  AND wf.RATE_CATGY_CD              = rfp.RATE_CATGY_CD  
+  ) acct 
+
+]]>
+</sql>
+
+<sql id="primaryReviewerByPropertyCode">
+<![CDATA[
+
+SELECT acct.primary_reviewer,
+  case when acct.backup_reviewer_1 is not null then acct.backup_reviewer_1 else  'Not Assigned' END,
+  case when acct.backup_reviewer_2 is not null then acct.backup_reviewer_2 else  'Not Assigned' END,  
+  acct.mnemonic_cd,
+  acct.RATE_CATGY_CD,
+  acct.RFP_TITLE_TXT,
+  acct.WORKFLOW_STAT_CD,
+  acct.rgn_cd ,
+  acct.CURRENT_REVIEWER
+   ,ROWNUM RNUM
+FROM
+  (SELECT acc1.acct_owner_id,
+    acc1.frst_nm
+    ||' '
+    ||acc1.lst_nm primary_reviewer,
+    (SELECT acc2.frst_nm
+      ||' '
+      ||acc2.lst_nm
+    FROM WISHWALK.acct_owner acc2
+    WHERE acc2.acct_owner_id =acc1.ACCT_OWNER_PRIM_BACKUP_ID
+    ) backup_reviewer_1,
+    (SELECT acc2.frst_nm
+      ||' '
+      ||acc2.lst_nm
+    FROM WISHWALK.acct_owner acc2
+    WHERE acc2.acct_owner_id =acc1.ACCT_OWNER_SEC_BACKUP_ID
+    ) backup_reviewer_2,
+    rfp.mnemonic_cd acct_mnemonic_cd,
+    rfp.rfp_title_txt acct_rfp_title_txt,
+    rfp.RATE_CATGY_CD acct_RATE_CATGY_CD,
+    WF.mnemonic_cd mnemonic_cd,
+    WF.RFP_TITLE_TXT RFP_TITLE_TXT,
+    WF.RATE_CATGY_CD RATE_CATGY_CD,
+    WF.CURRENT_APPR_Id CURRENT_APPR_Id,
+    WF.WORKFLOW_STAT_CD WORKFLOW_STAT_CD,
+    PE.rgn_cd rgn_cd ,
+    (SELECT acc2.frst_nm
+      ||' '
+      ||acc2.lst_nm
+    FROM WISHWALK.acct_owner acc2
+    WHERE acc2.acct_owner_id =WF.CURRENT_APPR_Id
+    ) CURRENT_REVIEWER
+  FROM WISHWALK.WWW_WORKFLOW wf,
+    WISHWALK.pricing_extr pe,
+    WISHWALK.acct_owner acc1
+  RIGHT JOIN WISHWALK.rfp_acct_owner rfp
+  ON rfp.acct_reviewer_id = acc1.acct_owner_id
+  WHERE wf.mnemonic_cd    = pe.mnemonic_cd
+  AND wf.RFP_TITLE_TXT    = pe.RFP_TITLE_TXT
+  AND wf.RATE_CATGY_CD    = pe.RATE_CATGY_CD
+  AND wf.mnemonic_cd      = rfp.mnemonic_cd
+  AND wf.RFP_TITLE_TXT    = rfp.RFP_TITLE_TXT
+  AND wf.RATE_CATGY_CD    = rfp.RATE_CATGY_CD
+  AND wf.mnemonic_cd      = ?
+  ) acct 
+
+]]>
+</sql>
+<!--  Add for Admin User -->
+
+<sql id="primaryReviewerQueryForAdmin">
+<![CDATA[
+UNION
+SELECT acct.primary_reviewer,
+  case when acct.backup_reviewer_1 is not null then acct.backup_reviewer_1 else  'Not Assigned' END,
+  case when acct.backup_reviewer_2 is not null then acct.backup_reviewer_2 else  'Not Assigned' END,  
+  acct.mnemonic_cd,
+  acct.RATE_CATGY_CD,
+  acct.RFP_TITLE_TXT,
+  acct.WORKFLOW_STAT_CD,
+  acct.rgn_cd ,
+  acct.CURRENT_REVIEWER
+   ,ROWNUM RNUM
+FROM
+  (SELECT acc1.acct_owner_id,
+    acc1.frst_nm
+    ||' '
+    ||acc1.lst_nm primary_reviewer,
+    (SELECT acc2.frst_nm
+      ||' '
+      ||acc2.lst_nm
+    FROM WISHWALK.acct_owner acc2
+    WHERE acc2.acct_owner_id =acc1.ACCT_OWNER_PRIM_BACKUP_ID
+    ) backup_reviewer_1,
+    (SELECT acc2.frst_nm
+      ||' '
+      ||acc2.lst_nm
+    FROM WISHWALK.acct_owner acc2
+    WHERE acc2.acct_owner_id =acc1.ACCT_OWNER_SEC_BACKUP_ID
+    ) backup_reviewer_2,
+    rfp.mnemonic_cd mnemonic_cd,
+    rfp.rfp_title_txt rfp_title_txt,
+    rfp.RATE_CATGY_CD RATE_CATGY_CD,   
+    acc1.acct_owner_id CURRENT_APPR_Id,
+    'Not Started' WORKFLOW_STAT_CD,
+    PE.rgn_cd rgn_cd ,
+    acc1.frst_nm
+    ||' '
+    ||acc1.lst_nm CURRENT_REVIEWER
+  FROM WISHWALK.pricing_extr pe,
+    WISHWALK.acct_owner acc1
+  RIGHT JOIN WISHWALK.rfp_acct_owner rfp
+  ON rfp.acct_reviewer_id                                   = acc1.acct_owner_id
+  WHERE (acc1.acct_owner_id                                 = ?
+  OR acc1.acct_owner_sec_backup_id                          = ?
+  OR acc1.ACCT_OWNER_PRIM_BACKUP_ID                         =? )
+  AND pe.mnemonic_cd                                        = rfp.mnemonic_cd
+  AND pe.RFP_TITLE_TXT                                      = rfp.RFP_TITLE_TXT
+  AND pe.RATE_CATGY_CD                                      = rfp.RATE_CATGY_CD
+  AND(pe.mnemonic_cd,pe.RFP_TITLE_TXT,pe.mnemonic_cd ) NOT IN
+    (SELECT WF.mnemonic_cd,
+      WF.RFP_TITLE_TXT,
+      WF.mnemonic_cd
+    FROM WISHWALK.WWW_WORKFLOW wf
+    WHERE wf.mnemonic_cd = pe.mnemonic_cd
+    AND wf.RFP_TITLE_TXT = pe.RFP_TITLE_TXT
+    AND wf.RATE_CATGY_CD = pe.RATE_CATGY_CD
+    )
+  ) acct 
+
+]]>
+</sql>
+
+
+<sql id="primaryReviewerByPropertyCodeForAdmin">
+<![CDATA[
+UNION
+SELECT acct.primary_reviewer,
+  case when acct.backup_reviewer_1 is not null then acct.backup_reviewer_1 else  'Not Assigned' END,
+  case when acct.backup_reviewer_2 is not null then acct.backup_reviewer_2 else  'Not Assigned' END,  
+  acct.mnemonic_cd,
+  acct.RATE_CATGY_CD,
+  acct.RFP_TITLE_TXT,
+ 'Not Started' WORKFLOW_STAT_CD,
+  acct.rgn_cd ,
+  acct.CURRENT_REVIEWER
+   ,ROWNUM RNUM
+FROM
+  (SELECT acc1.acct_owner_id,
+    acc1.frst_nm
+    ||' '
+    ||acc1.lst_nm primary_reviewer,
+    (SELECT acc2.frst_nm
+      ||' '
+      ||acc2.lst_nm
+    FROM WISHWALK.acct_owner acc2
+    WHERE acc2.acct_owner_id =acc1.ACCT_OWNER_PRIM_BACKUP_ID
+    ) backup_reviewer_1,
+    (SELECT acc2.frst_nm
+      ||' '
+      ||acc2.lst_nm
+    FROM WISHWALK.acct_owner acc2
+    WHERE acc2.acct_owner_id =acc1.ACCT_OWNER_SEC_BACKUP_ID
+    ) backup_reviewer_2,
+    rfp.mnemonic_cd mnemonic_cd,
+    rfp.rfp_title_txt rfp_title_txt,
+    rfp.RATE_CATGY_CD RATE_CATGY_CD,  
+    PE.rgn_cd rgn_cd ,
+    acc1.frst_nm
+    ||' '
+    ||acc1.lst_nm  CURRENT_REVIEWER
+  FROM
+    WISHWALK.pricing_extr pe,
+    WISHWALK.acct_owner acc1
+  RIGHT JOIN WISHWALK.rfp_acct_owner rfp
+  ON rfp.acct_reviewer_id = acc1.acct_owner_id 
+  WHERE  pe.mnemonic_cd      = rfp.mnemonic_cd
+  AND pe.RFP_TITLE_TXT    = rfp.RFP_TITLE_TXT
+  AND pe.RATE_CATGY_CD    = rfp.RATE_CATGY_CD
+  AND pe.mnemonic_cd      = ?
+  AND(pe.mnemonic_cd,pe.RFP_TITLE_TXT,pe.mnemonic_cd ) NOT IN ( SELECT WF.mnemonic_cd,WF.RFP_TITLE_TXT,WF.mnemonic_cd FROM WISHWALK.WWW_WORKFLOW wf
+   WHERE wf.mnemonic_cd    = pe.mnemonic_cd
+  AND wf.RFP_TITLE_TXT    = pe.RFP_TITLE_TXT
+  AND wf.RATE_CATGY_CD    = pe.RATE_CATGY_CD
+  )
+  ) acct 
+  
+]]>
+</sql>
+
+<sql id="countQuery" >
+<![CDATA[
+SELECT COUNT(*)
+FROM (MAIN_QUERY_FOR_COUNT)
+]]>
+</sql>
+
+
+<sql id="paginationQuery" >
+<![CDATA[
+SELECT *
+FROM (MAIN_QUERY_FOR_ALL)
+WHERE RNUM > PARAM_START_INDEX
+AND RNUM  <= PARAM_END_INDEX
+]]>
+</sql>
+
+</custom-sql>

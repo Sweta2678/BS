@@ -1,0 +1,147 @@
+<%@ taglib uri="http://java.sun.com/portlet_2_0" prefix="portlet" %>
+<%@include file="/html/init.jsp"%>
+<portlet:defineObjects />
+<portlet:resourceURL var="getPublicationDateByBrandURL" id="getPublicationDateByBrand" />
+<portlet:resourceURL var="deletePublicationsURL" id="deletePublications" />
+
+<div class="rounded_container">
+	<div class="rounded_container_contents">
+	<h4 class="short_page_subtitle">Purge Publication</h4>
+	
+	<div class="clear"></div>
+	<div class="divider">&nbsp;</div>
+	<div class="clear"></div>
+	
+	<div class="report_container">
+		<%-- <label>Brand:</label>
+		<select id="corp_choose_brand" class="corp_choose_brand" name="corp_choose_brand">
+			<option value="">Select</option>
+			<c:forEach items="${chainCdMap}" var="chainCode">
+				<option value="${chainCode.key}">${chainCode.value}</option>
+			</c:forEach>
+		</select> --%>
+		
+		<label>Environment:</label>
+		<select id="environment" name="environment">
+			<option value=''>Select Environment</option>
+			<!-- <option value='all'>All</option> -->
+			<option value='BRIDGE'>Bridge</option>
+			<option value='PRODUCTION'>OBSM</option>
+			<option value='GEM'>GEM</option>
+		</select>
+		
+		<label>Publication Date:</label>
+		<select id="publication_date" name="publication_date">
+			<option value=''>Select Date</option>
+		</select>
+		<div class="clear"></div>
+		<input type="button" id="delete-manual" class="btn" label="Delete" value="Delete"><i class="icon-white icon-delete-alt" /></i>
+		
+	</div>
+	</div>
+	<div class="rounded_container_bottom"></div>
+</div>
+
+
+<script>
+
+	/* jQuery("#corp_choose_brand").change(function(){
+		//alert($("#corp_choose_brand").val() + $("#environment").val());
+		
+		loadPublicationDate();
+		blockDeleteBut();
+	}); */
+	
+	jQuery("#environment").change(function(){
+		loadPublicationDate();
+		blockDeleteBut();
+	});
+
+	jQuery("#publication_date").change(function(){
+		blockDeleteBut();
+	});
+	
+	
+	function blockDeleteBut(){
+		var env=jQuery("#environment").val();
+		var dat=jQuery("#publication_date").val();
+		if((env!= "" && dat !="")){
+			jQuery('#delete-manual').removeAttr("disabled");
+			jQuery('#delete-manual').removeClass( "disabled" );
+			jQuery('#delete-manual').addClass( "btn-primary" );
+		}else{
+			jQuery('#delete-manual').attr("Disabled", "True");
+			jQuery('#delete-manual').addClass( "disabled" );
+			jQuery('#delete-manual').removeClass( "btn-primary" );
+		}
+	}
+	
+	function loadPublicationDate(){
+		//var brand=jQuery("#corp_choose_brand").val();
+		var env=jQuery("#environment").val();
+		if(env!= ""){
+			jQuery("#publication_date option").remove();
+			jQuery('<option/>').val("").html("Select Date").appendTo('#publication_date');
+						
+			jQuery.ajax({
+				url: '${getPublicationDateByBrandURL}'+ '&environment='+ env,
+				type: "POST",
+				dataType: "text",
+				
+				success: function(data) {
+					
+						if (data != null && data != '' && typeof data != 'undefined') {
+						
+						var res = jQuery.parseJSON(data);
+						jQuery.each(res, function (index, value) 
+								{
+									
+										var result = jQuery.parseJSON(JSON.stringify(value));
+										
+										jQuery.each(result, function(k, v) {
+											jQuery('<option/>').val(k).html(v).appendTo('#publication_date');
+										});
+									
+								})
+					}
+				}
+			})	
+		} else{
+			jQuery("#publication_date option").remove();
+			jQuery('<option/>').val("").html("Select Date").appendTo('#publication_date');
+			
+										
+		} 
+		
+	}
+	
+	jQuery("#delete-manual").click(function(){
+		
+		var pubDate=jQuery("#publication_date").val();
+		var environment= jQuery("#environment").val();
+		if(pubDate != ""){
+			jQuery.ajax({
+				url: '${deletePublicationsURL}'+ '&pubDate='+ pubDate +'&environment='+ environment,
+				type: "POST",
+				dataType: "text",
+				/* beforeSend : function() {
+					jQuery.blockUI({ message: '<h3><img src="/BSTheme-theme/images/busy.gif" /> Please wait...</h3>' });
+	        	}, */
+				
+				success: function(data) {
+						alert(data);
+						jQuery("#environment").val("");
+						jQuery("#publication_date option").remove();
+						jQuery('<option/>').val("").html("Select Date").appendTo('#publication_date');
+						
+						jQuery('#delete-manual').attr("Disabled", "True");
+						jQuery('#delete-manual').addClass( "disabled" );
+						jQuery('#delete-manual').removeClass( "btn-primary" );
+				}
+			})
+		
+			
+		}
+		
+	});
+</script>

@@ -1,0 +1,291 @@
+<header id="banner" role="banner">
+	<div class="header-container">
+		<hgroup id="heading">
+		
+			<div class="head-links-container">
+        	<div class="head-left-links">
+            	<span>
+            		#if (  "true" == $isAboutIHGType || ("Merlin" == $community_name && "/about-ihg" == $layout.friendlyURL))
+            			<a class="selected" onmousedown="_gaq.push(['_trackEvent', 'Header', 'Header_LinkClick', 'About IHG']);" href="/web/about-ihg/home" title="About IHG">About IHG</a>
+            		#else
+            			<a onmousedown="_gaq.push(['_trackEvent', 'Header', 'Header_LinkClick', 'About IHG']);" href="/web/about-ihg/home" title="About IHG">About IHG</a>
+            		#end
+            	</span>
+                <span>|</span>
+                <span id="our-people-hide" class="linkShow">
+                	#if ( "true" == $isOurPeople  || ("Merlin" == $community_name  && "/our-people" == $layout.friendlyURL))
+                	 	<a class="selected" onmousedown="_gaq.push(['_trackEvent', 'Header', 'Header_LinkClick', 'Our People']);" href="/web/our-people/home" title="Our People">Our People</a>
+                	#else
+                	 	<a onmousedown="_gaq.push(['_trackEvent', 'Header', 'Header_LinkClick', 'Our People']);" href="/web/our-people/home" title="Our People">Our People</a>
+                	#end
+               </span>
+                <span class ="linkShow">|</span>
+				
+			
+				   <span class="linkShow">
+                	#if ( "true" == $isOurTravel)
+                	 	<a class="selected" onmousedown="_gaq.push(['_trackEvent', 'Header', 'Header_LinkClick', 'Our Travel']);" href="/web/our-travel/" title="Our Travel">Our Travel</a>
+                	#else
+                	 	<a onmousedown="_gaq.push(['_trackEvent', 'Header', 'Header_LinkClick', 'Our Travel']);" href="/web/our-travel/" title="Our Travel">Our Travel</a>
+                	#end
+               </span>
+			   	<span class="linkShow">|</span>
+				
+                <span><a onmousedown="_gaq.push(['_trackEvent', 'Header', 'Header_LinkClick', 'About Merlin']);" href="$abtMerlinURL" title="About Merlin" target="_blank">About Merlin</a></span>
+				 <span>|</span>
+                <span>
+                	#if ("Merlin" == $community_name && "/support" == $layout.friendlyURL)
+                		<a class="selected" onmousedown="_gaq.push(['_trackEvent', 'Header', 'Header_LinkClick', 'Support']);" title= "Help & Support" href="/web/merlin/support">Help & Support</a>
+                	#else
+                		<a onmousedown="_gaq.push(['_trackEvent', 'Header', 'Header_LinkClick', 'Support']);" title= "Help & Support" href="/web/merlin/support">Help & Support</a>
+                	#end
+                </span>
+				<span>|</span>
+				  <span id="overlay-modal1"><a class="UAM-link" onmousedown="_gaq.push(['_trackEvent', 'Header', 'Header_LinkClick', 'UAM']);" title= "UAM" href='#'>UAM</a></span>
+				  <!--<span>|</span>
+				  <span><a onmousedown="_gaq.push(['_trackEvent', 'Header', 'Header_LinkClick', 'Access Old Merlin']);" title= "Access Old Merlin" href='$propsUtil.get("me2.old_merlin.url")' target="_blank">Access Old Merlin</a></span>-->
+				   
+            </div><!--end of head-left-links -->
+           <div class="head-right-links">
+     
+			#if ("peopledir" == $community_name)
+				<div class="people-container-selected">
+			#else
+				<div class="people-container">
+			#end
+            
+                <a onmousedown="_gaq.push(['_trackEvent', 'Header', 'Header_LinkClick', 'People']);" title="People Directory" href="/web/peopledir">
+				<span class="people-icon fLeft" title="People Icon">A</span>
+					<span class="fLeft">People</span>
+					
+				</a>
+            
+            
+            </div><!--end of people container -->
+			<span class="pie">|</span>
+			<div class="userprofile-container">
+		            
+                <a href="/web/peopledir/detail?action=edit" title="Edit my profile" onmousedown="_gaq.push(['_trackEvent', 'ContentLinks', 'Homepage_ProfileEditClick', '$userPreferredName']);">
+					<span class="userprofile-pic">
+						<img src="$user.getPortraitURL($themeDisplay)" alt="User icon" width="31" height="33">
+					</span>
+					<span class="fLeft">Edit my profile</span>
+				</a>
+            
+            </div><!--end of profile container -->
+			<span class="pie">|</span>
+            <div class="logout"><a href="$sign_out_url" title="Logout">Logout</a></div>
+			<div class="feedback-bg "><a class="feedback-link" href="#"><span class="text">Give Your </span><span class="feedback-txt">FEEDBACK</span></a></div>
+			</div>
+        
+        </div><!--end of head-links-container -->
+	    <div class="logoContainer">
+	    	<div class="logoMerlin"><a href="/web/merlin/home" title="Return to Merlin"></a></div>
+		</div>
+		<div class="search-google-container">
+    		<form title="Search Form" class="global-search" name="searchFormName" onsubmit='redirect("$theme_display.getPortalURL()"); return false;'>
+	    		<fieldset>
+			        <div class="headerSearchContainer" id="header-search-div">
+						<label for= "siteSearchKeywords" class="hidden">Search</label>
+				        <input class="placeholder headerAutoCompleteInput" title="Search Merlin" type="text" name="searchFieldName" value="Search Merlin" id="siteSearchKeywords" onfocus="onFocusCityValidation(this)" onblur="onBlurCityValidation(this)" onkeyup="inputKeyUp(event)" />
+				        <label for= "header-submit"  title="Header Submit" class="hidden">Search Submit</label>
+						<input id="header-submit" type="button" name="header-submit"  title="Click To Search" onClick='return redirect("$theme_display.getPortalURL()")' />
+					</div>
+				</fieldset>
+      		</form>
+			<div id="google_translate_element"></div>
+      </div>
+		<!--#if(!$is_signed_in)
+			<a href="$sign_in_url" id="sign-in" rel="nofollow">$sign_in_text</a>
+		#end-->
+
+		#if ($update_available_url)
+			<div class="popup-alert-notice">
+				<a class="update-available" href="$update_available_url">#language("updates-are-available-for-liferay")</a>
+			</div>
+		#end
+
+		#if ($has_navigation)
+			#parse ("$full_templates_path/navigation.vm")
+		#end
+		</div>
+		</hgroup>
+		<div style="display:none">
+		    $velocityPortletPreferences.setValue("portlet-setup-show-borders", "false")
+		    #set($instanceId = 'd3Go')
+		    #set($myPortletId = "generalFeedback_WAR_me2homeportlet")
+		    #set($locRenderedPortletContent = $theme.runtime($myPortletId, "", $velocityPortletPreferences.toString()))
+		    $locRenderedPortletContent
+		    $velocityPortletPreferences.reset()
+		</div>
+		
+	</header>
+<script type="text/javascript">
+
+	$(document).ready(function() {
+	    $('.journal-article-header-edit').parent().parent().parent().css("background", "white");
+	    $('.portlet-announcements').css("background", "white");
+	    
+	    var newScript = document.createElement('script');
+		newScript.type = 'text/javascript';
+		var d = new Date();
+	
+		var source = 'https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit' + '&tStamp=' + d.getTime();
+		
+		newScript.src = source;
+		
+		## When we add this script to the head, the request is sent off.
+		document.getElementsByTagName('head')[0].appendChild(newScript);
+	});
+	
+	function googleTranslateElementInit() {
+  		new google.translate.TranslateElement({pageLanguage: 'en', gaTrack: true, gaId: '$analyticsId'}, 'google_translate_element');
+	};
+	
+		function onFocusCityValidation(keyword) {
+		
+		if(keyword.value == 'Search Merlin') { keyword.value = ''; }
+	}
+	
+	function onBlurCityValidation(keyword) {
+		
+		if(keyword.value == '') { keyword.value = 'Search Merlin';keyword.style.color='#6d6d6d' }
+	}
+	
+	function inputKeyUp(e) 
+	{
+	    e.which = e.which || e.keyCode;
+	    if(e.which == 13) 
+	    {
+	        $( "#autoCompleteFlagStaus" ).val("false");
+	    }
+	}
+	
+	$(function(){
+		$('header #applications').click(function(){
+			if($userType.contains('[H]') || $userType.contains('[M]')|| $userType.contains('[O]'))
+			{
+				window.open('/web/hotel-solutions/');
+				return false;
+			}
+			else{
+				window.location.href = '/web/applications/home';
+			}
+		});
+	});
+	
+ 	jQuery(function(){
+		var patternImage = ['background-1','background-2','background-3','background-4','background-5','background-6','background-7'];
+		var randomNumber = Math.floor(Math.random() * patternImage.length);
+		var url="url(/static/apps/merlin/images/background/" + patternImage[randomNumber] + ".jpg)";
+    	
+    	jQuery("body").css({
+		"background-image":url,
+		"background-position":"center top",
+		"background-repeat":"repeat",
+		"background-size":"cover"
+		});
+		
+		if((jQuery.browser.msie && jQuery.browser.version == 7) || (jQuery.browser.msie && jQuery.browser.version == 8))
+		{
+			url="url(/static/apps/merlin/images/background/ie/" + patternImage[randomNumber] + ".jpg)";
+			jQuery("body").css({
+			"background-image":url,
+			"background-repeat":"no-repeat",
+			"background-position":"left top"
+			});
+		}
+	});
+	
+	jQuery(function ($) {
+		 $('#overlay-modal .UAM-link').click(function (e) {
+		  	$('#db-overlay-content').modal();
+		  	return false;
+		 });
+	});
+		
+	jQuery(function() {
+		
+		#if ((! $merlinSession) && ("$!merlinSession" == ""))
+			if(typeof userType == 'undefined'){
+				userType = "$seesionUserType";
+			}
+			if(typeof mgtType == 'undefined'){
+				mgtType = "$seesionMgtType";
+			}
+		#end
+		
+		if((typeof userType != 'undefined' && userType== 'C') || ((typeof userType != 'undefined' && (userType =='H' || userType=='M')) && (typeof mgtType != 'undefined' && mgtType!='FRAN'))){
+		
+			$( ".linkShow" ).show();
+		}
+	
+	});
+	jQuery(function ($) {
+		$('#overlay-modal1 .UAM-link').click(function (e) {
+			$('#UAM-overlay-content').modal();
+			return false;
+		});
+	});
+	jQuery(function ($) {
+		$('#overlay-modal .over-link').click(function (e) {
+			$('#ts-overlay-content').modal();
+			return false;
+		});
+	});
+	
+	#set ($autoSuggestionURL = $portletURLFactory.create($request, "SearchBox_WAR_me2homeportlet", $getterUtil.getLong($plid), "RESOURCE_PHASE"))
+	$(function() {	
+		$( ".headerAutoCompleteInput" ).autocomplete({
+			source: function (request, response) {
+				jQuery.ajax({
+					type: 'GET',
+					url: '$autoSuggestionURL',
+					dataType: "json",
+					data: {
+            			keyword : request.term
+            		},
+            		success: function( data ) {
+                         response(jQuery.map(data.response, function (item) {
+                         	return item.key;
+                        }));
+                    }
+				});
+			},
+			minLength:3,
+			noCache: false,			
+			select: function(event, ui){
+				var searchTerm = ui.item.value;
+				if(searchTerm!="" && searchTerm!="Search Merlin"){
+					document.getElementById("siteSearchKeywords").value = searchTerm;
+				}
+				redirect("$theme_display.getPortalURL()");
+			}
+		});
+		$('#siteSearchKeywords').live('keypress keyup',function(){
+			$('ul.ui-autocomplete li').first().addClass('ui-autocomplete-selected');
+		});
+	});
+		
+	function redirect(url){
+		var keyword=document.getElementById("siteSearchKeywords").value ;
+		if(keyword!="" && keyword!="Search Merlin"){
+			if (!/\d/.test(keyword) && !/[a-zA-Z]/.test(keyword)){
+				alert("Please enter a valid keyword.");
+				return false;
+			}else{
+				keyword= keyword.replace(/&/g,"%26amp;");
+				keyword= keyword.replace(/>/g,"%26gt;");
+				keyword= keyword.replace(/</g,"%26lt;");
+				keyword= keyword.replace(/\'/g,"%26apos;");
+				keyword= keyword.replace(/\"/g,"%26quot;").toLowerCase();
+				url = url + "/web/merlin/search?q=" + keyword + "&c=sub_merlin";
+		    	window.location.href = url;
+		    }
+	    }else{
+	    	return false;
+	    }
+	}	
+</script>
+
+

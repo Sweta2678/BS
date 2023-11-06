@@ -1,0 +1,99 @@
+#set ($ExpandoValueService= $serviceLocator.findService("com.liferay.portlet.expando.service.ExpandoValueLocalService"))			
+#set ($preferredName = $ExpandoValueService.getValue($company_id,"com.liferay.portal.model.User","CUSTOM_FIELDS","Preferred Name",$user_id))
+
+		<div class="wrap cf">
+			#if ($has_navigation)
+				#parse ("$full_templates_path/navigation.vm")
+			#end
+		</div>
+		<!--/.wrap-->
+		#set($redirecturl=$layout.getGroup().friendlyURL)
+		<div id="sub_header" class="wrap cf">
+			<div id="heading">
+			<a href="#main-content" id="skip-to-content">#language("skip-to-content")</a>
+			<h1 id="logo" class="company-title alignleft">
+				<a class="logo $logo_css_class" href="/web$redirecturl/home" title="#language("go-to") #language("company-name")">
+					<img height="$site_logo_height" src="$site_logo" width="$site_logo_width" />
+					<!--<span>$company_name</span>-->
+				</a>
+			</h1>
+			#set($lang =$redirecturl.replace("/",""))
+			#if ($lang=="fnb-gc")
+			<div class="main_lang_drop_sel">
+			 <div id="language" class="alignright">
+				#set($languageIds=["en_US","zh_CN"])
+				<label class="lang_drop_label" id="aui_3_2_0_11696"> $languageUtil.get($locale,"ihg.template.header.language"): </label>
+				<select class="fnb_select" id ="selectLang" onChange = "javascript:getURL(this.value);">
+				  <option value="en_US" >$languageUtil.get($languageUtil.getLocale("en"),"ihg.template.header.language.EN")</option>
+				  <option value="zh_CN" >$languageUtil.get($languageUtil.getLocale("zh"),"ihg.template.header.language.ZH")</option>
+				</select> </div>
+			 </div>
+			 #else
+			 <div class="main_lang_drop_sel">
+			 <div id="lan1234370075
+			 guage" class="alignright" style="visibility: hidden;">
+				#set($languageIds=["en_US","zh_CN"])
+				<label class="lang_drop_label" id="aui_3_2_0_11696"> $languageUtil.get($locale,"ihg.template.header.language"): </label>
+				<select id = "selectLang" onChange = "javascript:getURL(this.value);">
+				  <option value="en_US" >$languageUtil.get($languageUtil.getLocale("en"),"ihg.template.header.language.EN")</option>
+				  <option value="zh_CN" >$languageUtil.get($languageUtil.getLocale("zh"),"ihg.template.header.language.ZH")</option>
+				</select> </div>
+			#end
+			<div id="welcome_msg" class="alignright wel_msg">
+			  
+			  #if ($validator.isNotNull($preferredName.getData()))
+				   <p class="wel_back_label">$languageUtil.get($locale,"welcome-back") <strong>$preferredName.getData()!</strong></p>
+				#else
+					<p class="wel_back_label">$languageUtil.get($locale,"welcome-back") <strong>$user.getFullName()!</strong></p>
+				#end
+				
+			</div>
+			<!--/#welcome_msg-->
+			<div id="notificationLink" class="notificationLink alignright wel_msg_noti">
+				<a href="/web$redirecturl/notification" title=$languageUtil.get($locale,"notification-sub")><p class="noti_fication_label">$languageUtil.get($locale,"notification-sub")</p></a>
+			</div>
+			
+			</div>
+		</div>
+		<!--/#sub_header-->
+		#if ($update_available_url)
+			<div class="popup-alert-notice">
+				<a class="update-available" href="$update_available_url">#language("updates-are-available-for-liferay")</a>
+			</div>
+			
+		#end 
+	
+		<script type="text/javascript">
+		
+			function getURL(lang){
+			var currentUrl = window.location.href;
+			var endUrl = currentUrl.substr(currentUrl.indexOf("/web/"), currentUrl.length - 1);
+			var langCode = lang.substr(0, 2);
+			var newUrl = location.protocol + "//" + location.host + "/" + langCode + endUrl;
+			
+							
+				window.location.href = newUrl;
+			}  
+			
+			jQuery( document ).ready(function() {
+			
+				  var currentUrl = window.location.href;
+				  if(currentUrl.indexOf("zh") != -1 ){
+				  	jQuery("#selectLang").prop("selectedIndex", 1);
+				  } else{
+				  	jQuery("#selectLang").prop("selectedIndex", 0);
+				  }
+				  
+			});
+		</script>
+		<script type="text/javascript">
+					jQuery(document).ready(function() {
+					 jQuery("select.fnb_select").selectbox();
+					});
+		</script>
+
+<style>
+.sbOptions {
+width: 200px !important;
+}
+</style>

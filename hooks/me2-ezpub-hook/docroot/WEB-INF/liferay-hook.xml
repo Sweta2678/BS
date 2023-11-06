@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE hook PUBLIC "-//Liferay//DTD Hook 6.2.0//EN" "http://www.liferay.com/dtd/liferay-hook_6_2_0.dtd">
+
+<hook>
+	<!-- Reading the Keys and Values  -->
+  	<portal-properties>content/IHG_Keys_JournalArticle.properties</portal-properties>
+
+	<custom-jsp-dir>/custom_jsps</custom-jsp-dir>
+	<!-- ServiceWraper Class For Journal Article -->
+	<service>
+		<service-type>com.liferay.portlet.journal.service.JournalArticleLocalService</service-type>
+		<service-impl>com.ihg.portlet.journal.service.CustomJournalArticleLocalServiceImpl</service-impl>
+	</service>
+</hook>

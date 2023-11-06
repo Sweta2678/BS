@@ -1,0 +1,137 @@
+<?xml version="1.0"?>
+<!-- <!DOCTYPE xlsRecords SYSTEM "src/resources/xls_standards_mapping.dtd"> -->
+<xlsRecords>
+    <xlsRecord id="12345" type="STD" name="Standard" class_name="Standards">
+    	<xlsField class_name="Standards" class_field_name="title" name="Standard" xls_name="Title" type="String" required="true"/>
+    	<xlsField class_name="Standards" class_field_name="description" name="Rationale" xls_name="Rationale" type="String"/>
+    	<xlsField class_name="Standards" class_field_name="status" name="Status" xls_name="Status" type="String" required="true" encode_value="true"/>
+    	<xlsField class_name="Standards" class_field_name="author" name="Technical Writer" xls_name="Technical Writer" type="String" required="true"/>
+    	<xlsField class_name="ChainStandards" class_field_name="brand" name="Applicable Brands" xls_name="Applicable Brands" type="String" multi_value="true" required="true" encode_value="true"/>
+    	<xlsField class_name="CountryStandards" class_field_name="country" name="Countries" xls_name="Countries" type="String" multi_value="true" encode_value="true"/>
+    	<xlsField class_name="TaxonomyStandards" class_field_name="taxclass_xlsfield" name="Select an Index Position" xls_name="Select an Index Position" type="String" required="true"/>
+    	<xlsField class_name="Standards" class_field_name="businessOwner" name="Standards Owner" xls_name="Standards Owner" type="String"/>
+    	<xlsField class_name="Standards" class_field_name="effectiveDate" name="Launch Date" xls_name="Launch Date" type="Date"/>
+    	<xlsField class_name="Standards" class_field_name="implDate" name="Compliance Deadline" xls_name="Compliance Deadline" type="Date"/>
+    	<xlsField class_name="Standards" class_field_name="waiver" name="Brand Hallmark" xls_name="Brand Hallmark" type="String"/>
+    	<xlsField class_name="Standards" class_field_name="category" name="Category" xls_name="Category" type="String" encode_value="true"/>
+    	<xlsField class_name="ExternalLinkStandards" class_field_name="url" name="Link URL" xls_name="Link URL" type="String"/>
+    	<xlsField class_name="ExternalLinkStandards" class_field_name="title" name="Link Title" xls_name="Link Title" type="String"/>
+    	<xlsField class_name="FlagStandards" class_field_name="flagCatclass_xlsfield" name="Department Applicability" xls_name="Department Applicability" type="String" multi_value="true" encode_value="true"/>
+    	<xlsField class_name="FlagStandards" class_field_name="flagCatclass_xlsfield" name="Importance" xls_name="Importance" type="String"/>
+    	<xlsField class_name="FlagStandards" class_field_name="flagCatclass_xlsfield" name="Guest Journey" xls_name="Guest Journey" type="String" multi_value="true" encode_value="true"/>
+    	<xlsField class_name="FlagStandards" class_field_name="flagCatclass_xlsfield" name="Location within Hotel" xls_name="Location within Hotel" type="String" multi_value="true" encode_value="true"/>
+    	<xlsField class_name="FlagStandards" class_field_name="flagCatclass_xlsfield" name="Manual" xls_name="Manual" type="String" multi_value="true" encode_value="true"/>
+    	<xlsField class_name="FlagStandards" class_field_name="flagCatclass_xlsfield" name="Corporate Department" xls_name="Corporate Department" type="String" multi_value="true" encode_value="true"/>
+    	<xlsField class_name="FlagStandards" class_field_name="flagCatclass_xlsfield" name="Wheel Quadrant" xls_name="Wheel Quadrant" type="String" encode_value="true"/>
+    	<xlsField class_name="FlagStandards" class_field_name="flagCatclass_xlsfield" name="Ownership Type" xls_name="Ownership Type" type="String" multi_value="true" encode_value="true"/>
+    	<xlsField class_name="FlagStandards" class_field_name="flagCatclass_xlsfield" name="The Five Action Ps" xls_name="The Five Action Ps" type="String" multi_value="true" encode_value="true"/>
+    	<xlsField class_name="Standards" class_field_name="change" name="Change" xls_name="Change" type="String" encode_value="true"/>
+    </xlsRecord>
+    
+    <xlsRecord id="234567" parent_id="12345" type="SPEC" name="Specification" class_name="Standards">
+    	<xlsField class_name="Standards" class_field_name="title" name="Specification" xls_name="Title" type="String" required="true"/>
+    	<xlsField class_name="Standards" class_field_name="specificationTable" name="Specification Table" xls_name="Specification Table" type="String"/>
+    	<xlsField class_name="Standards" class_field_name="description" name="Rationale" xls_name="Rationale" type="String"/>
+    	<xlsField class_name="Standards" class_field_name="status" name="Status" xls_name="Status" type="String" required="true" encode_value="true"/>
+    	<xlsField class_name="Standards" class_field_name="author" name="Technical Writer" xls_name="Technical Writer" type="String" required="true"/>
+    	<xlsField class_name="ChainStandards" class_field_name="brand" name="Applicable Brands" xls_name="Applicable Brands" type="String" multi_value="true" required="true" encode_value="true"/>
+    	<xlsField class_name="CountryStandards" class_field_name="country" name="Countries" xls_name="Countries" type="String" multi_value="true" encode_value="true"/>
+    	<xlsField class_name="Standards" class_field_name="businessOwner" name="Standards Owner" xls_name="Standards Owner" type="String"/>
+    	<xlsField class_name="Standards" class_field_name="effectiveDate" name="Launch Date" xls_name="Launch Date" type="Date"/>
+    	<xlsField class_name="Standards" class_field_name="implDate" name="Compliance Deadline" xls_name="Compliance Deadline" type="Date"/>
+    	<xlsField class_name="Standards" class_field_name="waiver" name="Brand Hallmark" xls_name="Brand Hallmark" type="String"/>
+    	<xlsField class_name="Standards" class_field_name="category" name="Category" xls_name="Category" type="String" encode_value="true"/>
+    	<xlsField class_name="ExternalLinkStandards" class_field_name="url" name="Link URL" xls_name="Link URL" type="String"/>
+    	<xlsField class_name="ExternalLinkStandards" class_field_name="title" name="Link Title" xls_name="Link Title" type="String"/>
+    	<xlsField class_name="FlagStandards" class_field_name="flagCatclass_xlsfield" name="Department Applicability" xls_name="Department Applicability" type="String" multi_value="true" encode_value="true"/>
+    	<xlsField class_name="FlagStandards" class_field_name="flagCatclass_xlsfield" name="Importance" xls_name="Importance" type="String"/>
+    	<xlsField class_name="FlagStandards" class_field_name="flagCatclass_xlsfield" name="Guest Journey" xls_name="Guest Journey" type="String" multi_value="true" encode_value="true"/>
+    	<xlsField class_name="FlagStandards" class_field_name="flagCatclass_xlsfield" name="Location within Hotel" xls_name="Location within Hotel" type="String" multi_value="true" encode_value="true"/>
+    	<xlsField class_name="FlagStandards" class_field_name="flagCatclass_xlsfield" name="Manual" xls_name="Manual" type="String" multi_value="true" encode_value="true"/>
+    	<xlsField class_name="FlagStandards" class_field_name="flagCatclass_xlsfield" name="Corporate Department" xls_name="Corporate Department" type="String" multi_value="true" encode_value="true"/>
+    	<xlsField class_name="FlagStandards" class_field_name="flagCatclass_xlsfield" name="Wheel Quadrant" xls_name="Wheel Quadrant" type="String" encode_value="true"/>
+    	<xlsField class_name="FlagStandards" class_field_name="flagCatclass_xlsfield" name="Ownership Type" xls_name="Ownership Type" type="String" multi_value="true" encode_value="true"/>
+    	<xlsField class_name="FlagStandards" class_field_name="flagCatclass_xlsfield" name="The Five Action Ps" xls_name="The Five Action Ps" type="String" multi_value="true" encode_value="true"/>
+    	<xlsField class_name="Standards" class_field_name="change" name="Change" xls_name="Change" type="String" encode_value="true"/>
+    </xlsRecord>
+    
+    <xlsRecord id="345678" parent_id="12345" type="GDLN" name="Guideline" class_name="Standards">
+    	<xlsField class_name="Standards" class_field_name="description" name="Guideline" xls_name="Rationale" type="String" required="true"/>
+    	<xlsField class_name="Standards" class_field_name="status" name="Status" xls_name="Status" type="String" required="true"/>
+    	<xlsField class_name="Standards" class_field_name="author" name="Technical Writer" xls_name="Technical Writer" type="String" required="true"/>
+    	<xlsField class_name="ChainStandards" class_field_name="brand" name="Applicable Brands" xls_name="Applicable Brands" type="String" multi_value="true" required="true" encode_value="true"/>
+    	<xlsField class_name="CountryStandards" class_field_name="country" name="Countries" xls_name="Countries" type="String" multi_value="true" encode_value="true"/>
+    	<xlsField class_name="Standards" class_field_name="businessOwner" name="Standards Owner" xls_name="Standards Owner" type="String"/>
+    	<xlsField class_name="Standards" class_field_name="category" name="Category" xls_name="Category" type="String" encode_value="true"/>
+    	<xlsField class_name="ExternalLinkStandards" class_field_name="url" name="Link URL" xls_name="Link URL" type="String"/>
+    	<xlsField class_name="ExternalLinkStandards" class_field_name="title" name="Link Title" xls_name="Link Title" type="String"/>
+    	<xlsField class_name="FlagStandards" class_field_name="flagCatclass_xlsfield" name="Department Applicability" xls_name="Department Applicability" type="String" multi_value="true" encode_value="true"/>
+    	<xlsField class_name="FlagStandards" class_field_name="flagCatclass_xlsfield" name="Importance" xls_name="Importance" type="String"/>
+    	<xlsField class_name="FlagStandards" class_field_name="flagCatclass_xlsfield" name="Guest Journey" xls_name="Guest Journey" type="String" multi_value="true" encode_value="true"/>
+    	<xlsField class_name="FlagStandards" class_field_name="flagCatclass_xlsfield" name="Location within Hotel" xls_name="Location within Hotel" type="String" multi_value="true" encode_value="true"/>
+    	<xlsField class_name="FlagStandards" class_field_name="flagCatclass_xlsfield" name="Manual" xls_name="Manual" type="String" multi_value="true" encode_value="true"/>
+    	<xlsField class_name="FlagStandards" class_field_name="flagCatclass_xlsfield" name="Corporate Department" xls_name="Corporate Department" type="String" multi_value="true" encode_value="true"/>
+    	<xlsField class_name="FlagStandards" class_field_name="flagCatclass_xlsfield" name="Wheel Quadrant" xls_name="Wheel Quadrant" type="String" encode_value="true"/>
+    	<xlsField class_name="FlagStandards" class_field_name="flagCatclass_xlsfield" name="Ownership Type" xls_name="Ownership Type" type="String" multi_value="true" encode_value="true"/>
+    	<xlsField class_name="FlagStandards" class_field_name="flagCatclass_xlsfield" name="The Five Action Ps" xls_name="The Five Action Ps" type="String" multi_value="true" encode_value="true"/>
+    	<xlsField class_name="Standards" class_field_name="change" name="Change" xls_name="Change" type="String" encode_value="true"/>
+    </xlsRecord>
+    
+   <xlsRecord id="12345" type="TaxonomyTranslation" name="TaxonomyTranslation" class_name="TaxonomyTranslation">
+           <xlsField class_name="TaxonomyTranslation" class_field_name="title" xls_name="Index ID" type="String" required="true"/>
+           <xlsField class_name="TaxonomyTranslation" class_field_name="title" xls_name="Heading Translation" type="String" required="true"/>
+           <xlsField class_name="TaxonomyTranslation" class_field_name="desc" xls_name="Description Translation" type="String"/>
+   </xlsRecord>
+   
+   <xlsRecord id="12347" type="GlossaryTranslation" name="GlossaryTranslation" class_name="GlossaryTranslation">
+           <xlsField class_name="GlossaryTranslation" class_field_name="glossaryId" xls_name="Entry Id" type="String" />
+           <xlsField class_name="GlossaryTranslation" class_field_name="glossaryTitle" xls_name="Term" type="String" required="true"/>
+           <xlsField class_name="GlossaryTranslation" class_field_name="glossaryTermText" xls_name="Term Translation" type="String" />
+           <xlsField class_name="GlossaryTranslation" class_field_name="glossaryDescription" xls_name="Definition" type="String" required="true"/>
+           <xlsField class_name="GlossaryTranslation" class_field_name="glossaryTermDesc" xls_name="Definition Translation" type="String" />
+           <xlsField class_name="GlossaryTranslation" class_field_name="glossaryOwner" xls_name="Owner" type="String" required="true"/>
+           <xlsField class_name="GlossaryTranslation" class_field_name="glossaryPublished" xls_name="Published" type="String" required="true" />
+           <xlsField class_name="GlossaryTranslation" class_field_name="glossaryAMEA" xls_name="AMEA" type="String" />
+           <xlsField class_name="GlossaryTranslation" class_field_name="glossaryAMER" xls_name="Americas" type="String" />
+           <xlsField class_name="GlossaryTranslation" class_field_name="glossaryEUROPE" xls_name="Europe" type="String" />
+           <xlsField class_name="GlossaryTranslation" class_field_name="glossaryGreaterChina" xls_name="Greater China" type="String" />
+   </xlsRecord>
+   
+   <xlsRecord id="98765" type="GlossaryBase" name="GlossaryBase" class_name="GlossaryBase">
+           <xlsField class_name="GlossaryBase" class_field_name="glossaryId" xls_name="Entry Id" type="String" />
+           <xlsField class_name="GlossaryBase" class_field_name="glossaryTitle" xls_name="Term" type="String" required="true"/>
+           <xlsField class_name="GlossaryBase" class_field_name="glossaryDescription" xls_name="Definition" type="String" required="true"/>
+           <xlsField class_name="GlossaryBase" class_field_name="glossaryOwner" xls_name="Owner" type="String" required="true"/>
+           <xlsField class_name="GlossaryBase" class_field_name="glossaryPublished" xls_name="Published" type="String" required="true" />
+           <xlsField class_name="GlossaryBase" class_field_name="glossaryAMEA" xls_name="AMEA" type="String" />
+           <xlsField class_name="GlossaryBase" class_field_name="glossaryAMER" xls_name="Americas" type="String" />
+           <xlsField class_name="GlossaryBase" class_field_name="glossaryEUROPE" xls_name="Europe" type="String" />
+           <xlsField class_name="GlossaryBase" class_field_name="glossaryGreaterChina" xls_name="Greater China" type="String" />
+   </xlsRecord>
+   <xlsRecord id="99999" type="UIElementTranslation" name="UIElemTranslationWithOutUsedIn" class_name="UIElementTranslation">
+           <xlsField class_name="UIElementTranslation" class_field_name="elementKey" xls_name="Element Key" type="String" required="true"/>
+           <xlsField class_name="UIElementTranslation" class_field_name="elementValue" xls_name="(en_GB)English UK" type="String" required="true"/>
+           <xlsField class_name="UIElementTranslation" class_field_name="translationData" xls_name="Element Translation" type="String" required="false"/>
+   </xlsRecord>
+   <xlsRecord id="99999" type="UIElementTranslation" name="UIElemTranslationWithUsedIn" class_name="UIElementTranslation">
+           <xlsField class_name="UIElementTranslation" class_field_name="elementKey" xls_name="Element Key" type="String" required="true"/>
+           <xlsField class_name="UIElementTranslation" class_field_name="usedIn" xls_name="Used In" type="String" required="true"/>
+           <xlsField class_name="UIElementTranslation" class_field_name="elementValue" xls_name="(en_GB)English UK" type="String" required="true"/>
+           <xlsField class_name="UIElementTranslation" class_field_name="translationData" xls_name="Element Translation" type="String" required="false"/>
+   </xlsRecord>
+   
+   <xlsRecord id="99999" type="GEMCategory" name="GEMCategory" class_name="GEMCategory">
+           <xlsField class_name="GEMCategory" class_field_name="gemCategoryId" xls_name="Category ID" type="String" required="true"/>
+           <xlsField class_name="GEMCategory" class_field_name="categoryName" xls_name="Category" type="String" required="true"/>
+           <xlsField class_name="GEMCategory" class_field_name="gemPrntCategoryId" xls_name="Parent ID" type="String" required="false"/>
+           <xlsField class_name="GEMCategory" class_field_name="categoryViewType" xls_name="Category View Type" type="String" required="false"/>
+           <xlsField class_name="GEMCategory" class_field_name="categoryAnsAll" xls_name="Category Answer All" type="String" required="false"/>
+           <xlsField class_name="GEMCategory" class_field_name="duplicatable" xls_name="Duplicatable" type="String" required="false"/>
+           <!-- <xlsField class_name="GEMCategory" class_field_name="orderNumber" xls_name="OrderNumber" type="String" required="false"/> -->
+   </xlsRecord>
+   <xlsRecord id="99999" type="GEMStdCategory" name="GEMStdCategory" class_name="GEMStdCategory">
+           <xlsField class_name="GEMCategory" class_field_name="stdId" xls_name="STD_ID" type="String" required="true"/>
+           <xlsField class_name="GEMCategory" class_field_name="categoryName" xls_name="CATEGORY" type="String" required="true"/>
+   </xlsRecord>
+   
+</xlsRecords>

@@ -1,0 +1,75 @@
+/** NEW STYLES TO MAKE THIS PAGE WORK - NEED TO BE ADDED TO BS THEME **/
+.aui {
+#compliance_table {
+	width:900px;
+	}
+#compliance_table td{
+	padding:5px;
+	border:1px solid #ccc;
+	text-align: center;
+	}	
+.compl_title td {
+	background-color:#959595;
+	color:#FFF;
+	font-weight:bold;
+	}
+.compl_grey {
+	color:#909090;
+	}
+tr.comp_hidden {
+	display:none;
+	}
+.comp_reg_save, .comp_reg_cancel {
+	float:right;
+	}
+.regional_comp_p {
+	width:100%;
+	}
+.regional_ids_textarea {
+	width:500px;
+	}
+.reg_validate {
+	float:right;
+	}
+.comp_reg_save, .comp_reg_cancel {
+	float:left;
+	}
+#compliance_table tr td p {
+	cursor:default;
+	}
+.expire_id {color: #ff0000;}
+
+.expire_headers {
+    color: #878787;
+    margin: 20px 0 0;
+    padding: 0;
+}
+.expire_search_items {
+    background-color: #F7F7F7;
+    border: 1px solid #CCCCCC;
+    padding: 20px;
+    width: 800px;
+}
+#addButton {
+    cursor: pointer;
+    float: right;
+    margin-right: 45px;
+}
+.expire_order {
+    border: 1px solid #CCCCCC;
+    width: 840px;
+}
+.expire_order tr.cross_order_header th {
+    background-color: #959595;
+    border: medium none;
+    font-weight: bold;
+}
+.expire_order tr td {
+    border: 1px solid #CCCCCC;
+    padding: 5px;
+}
+.delete_expire_item {
+    display: block;
+    text-align: center;
+}
+}

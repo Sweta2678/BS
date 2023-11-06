@@ -1,0 +1,10 @@
+.aui .report_run_btn {
+  float: right;
+  margin: 3px 5px 0 5px !important;
+  *float: left; }
+.aui .report_run {
+  float: right;
+  margin: 5px 24px 0 0; }
+.aui .dialog {
+  display: none; }
+

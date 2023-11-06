@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+
+#parse ($init)
+
+<html class="$root_css_class" dir="#language ("lang.dir")" lang="$w3c_language_id">
+
+<head>
+	
+	<meta name="google-translate-customization" content="$propsUtil.get("me2.google_translation_id")"></meta>
+
+	#set ($group_page_title = $the_title)
+	#set ($group_name = $community_name)
+	#set ($group = $layout.getGroup())
+	
+	#set($communityURL=$layout.getGroup().friendlyURL)
+ 	#set($communityPageURL=$communityURL.replace("/",""))
+ 	
+ 	#if ($group.isOrganization())
+		
+			#set ($organizationType = $expandoValueLocalService.getData($company_id,"com.liferay.portal.model.Organization","CUSTOM_FIELDS","Type",$group.getOrganizationId()) )
+			
+			#if("About IHG" == $community_name )
+			
+				#set ($isAboutIHGType = "true")
+				
+			#elseif("Our People" == $community_name )
+			
+				#set ($isOurPeople = "true")
+				
+			#elseif("Our Travel" == $community_name )
+				
+				#set ($group_name = "About IHG - $community_name")
+				#set ($isOurTravel = "true")
+				
+			#elseif ($organizationType.size() == 1   && $organizationType.contains("About-IHG"))
+			
+				#set ($parentOrganizations = $organizationLocalService.getParentOrganizations($group.getOrganizationId()))
+				#set ($ourPeopleOrganization = $organizationLocalService.getOrganization($group.getCompanyId(), $ourPeopleOrganizationName))
+				#set ($aboutIHGOrganization = $organizationLocalService.getOrganization($group.getCompanyId(), $aboutIHGOrganizationName))
+				
+				#if ($listTool.contains($parentOrganizations, $ourPeopleOrganization))
+					#set ($group_name = "Our People - $community_name")
+					#set ($isOurPeople = "true")
+				#elseif ($listTool.contains($parentOrganizations, $aboutIHGOrganization))
+					#set ($group_name = "About IHG - $community_name")
+					#set ($isAboutIHGType = "true")
+				#end
+				
+			#elseif ($organizationType.size() == 1   && $organizationType.contains("Department"))
+			
+				#set ($group_name = "Departments - $community_name")
+				#set ($isDepartmentType = "true")
+				
+			#end
+			
+		#elseif ("Conferences" ==  $community_name)
+		
+			#set ($group_name = "Conferences & Events")
+			
+		#elseif ("peopledir" == $community_name)
+		
+			#set ($group_name = "People Directory")
+			
+			#if ("detail" == $the_title )
+			
+				#set ($group_page_title = "Contact Details")
+				
+			#end
+			
+		#elseif ("teamspaces" == $community_name)
+		
+			#set ($group_name = "Teamspaces")
+			
+		#elseif ("true" == $isTeamspaceTagged)
+		
+			#set ($group_name = "Teamspaces - $community_name")
+			
+		#elseif ("true" == $isInitiativeTagged)
+		
+			#set ($group_name = "Initiatives - $community_name")
+			
+		#elseif ("true" == $isConferenceTagged || "Conference Template" == $community_name)
+		
+			#set ($group_name = "Conferences & Events - $community_name")
+			
+		#elseif ("Teamspace Public Pages"== $community_name || "Teamspace Private Pages" == $community_name)
+		
+			#set ($isTeamspaceTagged = "true")
+			#set ($group_name = "Teamspaces - $community_name")
+		
+		#elseif ("dept-site-template"== $community_name)
+		
+			#set ($isDepartmentType = "true")
+			#set ($group_name = "Departments - $community_name")
+			
+		#elseif ("initiatives-site-template"== $community_name)
+		
+			#set ($isInitiativeTagged = "true")
+			#set ($group_name = "Initiatives - $community_name")
+			
+		#end
+		
+		<title>$group_name - $group_page_title</title>
+	
+		$theme.include($top_head_include)
+				
+		<script src="/me2-theme/js/jquery-1.8.2.min.js" type="text/javascript" ></script>
+		<script src="/me2-theme/js/jquery.ui.js" type="text/javascript"></script>
+		<script src="/me2-theme/js/jquery.tinycarousel.min.js" type="text/javascript"></script>
+		<script src="/me2-theme/js/jquery.simplemodal.UAM.js" type="text/javascript"></script>
+		<script src="/me2-theme/js/jquery.validate.js.js" type="text/javascript"></script>
+		<script src="/me2-theme/js/jquery.contextMenu.js" type="text/javascript"></script>
+	  <!--<script src="/me2-theme/js/service.js" type="text/javascript"></script> -->
+		<script src="/me2-theme/js/html5.js" type="text/javascript" ></script>
+		<script src="/me2-theme/js/me2-pdb.js" type="text/javascript"></script>
+		<script src="/me2-theme/js/form_validator.js" type="text/javascript"></script>
+		<script src="/me2-theme/js/additional-methods.js" type="text/javascript"></script>
+	
+		
+		#if ("teamspaces" == $community_name || "true" == $isTeamspaceTagged)
+			
+			<script src="/me2-theme/js/custom_teamspace.js" type="text/javascript"></script>
+			
+			<link rel="stylesheet" type="text/css" href="/me2-theme/css/custom_teamspace_3.css" />
+			
+			
+			<script  type="text/javascript" >
+			
+				var eventList = '';
+/*				
+				$(function() {
+					$( "#datepicker" ).datepicker();
+  				});
+*/ 				
+			</script>
+			
+		#elseif ("Departments" == $community_name || "true" == $isDepartmentType || "Initiatives" == $community_name || "true" == $isInitiativeTagged || "true" == $isAboutIHGType || "true" == $isOurPeople || "true" == $isOurTravel)
+		
+			<script src="/me2-theme/js/custom_department.js" type="text/javascript"></script>
+			<script src="/me2-theme/js/depts.js" type="text/javascript"></script>
+			<link rel="stylesheet" type="text/css" href="/me2-theme/css/custom_department_5.css" />
+			
+		#elseif ("Newsroom" == $community_name)
+		
+			#set ($showResourcesAndLinksPopup = "false")
+			#if ("Home" == $group_page_title || "News Trending" == $group_page_title)
+    			<link rel="stylesheet" type="text/css" href="/me2-theme/css/custom_newsroom_redesign_3.css" />
+				<script src="/me2-theme/js/custom_newsroom_redesign.js" type="text/javascript"></script>
+				<script src="/me2-theme/js/custom.js" type="text/javascript"></script>
+    
+     
+  			 #elseif ("Blogs" == $group_page_title || "blogs" == $group_page_title)
+    			<link rel="stylesheet" type="text/css" href="/me2-theme/css/custom_blog_3.css" />
+    			<script src="/me2-theme/js/custom_blog.js" type="text/javascript" ></script>
+				<script src="/me2-theme/js/custom.js" type="text/javascript"></script>
+    			
+   			#else
+			
+			<script src="/me2-theme/js/custom_news_4.js" type="text/javascript"></script>
+			<link rel="stylesheet" type="text/css" href="/me2-theme/css/custom_news_7.css" />
+			#end
+			
+		#elseif ("App Store" == $community_name)
+		
+			#set ($showResourcesAndLinksPopup = "false")
+		
+			<script src="/me2-theme/js/custom_apps.js" type="text/javascript"></script>
+			<link rel="stylesheet" type="text/css" href="/me2-theme/css/custom_apps_2.css" />
+			
+		#elseif ("Conferences" == $community_name || "true" == $isConferenceTagged || "Conference Template" == $community_name)
+			
+			<script src="/me2-theme/js/custom_conf.js" type="text/javascript"></script>
+			<link rel="stylesheet" type="text/css" href="/me2-theme/css/custom_conf_1.css" />
+			<script src="/me2-theme/js/custom.js" type="text/javascript"></script>
+			
+			#elseif ("true" == $isConferenceTagged || "Conference Template" == $community_name)
+		
+			#set ($showResourcesAndLinksPopup = "false")
+			
+			<script src="/me2-theme/js/custom_conf.js" type="text/javascript"></script>
+			<link rel="stylesheet" type="text/css" href="/me2-theme/css/custom_conf.css" />	
+			
+		#elseif ("Merlin" == $community_name && "/wall" == $layout.getFriendlyURL())
+		
+			#set ($showResourcesAndLinksPopup = "false")
+		
+			<script src="/me2-theme/js/jquery.fancybox.js" type="text/javascript"></script>
+			<script src="/me2-theme/js/jquery.fancybox.pack.js" type="text/javascript"></script>
+			<script src="/me2-theme/js/custom.js" type="text/javascript"></script>
+			<link rel="stylesheet" type="text/css" href="/me2-theme/css/custom_wall_3.css" />	
+			
+		#elseif ("Vanity URL Admin" == $community_name )
+		
+			#set ($showResourcesAndLinksPopup = "false")
+			
+			<script src="/me2-theme/js/jquery.custom_radio_checkbox.js" type="text/javascript"></script>
+			<script src="/me2-theme/js/custom_vanityurl.js" type="text/javascript"></script>
+			<link rel="stylesheet" type="text/css" href="/me2-theme/css/custom_vanityurl_2.css" />
+			
+				#elseif ("HFD" == $community_name )
+	
+			#set ($showResourcesAndLinksPopup = "true")
+
+			<link rel="stylesheet" type="text/css" href="/me2-theme/css/custom_hfd_new_2.css" />
+			<link rel="stylesheet" type="text/css" href="/me2-theme/css/custom_hfd_2.css" />
+			<link rel="stylesheet" type="text/css" href="/me2-theme/css/jquery-ui-hfd.css" />
+			<link rel="stylesheet" type="text/css" href="/me2-theme/css/autocomolete_hfd.css" />
+			<script src="/me2-theme/js/custom.js" type="text/javascript"></script>
+			
+		#elseif ("Hotel Dashboard" == $community_name)
+		
+			#set ($showResourcesAndLinksPopup = "false")
+			<link rel="stylesheet" type="text/css" href="/me2-theme/css/custom_hpdd_2.css" />
+			<link rel="stylesheet" type="text/css" href="/me2-theme/css/custom_hpdd_two.css" />
+			<script src="/me2-theme/js/custom.js" type="text/javascript"></script>
+		
+		#elseif ("Hotel Content Hub" == $community_name)
+		
+			#set ($showResourcesAndLinksPopup = "false")
+			<link rel="stylesheet" type="text/css" href="/me2-theme/css/custom_hotelhub_1.css" />
+			<script src="/me2-theme/js/select-dropdown.js" type="text/javascript"></script>
+			<script src="/me2-theme/js/jwplayer.js" type="text/javascript"></script>
+			
+		#elseif ("Friends and family" == $community_name )
+		
+			#set ($showResourcesAndLinksPopup = "false")
+			<link rel="stylesheet" type="text/css" href="/me2-theme/css/custom_fnf.css" />
+			<script src="/me2-theme/js/custom.js" type="text/javascript"></script>
+			
+		#elseif ("Insiders Lounge" == $community_name)
+		
+			#set ($showResourcesAndLinksPopup = "false")
+			<link rel="stylesheet" type="text/css" href="/me2-theme/css/custom_insiders-lounge_1.css" />
+			<script src="/me2-theme/js/custom.js" type="text/javascript"></script>
+			<script src="/me2-theme/js/custom_insiders-lounge.js" type="text/javascript" ></script>
+
+			
+				#elseif ("true" == $isBlogTagged)
+			#set ($showResourcesAndLinksPopup = "false")
+			<link rel="stylesheet" type="text/css" href="/me2-theme/css/custom_blog_3.css" />
+			<script src="/me2-theme/js/custom_blog.js" type="text/javascript" ></script>
+			<script src="/me2-theme/js/custom.js" type="text/javascript"></script>
+			
+		#else
+		
+			#set ($showResourcesAndLinksPopup = "false")
+			
+			
+			<link rel="stylesheet" type="text/css" href="/me2-theme/css/custom_merlin_16.css" />
+			<script src="/me2-theme/js/custom_merlin_1.js" type="text/javascript"></script>
+			<script src="/me2-theme/js/homepage-myfavorites.js" type="text/javascript"></script>
+			
+		#end
+		
+		#if ($community_name == "Newsroom")
+		
+			#set ($resourceURL = $portletURLFactory.create($request,"ME2NewsRoomAnalytics_WAR_ME2NewsRoomportlet",$page.getPlid(),"RESOURCE_PHASE"))
+			#set ($region = $portalUtil.getOriginalServletRequest($request).getParameter("region"))
+			#set ($articleId = $portalUtil.getOriginalServletRequest($request).getParameter("_15_articleId"))
+			#set ($regionValue = "GLOBAL,AMEA,AMER,GC,EURO")
+			#set ($regionArray = $regionValue.split(","))
+			#set ($validRegion = false)
+			
+			<input title="userScreenName" type="hidden" value = "$user.getScreenName()" id="userScreenName"/>
+			<input title="setregion" type="hidden" value = "$region" id="setregion"/>
+			
+			#foreach ($regVal in $regionArray) 
+			
+				#if ($regVal.equalsIgnoreCase($region))
+				
+					#set($validRegion = true)
+					#break
+					
+				#end
+				
+			#end
+			
+			<script  type="text/javascript" >
+			
+				var setuserScreenName = document.getElementById('userScreenName').value;
+				var autoCResource='$resourceURL';
+			
+				#if ($validator.isNotNull($region) && $validRegion)
+					var region = document.getElementById('setregion').value;		
+					setCookie('region',region.toUpperCase(),900);
+				#end
+				
+			</script>
+		#end		
+</head>
+
+<body class="$css_class">
+$theme.include($body_top_include)
+	#if ($is_signed_in)
+		#if ($permissionChecker.isOmniadmin() || $isIHGAdmin)
+			#dockbar()
+		#end
+	#end
+	
+	<a name="backtotop" id="backtotop"></a>
+
+	<div class="container-fluid" id="wrapper">
+	
+		#set ($abtMerlinURL = "/web/merlinupdate/corp")
+			
+		#if ($userType.contains('[H]') || $userType.contains('[M]')|| $userType.contains('[O]'))
+		
+			#set ($abtMerlinURL="/web/merlinupdate/hotel")
+			
+		#end
+		
+		#parse ("$full_templates_path/new_header.vm")
+
+		<div id="content">
+			#if ("peopledir" == $community_name  && ( "/home" == $layout.getFriendlyURL() || "/detail" == $layout.getFriendlyURL() || "/search" == $layout.getFriendlyURL()))
+				
+					<div class="content-container1">
+					
+			    #elseif ("Conferences" == $community_name && "/home" == $layout.getFriendlyURL())
+			    
+					<div class="content-container1">
+					
+				#elseif ("true" == $isConferenceTagged || "Conference Template" == $community_name)
+			    
+					<div class="content-container1 conf_Container">
+					
+				#elseif ("Friends and family" == $community_name && "/home" == $layout.getFriendlyURL())
+			    
+					<div class="fnf-container">
+				
+				#elseif ("Hotel Content Hub" == $community_name)
+					#if("/publishing" == $layout.getFriendlyURL() || "/document-publishing" == $layout.getFriendlyURL())
+						<div class="content-container1">
+					#else
+						<div class="mainContent-hotel-hub">
+					#end
+				#elseif ( "Departments" == $community_name || "true" == $isDepartmentType)
+				
+					<div class="content-container1">
+					
+				#elseif ("Initiatives" == $community_name || "true" == $isInitiativeTagged)
+				
+					<div class="content-container1">
+					
+			    #elseif ("About IHG" == $community_name || "Our People" == $community_name || "true" == $isAboutIHGType || "true" == $isOurPeople ||  "true" == $isOurTravel )
+			    
+					<div class="content-container1">
+					
+		        #elseif ("Merlin" == $community_name && ("/notification-list" == $layout.getFriendlyURL()|| "/search" == $layout.getFriendlyURL() || "/about-ihg" == $layout.getFriendlyURL().toLowerCase() || "/our-people" == $layout.getFriendlyURL().toLowerCase()||  "/publishing" == $layout.getFriendlyURL() || "/our-people" == $layout.getFriendlyURL()|| "/our-brands" == $layout.getFriendlyURL() || "/our-policies" == $layout.getFriendlyURL()))
+		        
+					<div class="content-container1">
+					 #elseif ("HFD" == $community_name )
+		        
+					<div class="hfd-container-new">	
+					
+				#elseif ("Hotel Dashboard" == $community_name )
+		        
+					<div class="hpdd-container-new">
+					
+					#elseif ("Insiders Lounge" == $community_name )
+		        
+						#if("/publishing" == $layout.getFriendlyURL() )
+							<div class="dlp-container details">
+						#elseif("/home" == $layout.getFriendlyURL() )
+							<div class="dlp-container home">
+						#else 
+						<div class="dlp-container">
+					#end
+					
+			
+					
+				#elseif (("teamspaces" == $community_name || "true" == $isTeamspaceTagged) &&( "/member" == $layout.getFriendlyURL() || "/home" == $layout.getFriendlyURL() || "/explorer" == $layout.getFriendlyURL() || "/search" == $layout.getFriendlyURL() || "/request-teamspace" == $layout.getFriendlyURL() || "/publishing" == $layout.getFriendlyURL()))
+				
+					<div class="content-container1">
+					
+				#elseif ("Newsroom" == $community_name)
+					
+					#if ("/home" == $layout.getFriendlyURL() || "/news-trending" == $layout.getFriendlyURL())
+					
+					<div class="content-container1">
+						
+					#elseif ("/article" == $layout.getFriendlyURL() || "/submit-your-story" == $layout.getFriendlyURL() || "/manage-user-stories" == $layout.getFriendlyURL())
+					
+						<div class="color_bg_wrapper content-container1">
+						#elseif ("Blogs" == $group_page_title || "blogs" == $group_page_title)
+						<div class="content-container1">
+					
+					#end
+				
+				#elseif ("App Store" == $community_name)
+					#if("/search" == $layout.getFriendlyURL() || "/my-applications" == $layout.getFriendlyURL())
+						<div class="content-container1">
+					#elseif( "/home" == $layout.getFriendlyURL())
+							#parse ("$full_templates_path/apps-search-container.vm")
+
+							<div class="content-container">
+					#end
+						
+				#elseif ("true" == $isBlogTagged )
+					<div class="content-container1">
+				#end 
+		
+			
+				#if ($selectable)
+				
+					$theme.include($content_include)
+					
+				#else
+				
+					$portletDisplay.recycle()
+					$portletDisplay.setTitle($the_title)
+					$theme.wrapPortlet("portlet.vm", $content_include)
+					
+				#end
+		</div>
+		
+		#parse ("$full_templates_path/footer.vm")
+
+		#if ($community_name == "Newsroom" && $validator.isNotNull($articleId))
+			
+				#set($journalArticleId = $getterUtil.getLong($articleId))
+				#set($journalLocalServices = $serviceLocator.findService("com.liferay.portlet.journal.service.JournalArticleLocalService"))
+				#set($articleService = $journalLocalServices)
+				#set($articleObj = $articleService.getArticle($group_id,$articleId))
+				
+				#if ($validator.isNotNull($articleObj) && $articleObj.getStructureId().equalsIgnoreCase("SUBMIT_YOUR_STORY"))
+				
+					<script type="text/javascript">			
+						document.getElementById('_15_publishButton').style.display = 'none';
+					</script>
+					
+				#end
+				
+		#end
+	</div>
+
+		<script src="/me2-theme/js/overlay.js" type="text/javascript"></script>
+		<script src="/me2-theme/js/jquery.nyroModal.custom.js" type="text/javascript"></script>
+		
+		#if ("true" == $showResourcesAndLinksPopup)
+		
+			<div id="link_creation" title="Link creation"> 
+				$velocityPortletPreferences.setValue("portlet-setup-show-borders", "false")
+				#set ($linkPortletId = "link_WAR_teamspaceportlet")
+				#set ($locRenderedPortletContent =  $theme.runtime($linkPortletId, "", $velocityPortletPreferences.toString()))
+				$locRenderedPortletContent
+				$velocityPortletPreferences.reset()
+			</div>
+			
+			<div id="res_category" title="Resource category configuration">
+			 	$velocityPortletPreferences.setValue("portlet-setup-show-borders", "false")
+				#set ($resourcePortletId = "resource_WAR_teamspaceportlet")
+				#set ($locRenderedPortletContent =  $theme.runtime($resourcePortletId, "", $velocityPortletPreferences.toString()))
+				$locRenderedPortletContent
+				$velocityPortletPreferences.reset()
+			</div>
+			
+			<script type="text/javascript">
+			
+				$(document).ready(function(){
+					$( "#link_creation" ).dialog({
+						width:900,
+						minHeight: 405,
+						autoOpen: false
+					});
+				    
+					$( "#res_category" ).dialog({
+						width:550,
+						height: 400,
+						autoOpen: false
+					});
+				});
+				
+			</script>
+			
+		#end
+		
+		<div id="UAM-overlay-content">
+			<p>User Account Management is only available to Hotel Account Administrators. If you do not have access, the following links will not work.</p>
+			<p>Please contact Global Support if you need to get access.</p>
+			<p><a href='$propsUtil.get("me2.uam.dashboard.url")' target="_blank">Access UAM</a></p>
+		</div>
+		
+		<div style="display:none">
+		    $velocityPortletPreferences.setValue("portlet-setup-show-borders", "false")
+		    #set($instanceId = 'd3Go')
+		    #set($myPortletId = "me2analytics_WAR_me2analyticsportlet_INSTANCE_${instanceId}")
+		    #set($locRenderedPortletContent = $theme.runtime($myPortletId, "", $velocityPortletPreferences.toString()))
+		    $locRenderedPortletContent
+		    $velocityPortletPreferences.reset()
+		</div>
+		
+	</body>
+	
+	$theme.include($bottom_include)
+	<!-- MONITOR: SUCCESS -->
+	
+</html>
+
+<script type="text/javascript">
+
+	var userAgent = navigator.userAgent.toLowerCase();
+	
+	if( userAgent.indexOf('ipad') != -1 ){
+		var script = document.createElement('script');
+		script.type = 'text/javascript';
+		script.src = '/news-theme/js/quo.js';
+		$('body').append(script);
+	}
+
+	$(function() {
+
+	
+		$('.nyroModal').nyroModal();
+	});
+	
+	document.cookie='LogOutCookie=/web/merlin/home; expires=Thu, 31 Dec 2020 22:00:00 UTC; path=/';
+	
+/*To place the autocomplete box on top in edit resources dialog for teamspace and department*/
+$(function(){
+	$(".resourceTag .aui-textboxlist-input-container input.focus").live('keyup',function(){
+		$(".aui-autocomplete-results").css('z-index','2000');
+	});
+});
+
+
+/*To remove specific languages from google translate select box*/
+$(function(){
+
+	$('#google_translate_element').on('click',function(){
+		$(".goog-te-combo option[value='zh-CN']").remove();
+		$(".goog-te-combo option[value='zh-TW']").remove();
+	});
+
+	if((jQuery.browser.msie && jQuery.browser.version == 7))
+		{
+			$(document).on('click',function(){
+	
+				$(".goog-te-combo option[value='zh-CN']").remove();
+				$(".goog-te-combo option[value='zh-TW']").remove();
+			});
+		}	
+});
+$(function(){
+$('.portlet-image-gallery-display .custom_conf_folder_wrapper .image-icon:odd').css("background-color", "#dde1e6");
+$('.portlet-image-gallery-display .custom_conf_folder_wrapper .image-icon:even').css("background-color", "#f3f3f3");
+});
+
+</script>
+
+#if($community_name == "App Store")
+
+	<!--[if lte IE 7]>
+		<script  type="text/javascript">
+			$('.apps-store-request-form .field-container .lBox').addClass('apps-store-request-form-listbox-container');
+			$('.apps-store-request-form .field-container .lBox select').addClass('apps-store-request-form-app-list');
+		</script>
+	<![endif]-->
+	
+#end
+
+#set ($endTime = $dateTool.getSystemTime())
+#set ($infoMsg= 'Theme execution time(in ms) for ' +  $group_name +  ' - ' + $group_page_title + ' : ' + ($endTime - $startTime ))
+$log.info($infoMsg)
+
+<script>
+$(document).ready(function(){
+
+//Carousel script
+	 $('.db_cont_slider').tinycarousel({ pager: true }); 
+	 $('#db_topmain_slider').tinycarousel({ pager: true });   
+	 $('#db_topright_slider').tinycarousel({ pager: true });
+	 $('#db_bottom_carousel').tinycarousel({ pager: true });
+    });
+	
+$('.ME2-NewsArticle-Detail article.our-results').children().eq(3).css('float', 'left');
+
+// to add class in ratings star as per 6.0
+$('#ihg_rating_ratingStarContent').find('a').addClass('rating');
+$(".rating").hover(function() {
+	$(this).addClass("rating-element-hover");
+	}, function() {
+	$(this).removeClass("rating-element-hover");
+});
+
+$('.toolbar-content .btn-group button.button-content').delegate('click',function(e){
+	e.stopPropagation();
+	alert('abc');
+	if($('li.textboxlistentry').is(':visible')){
+	alert('test');
+		$('span.textboxlistentry-remove .icon-remove').delegate('click', function(e){
+		alert('hi');
+		e.stopPropagation();
+		$(this).parent().parent().remove();
+		});
+	}
+});
+</script>

@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	default-destroy-method="destroy" 
+	default-init-method="afterPropertiesSet" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="WISHWALKTarget" class="com.liferay.portal.spring.jndi.JndiObjectFactoryBean" lazy-init="true">
+ 		<property name="jndiName">
+ 			<value>jdbc/WISHWALK</value>
+ 		</property>
+ 	</bean>
+ 	<bean id="WishWantWalk" class="org.springframework.jdbc.datasource.LazyConnectionDataSourceProxy" lazy-init="true">
+ 		<property name="targetDataSource">
+ 			<ref bean="WISHWALKTarget" />
+ 		</property>
+ 	</bean>	
+ 	
+	<bean id="wwwHibernateSessionFactory"   class="com.liferay.portal.spring.hibernate.PortletHibernateConfiguration" lazy-init="true">
+		<property name="dataSource" ref="WishWantWalk" />
+	</bean>
+	
+	<bean id="wishWantWalkSessionFactory" class="com.liferay.portal.dao.orm.hibernate.SessionFactoryImpl" lazy-init="true">		
+		<property name="sessionFactoryImplementor" ref="wwwHibernateSessionFactory" />
+	</bean>
+	
+	<bean id="com.ihg.www.common.service.persistence.WWWPrimaryReviewerFinder" class="com.ihg.www.common.service.persistence.WWWPrimaryReviewerFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="WishWantWalk" />
+		<property name="sessionFactory" ref="wishWantWalkSessionFactory" />
+	</bean>
+</beans>
+ 

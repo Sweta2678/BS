@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+#parse ($init)
+
+<html class="$root_css_class" dir="#language ("lang.dir")" lang="$w3c_language_id">
+
+<head>
+	<title>$the_title - $company_name</title>
+
+	<meta content="initial-scale=1.0, width=device-width" name="viewport" />
+	
+	$theme.include($top_head_include)
+	<script src="$javascript_folder/jquery-1.11.0.min.js"></script>
+	<script src="$javascript_folder/bootstrap.js"></script>
+	<script src="$javascript_folder/jwplayer.js"></script>
+</head>
+
+<body class="$css_class">
+
+<a href="#main-content" id="skip-to-content">#language ("skip-to-content")</a>
+
+$theme.include($body_top_include)
+
+#if ($is_signed_in)
+	#dockbar()
+#end
+<div class="bg-main">
+<div id="wrapper" class="wrapper">
+	<header id="banner" role="banner">
+	 <div class="fLeft">
+        <div class="logo-container"><a href="#"><img src="/heartbeat-theme/images/heartbeat-logo.png" width="191" height="32" alt="Logo" title="Logo"></a></div>
+        <div class="logo-bottom"></div>
+      </div>
+      <div class="rightheader">
+        <div class="heartbeat-searchcontainer">
+          <input id="search-site" name="" type="text" value="SEARCH">
+          <input name="" type="submit" value="" title="Click to search">
+        </div>
+
+		#if (!$is_signed_in)
+			<a data-redirect="$is_login_redirect_required" href="$sign_in_url" id="sign-in" rel="nofollow">$sign_in_text</a>
+		#end
+
+		#if ($has_navigation || $is_signed_in)
+			#parse ("$full_templates_path/navigation.vm")
+		#end
+	</header>
+
+	<div id="content" class="main-content">
+		<!--<nav id="breadcrumbs">#breadcrumbs()</nav>-->
+
+		#if ($selectable)
+			$theme.include($content_include)
+		#else
+			$portletDisplay.recycle()
+
+			$portletDisplay.setTitle($the_title)
+
+			$theme.wrapPortlet("portlet.vm", $content_include)
+		#end
+	</div>
+</div> <!-- wrapper class ends -->
+	<footer id="footer" role="contentinfo">
+		<!--#if($footerArticle.getArticleId())
+			$footerContent	
+		#end-->
+		#set ($VOID = $velocityPortletPreferences.setValue('groupId', $group_id.toString()))
+		#set ($VOID = $velocityPortletPreferences.setValue('articleId', $footerArticle.getArticleId()))
+		#set ($VOID = $velocityPortletPreferences.setValue('portletSetupShowBorders', 'false'))
+		#set ($portlet_id = '56_INSTANCE_DEF1')
+		$theme.runtime($portlet_id, "", $velocityPortletPreferences.toString())
+		$velocityPortletPreferences.reset()
+	</footer>
+</div> <!-- bg-main class ends -->
+
+$theme.include($body_bottom_include)
+
+$theme.include($bottom_include)
+	<script src="$javascript_folder/jquery-ui.js"></script>
+	<script src="$javascript_folder/jquery.jcarousel.min.js"></script>
+	<script src="$javascript_folder/html5.js"></script>
+	<script src="$javascript_folder/custom.js"></script>
+
+</body>
+
+</html>

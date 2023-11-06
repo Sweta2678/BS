@@ -1,0 +1,18 @@
+<!ELEMENT xlsField EMPTY >
+<!ATTLIST xlsField class_field_name ( author | brand | businessOwner | category | change | country | description | effectiveDate | flagCatclass_xlsfield | implDate | specificationTable | status | taxclass_xlsfield | title | url | waiver ) #REQUIRED >
+<!ATTLIST xlsField class_name ( Record | ChainStandards | CountryStandards | ExternalLinkStandards | FlagStandards | Standards | TaxonomyStandards ) #REQUIRED >
+<!ATTLIST xlsField encode_value ( true ) #IMPLIED >
+<!ATTLIST xlsField multi_value ( true ) #IMPLIED >
+<!ATTLIST xlsField name CDATA #REQUIRED >
+<!ATTLIST xlsField required ( true ) #IMPLIED >
+<!ATTLIST xlsField type ( Date | String ) #REQUIRED >
+<!ATTLIST xlsField xls_name CDATA #REQUIRED >
+
+<!ELEMENT xlsRecord ( xlsField+ ) >
+<!ATTLIST xlsRecord id NMTOKEN #REQUIRED >
+<!ATTLIST xlsRecord name NMTOKEN #REQUIRED >
+<!ATTLIST xlsRecord parent_id NMTOKEN #IMPLIED >
+<!ATTLIST xlsRecord type NMTOKEN #REQUIRED >
+
+<!ELEMENT xlsRecords ( xlsRecord+ ) >
+

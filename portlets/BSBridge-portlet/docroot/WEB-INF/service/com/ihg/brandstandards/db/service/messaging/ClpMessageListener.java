@@ -1,0 +1,385 @@
+/**
+ * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
+ *
+ * The contents of this file are subject to the terms of the Liferay Enterprise
+ * Subscription License ("License"). You may not use this file except in
+ * compliance with the License. You can obtain a copy of the License by
+ * contacting Liferay, Inc. See the License for the specific language governing
+ * permissions and limitations under the License, including but not limited to
+ * distribution rights of the Software.
+ *
+ *
+ *
+ */
+
+package com.ihg.brandstandards.db.service.messaging;
+
+import com.ihg.brandstandards.db.service.AttachmentsStandardsCountryLocalServiceUtil;
+import com.ihg.brandstandards.db.service.AttachmentsStandardsLocalServiceUtil;
+import com.ihg.brandstandards.db.service.BrandArticleLocalServiceUtil;
+import com.ihg.brandstandards.db.service.BrandTaxonomyLocalServiceUtil;
+import com.ihg.brandstandards.db.service.BrandTaxonomyTranslateLocalServiceUtil;
+import com.ihg.brandstandards.db.service.BridgeGlobalPublishCountryLocalServiceUtil;
+import com.ihg.brandstandards.db.service.BridgeGlobalPublishLocalServiceUtil;
+import com.ihg.brandstandards.db.service.BridgeProgressCategoryLocalServiceUtil;
+import com.ihg.brandstandards.db.service.BridgeProgressDiscrepancyLocalServiceUtil;
+import com.ihg.brandstandards.db.service.BridgeProgressSubCategoryLocalServiceUtil;
+import com.ihg.brandstandards.db.service.BridgePublishCountryLocalServiceUtil;
+import com.ihg.brandstandards.db.service.BridgePublishCountryStateExLocalServiceUtil;
+import com.ihg.brandstandards.db.service.BridgePublishImportLocalServiceUtil;
+import com.ihg.brandstandards.db.service.BridgePublishLangLocalServiceUtil;
+import com.ihg.brandstandards.db.service.BridgePublishLocalServiceUtil;
+import com.ihg.brandstandards.db.service.BridgePublishPreviewLocalServiceUtil;
+import com.ihg.brandstandards.db.service.BridgePublishStateExLocalServiceUtil;
+import com.ihg.brandstandards.db.service.BridgePublishStatusLocalServiceUtil;
+import com.ihg.brandstandards.db.service.BusImpactAssmtLocalServiceUtil;
+import com.ihg.brandstandards.db.service.ChainAttachmentsStandardsLocalServiceUtil;
+import com.ihg.brandstandards.db.service.ChainExternalLinkStandardsLocalServiceUtil;
+import com.ihg.brandstandards.db.service.ChainStandardsLocalServiceUtil;
+import com.ihg.brandstandards.db.service.ClpSerializer;
+import com.ihg.brandstandards.db.service.CountryStandardsExtLocalServiceUtil;
+import com.ihg.brandstandards.db.service.CountryStandardsLocalServiceUtil;
+import com.ihg.brandstandards.db.service.DepartmentLocalServiceUtil;
+import com.ihg.brandstandards.db.service.ErrNotificationLocalServiceUtil;
+import com.ihg.brandstandards.db.service.ExternalLinkStandardsCountryLocalServiceUtil;
+import com.ihg.brandstandards.db.service.ExternalLinkStandardsLocalServiceUtil;
+import com.ihg.brandstandards.db.service.FlagCategoryLocalServiceUtil;
+import com.ihg.brandstandards.db.service.FlagStandardsLocalServiceUtil;
+import com.ihg.brandstandards.db.service.GEMCategoryLocalServiceUtil;
+import com.ihg.brandstandards.db.service.GEMChainMeasurementLocalServiceUtil;
+import com.ihg.brandstandards.db.service.GEMCodeLocalServiceUtil;
+import com.ihg.brandstandards.db.service.GEMGeneratedReportLocalServiceUtil;
+import com.ihg.brandstandards.db.service.GEMGeneratedReportValLocalServiceUtil;
+import com.ihg.brandstandards.db.service.GEMManagementBucketLocalServiceUtil;
+import com.ihg.brandstandards.db.service.GEMManagementIdLocalServiceUtil;
+import com.ihg.brandstandards.db.service.GEMMeasurementBucketChainLocalServiceUtil;
+import com.ihg.brandstandards.db.service.GEMMeasurementFormulaLocalServiceUtil;
+import com.ihg.brandstandards.db.service.GEMMeasurementFormulaValueLocalServiceUtil;
+import com.ihg.brandstandards.db.service.GEMMeasurementLocalServiceUtil;
+import com.ihg.brandstandards.db.service.GEMMeasurementTypeLocalServiceUtil;
+import com.ihg.brandstandards.db.service.GEMQlReportLocalServiceUtil;
+import com.ihg.brandstandards.db.service.GEMRoleLocalServiceUtil;
+import com.ihg.brandstandards.db.service.GEMScoringValueLocalServiceUtil;
+import com.ihg.brandstandards.db.service.GEMSeverityLocalServiceUtil;
+import com.ihg.brandstandards.db.service.GEMStdCategoryLocalServiceUtil;
+import com.ihg.brandstandards.db.service.GEMTemplateCategoryLocalServiceUtil;
+import com.ihg.brandstandards.db.service.GEMTemplateColumnLocalServiceUtil;
+import com.ihg.brandstandards.db.service.GEMTemplateLocalServiceUtil;
+import com.ihg.brandstandards.db.service.GEMTemplateReferenceLocalServiceUtil;
+import com.ihg.brandstandards.db.service.GEMTemplateValuesLocalServiceUtil;
+import com.ihg.brandstandards.db.service.GEMTriggerLocalServiceUtil;
+import com.ihg.brandstandards.db.service.GEMUniqueGroupCountryLocalServiceUtil;
+import com.ihg.brandstandards.db.service.GEMUniqueGroupLocalServiceUtil;
+import com.ihg.brandstandards.db.service.GEMUniqueGroupStandardLocalServiceUtil;
+import com.ihg.brandstandards.db.service.GlossaryExtLocalServiceUtil;
+import com.ihg.brandstandards.db.service.GlossaryLocalServiceUtil;
+import com.ihg.brandstandards.db.service.GlossaryRegionNavLocalServiceUtil;
+import com.ihg.brandstandards.db.service.GlossaryTranslateLocalServiceUtil;
+import com.ihg.brandstandards.db.service.HistManualAttachmentLocalServiceUtil;
+import com.ihg.brandstandards.db.service.HistManualChainLocalServiceUtil;
+import com.ihg.brandstandards.db.service.HistManualRegionLocalServiceUtil;
+import com.ihg.brandstandards.db.service.HistManualsLocalServiceUtil;
+import com.ihg.brandstandards.db.service.ImageLocalServiceUtil;
+import com.ihg.brandstandards.db.service.JobQueueLocalServiceUtil;
+import com.ihg.brandstandards.db.service.JobQueueServiceUtil;
+import com.ihg.brandstandards.db.service.MustPublishLocalServiceUtil;
+import com.ihg.brandstandards.db.service.PublicationLocalServiceUtil;
+import com.ihg.brandstandards.db.service.PublishCountryStandardLocalServiceUtil;
+import com.ihg.brandstandards.db.service.PublishDeptLocalServiceUtil;
+import com.ihg.brandstandards.db.service.PublishExtStdLocalServiceUtil;
+import com.ihg.brandstandards.db.service.PublishParmLocalServiceUtil;
+import com.ihg.brandstandards.db.service.PublishQueueLocalServiceUtil;
+import com.ihg.brandstandards.db.service.PublishStandardsExtLocalServiceUtil;
+import com.ihg.brandstandards.db.service.PublishStdLocalServiceUtil;
+import com.ihg.brandstandards.db.service.PublishTaxonomyExtLocalServiceUtil;
+import com.ihg.brandstandards.db.service.PublishTaxonomyLocalServiceUtil;
+import com.ihg.brandstandards.db.service.PublishedPdfListLocalServiceUtil;
+import com.ihg.brandstandards.db.service.SpecialWordDictionaryLocalServiceUtil;
+import com.ihg.brandstandards.db.service.SpreadSheetAttributeUpdateLocalServiceUtil;
+import com.ihg.brandstandards.db.service.StandardTagLocalServiceUtil;
+import com.ihg.brandstandards.db.service.StandardsAuthorsLocalServiceUtil;
+import com.ihg.brandstandards.db.service.StandardsChainImagesLocalServiceUtil;
+import com.ihg.brandstandards.db.service.StandardsComplianceExtLocalServiceUtil;
+import com.ihg.brandstandards.db.service.StandardsComplianceLocalServiceUtil;
+import com.ihg.brandstandards.db.service.StandardsCountryChainLocalServiceUtil;
+import com.ihg.brandstandards.db.service.StandardsCountryExtLocalServiceUtil;
+import com.ihg.brandstandards.db.service.StandardsCountryImagesLocalServiceUtil;
+import com.ihg.brandstandards.db.service.StandardsCountryLocalServiceUtil;
+import com.ihg.brandstandards.db.service.StandardsCrossReferenceLocalServiceUtil;
+import com.ihg.brandstandards.db.service.StandardsDisplayOrderExtLocalServiceUtil;
+import com.ihg.brandstandards.db.service.StandardsDisplayOrderLocalServiceUtil;
+import com.ihg.brandstandards.db.service.StandardsExtLocalServiceUtil;
+import com.ihg.brandstandards.db.service.StandardsHistoricalManualLocalServiceUtil;
+import com.ihg.brandstandards.db.service.StandardsImagesLocalServiceUtil;
+import com.ihg.brandstandards.db.service.StandardsLocalServiceUtil;
+import com.ihg.brandstandards.db.service.StandardsLocaleLocalServiceUtil;
+import com.ihg.brandstandards.db.service.StandardsRegionChainLocalServiceUtil;
+import com.ihg.brandstandards.db.service.StandardsRegionLocalServiceUtil;
+import com.ihg.brandstandards.db.service.StandardsRegionLocaleLocalServiceUtil;
+import com.ihg.brandstandards.db.service.StandardsStatusLocalServiceUtil;
+import com.ihg.brandstandards.db.service.StandardsTranslateLocalServiceUtil;
+import com.ihg.brandstandards.db.service.TaxonomyExtLocalServiceUtil;
+import com.ihg.brandstandards.db.service.TaxonomyLocalServiceUtil;
+import com.ihg.brandstandards.db.service.TaxonomyStandardsLocalServiceUtil;
+import com.ihg.brandstandards.db.service.TaxonomyTranslateLocalServiceUtil;
+import com.ihg.brandstandards.db.service.TreeXMLLocalServiceUtil;
+import com.ihg.brandstandards.db.service.UIElementLocalServiceUtil;
+import com.ihg.brandstandards.db.service.UIElementTranslateLocalServiceUtil;
+import com.ihg.brandstandards.db.service.UniqueGroupCountryLocalServiceUtil;
+import com.ihg.brandstandards.db.service.UniqueGroupLocalServiceUtil;
+import com.ihg.brandstandards.db.service.UniqueGroupStandardLocalServiceUtil;
+import com.ihg.brandstandards.db.service.UserPreferenceLocalServiceUtil;
+import com.ihg.brandstandards.db.service.UserSearchCriteriaLocalServiceUtil;
+import com.ihg.brandstandards.db.service.WorkflowLocalServiceUtil;
+
+import com.liferay.portal.kernel.messaging.BaseMessageListener;
+import com.liferay.portal.kernel.messaging.Message;
+
+/**
+ * @author Mummanedi
+ */
+public class ClpMessageListener extends BaseMessageListener {
+	public static String getServletContextName() {
+		return ClpSerializer.getServletContextName();
+	}
+
+	@Override
+	protected void doReceive(Message message) throws Exception {
+		String command = message.getString("command");
+		String servletContextName = message.getString("servletContextName");
+
+		if (command.equals("undeploy") &&
+				servletContextName.equals(getServletContextName())) {
+			AttachmentsStandardsLocalServiceUtil.clearService();
+
+			AttachmentsStandardsCountryLocalServiceUtil.clearService();
+
+			BrandArticleLocalServiceUtil.clearService();
+
+			BrandTaxonomyLocalServiceUtil.clearService();
+
+			BrandTaxonomyTranslateLocalServiceUtil.clearService();
+
+			BridgeGlobalPublishLocalServiceUtil.clearService();
+
+			BridgeGlobalPublishCountryLocalServiceUtil.clearService();
+
+			BridgeProgressCategoryLocalServiceUtil.clearService();
+
+			BridgeProgressDiscrepancyLocalServiceUtil.clearService();
+
+			BridgeProgressSubCategoryLocalServiceUtil.clearService();
+
+			BridgePublishLocalServiceUtil.clearService();
+
+			BridgePublishCountryLocalServiceUtil.clearService();
+
+			BridgePublishCountryStateExLocalServiceUtil.clearService();
+
+			BridgePublishImportLocalServiceUtil.clearService();
+
+			BridgePublishLangLocalServiceUtil.clearService();
+
+			BridgePublishPreviewLocalServiceUtil.clearService();
+
+			BridgePublishStateExLocalServiceUtil.clearService();
+
+			BridgePublishStatusLocalServiceUtil.clearService();
+
+			BusImpactAssmtLocalServiceUtil.clearService();
+
+			ChainAttachmentsStandardsLocalServiceUtil.clearService();
+
+			ChainExternalLinkStandardsLocalServiceUtil.clearService();
+
+			ChainStandardsLocalServiceUtil.clearService();
+
+			CountryStandardsLocalServiceUtil.clearService();
+
+			CountryStandardsExtLocalServiceUtil.clearService();
+
+			DepartmentLocalServiceUtil.clearService();
+
+			ErrNotificationLocalServiceUtil.clearService();
+
+			ExternalLinkStandardsLocalServiceUtil.clearService();
+
+			ExternalLinkStandardsCountryLocalServiceUtil.clearService();
+
+			FlagCategoryLocalServiceUtil.clearService();
+
+			FlagStandardsLocalServiceUtil.clearService();
+
+			GEMCategoryLocalServiceUtil.clearService();
+
+			GEMChainMeasurementLocalServiceUtil.clearService();
+
+			GEMCodeLocalServiceUtil.clearService();
+
+			GEMGeneratedReportLocalServiceUtil.clearService();
+
+			GEMGeneratedReportValLocalServiceUtil.clearService();
+
+			GEMManagementBucketLocalServiceUtil.clearService();
+
+			GEMManagementIdLocalServiceUtil.clearService();
+
+			GEMMeasurementLocalServiceUtil.clearService();
+
+			GEMMeasurementBucketChainLocalServiceUtil.clearService();
+
+			GEMMeasurementFormulaLocalServiceUtil.clearService();
+
+			GEMMeasurementFormulaValueLocalServiceUtil.clearService();
+
+			GEMMeasurementTypeLocalServiceUtil.clearService();
+
+			GEMQlReportLocalServiceUtil.clearService();
+
+			GEMRoleLocalServiceUtil.clearService();
+
+			GEMScoringValueLocalServiceUtil.clearService();
+
+			GEMSeverityLocalServiceUtil.clearService();
+
+			GEMStdCategoryLocalServiceUtil.clearService();
+
+			GEMTemplateLocalServiceUtil.clearService();
+
+			GEMTemplateCategoryLocalServiceUtil.clearService();
+
+			GEMTemplateColumnLocalServiceUtil.clearService();
+
+			GEMTemplateReferenceLocalServiceUtil.clearService();
+
+			GEMTemplateValuesLocalServiceUtil.clearService();
+
+			GEMTriggerLocalServiceUtil.clearService();
+
+			GEMUniqueGroupLocalServiceUtil.clearService();
+
+			GEMUniqueGroupCountryLocalServiceUtil.clearService();
+
+			GEMUniqueGroupStandardLocalServiceUtil.clearService();
+
+			GlossaryLocalServiceUtil.clearService();
+
+			GlossaryExtLocalServiceUtil.clearService();
+
+			GlossaryRegionNavLocalServiceUtil.clearService();
+
+			GlossaryTranslateLocalServiceUtil.clearService();
+
+			HistManualAttachmentLocalServiceUtil.clearService();
+
+			HistManualChainLocalServiceUtil.clearService();
+
+			HistManualRegionLocalServiceUtil.clearService();
+
+			HistManualsLocalServiceUtil.clearService();
+
+			ImageLocalServiceUtil.clearService();
+
+			JobQueueLocalServiceUtil.clearService();
+
+			JobQueueServiceUtil.clearService();
+			MustPublishLocalServiceUtil.clearService();
+
+			PublicationLocalServiceUtil.clearService();
+
+			PublishCountryStandardLocalServiceUtil.clearService();
+
+			PublishDeptLocalServiceUtil.clearService();
+
+			PublishedPdfListLocalServiceUtil.clearService();
+
+			PublishExtStdLocalServiceUtil.clearService();
+
+			PublishParmLocalServiceUtil.clearService();
+
+			PublishQueueLocalServiceUtil.clearService();
+
+			PublishStandardsExtLocalServiceUtil.clearService();
+
+			PublishStdLocalServiceUtil.clearService();
+
+			PublishTaxonomyLocalServiceUtil.clearService();
+
+			PublishTaxonomyExtLocalServiceUtil.clearService();
+
+			SpecialWordDictionaryLocalServiceUtil.clearService();
+
+			SpreadSheetAttributeUpdateLocalServiceUtil.clearService();
+
+			StandardsLocalServiceUtil.clearService();
+
+			StandardsAuthorsLocalServiceUtil.clearService();
+
+			StandardsChainImagesLocalServiceUtil.clearService();
+
+			StandardsComplianceLocalServiceUtil.clearService();
+
+			StandardsComplianceExtLocalServiceUtil.clearService();
+
+			StandardsCountryLocalServiceUtil.clearService();
+
+			StandardsCountryChainLocalServiceUtil.clearService();
+
+			StandardsCountryExtLocalServiceUtil.clearService();
+
+			StandardsCountryImagesLocalServiceUtil.clearService();
+
+			StandardsCrossReferenceLocalServiceUtil.clearService();
+
+			StandardsDisplayOrderLocalServiceUtil.clearService();
+
+			StandardsDisplayOrderExtLocalServiceUtil.clearService();
+
+			StandardsExtLocalServiceUtil.clearService();
+
+			StandardsHistoricalManualLocalServiceUtil.clearService();
+
+			StandardsImagesLocalServiceUtil.clearService();
+
+			StandardsLocaleLocalServiceUtil.clearService();
+
+			StandardsRegionLocalServiceUtil.clearService();
+
+			StandardsRegionChainLocalServiceUtil.clearService();
+
+			StandardsRegionLocaleLocalServiceUtil.clearService();
+
+			StandardsStatusLocalServiceUtil.clearService();
+
+			StandardsTranslateLocalServiceUtil.clearService();
+
+			StandardTagLocalServiceUtil.clearService();
+
+			TaxonomyLocalServiceUtil.clearService();
+
+			TaxonomyExtLocalServiceUtil.clearService();
+
+			TaxonomyStandardsLocalServiceUtil.clearService();
+
+			TaxonomyTranslateLocalServiceUtil.clearService();
+
+			TreeXMLLocalServiceUtil.clearService();
+
+			UIElementLocalServiceUtil.clearService();
+
+			UIElementTranslateLocalServiceUtil.clearService();
+
+			UniqueGroupLocalServiceUtil.clearService();
+
+			UniqueGroupCountryLocalServiceUtil.clearService();
+
+			UniqueGroupStandardLocalServiceUtil.clearService();
+
+			UserPreferenceLocalServiceUtil.clearService();
+
+			UserSearchCriteriaLocalServiceUtil.clearService();
+
+			WorkflowLocalServiceUtil.clearService();
+		}
+	}
+}

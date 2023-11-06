@@ -1,0 +1,715 @@
+<service-builder package-path="com.ihg.brandstandards.db">
+	<!-- FOR Local data-source="lrDataSource" session-factory="LRSessionFactory" -->
+	<!-- FOR Local data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory" -->
+	<!-- ################### Brand Standards GEM Project Service Entity Configuration will go here ################### -->
+	
+	<entity name="GEMCategory" table="GEM_CATGY" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+		<column name="categoryId" db-name="GEM_CATGY_ID" type="long" primary="true" />
+		<column name="cmsCategoryId" db-name="CMS_CATGY_ID" type="long" />
+		<column name="gemCategoryCode" db-name="GEM_CATGY_CD" type="String" />
+		<column name="gemPrntCategoryId" db-name="GEM_PRNT_CATGY_ID" type="String" />
+		<column name="categoryName" db-name="GEM_CATGY_NM" type="String" />
+		<column name="categoryViewType" db-name="GEM_CATGY_VIEW_TYP" type="String" />
+		<column name="categoryAnsAll" db-name="GEM_CATGY_ANS_TXT" type="String" />
+		<column name="duplicatable" db-name="DUPLICATE_VAL_TXT" type="String" />
+        <column name="displayOrderNumber" db-name="DISP_ORDER_NBR" type="long" />
+        
+		<!-- Must to have fields as per DB Team -->
+		<column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+		<column name="createdDate" db-name="CREAT_TS" type="Date" />
+		<column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+		<column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+		
+		<!-- Order -->
+		<order by="asc">
+			<order-column name="displayOrderNumber" />
+			<order-column name="categoryId" />
+		</order>
+		
+		<!-- Finder methods -->
+		<finder name="CMSCategoryId" return-type="GemCategory">
+			<finder-column name="cmsCategoryId" />
+		</finder>
+		<finder name="GEMCategoryId" return-type="GemCategory">
+			<finder-column name="gemCategoryCode" />
+		</finder>
+		<finder name="GemPrntCategoryId" return-type="Collection">
+			<finder-column name="gemPrntCategoryId" />
+		</finder>
+		<finder name="CategoryName" return-type="Collection">
+			<finder-column name="categoryName" />
+		</finder>
+		<finder name="GEMCategoryIdAndName" return-type="GemCategory">
+			<finder-column name="gemCategoryCode" />
+			<finder-column name="categoryName" />
+		</finder>
+	</entity>
+	
+	<entity name="GEMTemplateCategory" table="GEM_TEMPLATE_CATGY" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+		<column name="templateCatgyId" db-name="GEM_TEMPLATE_CATGY_ID" type="long" primary="true" />
+	    <column name="templateId" db-name="GEM_TEMPLATE_ID" type="long" />
+	    <column name="categoryId" db-name="GEM_CATGY_ID" type="long" />
+		<column name="categoryViewType" db-name="CATGY_VIEW_TYP" type="String" />
+		<column name="categoryAnsAll" db-name="CATGY_ANS_TXT" type="String" />
+		<column name="duplicatable" db-name="DUPLICATABLE_IND" type="String" />
+        <column name="displayOrderNumber" db-name="DISP_ORDER_NBR" type="long" />
+        
+		<!-- Must to have fields as per DB Team -->
+		<column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+		<column name="createdDate" db-name="CREAT_TS" type="Date" />
+		<column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+		<column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+		
+		<!-- Order -->
+		<order by="asc">
+			<order-column name="displayOrderNumber" />
+		</order>
+		
+		<!-- Finder methods -->
+		<finder name="TemplateId" return-type="Collection">
+			<finder-column name="templateId" />
+		</finder>
+	</entity>
+	
+	<entity name="GEMStdCategory" table="GEM_STD_CATGY" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!-- PK fields -->
+        <column name="gemStdCategoryId" db-name="GEM_STD_CATGY_ID" type="long" primary="true" />
+        
+        <!--  Regular fields -->
+        <column name="stdId" db-name="STD_ID" type="long" />
+        <column name="categoryId" db-name="GEM_CATGY_ID" type="long" />
+        <column name="templateType" db-name="TEMPLATE_TYP_CD" type="String" />
+        <column name="chainCode" db-name="CHAIN_CD" type="String" />
+        
+        <!-- Must to have fields as per DB Team -->
+        <column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+        <column name="createdDate" db-name="CREAT_TS" type="Date" />
+        <column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+        <column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+        
+        <!-- Order -->
+		<order by="asc">
+			<order-column name="gemStdCategoryId" />
+		</order>
+		
+		<!-- Finder methods -->
+		<finder name="StdCatgyMapping" return-type="GEMStdCategory">
+			<finder-column name="stdId" />
+			<finder-column name="categoryId" />
+			<finder-column name="templateType" />
+			<finder-column name="chainCode" />
+		</finder>
+		<finder name="CatgyTemplateAndChain" return-type="Collection">
+			<finder-column name="categoryId" />
+			<finder-column name="templateType" />
+			<finder-column name="chainCode" />
+		</finder>
+		<finder name="CatgyAndChain" return-type="Collection">
+			<finder-column name="categoryId" />
+			<finder-column name="chainCode" />
+		</finder>
+		<finder name="CategoryId" return-type="Collection">
+			<finder-column name="categoryId" />
+		</finder>
+    </entity>
+	
+	<entity name="GEMTemplate" table="GEM_TEMPLATE" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+	    <column name="templateId" db-name="GEM_TEMPLATE_ID" type="long"  primary="true" />
+	    <column name="templateName" db-name="TEMPLATE_NM" type="String" />
+		<column name="publishId" db-name="PUBLISH_ID" type="long" />
+		<column name="regionId" db-name="RGN_ID" type="long" />
+		<column name="templateType" db-name="TEMPLATE_TYP_CD" type="String" />
+		<!-- Must to have fields as per DB Team -->
+        <column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+        <column name="createdDate" db-name="CREAT_TS" type="Date" />
+        <column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+        <column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+        
+        <!-- Finder methods -->
+        <finder name="PublishId" return-type="Collection">
+			<finder-column name="publishId" />
+		</finder>
+		
+		<finder name="PublishIdAndRgnId" return-type="Collection">
+			<finder-column name="publishId" />
+			<finder-column name="regionId" />
+		</finder>
+		<finder name="PublishIdAndRgnIdAndType" return-type="Collection">
+			<finder-column name="publishId" />
+			<finder-column name="regionId" />
+			<finder-column name="templateType" />
+		</finder>
+		<finder name="TypeAndRegionAndPublication" return-type="GEMTemplate">
+			<finder-column name="templateType" />
+			<finder-column name="regionId" />
+			<finder-column name="publishId" />
+		</finder>
+		<finder name="TypeAndRegionAndPublicationList" return-type="Collection">
+			<finder-column name="templateType" />
+			<finder-column name="regionId" />
+			<finder-column name="publishId" />
+		</finder>
+		<finder name="PublishIdAndTemplateType" return-type="Collection">
+			<finder-column name="publishId" />
+			<finder-column name="templateType" />
+		</finder>
+		<finder name="TemplateType" return-type="Collection">
+			<finder-column name="templateType" />
+		</finder>
+	</entity>
+	
+	<entity name="GEMTemplateColumn" table="GEM_TEMPLATE_COL" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+	    <column name="columnId" db-name="GEM_TEMPLATE_COL_ID" type="long"  primary="true" />
+	    <column name="templateId" db-name="GEM_TEMPLATE_ID" type="long"  />
+	    <column name="columnName" db-name="COL_NM" type="String" />
+		<column name="valueType" db-name="VAL_DAT_TYP" type="String" />
+		<column name="defaultValue" db-name="DFLT_VAL_TXT" type="String" />
+		<column name="isMandatory" db-name="MAND_IND" type="String" />
+		<column name="displayOrderNumber" db-name="DISP_ORDER_NBR" type="long" />
+		<!-- Must to have fields as per DB Team -->
+        <column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+        <column name="createdDate" db-name="CREAT_TS" type="Date" />
+        <column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+        <column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+	</entity>
+	
+	<entity name="GEMTemplateValues" table="GEM_TEMPLATE_VAL" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+	    <column name="valueId" db-name="GEM_TEMPLATE_VAL_ID" type="long"  primary="true" />
+	    <column name="columnId" db-name="GEM_TEMPLATE_COL_ID" type="long"  />
+	    <column name="categoryId" db-name="GEM_CATGY_ID" type="long" />
+	    <column name="columnValue" db-name="COL_VAL" type="String" />
+	    <column name="displayOrderNumber" db-name="DISP_ORDER_NBR" type="long" />
+		<!-- Must to have fields as per DB Team -->
+        <column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+        <column name="createdDate" db-name="CREAT_TS" type="Date" />
+        <column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+        <column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+	</entity>
+
+    <entity name="GEMTrigger" table="GEM_TRIGGER" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!-- PK fields -->
+        <column name="triggerId" db-name="GEM_TRIGGER_ID" type="long" primary="true" />
+        
+        <!--  Regular fields -->
+        <column name="publishDeptId" db-name="GEM_PUBLISH_DEPT_ID" type="long" />
+        <column name="publishId" db-name="PUBLISH_ID" type="long" />
+        <column name="question" db-name="TRIGGER_QSTN_TXT" type="String" />
+        
+        <!-- Must to have fields as per DB Team -->
+        <column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+        <column name="createdDate" db-name="CREAT_TS" type="Date" />
+        <column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+        <column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+        
+        <!-- Order -->
+		<order by="asc">
+			<order-column name="triggerId" />
+		</order>
+		
+		<!-- Finder methods -->
+		<finder name="PublishId" return-type="Collection">
+			<finder-column name="publishId" />
+		</finder>
+		<finder name="PublishIdAndQuestion" return-type="GEMTrigger">
+			<finder-column name="publishId" />
+			<finder-column name="question" />
+		</finder>
+    </entity>
+
+    <entity name="GEMQlReport" table="QLTY_LEAD_RPT" cache-enabled="false" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!-- PK fields -->
+        <column name="qlReportId" db-name="QLTY_LEAD_RPT_ID" type="long"  primary="true" />
+        
+        <!--  Regular fields -->
+        <column name="publishDeptId" db-name="GEM_PUBLISH_DEPT_ID" type="long" />
+        <column name="publishId" db-name="PUBLISH_ID" type="long" />
+        <column name="stdId" db-name="STD_ID" type="long" />
+        <column name="bucketId" db-name="GEM_MGT_BUCKET_ID" type="long" />
+        <column name="severityId" db-name="GEM_SEVERITY_ID" type="long" />
+        <column name="measurementId" db-name="GEM_MSRMNT_ID" type="long" />
+        <column name="triggerId" db-name="GEM_TRIGGER_ID" type="long" />
+        <column name="categoryId" db-name="GEM_CATGY_ID" type="long" />
+        <column name="displayOrderNumber" db-name="DISP_ORDER_NBR" type="long" />
+		<column name="regionId" db-name="RGN_ID" type="long" /> 
+		<column name="complianceDueDays" db-name="CMPLY_DUE_DAY_NBR" type="long" /> 
+        <column name="glblMustMeasure" db-name="GBL_MUST_MEASURE_STD_IND" type="String" />
+
+        <!-- Must to have fields as per DB Team -->
+        <column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+        <column name="createdDate" db-name="CREAT_TS" type="Date" />
+        <column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+        <column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+        
+        <!-- Order -->
+<!--         
+        <order by="asc">
+            <order-column name="displayOrderNumber" />
+        </order>
+ -->        
+        <!-- Finder methods -->
+        <finder name="PublishIdRegionId" return-type="Collection">
+            <finder-column name="publishId" />
+	        <!-- <finder-column name="regionId" /> -->
+        </finder>
+    </entity>
+	
+	
+	<entity name="GEMUniqueGroupStandard" table="GEM_UNIQUE_GRP_DTL" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!-- PK fields -->
+	    <column name="groupStandardId" db-name="GEM_UNIQUE_GRP_DTL_ID" type="long"  primary="true" />
+        
+        <!--  Regular fields -->
+	    <column name="groupId" db-name="GEM_UNIQUE_GRP_ID" type="long" />
+	    <column name="stdId" db-name="STD_ID" type="long" />
+		<!-- Must to have fields as per DB Team -->
+        <column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+        <column name="createdDate" db-name="CREAT_TS" type="Date" />
+        <column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+        <column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+	</entity>
+	
+	<entity name="GEMGeneratedReport" table="GEM_GEN_RPT" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!-- PK fields -->
+		<column name="reportId" db-name="GEM_GEN_RPT_ID" type="long" primary="true" />
+        
+        <!--  Regular fields -->
+        <column name="templateId" db-name="GEM_TEMPLATE_ID" type="long" />
+        <column name="uniqueGroupId" db-name="GEM_UNIQUE_GRP_ID" type="long" />
+        
+		<!-- Must to have fields as per DB Team -->
+		<column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+		<column name="createdDate" db-name="CREAT_TS" type="Date" />
+		<column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+		<column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+		
+		<!-- Order -->
+		<order by="asc">
+			<order-column name="reportId" />
+		</order>
+		
+		<!-- Finder methods -->
+		<finder name="TemplateId" return-type="Collection">
+			<finder-column name="templateId" />
+		</finder>
+	</entity>
+	
+	<entity name="GEMGeneratedReportVal" table="GEM_GEN_RPT_VAL" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!-- PK fields -->
+		<column name="reportValId" db-name="GEM_GEN_RPT_VAL_ID" type="long" primary="true" />
+		<column name="reportId" db-name="GEM_GEN_RPT_ID" type="long" primary="true" />
+        
+        <!--  Regular fields -->
+	    <column name="columnId" db-name="GEM_TEMPLATE_COL_ID" type="long"  />
+	    <column name="generatedValue" db-name="GEN_VAL" type="String" />
+	    <column name="displayOrderNumber" db-name="DISP_ORDER_NBR" type="long" />
+        
+		<!-- Must to have fields as per DB Team -->
+		<column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+		<column name="createdDate" db-name="CREAT_TS" type="Date" />
+		<column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+		<column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+		
+		<!-- Order -->
+		<order by="asc">
+			<order-column name="reportId" />
+			<order-column name="displayOrderNumber" />
+		</order>
+		
+		<!-- Finder methods -->
+		<finder name="ReportId" return-type="Collection">
+			<finder-column name="reportId" />
+		</finder>
+	</entity>
+
+    <entity name="GEMManagementBucket" table="GEM_MGT_BUCKET" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!-- PK fields -->
+        <column name="bucketId" db-name="GEM_MGT_BUCKET_ID" type="long" primary="true" />
+        
+        <!--  Regular fields -->
+        <column name="bucketName" db-name="GEM_BUCKET_NM" type="String" />
+        <column name="departmentId" db-name="GEM_DEPT_ID" type="long" />
+    	<column name="activeInd" db-name="ACTV_IND" type="String" />
+        <column name="displayOrderNumber" db-name="DISP_ORDER_NBR" type="long" />
+        
+        <!-- Must to have fields as per DB Team -->
+        <column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+        <column name="createdDate" db-name="CREAT_TS" type="Date" />
+        <column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+        <column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+        
+        <!-- Order -->
+        <order by="asc">
+            <order-column name="displayOrderNumber" />
+        </order>
+        <!-- Finder methods -->
+        <finder name="DepartmentId" return-type="Collection">
+			<finder-column name="departmentId" />
+		</finder>
+		<finder name="DepartmentIdAndStatus" return-type="Collection">
+			<finder-column name="departmentId" />
+			<finder-column name="activeInd" />
+		</finder>
+    </entity>
+
+    <entity name="GEMMeasurement" table="GEM_MSRMNT" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!-- PK fields -->
+        <column name="measurementId" db-name="GEM_MSRMNT_ID" type="long" primary="true" />
+        
+        <!--  Regular fields -->
+        <column name="measurementName" db-name="GEM_MSRMNT_NM" type="String" />
+        <column name="measurementType" db-name="GEM_MSRMNT_TYP_CD" type="String" />
+        <column name="displayOrderNumber" db-name="DISP_ORDER_NBR" type="long" />
+        <column name="templateId" db-name="GEM_TEMPLATE_ID" type="long" />
+        <column name="multiplierQty" db-name="GEM_MSRMNT_MULTR_QTY" type="long" />
+        
+        <!-- Must to have fields as per DB Team -->
+        <column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+        <column name="createdDate" db-name="CREAT_TS" type="Date" />
+        <column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+        <column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+        
+        <!-- Order -->
+		<order by="asc">
+			<order-column name="displayOrderNumber" />
+		</order>
+		
+		<!-- Finder methods -->
+		<finder name="TemplateId" return-type="Collection">
+			<finder-column name="templateId" />
+		</finder>
+		<finder name="TemplateIdAndType" return-type="Collection">
+			<finder-column name="templateId" />
+			<finder-column name="measurementType" />
+		</finder>
+		<finder name="NameTypeAndTemplateId" return-type="GEMMeasurement">
+			<finder-column name="measurementName" />
+			<finder-column name="measurementType" />
+			<finder-column name="templateId" />
+		</finder>
+    </entity>
+
+    <entity name="GEMMeasurementType" table="GEM_MSRMNT_TYP" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!-- PK fields -->
+        <column name="measurementType" db-name="GEM_MSRMNT_TYP_CD" type="String"  primary="true" />
+        
+        <!--  Regular fields -->
+        <column name="measurementTypeDesc" db-name="GEM_MSRMNT_TYP_DESC" type="String" />
+        
+        <!-- Must to have fields as per DB Team -->
+        <column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+        <column name="createdDate" db-name="CREAT_TS" type="Date" />
+        <column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+        <column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+    </entity>
+
+    <entity name="GEMSeverity" table="GEM_SEVERITY" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!-- PK fields -->
+        <column name="severityId" db-name="GEM_SEVERITY_ID" type="long"  primary="true" />
+        
+        <!--  Regular fields -->
+        <column name="severityName" db-name="GEM_SEVERITY_NM" type="String" />
+        
+        <!-- Must to have fields as per DB Team -->
+        <column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+        <column name="createdDate" db-name="CREAT_TS" type="Date" />
+        <column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+        <column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+
+        <!-- Order -->
+        <order by="asc">
+            <order-column name="severityId" />
+        </order>
+    </entity>
+
+    <entity name="GEMUniqueGroup" table="GEM_UNIQUE_GRP" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!-- PK fields -->
+        <column name="uniqueGroupId" db-name="GEM_UNIQUE_GRP_ID" type="long" primary="true" />
+        
+        <!--  Regular fields -->
+      	<column name="publishDeptId" db-name="GEM_PUBLISH_DEPT_ID" type="long" />
+      	<column name="publishId" db-name="PUBLISH_ID" type="long" />
+        <column name="groupName" db-name="GEM_GRP_NM" type="String" />
+        <column name="regionId" db-name="RGN_ID" type="long" />
+        <column name="policyId" db-name="GEM_PLCY_ID" type="String" />
+        <column name="levelId" db-name="GEM_LVL_ID" type="String" />
+        <column name="groupType" db-name="GRP_TYP" type="String" />
+        
+        <!-- Must to have fields as per DB Team -->
+        <column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+        <column name="createdDate" db-name="CREAT_TS" type="Date" />
+        <column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+        <column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+        
+        <!-- Finder method -->
+        <finder name="publicationAndRegion" return-type="Collection">
+        	<finder-column name="publishId" />
+        	<finder-column name="regionId" />
+        </finder>
+        
+         <!-- Finder method -->
+        <finder name="publicationAndRegionAndType" return-type="Collection">
+        	<finder-column name="publishId" />
+        	<finder-column name="regionId" />
+        	<finder-column name="groupType" />
+        </finder>
+    </entity>
+    
+    <entity name="GEMUniqueGroupCountry" table="GEM_UNIQUE_GROUP_CTRY" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+	    <column name="groupCountryId" db-name="GROUP_CTRY_ID" type="long"  primary="true" />
+	    <column name="uniqueGroupId" db-name="GEM_UNIQUE_GRP_ID" type="long" />
+	    <column name="countryCode" db-name="CTRY_CD" type="String" />
+		<!-- Must to have fields as per DB Team -->
+        <column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+        <column name="createdDate" db-name="CREAT_TS" type="Date" />
+        <column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+        <column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+	</entity>
+	
+    <entity name="GEMChainMeasurement" table="GEM_CHAIN_MSRMNT" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!-- PK fields -->
+        <column name="chainMeasurementId" db-name="GEM_CHAIN_MSRMNT_ID" type="long" primary="true" />
+        
+        <!--  Regular fields -->
+        <column name="measurementId" db-name="GEM_MSRMNT_ID" type="long" />
+        <column name="publishDeptId" db-name="GEM_PUBLISH_DEPT_ID" type="long" />
+        <column name="publishId" db-name="PUBLISH_ID" type="long" />
+        <column name="regionId" db-name="RGN_ID" type="long" />
+        <column name="uniqueGroupId" db-name="GEM_UNIQUE_GRP_ID" type="long" />
+        <column name="measurementItemCount" db-name="MSRMNT_ITEM_QTY" type="long" />
+        
+        <!-- Must to have fields as per DB Team -->
+        <column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+        <column name="createdDate" db-name="CREAT_TS" type="Date" />
+        <column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+        <column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+    </entity>
+
+    <entity name="GEMMeasurementBucketChain" table="GEM_MSRMNT_BUCKET_CHAIN" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!-- PK fields -->
+        <column name="measurementBucketChainId" db-name="GEM_MSRMNT_BUCKET_CHAIN_ID" type="long" primary="true" />
+        
+        <!--  Regular fields -->
+        <column name="bucketId" db-name="GEM_MGT_BUCKET_ID" type="long" />
+        <column name="severityId" db-name="GEM_SEVERITY_ID" type="long" />
+        <column name="measurementId" db-name="GEM_MSRMNT_ID" type="long" />
+        <column name="publishDeptId" db-name="GEM_PUBLISH_DEPT_ID" type="long" />
+        <column name="publishId" db-name="PUBLISH_ID" type="long" />
+        <column name="regionId" db-name="RGN_ID" type="long" />
+        <column name="subRegionCd" db-name="GEM_SUB_RGN_CD" type="String" />
+        
+        <!-- Must to have fields as per DB Team -->
+        <column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+        <column name="createdDate" db-name="CREAT_TS" type="Date" />
+        <column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+        <column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+    </entity>
+
+    <entity name="GEMMeasurementFormula" table="GEM_MSRMNT_FORMULA" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!-- PK fields -->
+        <column name="formulaId" db-name="GEM_MSRMNT_FORMULA_ID" type="long" primary="true" />
+        
+        <!--  Regular fields -->
+        <column name="publishId" db-name="PUBLISH_ID" type="long" />
+        <column name="regionId" db-name="RGN_ID" type="long" />
+        <column name="measurementId" db-name="GEM_MSRMNT_ID" type="long" />
+        <column name="severityId" db-name="GEM_SEVERITY_ID" type="long" />
+        <column name="subRegionLevelCd" db-name="GEM_SUB_RGN_LVL_CD" type="String" />
+        
+        <!-- Must to have fields as per DB Team -->
+        <column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+        <column name="createdDate" db-name="CREAT_TS" type="Date" />
+        <column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+        <column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+    </entity>
+
+    <entity name="GEMMeasurementFormulaValue" table="GEM_MSRMNT_FORMULA_DTL" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!-- PK fields -->
+        <column name="formulaValueId" db-name="GEM_MSRMNT_FORMULA_DTL_ID" type="long" primary="true" />
+        
+        <!--  Regular fields -->
+        <column name="formulaId" db-name="GEM_MSRMNT_FORMULA_ID" type="long" />
+        <column name="formulaType" db-name="GEM_MSRMNT_FORMULA_TYP" type="String" />
+        <column name="formulaValue" db-name="GEM_FORMULA_TXT" type="String" />
+        
+        <!-- Must to have fields as per DB Team -->
+        <column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+        <column name="createdDate" db-name="CREAT_TS" type="Date" />
+        <column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+        <column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+    </entity>
+
+    <entity name="GEMScoringValue" table="SCORING_VAL" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!-- PK fields -->
+        <column name="scoringId" db-name="SCORING_VAL_ID" type="long" primary="true" />
+        
+        <!--  Regular fields -->
+        <column name="measurementBucketChainId" db-name="GEM_MSRMNT_BUCKET_CHAIN_ID" type="long" />
+        <column name="totalMeasurement" db-name="TOT_MSRMNT_QTY" type="long" />
+        <column name="netMeasurement" db-name="NET_MSRMNT_QTY" type="long" />
+        <column name="nonCompliantMeasurement" db-name="NON_COMPLIANT_MSRMNT_QTY" type="long" />
+        <column name="nonCompliantMeasurementPercent" db-name="NON_COMPLIANT_MSRMNT_PCT" type="long" />
+        
+        <!-- Must to have fields as per DB Team -->
+        <column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+        <column name="createdDate" db-name="CREAT_TS" type="Date" />
+        <column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+        <column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+    </entity>
+
+    <entity name="GEMCode" table="GEM_CD" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!--  Regular fields -->
+        <column name="code" db-name="GEM_CD" type="String" primary="true" />
+        <column name="codeDesc" db-name="GEM_CD_DESC" type="String" />
+        <column name="codeVal" db-name="GEM_CD_VAL" type="String" />
+        
+        <!-- Must to have fields as per DB Team -->
+        <column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+        <column name="createdDate" db-name="CREAT_TS" type="Date" />
+        <column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+        <column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+
+        <!-- Order -->
+        <order by="asc">
+            <order-column name="createdDate" />
+        </order>
+    </entity>
+    
+    <entity name="GEMManagementId" table="GEM_MGT_ID" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!--  Regular fields -->
+        <column name="managementId" db-name="GEM_MGT_ID_KEY" type="long" primary="true" />
+        <column name="chainCode" db-name="BRAND_CD" type="String" />
+        <column name="countryCode" db-name="CTRY_NM_CD" type="String" />
+        <column name="value" db-name="GEM_MGT_ID" type="String" />
+        
+        <!-- Must to have fields as per DB Team -->
+        <column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+        <column name="createdDate" db-name="CREAT_TS" type="Date" />
+        <column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+        <column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+
+        <!-- Order -->
+        <order by="asc">
+            <order-column name="createdDate" />
+        </order>
+
+		<!--  Finder -->
+		<finder name="CountryCodeAndChainCode" return-type="GEMManagementId">
+			<finder-column name="countryCode" />
+			<finder-column name="chainCode" />
+		</finder>
+    </entity>
+    
+    <entity name="GEMRole" table="GEM_GRP" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+        <!--  Regular fields -->
+        <column name="gemGrpId" db-name="GEM_GRP_ID" type="long" primary="true" />
+        <column name="regionId" db-name="RGN_ID" type="long" />
+        <column name="chainCode" db-name="CHAIN_CD" type="String" />
+        <column name="gemGrpCode" db-name="GEM_GRP_CD" type="String" />
+        <column name="ownerGrpId" db-name="OWNER_GRP_ID" type="String" />
+        <column name="ownerGrpName" db-name="OWNER_GRP_NM" type="String" />
+        <column name="busOwnerName" db-name="BUS_OWNER_NM" type="String" />
+        <column name="deligate1Name" db-name="DELEGATE_1_NM" type="String" />
+        <column name="deligate2Name" db-name="DELEGATE_2_NM" type="String" />
+        
+        <!-- Must to have fields as per DB Team -->
+        <column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+        <column name="createdDate" db-name="CREAT_TS" type="Date" />
+        <column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+        <column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+
+        <!-- Order -->
+        <order by="asc">
+            <order-column name="ownerGrpName" />
+            <order-column name="gemGrpCode" />
+        </order>
+        
+        <!-- Finder methods -->
+		<finder name="GemGrpCode" return-type="GEMGroup">
+			<finder-column name="gemGrpCode" case-sensitive="false" />
+		</finder>
+    </entity>
+    
+    <entity name="Department" table="GEM_DEPT" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+    	<!--  Regular fields -->
+    	<column name="departmentId" db-name="GEM_DEPT_ID" type="long" primary="true" />
+    	<column name="departmentName" db-name="GEM_DEPT_NM" type="String" />
+    	<column name="description" db-name="GEM_DEPT_DESC" type="String" />
+    	<column name="activeInd" db-name="ACTV_IND" type="String" />
+    	<!-- Must to have fields as per DB Team -->
+        <column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+        <column name="createdDate" db-name="CREAT_TS" type="Date" />
+        <column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+        <column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+    
+    	<!-- Order -->
+        <order by="asc">
+            <order-column name="departmentId" />
+        </order>
+        
+         <!-- Finder methods -->
+		<finder name="ActiveIndicator" return-type="Collection">
+			<finder-column name="activeInd" case-sensitive="false" />
+		</finder>
+		
+    </entity>
+    
+    <entity name="PublishDept" table="GEM_PUBLISH_DEPT" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+    	<!--  Regular fields -->
+    	<column name="publishDeptId" db-name="GEM_PUBLISH_DEPT_ID" type="long" primary="true" />
+    	<column name="deptId" db-name="GEM_DEPT_ID" type="long" />
+    	<column name="publishId" db-name="PUBLISH_ID" type="long" />
+    	<!-- Must to have fields as per DB Team -->
+        <column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+        <column name="createdDate" db-name="CREAT_TS" type="Date" />
+        <column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+        <column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+    
+    	<!-- Order -->
+        <order by="asc">
+            <order-column name="publishDeptId" />
+        </order>
+        <finder name="PublicationAndDept" return-type="PublishDept">
+        	<finder-column name="publishId"></finder-column>
+        	<finder-column name="deptId"></finder-column>
+        </finder>
+    </entity>
+    
+    <entity name="GEMTemplateReference" table="GEM_PUB_REF_TEMPLATE" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+	    <column name="templateRefId" db-name="GEM_PUB_REF_TEMPLATE_ID" type="long"  primary="true" />
+	    <column name="templateId" db-name="GEM_TEMPLATE_ID" type="long"  />
+		<column name="publishDeptId" db-name="GEM_PUBLISH_DEPT_ID" type="long" />
+		<column name="regionId" db-name="RGN_ID" type="long" />
+		<!-- Must to have fields as per DB Team -->
+        <column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+        <column name="createdDate" db-name="CREAT_TS" type="Date" />
+        <column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+        <column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+        <!-- Finder methods -->
+		<finder name="PublishIdAndRgnId" return-type="Collection">
+			<finder-column name="publishDeptId" />
+			<finder-column name="regionId" />
+		</finder>
+	</entity>
+	
+	<entity name="PublishParm" table="PUBLISH_PARM" local-service="true" remote-service="false" data-source="brandstandDataSource" session-factory="BRNDSTNDSessionFactory">
+    	<!--  Regular fields -->
+    	<column name="publishParmId" db-name="PUBLISH_PARM_ID" type="long" primary="true" />
+    	<column name="publishId" db-name="PUBLISH_ID" type="long" />
+    	<column name="parmName" db-name="PARM_NM" type="String" />
+    	<column name="parmValue" db-name="PARM_VAL" type="String" />
+    	<!-- Must to have fields as per DB Team -->
+        <column name="creatorId" db-name="CREAT_USR_ID" type="String" />
+        <column name="createdDate" db-name="CREAT_TS" type="Date" />
+        <column name="updatedBy" db-name="LST_UPDT_USR_ID" type="String" />
+        <column name="updatedDate" db-name="LST_UPDT_TS" type="Date" />
+        <!-- Order -->
+        <order by="asc">
+            <order-column name="parmName" />
+        </order>
+        <!-- Finder methods -->
+        <finder name="PublishId" return-type="Collection">
+			<finder-column name="publishId" />
+		</finder>
+    </entity>
+
+</service-builder>

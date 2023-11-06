@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<bean id="com.ihg.grs.common.service.DirectoryLocalService" class="com.ihg.grs.common.service.impl.DirectoryLocalServiceImpl" />
+	<bean id="com.ihg.grs.common.service.persistence.DirectoryPersistence" class="com.ihg.grs.common.service.persistence.DirectoryPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="grsDataSource" />
+		<property name="sessionFactory" ref="grsSessionFactory" />
+	</bean>
+	<bean id="com.ihg.grs.common.service.FeedbackLocalService" class="com.ihg.grs.common.service.impl.FeedbackLocalServiceImpl" />
+	<bean id="com.ihg.grs.common.service.persistence.FeedbackPersistence" class="com.ihg.grs.common.service.persistence.FeedbackPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="grsDataSource" />
+		<property name="sessionFactory" ref="grsSessionFactory" />
+	</bean>
+	<bean id="com.ihg.grs.common.service.FeedbackDetailLocalService" class="com.ihg.grs.common.service.impl.FeedbackDetailLocalServiceImpl" />
+	<bean id="com.ihg.grs.common.service.persistence.FeedbackDetailPersistence" class="com.ihg.grs.common.service.persistence.FeedbackDetailPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="grsDataSource" />
+		<property name="sessionFactory" ref="grsSessionFactory" />
+	</bean>
+	<bean id="com.ihg.grs.common.service.GlossaryLocalService" class="com.ihg.grs.common.service.impl.GlossaryLocalServiceImpl" />
+	<bean id="com.ihg.grs.common.service.persistence.GlossaryPersistence" class="com.ihg.grs.common.service.persistence.GlossaryPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="grsDataSource" />
+		<property name="sessionFactory" ref="grsSessionFactory" />
+	</bean>
+</beans>

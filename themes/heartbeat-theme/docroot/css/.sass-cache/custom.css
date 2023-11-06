@@ -1,0 +1,1836 @@
+/* This file allows you to override default styles in one central location for easier upgrade and maintenance. */
+.aui body {
+  font-family: "Calibri",Arial, Helvetica, sans-serif;
+  color: #666666;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  font-size: 12px; }
+.aui html {
+  padding: 0;
+  margin: 0; }
+.aui table td img {
+  max-width: none; }
+.aui p {
+  margin: 1em 0;
+  line-height: 1.3em; }
+.aui h1, .aui h2, .aui h3, .aui h4, .aui h5, .aui h6 {
+  line-height: normal; }
+.aui a, .aui a:link, .aui a:hover, .aui .aui a:focus, .aui .aui a:active {
+  color: #666;
+  outline: none;
+  text-decoration: none; }
+.aui #wrapper {
+  padding: 0; }
+.aui label {
+  display: inline; }
+.aui input[type="radio"], .aui input[type="checkbox"] {
+  margin: 0;
+  float: none; }
+.aui #content.main-content input[type="checkbox"] {
+  margin-left: 0;
+  float: none; }
+.aui .fLeft {
+  float: left; }
+.aui .fRight {
+  float: right; }
+.aui .cLeft {
+  clear: left; }
+.aui .cRight {
+  clear: right; }
+.aui .cBoth {
+  clear: both; }
+.aui .fBold {
+  font-weight: bold; }
+.aui .row-fluid {
+  clear: both;
+  display: block; }
+.aui .btn-secondary {
+  background-color: #e88824;
+  border: none;
+  padding: 6px 31px;
+  color: #fff;
+  font-weight: bold; }
+.aui .txt-center {
+  text-align: center; }
+.aui select {
+  padding: 0;
+  height: auto;
+  width: auto; }
+.aui form {
+  padding: 0;
+  margin: 0; }
+.aui body.cke_show_borders {
+  background: none; }
+.aui img {
+  border: 0; }
+.aui .alert.alert-info {
+  display: none; }
+.aui .row {
+  margin: 0; }
+.aui .portlet-journal-content {
+  clear: both; }
+.aui .tJustify {
+  text-align: justify; }
+.aui .tCenter {
+  text-align: center; }
+.aui .uLine {
+  text-decoration: underline;
+  color: #9b3d97; }
+.aui .ui-widget-content, .aui .ui-icon {
+  background: none; }
+.aui ul.ui-widget-content {
+  background-color: #ffffff; }
+.aui .user-avatar img {
+  width: 20px;
+  height: 22px; }
+.aui .wrapper {
+  width: 860px;
+  margin: 0 auto; }
+
+/*aui class ends*/
+.aui {
+  /* row 30% 70% */
+  /* row 70% 30% */
+  /* row 50% 50% */
+  /* row 100% */
+  /* plus icon orange button */
+  /* breadCrumbs */
+  /**************carousel ***************/
+  /** Carousel **/
+  /*Inner pages starts*/
+  /* back link */
+  /*--------- Share popup start -------------*/
+  /*sec pop*/
+  /*--------- Share popup end -------------*/
+  /****************************Article Single_article_Video Start ***********************************/
+  /* end article-detail */
+  /* home article */
+  /* over ride css */
+  /*Custon look and feel of selectbox*/
+  /*Custon look and feel of selectbox ends*/
+  /* Resource page */
+  /* forum page*/
+  /* progress bar */
+  /* pagination */
+  /* like icon css */
+  /****Discussions Start *****/
+  /* */
+  /* publish page */ }
+  .aui .bg-main {
+    background-image: url(../images/bg-main.jpg);
+    background-position: left top;
+    background-repeat: repeat-x; }
+  .aui .logo-container {
+    background-image: url(../images/bg-logo.jpg);
+    background-repeat: repeat-x;
+    width: 220px;
+    height: 131px; }
+  .aui .logo-bottom {
+    background-image: url(../images/logo-shadow.png);
+    background-position: left top;
+    background-repeat: no-repeat;
+    width: 220px;
+    height: 8px; }
+  .aui .logo-container img {
+    margin: 61px 0 0 15px; }
+  .aui .rightheader {
+    float: right;
+    width: 612px; }
+  .aui .heartbeat-searchcontainer {
+    background-color: #7d7d7d;
+    float: left;
+    width: 188px;
+    padding: 4px 8px 4px 0;
+    margin-top: 20px;
+    float: right; }
+  .aui .heartbeat-searchcontainer input[type='text'] {
+    border: 0;
+    margin: 0 0 0 10px;
+    color: #fff;
+    width: 140px;
+    background-color: transparent;
+    padding: 0;
+    font: bold 13px "Calibri",Arial, Helvetica, sans-serif;
+    outline: none; }
+  .aui .heartbeat-searchcontainer input[type='submit'], .aui .heartbeat-searchcontainer input[type='button'] {
+    border: 0;
+    background-image: url(../images/sprite-heartbeat.png);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-color: transparent;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    float: right;
+    margin-top: 1px; }
+  .aui header {
+    height: 140px; }
+  .aui nav#navigation {
+    clear: both;
+    float: left; }
+  .aui nav#navigation ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 16px 0 0 0; }
+  .aui nav#navigation ul li {
+    float: left;
+    margin: 0; }
+  .aui nav#navigation ul li.last {
+    padding-right: 0; }
+  .aui nav#navigation ul li:hover {
+    background-color: #e88824; }
+  .aui nav#navigation ul li.selected {
+    background: #e88824; }
+  .aui nav#navigation ul li.selected a:hover {
+    color: #fff; }
+  .aui nav#navigation ul li.selected ul li a {
+    color: #fff; }
+  .aui nav#navigation ul li a {
+    font-size: 18px;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+    padding: 8px 23px;
+    display: block; }
+  .aui nav#navigation ul li ul {
+    background-color: #e88824;
+    display: none;
+    position: absolute;
+    margin: 0;
+    z-index: 1; }
+  .aui nav#navigation ul li ul li {
+    float: none;
+    padding: 0;
+    width: 262px; }
+  .aui nav#navigation ul li:hover ul {
+    display: block; }
+  .aui nav#navigation ul li ul li a {
+    display: block;
+    padding: 10px 10px 10px 25px; }
+  .aui nav#navigation ul li ul li a:hover {
+    background-color: #cd202c; }
+  .aui footer {
+    background-image: url(../images/bg-footer.jpg);
+    background-repeat: repeat-x;
+    background-position: 0 0;
+    height: 258px;
+    clear: both;
+    width: 100%;
+    float: left;
+    margin-top: 35px; }
+  .aui .footer-wrapper {
+    width: 890px;
+    margin: 0 auto; }
+  .aui .footer-prof-img {
+    background-image: url(../images/footer-prof.png);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    height: 258px;
+    width: 301px;
+    float: left;
+    text-indent: -9999px; }
+  .aui .right-footer {
+    float: left;
+    width: 589px; }
+  .aui .footer-logo {
+    background-image: url(../images/sprite-heartbeat.png);
+    background-repeat: no-repeat;
+    background-position: 0 -83px;
+    width: 396px;
+    height: 58px;
+    text-indent: -9999px;
+    margin: 71px 0 0 73px; }
+  .aui .footer-txt {
+    color: #fff;
+    margin: 17px 0 0 -10px; }
+  .aui .footer-txt a.click {
+    color: #fff;
+    margin-top: 10px;
+    text-decoration: none;
+    float: left; }
+  .aui .footer-txt a.click:hover {
+    text-decoration: underline;
+    color: #666; }
+  .aui #column-1.span4 {
+    width: 220px;
+    float: left; }
+  .aui #column-2.span8 {
+    width: 605px;
+    float: left;
+    margin-left: 35px; }
+  .aui #column-1.span8 {
+    width: 605px;
+    float: left; }
+  .aui #column-2.span4 {
+    width: 220px;
+    margin-left: 35px;
+    float: left; }
+  .aui #column-2.span6 {
+    width: 416px; }
+  .aui #column-3.span6 {
+    margin-left: 26px;
+    width: 416px; }
+  .aui #column-1.span12, .aui #column-4.span12 {
+    width: 860px; }
+  .aui .leftpanel {
+    width: 220px;
+    float: left; }
+  .aui .rightpanel {
+    width: 585px;
+    float: left;
+    margin-left: 35px; }
+  .aui .resources-icon-row {
+    margin-left: 24%;
+    width: 856px;
+    /* margin-top: -38px;		*/ }
+  .aui .main-content {
+    background-color: #fff;
+    padding: 30px 0 20px 0;
+    float: left; }
+  .aui .heartbeat-container .wel-icn,
+  .aui .heartbeat-container .links-icn,
+  .aui .heartbeat-container .spotlight-icn,
+  .aui .heartbeat-container .gust-wel-icn,
+  .aui .heartbeat-container .trending-icn {
+    background-image: url(../images/sprite-heartbeat.png);
+    background-position: -24px 0;
+    background-repeat: no-repeat;
+    float: left;
+    height: 21px;
+    margin-right: 10px;
+    text-indent: -9999px;
+    width: 20px;
+    margin-top: 5px; }
+  .aui .heartbeat-container .links-icn {
+    background-position: -92px 0;
+    height: 27px;
+    width: 27px; }
+  .aui .heartbeat-container .spotlight-icn {
+    background-position: -57px 0;
+    height: 24px;
+    width: 24px; }
+  .aui .heartbeat-container .gust-wel-icn {
+    background-position: -132px -278px;
+    height: 24px;
+    width: 19px; }
+  .aui .heartbeat-container .trending-icn {
+    background-position: -268px -278px;
+    height: 27px;
+    width: 27px; }
+  .aui .heartbeat-container.trending h1 {
+    color: #666;
+    padding-bottom: 9px; }
+  .aui .heartbeat-container.spotlight a.click {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #666666; }
+  .aui .heartbeat-container h1 {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0 0 8px;
+    padding: 0;
+    font-style: italic; }
+  .aui .heartbeat-container p {
+    margin: 0 0 10px 0; }
+  .aui .heartbeat-container.links {
+    background-color: #e88824;
+    padding: 13px;
+    color: #fff;
+    float: left;
+    margin-top: 10px;
+    width: 16.2em; }
+  .aui .heartbeat-container.links h1 {
+    font-size: 22px;
+    margin-bottom: 25px; }
+  .aui .heartbeat-container.links h3 {
+    padding: 0;
+    margin: 0;
+    color: #fff;
+    text-transform: uppercase; }
+  .aui .heartbeat-container.links h3 a {
+    color: #fff;
+    text-decoration: none; }
+  .aui .heartbeat-container.trending {
+    background-color: #e5e5e5;
+    padding: 13px;
+    float: left;
+    margin-top: 10px;
+    width: 16.2em; }
+  .aui .heartbeat-container.trending .one-link {
+    margin-bottom: 10px; }
+  .aui .one-link {
+    border-bottom: 1px solid #fff;
+    padding-bottom: 12px;
+    margin-bottom: 20px; }
+  .aui .one-link.last, .aui .one-link:last-child {
+    border-bottom: 0;
+    padding: 0; }
+  .aui .one-link h3 a {
+    font-size: .6em; }
+  .aui .links-container {
+    position: relative;
+    float: left; }
+  .aui .links-container.no-border .one-link {
+    border: 0; }
+  .aui .form-container {
+    margin-top: 40px; }
+  .aui .form-container input[type='text'], .aui .form-container textarea {
+    width: 97.5%;
+    border: 1px solid #7d7d7d;
+    padding: 1.5% 1%; }
+  .aui .form-container textarea {
+    height: 200px; }
+  .aui .form-container h4, .aui .resource-form h4, .aui .resource-doc-library h4 {
+    font-size: 22px;
+    font-style: italic;
+    margin: 6px 0; }
+  .aui .form-container .form-row, .aui .resource-form .form-row {
+    margin-bottom: 30px;
+    display: block; }
+  .aui .down-arrow {
+    background-image: url(../images/sprite-heartbeat.png);
+    background-position: 0 -35px;
+    background-repeat: no-repeat;
+    width: 35px;
+    height: 34px;
+    text-indent: -9999px;
+    float: left;
+    clear: both;
+    bottom: -34px;
+    right: 30px;
+    position: absolute; }
+  .aui .main-links-container {
+    border: 1px solid #7d7d7d;
+    border-right: none;
+    border-left: none;
+    padding: 10px;
+    margin: 25px 0 5px;
+    float: left;
+    width: 97%; }
+  .aui .main-link {
+    width: 100%;
+    clear: both;
+    margin: 10px 0;
+    float: left; }
+  .aui .main-link .abt-icn,
+  .aui .main-link .res-icn,
+  .aui .main-link .sup-icn,
+  .aui .main-link .in-news-icn,
+  .aui .main-link .forum-icn {
+    background-image: url(../images/sprite-heartbeat.png);
+    background-position: -132px 0;
+    background-repeat: no-repeat;
+    float: left;
+    height: 60px;
+    margin-right: 10px;
+    text-indent: -9999px;
+    width: 60px; }
+  .aui .main-link .res-icn {
+    background-position: -200px 0; }
+  .aui .main-link .sup-icn {
+    background-position: -270px 0; }
+  .aui .main-link .in-news-icn {
+    background-position: -339px 0; }
+  .aui .main-link .forum-icn {
+    background-position: -174px -278px; }
+  .aui .brief-desc {
+    float: left; }
+  .aui .main-links-container h2 {
+    margin: 7px 0 0 0;
+    padding: 0;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: bold; }
+  .aui .main-links-container p {
+    margin: 0;
+    padding: 0; }
+  .aui .a-plus-btn {
+    display: inline-block;
+    background-color: #e88824;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    text-decoration: none;
+    color: #fff;
+    position: relative;
+    padding: 11px 43px;
+    padding-left: 65px; }
+  .aui .a-plus-btn::before {
+    background-color: #e88824;
+    background-image: url(../images/sprite-heartbeat.png);
+    background-repeat: no-repeat;
+    background-position: -309px -147px;
+    content: "";
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    margin-top: -10px; }
+  .aui .a-plus-btn:active::before {
+    top: 50%;
+    margin-top: -12px; }
+  .aui input.button_plus {
+    color: #fff;
+    height: 39px;
+    padding: 0 33px 0 55px;
+    border: 0px;
+    font-size: 12px;
+    background: #e88824 url(../images/plus-icon.png) no-repeat 29px center; }
+  .aui .btn-row1 {
+    clear: both;
+    padding-top: 50px; }
+  .aui .breadCrumbs {
+    height: 50px; }
+  .aui .breadCrumbs ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    padding: 15px 0;
+    font-size: 16px; }
+  .aui .breadCrumbs ul li {
+    float: left;
+    margin-right: 10px;
+    color: #578ebe;
+    line-height: 1; }
+  .aui .breadCrumbs ul li a {
+    color: #578ebe; }
+  .aui .jcarousel-wrapper {
+    height: 235px;
+    margin: 0px auto 50px auto;
+    position: relative;
+    width: 566px; }
+  .aui .jcarousel {
+    position: relative;
+    overflow: hidden; }
+  .aui .jcarousel ul {
+    width: 20000em;
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+  .aui .jcarousel li {
+    float: left; }
+  .aui .jcarousel-control-prev,
+  .aui .jcarousel-control-next {
+    position: absolute;
+    top: 111px;
+    width: 42px;
+    height: 42px;
+    text-align: center;
+    background: #da6926;
+    color: #fff;
+    text-decoration: none;
+    text-shadow: 0 0 1px #000;
+    font: 24px/27px Arial, sans-serif;
+    -webkit-box-shadow: 0 0 2px #999;
+    -moz-box-shadow: 0 0 2px #999;
+    box-shadow: 0 0 2px #999;
+    font-size: 40px;
+    line-height: 0.8;
+    border-radius: 10px; }
+  .aui .jcarousel-control-prev, .aui .jcarousel-control-next:hover {
+    color: #fff;
+    text-decoration: none; }
+  .aui .jcarousel-control-prev, .aui .jcarousel-control-next:focus {
+    color: #fff;
+    text-decoration: none; }
+  .aui .jcarousel-control-prev {
+    left: 20px; }
+  .aui .jcarousel-control-prev:focus {
+    text-decoration: none;
+    color: #fff; }
+  .aui .jcarousel-control-prev:hover {
+    text-decoration: none;
+    color: #fff; }
+  .aui .jcarousel-control-next {
+    font-size: 42px;
+    padding-top: 0;
+    right: 20px; }
+  .aui .jcarousel-control-prev:hover span, .aui .jcarousel-control-next:hover span {
+    display: block; }
+  .aui .jcarousel-control-prev.inactive, .aui .jcarousel-control-next.inactive {
+    cursor: pointer; }
+  .aui .jcarousel-pagination {
+    margin-top: 25px;
+    text-align: center; }
+  .aui .jcarousel-pagination a {
+    background: #b7b7b7 none repeat scroll 0 0;
+    border-radius: 14px;
+    display: inline-block;
+    line-height: 5px;
+    margin-right: 7px;
+    min-width: 5px;
+    padding: 3px;
+    text-indent: -9999px; }
+  .aui .jcarousel-pagination a.active {
+    background: #e88824 none repeat scroll 0 0;
+    border: 2px solid #e88824;
+    color: #fff;
+    opacity: 1;
+    text-indent: -9999px;
+    padding: 1px; }
+  .aui .jcarousel-control-prev.inactive, .aui .jcarousel-control-next.inactive {
+    background: #818181;
+    cursor: default;
+    opacity: 0.9;
+    filter: alpha(opacity=90); }
+  .aui .jcarousel .imgcontainer {
+    width: 566px;
+    height: 271px;
+    position: relative;
+    float: left; }
+  .aui .jcarousel .imgcontainer img {
+    width: 566px;
+    height: 271px; }
+  .aui .jcarousel .textcontainer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 546px;
+    height: 70px;
+    background-color: #000;
+    opacity: .7;
+    filter: alpha(opacity=70);
+    padding: 10px;
+    color: white; }
+  .aui .jcarousel .textcontainer h2 {
+    padding: 0;
+    margin: 0;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: bold; }
+  .aui .jcarousel .textcontainer h2 a {
+    color: #fff; }
+  .aui .jcarousel .textcontainer p {
+    padding: 0;
+    margin: 0 0 8px 0; }
+  .aui .carousel-container {
+    background-color: #f3f4f4;
+    background: -webkit-linear-gradient(left, #f3f4f4, #fcfcfc, #f3f4f4);
+    /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(left, #f3f4f4, #fcfcfc, #f3f4f4);
+    /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(left, #f3f4f4, #fcfcfc, #f3f4f4);
+    /* For Fx 3.6 to 15 */
+    background: linear-gradient(to right, #f3f4f4, #fcfcfc, #f3f4f4);
+    /* Standard syntax (must be last) */
+    padding: 20px 20px 5px; }
+  .aui .carousel-container-bottom {
+    background-image: url("../images/carousel-shadow.png");
+    background-position: left top;
+    background-repeat: no-repeat;
+    height: 12px;
+    width: 605px;
+    text-indent: -9999px;
+    margin-bottom: 45px; }
+  .aui .banner-effect {
+    margin: 0px auto 11px auto;
+    position: relative;
+    width: 566px; }
+  .aui .banner-effect img {
+    width: 566px; }
+  .aui .box-effect {
+    background-color: #f3f4f4;
+    background: -webkit-linear-gradient(left, #f3f4f4, #fcfcfc, #f3f4f4);
+    /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(left, #f3f4f4, #fcfcfc, #f3f4f4);
+    /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(left, #f3f4f4, #fcfcfc, #f3f4f4);
+    /* For Fx 3.6 to 15 */
+    background: linear-gradient(to right, #f3f4f4, #fcfcfc, #f3f4f4);
+    /* Standard syntax (must be last) */
+    padding: 12px 12px; }
+  .aui .box-shadow {
+    background: url(../images/box-bottom-effect.jpg) top left no-repeat;
+    padding: 4px 0;
+    margin-bottom: 26px; }
+  .aui .btn-primary hr {
+    border: 0;
+    border-bottom: 1px solid #7d7d7d;
+    margin: 48px 0 39px 0; }
+  .aui .btn-primary.txt-center, .aui .btn-primary.txt-center:hover {
+    background-color: transparent;
+    background-image: none; }
+  .aui .btn-primary.txt-center a {
+    color: #fff; }
+  .aui .top-content {
+    border-bottom: 1px solid #7d7d7d;
+    padding-bottom: 50px;
+    margin-bottom: 50px;
+    float: left; }
+  .aui .about-content1, .aui .resources-content1 {
+    padding-bottom: 12px;
+    margin-bottom: 0px;
+    float: left; }
+  .aui .click-link {
+    font-size: 20px;
+    color: #666;
+    font-style: italic; }
+  .aui a:hover.click-link {
+    text-decoration: underline; }
+  .aui .header-container .abt-icn,
+  .aui .header-container .res-icn,
+  .aui .header-container .sup-icn,
+  .aui .header-container .forum-icn,
+  .aui .header-container .in-news-icn,
+  .aui .in-news-icn,
+  .aui .in-Insight-icn {
+    background-image: url(../images/sprite-heartbeat.png);
+    background-position: 0 -150px;
+    background-repeat: no-repeat;
+    float: left;
+    height: 23px;
+    margin-right: 10px;
+    text-indent: -9999px;
+    width: 27px;
+    margin-top: 5px; }
+  .aui .header-container .res-icn {
+    background-position: -44px -150px;
+    width: 26px;
+    height: 24px; }
+  .aui .header-container .sup-icn {
+    background-position: -92px -150px;
+    width: 27px;
+    height: 23px;
+    margin-top: 8px; }
+  .aui .header-container .forum-icn {
+    background-position: -174px -278px;
+    width: 28px;
+    height: 28px; }
+  .aui .header-container .in-news-icn, .aui .in-news-icn {
+    background-position: -132px -150px;
+    width: 36px;
+    height: 25px;
+    margin-top: 8px; }
+  .aui .in-Insight-icn {
+    background-position: -224px -151px;
+    width: 36px;
+    height: 25px;
+    margin-top: 0px; }
+  .aui .in-news-icn {
+    margin-top: 0; }
+  .aui .innerpage h2 {
+    margin: 7px 0 0 0;
+    padding: 0;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: bold; }
+  .aui .bottom-content .left, .aui .resource-form .left {
+    float: left;
+    width: 404px;
+    clear: both; }
+  .aui .forum-form .left {
+    float: left;
+    width: 240px; }
+  .aui .bottom-content .right, .aui .resource-form .right {
+    float: right;
+    width: 404px; }
+  .aui .forum-form .right {
+    float: right;
+    width: 240px; }
+  .aui .bottom-content {
+    padding: 0 5px;
+    clear: both; }
+  .aui .innerpage .bottom-content h2 {
+    margin-top: 20px; }
+  .aui .bottom-content .text-container {
+    margin-left: 10px; }
+  .aui .gray-container {
+    background-color: #7d7d7d;
+    color: #fff;
+    padding: 3%;
+    clear: both;
+    margin-top: 50px;
+    float: left;
+    width: 94%;
+    position: relative; }
+  .aui .bottom-content .gray-container h2 {
+    color: #fff;
+    margin-top: 0; }
+  .aui .gray-arrow {
+    position: absolute;
+    bottom: -41px;
+    right: 45px;
+    background-image: url(../images/sprite-heartbeat.png);
+    background-position: -46px -35px;
+    background-repeat: no-repeat;
+    height: 41px;
+    text-indent: -9999px;
+    width: 41px; }
+  .aui a.custom-btn {
+    position: relative;
+    background-color: #7d7d7d;
+    color: #fff;
+    font-size: 20px;
+    font-style: italic;
+    font-weight: bold;
+    display: block;
+    text-decoration: none; }
+  .aui a.custom-btn:hover {
+    text-decoration: none; }
+  .aui .sup-btn .pad-btn, .aui .news-btn-big .pad-btn {
+    padding: 15px 0 25px 20px; }
+  .aui .sup-btn-title .pad-btn {
+    padding: 22px 0 22px 20px; }
+  .aui .insigh-btn, .aui .news-btn-big {
+    width: auto;
+    margin: 22px auto 0 auto; }
+  .aui .insigh-btn .pad-btn {
+    padding: 9px 0 21px 20px; }
+  .aui .insigh-btn .custom-btn .txt {
+    margin-top: 12px;
+    display: inherit; }
+  .aui .fold-arrow {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-image: url(../images/sprite-heartbeat.png);
+    background-position: -180px -150px;
+    background-repeat: no-repeat;
+    height: 12px;
+    width: 12px;
+    float: right;
+    text-indent: -9999px; }
+  .aui .btn-support-icon, .aui .btn-news-icon, .aui .btn-insight-icon, .aui .btn-discussion-icon {
+    background-image: url(../images/sprite-heartbeat.png);
+    float: left;
+    text-indent: -9999px;
+    margin-right: 15px; }
+  .aui .btn-support-icon {
+    background-position: 0 -278px;
+    height: 42px;
+    width: 52px; }
+  .aui .btn-news-icon {
+    background-position: -164px -278px;
+    height: 42px;
+    width: 60px; }
+  .aui .btn-insight-icon {
+    background-position: -81px -278px;
+    height: 49px;
+    width: 52px; }
+  .aui .btn-discussion-icon {
+    background-position: -225px -278px;
+    height: 49px;
+    width: 23px; }
+  .aui .sup-btn {
+    width: 384px;
+    margin: 22px auto 0 auto; }
+  .aui .sup-btn-title {
+    width: auto;
+    margin: 22px auto 0 auto; }
+  .aui .custom-btn .txt {
+    vertical-align: middle; }
+  .aui .one-link-container {
+    width: 77px;
+    float: left;
+    margin-right: 99px; }
+  .aui .one-link-container.last-link {
+    margin-right: 0; }
+  .aui .training-img,
+  .aui .faqs-img,
+  .aui .userguides-img,
+  .aui .reports-img {
+    background-image: url(../images/sprite-heartbeat.png);
+    background-position: 0 -185px;
+    background-repeat: no-repeat;
+    width: 77px;
+    height: 72px;
+    text-indent: -9999px;
+    float: left; }
+  .aui .faqs-img {
+    background-position: -94px -185px; }
+  .aui .userguides-img {
+    background-position: -185px -185px; }
+  .aui .reports-img {
+    background-position: -279px -185px; }
+  .aui .resources .images-container a {
+    color: #666666;
+    text-decoration: none;
+    text-transform: uppercase; }
+  .aui .resources .images-container a span.txt {
+    padding-top: 80px;
+    display: block;
+    text-align: center; }
+  .aui .resources .images-container a:hover span.txt {
+    text-decoration: underline; }
+  .aui .resources .images-container, .aui .home-img-container {
+    margin-top: 30px; }
+  .aui .home-img-container {
+    display: inline-block;
+    margin: 0 12% 25px 12%;
+    clear: both;
+    text-align: center; }
+  .aui .home-img-container div:last-child {
+    margin-right: 0; }
+  .aui .home-img-container .one-link-container {
+    width: 77px;
+    float: left;
+    margin-right: 47px; }
+  .aui .home-img-container .one-link-container .training-img,
+  .aui .home-img-container .one-link-container .faqs-img,
+  .aui .home-img-container .one-link-container .userguides-img,
+  .aui .home-img-container .one-link-container .reports-img {
+    margin-bottom: 10px; }
+  .aui .home-img-container .one-link-container a:link {
+    color: #666666;
+    text-decoration: none; }
+  .aui .HB-logos-container {
+    clear: both;
+    margin-top: 50px;
+    float: left; }
+  .aui .HB-logos-container .left, .aui .HB-logos-container .right {
+    float: left; }
+  .aui .HB-logos-container .left {
+    margin-left: 100px;
+    width: 390px; }
+  .aui .HB-logos-container .bot-logos {
+    margin-top: 50px; }
+  .aui .HB-logos-container .bot-logos span:last-child {
+    margin-right: 80px; }
+  .aui .backLink {
+    padding: 0 0 20px 0;
+    color: #578ebe;
+    font-size: 17px;
+    overflow: hidden; }
+  .aui .backLink span {
+    line-height: .9;
+    float: left; }
+  .aui .backLink .icn {
+    float: left;
+    height: 15px;
+    width: 15px;
+    background: url(../images/sprite-heartbeat.png) no-repeat -384px -184px;
+    display: block;
+    margin-right: 5px;
+    text-indent: -9999px; }
+  .aui .coment {
+    float: left;
+    margin-right: 10px; }
+  .aui .sharewrapper {
+    padding: 10px; }
+  .aui .share-title {
+    color: #da6926;
+    font-size: 26px;
+    font-weight: lighter; }
+  .aui .modal-header {
+    border: none; }
+  .aui .sharewrapper .modal.fade.in {
+    top: 5%; }
+  .aui .sharewrapper .modal-body {
+    margin-top: -22px;
+    max-height: none; }
+  .aui .sharewrapper .share-field > input {
+    border-radius: 0;
+    height: 25px;
+    width: 98%; }
+  .aui .sharewrapper .control > textarea {
+    width: 98%;
+    resize: none;
+    border-radius: 0; }
+  .aui .sharewrapper .required {
+    color: #d71920;
+    display: inline-block;
+    float: left;
+    height: 10px;
+    left: 6px;
+    position: absolute;
+    width: 10px; }
+  .aui .sharewrapper .bottomLink .postMsg {
+    background: #3276b1 none repeat scroll 0 0;
+    border: 0 none;
+    color: #fff;
+    font-size: 14px;
+    line-height: 0.8;
+    margin: 0 0 0 5px;
+    outline: medium none;
+    padding: 14px; }
+  .aui .sharewrapper .bottomLink .cancel {
+    background: #fff none repeat scroll 0 0;
+    border: 0 none;
+    color: #578ebe;
+    font-size: 14px;
+    line-height: 0.8;
+    outline: medium none;
+    padding: 14px; }
+  .aui .sharewrapper .bottomLink .cancel:hover {
+    background: #f2f2f2 none repeat scroll 0 0; }
+  .aui .sharewrapper .bottomLink {
+    margin-top: 10px; }
+  .aui .comt-policy {
+    font-weight: bold; }
+  .aui #myModalsec {
+    display: none; }
+  .aui #myModal {
+    display: none; }
+  .aui .article_art > h3 {
+    font-size: 28px;
+    font-weight: bold;
+    font-style: italic;
+    margin: 0px 20px  10px 20px;
+    padding-top: 10px; }
+  .aui .dt-aet-sin {
+    color: #636363;
+    margin-left: 20px;
+    margin-top: -14px; }
+  .aui .dt-aet-sin > span {
+    margin-right: 3px; }
+  .aui .art-sin-con {
+    padding: 0 20px 20px;
+    clear: both; }
+  .aui .about-grssit {
+    padding: 0 20px 20px; }
+  .aui .art-sin-con .vid-cont img {
+    width: 820px;
+    height: 300px; }
+  .aui .art-opt {
+    color: #912887;
+    font-weight: bold;
+    margin-top: 9px; }
+  .aui .leftcol-article-single {
+    float: left;
+    height: auto;
+    margin-top: 50px;
+    width: 700px; }
+  .aui .article_art {
+    background-color: #fff;
+    box-shadow: 0 -1px 7px #d9d9d9; }
+  .aui .article-detail .comments {
+    padding: 20px;
+    box-shadow: 0 -1px 7px #d9d9d9;
+    margin-top: 20px; }
+  .aui .articleCommentList {
+    clear: both;
+    margin-top: 30px; }
+  .aui .articleCommentList .postComment .image, .aui .article_art .postComment .image {
+    overflow: hidden;
+    margin-right: 20px;
+    margin-bottom: 15px;
+    float: left; }
+  .aui .articleCommentList .postComment .image img, .aui .article_art .postComment .image img {
+    width: 90px;
+    height: 90px;
+    border-radius: 94px;
+    border: 2px solid #fff; }
+  .aui .articleCommentList .postComment .content, .aui .article_art .postComment .content {
+    width: 86%;
+    float: left; }
+  .aui .articleCommentList .postComment .content h2 {
+    font-size: 20px;
+    color: #da6926;
+    margin: 0 0 8px 0;
+    line-height: 0.8;
+    padding: 0px; }
+  .aui .articleCommentList .postComment .content .title {
+    line-height: 0.9;
+    margin-bottom: 15px; }
+  .aui .articleCommentList .postComment .content h4, .aui .article_art .postComment .content h4 {
+    margin: 0 0 9px 0;
+    padding: 0px;
+    line-height: 1;
+    color: #333333; }
+  .aui .articleCommentList .postComment .content span {
+    color: #636363; }
+  .aui .articleCommentList .postComment .content p {
+    line-height: 1;
+    margin-bottom: 0px;
+    padding-bottom: 5px; }
+  .aui .articleCommentList .postComment .content .likes,
+  .aui .articleCommentList .postComment .content .chat,
+  .aui .articleCommentList .postComment .content .sub,
+  .aui .bottomLinks .likes,
+  .aui .bottomLinks .comment,
+  .aui .bottomLinks .views,
+  .aui .bottomLinks .category {
+    float: left;
+    margin-right: 20px;
+    line-height: 1; }
+  .aui .articleCommentList .postComment hr {
+    border: 0px;
+    border-bottom: 1px solid #c1c1c1;
+    margin: 19px 0px 21px 0;
+    clear: both; }
+  .aui .articleCommentList .postComment textarea, .aui .article_art .postComment textarea {
+    box-sizing: border-box;
+    border-radius: 0px;
+    resize: none;
+    padding: 15px;
+    box-shadow: none;
+    border-color: #c5c5c5;
+    width: 100%;
+    max-height: 60px; }
+  .aui .articleCommentList .postComment .commentBtns {
+    margin-top: 10px;
+    margin-bottom: 45px;
+    clear: both; }
+  .aui .articleCommentList .postComment .commentBtns a, .aui .article_art .postComment .commentBtns a {
+    color: #959595;
+    font-weight: bold;
+    display: block;
+    clear: both; }
+  .aui .articleCommentList .postComment .commentBtns input, .aui .article_art .postComment .commentBtns input {
+    background: #3276b1;
+    color: #fff;
+    border: 0px;
+    margin: 0px;
+    padding: 14px;
+    line-height: 1;
+    font-size: 14px;
+    line-height: 0.8;
+    margin-top: -10px; }
+  .aui .article_art .postComment {
+    padding: 0 20px;
+    min-height: 150px; }
+  .aui .like .taglib-ratings.thumbs.thumbfloat span, .aui .discussionCommentList .postComment .content .likes .icn {
+    background: rgba(0, 0, 0, 0) url("../images/sprite-heartbeat.png") no-repeat scroll -76px -278px;
+    display: inline-block;
+    height: 19px;
+    width: 17px; }
+  .aui .like, .aui .coment, .aui .share {
+    float: left;
+    margin-right: 10px; }
+  .aui .like_subscribe {
+    margin-left: 17px;
+    margin-top: 3px; }
+  .aui .coment .taglib-ratings.thumbs.thumbfloat span, .aui .discussionCommentList .postComment .content .chat .icn {
+    background: rgba(0, 0, 0, 0) url("../images/sprite-heartbeat.png") no-repeat scroll -94px -278px;
+    display: inline-block;
+    height: 19px;
+    width: 17px; }
+  .aui .share .taglib-ratings.thumbs.thumbfloat span {
+    background: #eeeeee url(../images/sprite-heartbeat.png) no-repeat scroll -377px -219px;
+    border-radius: 6px;
+    color: #d96932;
+    display: inline-block;
+    height: 22px;
+    margin-top: -5px;
+    letter-spacing: .05em; }
+  .aui .sharecontainer {
+    margin-bottom: 10px;
+    padding: 2px 10px 1px 25px; }
+  .aui .taglib-ratings.thumbs {
+    float: left;
+    margin: 0; }
+  .aui .taglib-ratings a {
+    color: #818181 !important;
+    float: left;
+    font-size: 12px;
+    margin-right: 5px;
+    text-decoration: none; }
+  .aui .car-desc > p {
+    display: inline-block;
+    font-family: calibri;
+    font-size: 14px;
+    margin: 0; }
+  .aui .car-desc {
+    width: 200px; }
+  .aui .subgroup-nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0; }
+  .aui .subgroup-nav ul li {
+    border-bottom: 1px solid gray;
+    padding: 20px 0; }
+  .aui .subgroup-nav ul li:last-child {
+    border-bottom: 0px; }
+  .aui .no-border-b {
+    border-bottom: 0; }
+  .aui .no-space {
+    padding: 0;
+    margin: 0; }
+  .aui .ui-corner-all {
+    border-radius: 0; }
+  .aui .ui-selectmenu-button.ui-state-default {
+    background-image: none;
+    border: 0;
+    background-color: #e88824;
+    font: normal 13px Arial, Helvetica, sans-serif;
+    color: #fff;
+    border-radius: 0; }
+  .aui .ui-selectmenu-button span.ui-selectmenu-text {
+    padding: 5px 8px 5px 10px;
+    line-height: normal;
+    font-family: "Calibri",Arial, Helvetica, sans-serif;
+    outline: none; }
+  .aui .ui-state-default .ui-icon {
+    background-image: url(../images/sprite-heartbeat.png);
+    background-repeat: no-repeat;
+    background-position: -372px -150px;
+    width: 28px;
+    height: 19px; }
+  .aui .ui-selectmenu-button span.ui-icon {
+    margin-top: -9px; }
+  .aui .ui-menu-item .ui-state-focus, .aui .ui-menu-item .ui-state-hover {
+    background: none; }
+  .aui .ui-selectmenu-open ul {
+    font: normal 13px Arial, Helvetica, sans-serif;
+    margin: 0;
+    border-radius: 0; }
+  .aui .ui-menu .ui-menu-item {
+    padding: 5px 10px; }
+  .aui .ui-menu-item.ui-state-focus {
+    background: none;
+    background-color: #464646;
+    border: 0;
+    margin: 0;
+    color: #fff; }
+  .aui .ui-selectmenu-open {
+    z-index: 105; }
+  .aui .select-container .sel-lable {
+    float: left;
+    margin-top: 6px;
+    margin-right: 10px; }
+  .aui .select-container {
+    padding: 20px 0;
+    float: right; }
+  .aui .ui-selectmenu-menu .ui-menu {
+    padding-bottom: 0; }
+  .aui select.options-insights {
+    width: 150px; }
+  .aui .resource-form label {
+    margin-right: 10px; }
+  .aui .resource-form select.options-insights {
+    width: 300px; }
+  .aui .resource-doc-library {
+    display: block;
+    clear: both;
+    padding-top: 30px; }
+  .aui .resource-doc-library table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 50px; }
+  .aui .resource-doc-library td, .aui th {
+    border: 0;
+    text-align: left;
+    padding: 12px 8px; }
+  .aui .resource-doc-library td img {
+    margin-right: 10px;
+    vertical-align: middle; }
+  .aui .resource-doc-library th.name-lib {
+    width: 60%; }
+  .aui .resource-doc-library tr:nth-child(odd) {
+    background-color: #dddddd; }
+  .aui .forum-form {
+    margin: 48px 0 8px 0;
+    height: 50px;
+    border-bottom: 1px solid #7d7d7d; }
+  .aui .forum-form select.options-insights {
+    width: 180px; }
+  .aui .forum-form span {
+    float: left;
+    margin: 5px 8px 0 0; }
+  .aui .forum-form span:last-child {
+    margin: 0; }
+  .aui .user-img {
+    float: left;
+    margin: 0 8px 0 0; }
+  .aui .user-img img {
+    border-radius: 94px;
+    height: 24px;
+    width: 23px;
+    margin-bottom: 15px; }
+  .aui .user-info h4 {
+    margin: 5px 0;
+    font-weight: normal; }
+  .aui .discussion-board .user-info h4 {
+    font-size: 12px; }
+  .aui .discussion-board {
+    border-bottom: 1px solid #7d7d7d;
+    padding: 24px 0; }
+  .aui .discussion-board:last-child {
+    border-bottom: 0; }
+  .aui .discussion-board .bottomLinks {
+    overflow: hidden;
+    margin-top: 20px; }
+  .aui .discussion-board .title {
+    margin-bottom: 17px; }
+  .aui .bottomLinks .likes .icn {
+    font-size: 0px;
+    height: 15px;
+    width: 15px;
+    background: url(../images/sprite-heartbeat.png) no-repeat -325px -278px;
+    display: block;
+    float: left;
+    margin-right: 5px; }
+  .aui .bottomLinks .comment .icn {
+    font-size: 0px;
+    height: 15px;
+    width: 15px;
+    background: url(../images/sprite-heartbeat.png) no-repeat -357px -279px;
+    display: block;
+    float: left;
+    margin-right: 5px; }
+  .aui .bottomLinks .views .icn {
+    font-size: 0px;
+    height: 15px;
+    width: 17px;
+    background: url(../images/sprite-heartbeat.png) no-repeat -322px -304px;
+    display: block;
+    float: left;
+    margin-right: 5px; }
+  .aui .bottomLinks .category {
+    margin-bottom: 10px; }
+  .aui .bottomLinks .category strong {
+    color: #e88824; }
+  .aui .bottomLinks .category span {
+    color: #666; }
+  .aui .discussion-grouping {
+    float: left;
+    width: 289px; }
+  .aui .progress {
+    height: 13px;
+    margin-bottom: 6px;
+    overflow: hidden;
+    background-color: transparent;
+    background-image: none;
+    border-radius: 0;
+    box-shadow: none; }
+  .aui .progress-bar {
+    float: left;
+    width: 0;
+    height: 100%;
+    font-size: 12px;
+    line-height: 20px;
+    color: #fff;
+    text-align: center;
+    background-color: #e88824; }
+  .aui .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0; }
+  .aui .blogComments .paginat {
+    margin-top: 20px;
+    margin-bottom: 0px;
+    padding-bottom: 0px; }
+  .aui .paginat {
+    margin: 0 auto;
+    padding-bottom: 20px;
+    width: 280px; }
+  .aui ul.pagination {
+    display: inline-block;
+    padding: 0;
+    margin: 0; }
+  .aui ul.pagination li {
+    display: inline; }
+  .aui ul.pagination li a {
+    border: 1px solid #ddd;
+    color: #83a8cc;
+    float: left;
+    padding: 6px 12px;
+    text-decoration: none;
+    transition: background-color 0.3s ease 0s; }
+  .aui .pag-first > a {
+    color: #858687 !important; }
+  .aui ul.pagination li {
+    display: inline; }
+  .aui ul.pagination li a.active {
+    background-color: #eeeeee;
+    color: #2a2b2c; }
+  .aui ul.pagination li.pag-first a, .aui ul.pagination li.pag-last a {
+    padding: 6px 12px; }
+  .aui ul.pagination li a {
+    border: 1px solid #ddd;
+    color: #83a8cc;
+    float: left;
+    padding: 6px 12px;
+    text-decoration: none;
+    transition: background-color 0.3s ease 0s; }
+  .aui .rating-element.rating-thumb-up.icon-thumbs-up.rating-off,
+  .aui .rating-element.rating-thumb-up.icon-thumbs-up.rating-on {
+    background: rgba(0, 0, 0, 0) url("../images/sprite-heartbeat.png") no-repeat scroll -76px -279px;
+    height: 14px;
+    width: 15px;
+    text-indent: -9999px;
+    float: left;
+    margin-right: 6px;
+    opacity: 1;
+    margin-top: 3px; }
+  .aui .rating-element.rating-thumb-up.icon-thumbs-up.rating-on {
+    background-position: -98px -303px; }
+  .aui .taglib-ratings.thumbs .thumbrating .rating-label {
+    padding: 0;
+    display: inline-block; }
+  .aui .rating-element.rating-thumb-down.icon-thumbs-down.rating-off {
+    display: none; }
+  .aui .taglib-ratings .rating-content {
+    margin-right: 2px; }
+  .aui .taglib-ratings .rating-element {
+    padding: 0; }
+  .aui .discussionsWrap {
+    padding: 20px;
+    background: #fff;
+    box-shadow: 1px 1px 5px 2px #d9d9d9; }
+  .aui .discussionsWrap > h1 {
+    font-size: 32px;
+    font-weight: normal;
+    color: #eb4014;
+    padding: 0px;
+    margin: 0px;
+    line-height: 0.9; }
+  .aui .discussionsWrap .filter {
+    margin: 15px 0 25px 0; }
+  .aui .discussionsWrap .filter label {
+    margin-right: 9px;
+    display: inline-block;
+    line-height: 30px;
+    float: left;
+    font-weight: bold; }
+  .aui .discussionsWrap .filter select {
+    border-radius: 0px;
+    width: 280px;
+    height: 34px; }
+  .aui .discussionsWrap .filter input {
+    background: #3276b1;
+    color: #fff;
+    border: 0px;
+    margin: 0px;
+    padding: 14px;
+    line-height: 1;
+    font-size: 14px;
+    line-height: 0.8; }
+  .aui .discussionList {
+    clear: both; }
+  .aui .discussionList .post {
+    clear: both; }
+  .aui .discussionList .post .image {
+    overflow: hidden;
+    margin-right: 20px;
+    float: left; }
+  .aui .discussionList .post .image img {
+    width: 90px;
+    height: 90px;
+    border-radius: 94px;
+    border: 2px solid #fff; }
+  .aui .discussionList .post .lftContent {
+    float: left;
+    color: #636363;
+    font-size: 14px; }
+  .aui .discussionList .post .lftContent p {
+    padding: 0px;
+    margin: 0 0 10px 0;
+    line-height: 0.8;
+    color: #333333; }
+  .aui .discussionList .post .rytContent {
+    width: 500px; }
+  .aui .discussionList .post .rytContent h3 {
+    font-size: 16px;
+    color: #da6926;
+    margin: 0 0 8px 0;
+    line-height: 0.8;
+    padding: 0px; }
+  .aui .discussionList .post .rytContent h3 a, .aui .discussionList .post .rytContent h3 a:hover {
+    color: #da6926;
+    text-decoration: none; }
+  .aui .discussionList .post .rytContent p {
+    color: #333333;
+    line-height: 1.1;
+    padding: 0px; }
+  .aui .discussionList .post .bottomLinks .likes {
+    float: left;
+    margin-right: 10px;
+    line-height: 1; }
+  .aui .discussionCommentList .loadmore {
+    margin-bottom: 28px; }
+  .aui .discussionList .loadMore {
+    margin-top: 15px;
+    margin-bottom: 4px; }
+  .aui .discussionList .loadMore input {
+    color: #578ebe;
+    font-size: 14px;
+    border: 0px;
+    background: #fff;
+    padding: 14px 17px 16px 17px;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
+    line-height: 0.8; }
+  .aui .discussionCommentList {
+    clear: both;
+    margin-top: 39px; }
+  .aui .discussionCommentList .postComment .image {
+    overflow: hidden;
+    margin-right: 20px;
+    margin-bottom: 15px;
+    float: left; }
+  .aui .discussionCommentList .postComment .image img {
+    width: 90px;
+    height: 90px;
+    border-radius: 94px;
+    border: 2px solid #fff; }
+  .aui .discussionCommentList .postComment .content {
+    width: 706px;
+    float: left; }
+  .aui .discussionCommentList .postComment .content h2 {
+    font-size: 20px;
+    color: #da6926;
+    margin: 0 0 8px 0;
+    line-height: 0.8;
+    padding: 0px; }
+  .aui .discussionCommentList .postComment .content .title {
+    line-height: 0.9;
+    margin-bottom: 15px; }
+  .aui .discussionCommentList .postComment .content h4 {
+    margin: 0 0 9px 0;
+    padding: 0px;
+    line-height: 1;
+    color: #333333;
+    font-size: 12px; }
+  .aui .discussionCommentList .postComment .content span {
+    color: #636363; }
+  .aui .discussionCommentList .postComment .content p {
+    line-height: 1;
+    margin-bottom: 0px; }
+  .aui .discussionCommentList .postComment .content .likes {
+    float: left;
+    margin-right: 20px;
+    line-height: 1; }
+  .aui .discussionCommentList .postComment .content .likes .icn {
+    font-size: 0px;
+    height: 15px;
+    width: 15px;
+    display: block;
+    float: left;
+    margin-right: 5px; }
+  .aui .discussionCommentList .postComment .content .chat {
+    float: left;
+    margin-right: 20px;
+    line-height: 1; }
+  .aui .discussionCommentList .postComment .content .chat .icn {
+    font-size: 0px;
+    height: 15px;
+    width: 16px;
+    display: block;
+    float: left;
+    margin-right: 5px; }
+  .aui .discussionCommentList .postComment .content .sub {
+    float: left;
+    margin-right: 20px;
+    line-height: 1; }
+  .aui .discussionCommentList .postComment .content .sub .icn {
+    font-size: 0px;
+    height: 13px;
+    width: 12px;
+    background: url("../images/sprite-heartbeat.png") no-repeat -360px -302px;
+    display: block;
+    float: left;
+    margin-right: 5px; }
+  .aui .discussionCommentList .postComment hr {
+    border: 0px;
+    border-bottom: 1px solid #c1c1c1;
+    margin: 19px 0px 21px 0;
+    clear: both;
+    display: block; }
+  .aui .discussionCommentList .postComment textarea {
+    box-sizing: border-box;
+    border-radius: 0px;
+    resize: none;
+    padding: 15px;
+    box-shadow: none;
+    border-color: #c5c5c5;
+    width: 100%;
+    max-height: 60px; }
+  .aui .discussionCommentList .postComment .commentBtns {
+    margin-top: 10px;
+    clear: both;
+    height: 41PX; }
+  .aui .discussionCommentList .postComment .commentBtns a {
+    color: #959595;
+    font-weight: bold; }
+  .aui .discussionCommentList .postComment .commentBtns input {
+    background: #3276b1;
+    color: #fff;
+    border: 0px;
+    margin: 0px;
+    padding: 14px;
+    line-height: 1;
+    font-size: 14px;
+    line-height: 0.8; }
+  .aui .discussionCommentList .postComment .commentBtns input:hover {
+    background: #437eb1; }
+  .aui .messagePost {
+    width: 665px;
+    margin: 19px auto 0;
+    clear: both;
+    overflow: hidden; }
+  .aui .messagePost .image {
+    float: left;
+    margin-right: 10px; }
+  .aui .messagePost .image img {
+    width: 90px;
+    height: 90px;
+    border-radius: 94px;
+    border: 2px solid #fff; }
+  .aui .messagePost .form {
+    width: 560px;
+    float: left; }
+  .aui .messagePost .form h3 {
+    font-size: 14px;
+    padding: 0px;
+    line-height: 0.9;
+    margin: 0 0 0px 0; }
+  .aui .messagePost .form .control {
+    margin-top: 30px; }
+  .aui .messagePost .form label {
+    color: #333333;
+    margin: 0px 0 5px 0;
+    display: block;
+    padding-left: 0px; }
+  .aui .messagePost .form input[type='text'] {
+    border-radius: 0px;
+    border: 1px solid #c1c1c1;
+    height: 32px;
+    padding: 0px 5px;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0px; }
+  .aui .messagePost .form textarea {
+    border-radius: 0px;
+    border: 1px solid #c1c1c1;
+    padding: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    resize: none;
+    min-height: 78px; }
+  .aui .messagePost .form .bottomLink {
+    margin-top: 28px; }
+  .aui .messagePost .form .bottomLink .postMsg {
+    background: #3276b1;
+    color: #fff;
+    border: 0px;
+    margin: 0px;
+    padding: 14px;
+    line-height: 1;
+    font-size: 14px;
+    line-height: 0.8;
+    outline: none;
+    margin-left: 5px;
+    cursor: pointer; }
+  .aui .messagePost .form .bottomLink .postMsg:hover,
+  .aui .sharewrapper .bottomLink .postMsg:hover,
+  .aui .discussionCommentList .postComment .commentBtns input:hover,
+  .aui .articleCommentList .postComment .commentBtns input:hover,
+  .aui .article_art .postComment .commentBtns input:hover, .aui .srcmodify-con .postsearch:hover {
+    background: #255884;
+    cursor: pointer; }
+  .aui .messagePost .form .bottomLink .cancel {
+    color: #578ebe;
+    font-size: 14px;
+    border: 0px;
+    background: #fff;
+    padding: 14px 17px 16px 17px;
+    line-height: 0.8;
+    outline: none; }
+  .aui .messagePost .form .bottomLk6ink .cancel:hover {
+    background: #f2f2f2; }
+  .aui .discussionCommentList .postComment, .aui .discussionCommentList .postComment p {
+    clear: both;
+    display: block; }
+  .aui .discussion-info {
+    float: left;
+    width: 65%;
+    padding-bottom: 11px; }
+  .aui .discussion-social {
+    float: left; }
+  .aui .download-link-doc a {
+    color: #578ebe;
+    padding-bottom: 10px;
+    display: block; }
+  .aui #FileUpload {
+    position: relative; }
+  .aui #FileField {
+    background: #fff;
+    padding: 6.5px 6px !important;
+    border: 1px solid #e8e8e8;
+    width: 194px; }
+  .aui #BrowserVisible {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+    background: transparent url(../images/sprite-heartbeat.png) -260px -326px no-repeat;
+    width: 285px;
+    cursor: pointer;
+    width: 79px;
+    height: 37px;
+    margin-left: 200px;
+    display: inline;
+    position: absolute;
+    overflow: hidden;
+    margin-top: 0px; }
+  .aui #BrowserVisible:hover {
+    background: transparent url(../images/sprite-heartbeat.png) -260px -364px no-repeat; }
+  .aui .filebrowserclick {
+    position: relative;
+    height: 32px;
+    width: 232px;
+    display: inline;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    margin-left: -142px; }
+  .aui .prettycheckbox a {
+    width: 15px;
+    height: 15px;
+    background: url(../images/sprite-heartbeat.png) -360px -325px;
+    float: left;
+    margin-right: 10px; }
+  .aui .prettycheckbox a.checked {
+    background-position: -383PX -325px; }
+  .aui .custom-checkbox {
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    top: 0;
+    background: url(../images/sprite-heartbeat.png) -360px -325px;
+    float: left;
+    margin-right: 10px; }
+  .aui .custom-checkbox.selected {
+    background-position: -383PX -325px; }
+  .aui .custom-checkbox input[type="checkbox"] {
+    margin: 0;
+    position: absolute;
+    z-index: 2;
+    cursor: pointer;
+    outline: none;
+    opacity: 0;
+    _noFocusLine: expression(this.hideFocus=true);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: alpha(opacity=0);
+    -khtml-opacity: 0;
+    -moz-opacity: 0; }
+  .aui .changeNetworkHeader {
+    padding: 20px;
+    background: #fff;
+    box-shadow: 1px 1px 5px 2px #d9d9d9;
+    background-color: white; }
+  .aui .changeNetworkHeader h1 {
+    margin: 0 0 20px 0;
+    padding: 0px;
+    font-weight: normal;
+    font-size: 32px;
+    color: #eb4014; }
+  .aui .search-container {
+    background: #f2f2f2 none repeat scroll 0 0;
+    margin: 0 auto;
+    width: 701px;
+    padding: 20px 20px;
+    overflow: hidden; }
+  .aui .searcmodify {
+    float: left;
+    width: 625px; }
+  .aui #searchform {
+    margin: 0 auto;
+    width: 100%; }
+  .aui .searcmodify .keyword.search {
+    border: 1px solid #c1bfc0;
+    border-radius: 0;
+    color: #a7a6a6;
+    font-family: calibri;
+    font-size: 14px;
+    padding: 7px 20px;
+    width: 581px; }
+  .aui .searchbtn {
+    float: left;
+    width: 75px; }
+  .aui .srcmodify-con .postsearch {
+    height: 35px;
+    padding: 0 16px; }
+  .aui .postsearch {
+    background: #428bca none repeat scroll 0 0;
+    border: 0 none;
+    color: #fff;
+    font-size: 14px;
+    line-height: 0.8;
+    margin: 0 0 0 -2px;
+    outline: medium none;
+    padding: 14px; }
+  .aui .srcmodify-con .postsearch {
+    height: 36px;
+    padding: 0 16px; }
+  .aui .library_result {
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 20px 20px;
+    width: 701px; }
+  .aui .result_count {
+    float: left;
+    margin: 7px 0;
+    width: 78%; }
+  .aui .list_view {
+    float: left;
+    width: 22%; }
+  .aui .search_result .search_list {
+    display: inline-block;
+    list-style: outside none none;
+    margin: 0;
+    padding: 0;
+    width: 100%; }
+  .aui .search_result ul li {
+    border-bottom: 1px solid #ccc;
+    display: inline-block;
+    padding-bottom: 25px;
+    padding-left: 0 !important;
+    padding-right: 0;
+    padding-top: 25px; }
+  .aui .search_result ul li {
+    width: 100%; }
+  .aui .search_result .search_left {
+    float: left;
+    width: 12%; }
+  .aui .search_result .search_left h6 {
+    color: #949293;
+    font-size: 10px;
+    margin-top: 4px;
+    text-align: center;
+    text-transform: uppercase; }
+  .aui .search_result .search_right {
+    border-left: 1px solid #d5d3d4;
+    float: right;
+    padding-left: 20px;
+    width: 85%;
+    min-height: 79px; }
+  .aui .search_result .search_right h3, .aui .search_result .search_right h3 a {
+    color: #eb4014;
+    font: bold 14px calibri;
+    margin-top: 0; }
+  .aui .search_result .search_right p {
+    color: #333;
+    font: 13px Arial,Helvetica,sans-serif;
+    margin: 5px 0 16px; }
+  .aui .search_result .search_list p {
+    margin-bottom: 2px !important; }
+  .aui .changeNetworkHeader p {
+    line-height: 1;
+    margin-bottom: 20px; }
+  .aui .resultterm {
+    color: #eb4014; }
+  .aui .search_result ul li:last-child {
+    border: 0px; }
+  .aui .commentBtns.span12 {
+    margin-bottom: 10px; }
+  .aui .ts_add-doc span.icon2 {
+    background: rgba(0, 0, 0, 0) url(../images/sprite-heartbeat.png) no-repeat scroll -381px -358px;
+    float: left;
+    margin-top: 1px;
+    width: 40px; }
+  .aui .ts_add-doc.ezPub {
+    font-size: 12px;
+    margin-top: 8px; }
+  .aui .ts_add-doc.ezPub a {
+    font-size: 20px;
+    color: #eb4014;
+    text-decoration: none; }
+  .aui .show-hide-txt {
+    cursor: pointer;
+    font-size: 19px;
+    line-height: 2.4;
+    padding-left: 9px; }
+
+/*aui class ends*/
+

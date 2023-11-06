@@ -1,0 +1,171 @@
+@charset "utf-8";
+.aui span.step {
+  border: 0px !important;
+  background: none !important; }
+.aui .resultContainer {
+  border: 1px solid;
+  padding: 5px 15px 10px; }
+.aui .no_locked_rec_note {
+  font-weight: bold;
+  padding-left: 10px;
+  vertical-align: middle; }
+.aui .locked_rec_note {
+  font-weight: bold;
+  padding-left: 10px;
+  vertical-align: middle; }
+.aui .select_options {
+  background-color: #EB9900;
+  font-family: Arial, sans-serif;
+  /*	font-size: 11px;*/
+  padding-top: 2px;
+  height: 28px;
+  width: 930px; }
+.aui .wide_header_bar {
+  background-color: #EB9900;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  padding-top: 2px;
+  height: 40px;
+  width: 930px; }
+.aui .info_header_bar {
+  background-color: #E15F26;
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  padding-top: 2px;
+  height: 30px;
+  width: 930px; }
+.aui .small_text_box {
+  height: 16px;
+  width: 76px; }
+.aui .ui-timepicker-wrapper {
+  overflow-y: auto;
+  height: 150px;
+  width: 6.5em;
+  background: #fff;
+  border: 1px solid #ddd;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  outline: none;
+  z-index: 10001;
+  margin: 0; }
+.aui .ui-timepicker-wrapper.ui-timepicker-with-duration {
+  width: 11em; }
+.aui .ui-timepicker-list {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+.aui .ui-timepicker-duration {
+  margin-left: 5px;
+  color: #888; }
+.aui .ui-timepicker-list:hover .ui-timepicker-duration {
+  color: #888; }
+.aui .ui-timepicker-list li {
+  padding: 3px 0 3px 5px;
+  cursor: pointer;
+  white-space: nowrap;
+  color: #000;
+  list-style: none;
+  margin: 0; }
+.aui .ui-timepicker-list:hover .ui-timepicker-selected {
+  background: #fff;
+  color: #000; }
+.aui li.ui-timepicker-selected,
+.aui .ui-timepicker-list li:hover,
+.aui .ui-timepicker-list .ui-timepicker-selected:hover {
+  background: #1980EC;
+  color: #fff; }
+.aui li.ui-timepicker-selected .ui-timepicker-duration,
+.aui .ui-timepicker-list li:hover .ui-timepicker-duration {
+  color: #ccc; }
+.aui .ui-timepicker-list li.ui-timepicker-disabled,
+.aui .ui-timepicker-list li.ui-timepicker-disabled:hover,
+.aui .ui-timepicker-list li.ui-timepicker-selected.ui-timepicker-disabled {
+  color: #888;
+  cursor: default; }
+.aui .ui-timepicker-list li.ui-timepicker-disabled:hover,
+.aui .ui-timepicker-list li.ui-timepicker-selected.ui-timepicker-disabled {
+  background: #f2f2f2; }
+.aui .email_text {
+  width: 470px; }
+.aui .upload_ids_file {
+  padding: 1px !important;
+  width: 470px; }
+.aui .ui-timepicker-trigger {
+  margin-left: -3px;
+  height: 27px;
+  width: 27px; }
+.aui .ui-timepicker-wrapper {
+  width: 8.8em !important; }
+.aui span.header_note {
+  display: block;
+  font-size: 12px; }
+.aui tr.pub_tbl_header {
+  background-color: #D1D1D1;
+  font-size: 12px;
+  font-weight: bold; }
+.aui table.publish_hist_table tr.pub_tbl_header td {
+  border: medium none; }
+.aui table.publish_hist_table {
+  clear: both;
+  /*  margin-left: -17px;*/
+  width: 898px; }
+.aui table.publish_hist_table tr td {
+  font-size: 11px;
+  padding: 1px;
+  border-bottom: 1px dotted #000000;
+  padding: 5px; }
+.aui .locked_rec_cont_div {
+  padding-top: 3px; }
+.aui .release_rec_button {
+  font-size: 13px !important;
+  float: right;
+  margin: -27px 12px 0 0; }
+.aui .publishTooltip {
+  background-color: #7FFFD4 !important; }
+.aui .tooltip:hover span {
+  width: 240px; }
+.aui .reports {
+  padding: 10px;
+  display: none;
+  width: 350px;
+  min-height: 140px;
+  border: 1px solid #ccc;
+  z-index: 9999;
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  background-color: #fff;
+  -moz-box-shadow: 4px 4px 7px #444;
+  -webkit-box-shadow: 4px 4px 7px #444;
+  box-shadow: 4px 4px 7px #444;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#444444')";
+  filter: progid:DXImageTransform.Microsoft.Shadow(Strength=3, Direction=135, Color='#444444'); }
+.aui .reportsContent {
+  width: 340px;
+  float: left;
+  background: #ececec;
+  padding: 5px; }
+.aui .ui-datepicker {
+  width: 22em !important; }
+.aui .pub_email {
+  width: 190px;
+  word-break: break-all; }
+.aui .pub_email_header {
+  width: 190px; }
+.aui .pub_locale {
+  width: 80px;
+  word-break: break-all; }
+.aui .pub_locale_heared {
+  width: 80px; }
+.aui .pub_hist_email {
+  width: 190px;
+  word-break: break-all; }
+.aui .pub_hist_email_header {
+  width: 190px; }
+.aui .pub_hist_locale {
+  width: 90px;
+  word-break: break-all; }
+.aui .pub_hist_locale_heared {
+  width: 90px; }
+

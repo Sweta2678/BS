@@ -1,0 +1,59 @@
+###* This file allows you to override and define new Velocity variables. *###
+
+#set ($isIHGAdmin = false)
+#set ($isGlobalAdmin = false)
+#set ($isBridgeUser = false)
+#set ($isGemUser = false)
+#set ($isGemAdmin = false)
+#set ($isGemGlobalAdmin = false)
+#set ($isUserOnGEMScope = false)
+#set ($isUserOnBridgeScope = false)
+#set ($isCMSUser = false)
+#set ($isOBSMUser = false)
+
+#foreach ($role in $user.getRoles())
+	#if($role.getName() == "IHG Admin")
+		#set ($isIHGAdmin=true)
+	#elseif($role.getName() == "BRND_STND_ADMIN_PAGES_ACCESS")
+		#set ($isCMSUser = true)	
+	#elseif($role.getName() == "BRND_STND_HOTEL_ACCESS")
+		#set ($isOBSMUser = true)
+	#elseif($role.getName() == "BRND_STND_BRIDGE_GLBL_ADMIN")
+		#set ($isGlobalAdmin = true)
+		#set ($isBridgeUser = true)
+	#elseif($role.getName() == "BRND_STND_BRIDGE_AMEA_ADMIN" || $role.getName() == "BRND_STND_BRIDGE_AMER_ADMIN" 
+		|| $role.getName() == "BRND_STND_BRIDGE_EURO_ADMIN" || $role.getName() == "BRND_STND_BRIDGE_GC_ADMIN" )
+		#set ($isBridgeUser = true)
+	#elseif($role.getName() == "BRND_STND_GEM_ADMIN")
+		#set ($isGemUser = true)
+		#set ($isGemAdmin = true)
+	#elseif($role.getName() == "BRND_STND_GEM_GLBL_QL")
+		#set ($isGemUser = true)
+		#set ($isGemGlobalAdmin = true)
+	#elseif($role.getName() == "BRND_STND_GEM_AMEA_QL" || $role.getName() == "BRND_STND_GEM_AMER_QL" 
+		|| $role.getName() == "BRND_STND_GEM_EURO_QL" || $role.getName() == "BRND_STND_GEM_GC_QL" )
+		#set ($isGemUser = true)
+	#end
+#end
+
+#if ($has_navigation || $is_signed_in)
+	#if ($themeDisplay.getURLCurrent().contains("/gem/") || $themeDisplay.getURLCurrent().endsWith("/gem"))
+		#set ($isUserOnGEMScope = true)
+	#end
+	#if ($themeDisplay.getURLCurrent().contains("/bridge/") || $themeDisplay.getURLCurrent().endsWith("/bridge"))
+		#set ($isUserOnBridgeScope = true)
+	#end
+#end
+
+#set ($uiElementService = $serviceLocator.findService("BSBridge-portlet", "com.ihg.brandstandards.db.service.UIElementLocalService"))
+#set ($userPrefsService = $serviceLocator.findService("BSBridge-portlet", "com.ihg.brandstandards.db.service.UserPreferenceLocalService"))
+#set ($userPreferences = '')
+#if($isUserOnGEMScope == true)
+	#set ($userPreferences = $userPrefsService.getUserPreferencesByUserId($user_id, 'GEM'))
+#else
+	#set ($userPreferences = $userPrefsService.getUserPreferencesByUserId($user_id, 'BRIDGE'))
+#end
+
+#set ($chainCode = $userPreferences.getChainCode())
+#set ($uiElementMap = $uiElementService.loadUIElements('en_GB'))
+#parse ("$full_templates_path/bs_hotel_labels.vm")

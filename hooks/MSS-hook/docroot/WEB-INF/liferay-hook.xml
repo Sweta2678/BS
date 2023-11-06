@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hook PUBLIC "-//Liferay//DTD Hook 6.2.0//EN" "http://www.liferay.com/dtd/liferay-hook_6_2_0.dtd">
+
+<hook>	
+
+	<portal-properties>portal-mss.properties</portal-properties>
+	
+	<language-properties>content/Language_en.properties</language-properties>
+	
+	<custom-jsp-dir>/WEB-INF/custom_jsps</custom-jsp-dir>
+	
+	<custom-jsp-global>false</custom-jsp-global>
+	
+	<!-- WIKI -->
+	<service>
+		<service-type>com.liferay.portlet.wiki.service.WikiPageLocalService</service-type>
+		<service-impl>com.ihg.mss.service.wiki.MeetingPointWikiPageServiceImpl</service-impl>
+	</service>
+	
+	
+	<!-- Ratings ISSUES -->
+	<!-- <service>
+		<service-type>com.liferay.portlet.ratings.service.RatingsEntryLocalService</service-type>
+		<service-impl>com.ihg.mss.service.ratingsentry.MeetingPointRatingsEntryServiceImpl</service-impl>
+	</service> -->
+	
+	
+	<!-- Comments -->
+	<service>
+		<service-type>com.liferay.portlet.messageboards.service.MBMessageLocalService</service-type>
+		<service-impl>com.ihg.mss.service.messageboards.MeetingPointMessageboardLocalServiceImpl</service-impl>
+	</service>
+	
+	
+	<!-- Message Board Post -->
+	<!-- Following commented for Liferay 6.2 migration since no more permission-based query, so moved code to 'MeetingPointMessageboardLocalServiceImpl'
+	<service>
+		<service-type>com.liferay.portlet.messageboards.service.MBMessageService</service-type>
+		<service-impl>com.ihg.mss.service.messageboards.MeetingPointMessageboardServiceImpl</service-impl>
+	</service>
+	-->
+	
+	<!-- Poll Vote ISSUES -->
+	<!-- <service>
+		<service-type>com.liferay.portlet.polls.service.PollsVoteLocalService</service-type>
+		<service-impl>com.ihg.mss.service.polls.MeetingPointPollsServiceImpl</service-impl>
+	</service> -->
+	
+
+</hook>

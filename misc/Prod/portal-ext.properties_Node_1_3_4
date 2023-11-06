@@ -1,0 +1,850 @@
+setup.wizard.enabled=false	
+# Mar 16 2011
+# Niren Patel
+# Adding jdbc information for oracle
+
+
+jdbc.default.jndi.name=jdbc/LiferayPool
+mail.session.jndi.name=mail/MailSession
+session.cookie.domain=me2.ihgmerlin.com
+
+# Adding default port for http
+web.server.http.port=80
+web.server.https.port=443
+company.security.auth.requires.https=true
+web.server.protocol=https
+
+passwords.encryption.algorithm.legacy=SHA
+
+
+
+######## Node specific properties - STARTS
+
+#Following for all nodex EXCEPT for the node running background jobs
+scheduler.enabled=false
+
+######## Node specific properties - ENDS
+
+####################
+#### Peformance steps - WORK IN PROGRESS
+#### JAY PATEL - STARTS
+####################
+
+## log-in related
+auth.pipeline.enable.liferay.check=false
+auth.pipeline.pre=
+auth.pipeline.post=
+login.events.pre=
+login.events.post=com.liferay.portal.events.DefaultLandingPageAction,com.liferay.portal.events.LoginPostAction
+logout.events.pre=
+logout.events.post=com.liferay.portal.events.DefaultLogoutPageAction,com.liferay.portal.events.SiteMinderLogoutAction
+
+
+auto.login.hooks=com.liferay.portal.security.auth.SiteMinderAutoLogin
+com.liferay.portal.servlet.filters.sso.cas.CASFilter=false
+com.liferay.portal.servlet.filters.dynamiccss.DynamicCSSFilter=true
+com.liferay.portal.servlet.filters.sso.ntlm.NtlmFilter=false
+com.liferay.portal.servlet.filters.sso.ntlm.NtlmPostFilter=false
+com.liferay.portal.servlet.filters.sso.opensso.OpenSSOFilter=false
+com.liferay.portal.servlet.filters.servletauthorizing.ServletAuthorizingFilter=false
+com.liferay.portal.sharepoint.SharepointFilter=false
+com.liferay.portal.servlet.filters.validhostname.ValidHostNameFilter=false
+com.liferay.portal.servlet.filters.virtualhost.VirtualHostFilter=false
+com.liferay.portal.servlet.filters.strip.StripFilter=false
+com.liferay.portal.servlet.filters.validhtml.ValidHtmlFilter=false
+com.liferay.portal.servlet.filters.gzip.GZipFilter=false
+
+# JSP compilation
+direct.servlet.context.enabled=true
+direct.servlet.context.reload=false
+## non-factor as NOT part of LR 6.2 last.modified.check=false
+
+# Theme, JS fast load
+theme.images.fast.load=true
+theme.css.fast.load=true
+javascript.fast.load=true
+
+## LDAP properties - disabling this as crawler needs to take care of this
+ldap.import.method=user
+ldap.auth.enabled=false
+ldap.auth.required=false
+ldap.import.enabled=false
+ldap.import.on.startup=false
+ldap.import.interval=-1
+
+# counter increment
+counter.increment=1000
+
+# disable session tracking
+session.tracker.memory.enabled=false
+
+# disable live users monitoring
+live.users.enabled=false
+
+# disable trackback, pingback etc.
+blogs.trackback.enabled=false
+blogs.pingback.enabled=false
+message.boards.pingback.enabled=false
+blogs.ping.google.enabled=false
+blogs.linkback.job.interval=-1
+blogs.entry.check.interval=-1
+
+# disable default message board subscription, this saves resources as every time email job will not be executed by default when someone posts to a thread
+message.boards.subscribe.by.default=false
+message.boards.anonymous.posting.enabled=false
+
+# disable scheduler for message board ban/unban users
+message.boards.expire.ban.job.interval=-1
+message.boards.expire.ban.interval=-1
+
+# disable dl rank & its scheduler
+dl.file.rank.enabled=false
+dl.file.rank.check.interval=-1
+
+####################
+#### Peformance steps - WORK IN PROGRESS
+#### JAY PATEL - ENDS
+####################
+
+
+####################
+#### Custom Spring configs
+#### JAY PATEL - STARTS
+####################
+
+spring.configs=\
+        META-INF/base-spring.xml,\
+        \
+        META-INF/hibernate-spring.xml,\
+        META-INF/infrastructure-spring.xml,\
+        META-INF/management-spring.xml,\
+        \
+        META-INF/util-spring.xml,\
+        \
+        META-INF/jpa-spring.xml,\
+        \
+        META-INF/executor-spring.xml,\
+        \
+        META-INF/audit-spring.xml,\
+        META-INF/cluster-spring.xml,\
+        META-INF/editor-spring.xml,\
+        META-INF/jcr-spring.xml,\
+        META-INF/ldap-spring.xml,\
+        META-INF/messaging-core-spring.xml,\
+        META-INF/messaging-misc-spring.xml,\
+        META-INF/mobile-device-spring.xml,\
+        META-INF/notifications-spring.xml,\
+        META-INF/poller-spring.xml,\
+        META-INF/rules-spring.xml,\
+        META-INF/scheduler-spring.xml,\
+        META-INF/search-spring.xml,\
+	META-INF/ext-search-spring.xml,\	
+        META-INF/workflow-spring.xml,\
+        \
+        META-INF/counter-spring.xml,\
+        META-INF/mail-spring.xml,\
+        META-INF/portal-spring.xml,\
+        META-INF/portlet-container-spring.xml,\
+        META-INF/staging-spring.xml,\
+        META-INF/virtual-layouts-spring.xml,\
+        \
+        META-INF/monitoring-spring.xml,\
+        \
+        #META-INF/dynamic-data-source-spring.xml,\
+        #META-INF/shard-data-source-spring.xml,\
+        #META-INF/memcached-spring.xml,\
+        \
+        classpath*:META-INF/ext-spring.xml
+
+####################
+#### Custom Spring configs
+#### JAY PATEL - ENDS
+####################
+
+
+
+# Change session timeout to 360 minutes (6 hours)
+session.timeout=360
+
+auth.token.check.enabled=false
+
+#
+# Set the default layout template id.
+#
+#default.layout.template.id=Merlin1_2
+
+#
+# Set the layout template id of the public layout.
+#
+#default.guest.public.layout.template.id=Merlin1_2
+
+#
+# Set the layout template id of the private layout.
+#
+#default.user.private.layout.template.id=Merlin1_2
+
+#
+# Set the layout template id of the private layout.
+#
+#default.user.public.layout.template.id=Merlin1_2
+
+#
+# Set the default layout template id used when creating layouts.
+#
+#layout.default.template.id=Merlin1_2
+
+##
+## Nested Portlets Portlet
+##
+#nested.portlets.layout.template.default=Merlin1_2
+
+#
+# Set the name of a class that implements
+# com.liferay.documentlibrary.util.Hook. The
+# document library server will use this persist documents.
+#
+#dl.hook.impl=com.liferay.documentlibrary.util.AdvancedFileSystemHook
+#image.hook.impl=com.liferay.portal.image.FileSystemHook
+dl.store.impl=com.liferay.portlet.documentlibrary.store.AdvancedFileSystemStore
+image.hook.impl=com.liferay.portal.image.FileSystemHook
+
+
+#
+# FileSystemHook
+#
+#dl.hook.file.system.root.dir=/apps/mountnfs/merlin/docrep/document_library
+#image.hook.file.system.root.dir=/apps/mountnfs/merlin/docrep/image_library
+dl.store.file.system.root.dir=/apps/mountnfs/merlin/docrep/docrep62/document_library
+image.hook.file.system.root.dir=/apps/mountnfs/merlin/docrep/docrep62/image_library
+
+#
+# Set this to true to display the server name at the bottom of every page.
+# This is useful when testing clustering configurations so that you can know
+# which node you are accessing.
+#
+web.server.display.node=true
+
+#
+# Settings for importing users and groups from LDAP to the portal.
+#
+## Common LDAP Properties
+ldap.import.method=user
+ldap.auth.enabled=true
+ldap.auth.required=true
+ldap.import.enabled=false
+ldap.import.on.startup=false
+#ldap.export.enabled=false
+ldap.server.ids=0,1,2
+#ldap.import.interval=1440
+company.security.auth.type=screenName
+users.screen.name.allow.numeric=true
+
+# Enable live users
+#live.users.enabled=true
+
+# Allow external machines to access web services
+axis.servlet.hosts.allowed=localhost, 127.0.0.1, 10.163.55.26, 10.161.25.82, 172.16.246.189, 10.161.204.22, 10.161.25.82, 10.161.204.23, 10.161.204.21, 10.162.65.49, 10.163.54.25
+tunnel.servlet.hosts.allowed=localhost, 127.0.0.1, 10.162.65.49, 10.163.54.25
+
+
+#
+# Set this to true to enable reminder queries that are used to help reset a
+# user's password.
+#
+users.reminder.queries.enabled=false
+users.reminder.queries.custom.question.enabled=false
+
+#
+# Set this to true if all users are required to agree to the terms of use.
+#
+terms.of.use.required=false
+
+#	
+# Set this to false if you want to be able to create users without an email
+# address. An email address will be automatically assigned to a user based
+# on the property "users.email.address.auto.suffix".
+#
+users.email.address.required=false
+
+#
+# Set the suffix of the email address that will be automatically generated
+# for a user that does not have an email address. This property is not used
+# unless the property "users.email.address.required" is set to false. The
+# autogenerated email address will be the user id plus the specified suffix.
+#
+users.email.address.auto.suffix=@no-emailaddress.com
+
+
+
+# THIS SECTION SHOULD BE AT END OF FILE
+# Added on 03/16/2011 for clustering of tomcat
+
+#
+#net.sf.ehcache.configurationResourceName=/ehcache/hibernate-clustered.xml
+
+#
+#ehcache.multi.vm.config.location=/ehcache/liferay-multi-vm-clustered.xml
+
+## Added by Niren for turning off cache clustering due to prod clustering issue
+ehcache.single.vm.config.location=/myehcache/liferay-single-vm.xml
+ehcache.multi.vm.config.location=/myehcache/liferay-multi-vm.xml
+
+redirect.url.security.mode=domain
+redirect.url.domains.allowed=me2.ihgmerlin.com
+
+
+blogs.email.entry.added.enabled=false
+blogs.email.entry.added.subject=com/liferay/portlet/blogs/dependencies/email_entry_added_subject.tmpl
+blogs.email.entry.added.body=com/liferay/portlet/blogs/dependencies/email_entry_added_body.tmpl
+
+blogs.email.entry.updated.enabled=false
+blogs.email.entry.updated.subject=com/liferay/portlet/blogs/dependencies/email_entry_updated_subject.tmpl
+blogs.email.entry.updated.body=com/liferay/portlet/blogs/dependencies/email_entry_updated_body.tmpl
+
+blogs.email.comments.added.enabled=false
+blogs.email.comments.added.subject=com/liferay/portlet/blogs/dependencies/email_comments_added_subject.tmpl
+blogs.email.comments.added.body=com/liferay/portlet/blogs/dependencies/email_comments_added_body.tmpl
+
+#Dont show portlet if user does not have access
+layout.show.portlet.access.denied=false
+
+# For access to user object in Content Templates
+journal.template.velocity.restricted.variables=
+
+# Added by Vipul, until we get patch from Liferay to resolve file loading issue.
+dl.file.rank.enabled=false
+
+
+## Wall portlet 
+socialportlet.video.extensions=mp4,flv
+socialportlet.image.extensions=jpg,jpeg,gif,png
+
+## Name of the circle must match following for common circle
+socialportlet.all.circle.name=All Communities
+
+## Name of the community must match following for common community
+socialportlet.all.community.name=Guest
+
+## Following role must exist for common community role
+socialportlet.all.community.role.name=Guest
+
+
+
+
+####################
+### Created by Niren for "AMEA Conference"
+### Unique properties must be added to original portal-ext.properties
+### Duplicate properties must be carefully merged to existing portal-ext.properties
+####################
+
+########################### AMEA Conference Properties - STARTS - Niren ##########################
+
+asset.publisher.display.styles=table,title-list,abstracts,full-content,ihg-amea-partners,ihg-custom,ihg-amea-sessions,ihg-amea-speakers,ihg-amea-awards,ihg-amea-news,ihg-amea-latestNews,ihg-amea-travel-details,ihg-amea-registration,ihg-amea-photos,ihg-amer-speakers,ihg-amer-awards,ihg-amer-video-library,ihg-amer-partners,ihg-amer-landing
+
+ihg.amea.community.name=IHG-AMEA
+
+ihg.amea.blurbs.page=/blurbs
+
+ihg.amea.conference.display.style=ihg-amea-news
+ihg.amea.partners.display.style=ihg-amea-partners
+ihg.amea.speakers.display.style=ihg-amea-speakers
+ihg.amea.awards.display.style=ihg-amea-awards
+ihg.amea.sessions.display.style=ihg-amea-sessions
+ihg.amea.latest.conference.display.style=ihg-amea-latestNews
+ihg.amea.travel.details.display.style=ihg-amea-travel-details
+ihg.amea.registration.display.style=ihg-amea-registration
+ihg.amea.photos.display.style=ihg-amea-photos
+
+
+ihg.amea.award.winners.structure.name=ihg-amea-award-winner
+ihg.amea.award.winners.display.style=awards
+
+ihg.amea.programmeDetails.page=Programme Details
+ihg.amea.conferenceNews.page=Conference News
+ihg.amea.sessions.page=Sessions
+ihg.amea.multimedia.page=Multimedia
+ihg.amea.partners.page=Partners
+ihg.amea.travelDetails.page=Travel Details
+ihg.amea.postConference.page=Post Conference
+ihg.amea.speakers.page=Speakers
+ihg.amea.award.winners.page=Awards
+ihg.amea.blurbs.detail.page=Blurbs
+
+ihg.amea.award.speakers.page=/speakers
+ihg.amea.award.speakers.structure.name=ihg-amea-speakers
+
+ihg.amea.thumbnail.imagePath=/opt/ihg-amea
+
+ihg.amea.terms.condition.url=/terms-conditions
+ihg.amea.privacy.policy.url=/privacy-policy
+
+ihg.amea.faqs.url=/faqs
+ihg.amea.contact.us.url=/contact-us
+
+ihg.amea.content.videoURL=downloadVideosURL
+ihg.amea.content.imageURL=image
+ihg.amea.structure.news.comference=IHG_AMEA_CONFERENCE_NEWS
+ihg.amea.structure.sessions=IHG_AMEA_SESSIONS
+ihg.amea.conference.news.image.type=image/jpg
+ihg.amea.conference.news.image.extension=jpg
+
+ihg.google.analytics.account.id=UA-36461257-1
+
+ihg.amea.ga.action.header=Header Click
+ihg.amea.ga.action.navigation=Header Click
+ihg.amea.ga.action.footer=Footer Click
+ihg.amea.ga.action.sessions=Sessions Click
+ihg.amea.ga.action.conferenceNews=Conference News Click
+ihg.amea.ga.action.partners=Partners Click
+
+ihg.amea.ga.event.faqs=FAQs
+ihg.amea.ga.event.contactUs=Contact Us
+ihg.amea.ga.event.footer.agenda=Agenda
+ihg.amea.ga.event.footer.speakers=Speakers
+ihg.amea.ga.event.footer.awards=Awards
+ihg.amea.ga.event.footer.articles=Articles
+ihg.amea.ga.event.footer.blurbs=Blurbs
+ihg.amea.ga.event.footer.preConference=Pre Conference
+ihg.amea.ga.event.footer.day1=Day 1
+ihg.amea.ga.event.footer.day2=Day 2
+ihg.amea.ga.event.footer.day3=Day 3
+ihg.amea.ga.event.footer.day4=Day 4
+ihg.amea.ga.event.footer.photos=Photos
+ihg.amea.ga.event.footer.platinum=Platinum
+ihg.amea.ga.event.footer.gold=Gold
+ihg.amea.ga.event.footer.silver=Silver
+ihg.amea.ga.event.footer.bronze=Bronze
+ihg.amea.ga.event.footer.aboutAbuDhabi=About Abu Dhabi
+ihg.amea.ga.event.footer.arrivalInformation=Arrival Information
+ihg.amea.ga.event.footer.crownePlazaAbuDhabi=Crowne Plaza Abu Dhabi
+ihg.amea.ga.event.footer.travelTips=Travel Tips
+ihg.amea.ga.event.footer.privacyPolicy=Privacy Policy
+
+ihg.amea.ga.event.sessions.aboutSpeaker=About Speaker
+ihg.amea.ga.event.sessions.downloadPresentation=Download Presentation
+ihg.amea.ga.event.sessions.downloadVideos=Download Videos
+
+ihg.amea.ga.event.conferenceNews.readMore=Read More
+ihg.amea.ga.event.conferenceNews.videos=Videos
+
+
+ihg.amer.awards.display.style=ihg-amer-awards
+ihg.amer.speakers.display.style=ihg-amer-speakers
+ihg.amer.partners.display.style=ihg-amer-partners
+ihg.amer.video.display.style=ihg-amer-video-library
+ihg.amer.landing.display.style=ihg-amer-landing
+
+ihg.amer.blurbs.page=/blurbs
+
+
+ihg.amer.ga.action.partners=Partners Click
+########################### AMEA Conference Properties - ENDS - Niren ############################
+
+
+
+####################
+### Created by Jay for "Apps Store Sync Job"
+####################
+
+######## STARTS ########
+appssync.job.allowed.on.this.node=NO
+endeca.env.dim.id=8549+4294960574
+######## ENDS ##########
+
+
+####################
+### Created by Jay for "IHG Meeting Point"
+### Unique properties must be added to original portal-ext.properties
+### Duplicate properties must be carefully merged to existing portal-ext.properties
+####################
+
+########################### IHG Meeting Point Properties - STARTS - Jay ##########################
+
+	## DEV Sandbox
+	##bunchball.XML.host=http://sandbox.bunchball.net/nitro/xml
+	## Test Sandbox Outage
+	##bunchball.XML.host=http://ihgtest.nitro.bunchball.net/nitro/xml
+	## Production-QA
+	##bunchball.XML.host=https://ihgqa.nitro.bunchball.net/nitro/xml
+	## Production
+	bunchball.XML.host=https://ihg.nitro.bunchball.net/nitro/xml
+
+
+	## DEV Sandbox
+	##bunchball.JSON.host=http://sandbox.bunchball.net/nitro/json
+	## Test Sandbox Outage	
+	##bunchball.JSON.host=http://ihgtest.nitro.bunchball.net/nitro/json
+	## Production-QA	
+	## bunchball.JSON.host=https://ihgqa.nitro.bunchball.net/nitro/json
+	## Production	
+	bunchball.JSON.host=https://ihg.nitro.bunchball.net/nitro/json
+
+	
+		##DEV-SANDBOX-key
+	##nitro.IHG.apiKey=59df1ed4e6c14e6a88732c1e67aa92c2
+
+		##Production-QA-key
+	##nitro.IHG.apiKey=6b16284c7fe1411489a9686954ccb5f4
+
+		##Production
+	nitro.IHG.apiKey=59df1ed4e6c14e6a88732c1e67aa92c2
+
+
+
+		##IHG Server Environment i.e. Dev, QA or Prod, based on this Nitro JS will be loaded in Theme
+	ihg.server.environment=PROD
+	
+		##IHG Google Analytics AccountID
+	ihg.meetingpoint.google.analytics.acct.id=UA-35508357-2	
+
+		##All Meeting Point Community names + Meeting Point Parent community
+		##This can be avoided by making query to Sector table, but still that is DB operation :)
+		##No need to include "IHG Meeting Point" site in following list, as it is NOT gamified
+	meetingpoint.home.site.name=IHG Meeting Point
+	meetingpoint.site.names=IHG Meeting Point Auto,IHG Meeting Point Pharma,IHG Meeting Point Energy,IHG Meeting Point Medical Healthcare
+
+	mss.bunchball.merlin.session.keys=mssBunchballKeys
+	bunchball.login.session.key=bunchBallSessionKey
+	login.key.creation.time=keyCreationTime
+	time.before.key.expiration.days=28
+	nitro.user.custom.attribute.name=meetingPointAttributes
+	page.type.custom.attribute.name=mssLevelType
+	page.action.custom.attribute.name=mssPageAction	
+	nitro.level.preference.suffix=_Level
+	level.values.asc=Basic,Associate,Expert
+	level.value.basic=Basic
+	level.value.associate=Associate
+	level.value.expert=Expert
+	meetinpoint.level.friendlyurl.values=/basic,/associate,/expert,/store
+	meetinpoint.homesite.landingpage.friendlyurl=/home
+	
+
+		## Google translate
+	##meetingpoint.google.translate.key=AIzaSyD3-BjIVqNBHU6dB1RPrkz-NkNsbs3vGkc
+	meetingpoint.google.translate.key=AIzaSyAzTSo7D6VU9XI2qys6JbYtIE6C24nFhes
+	meetingpoint.google.translate.url=https://www.googleapis.com/language/translate/v2
+	meetingpoint.translate.languages=af~Afrikaans!sq~Albanian!ar~Arabic!be~Belarusian!bg~Bulgarian!ca~Catalan!zh~Chinese (Simplified)!zh-TW~Chinese (Traditional)!hr~Croatian!cs~Czech!da~Danish!nl~Dutch!en~English!eo~Esperanto!et~Estonian!tl~Filipino!fi~Finnish!fr~French!gl~Galician!de~German!el~Greek!ht~Haitian Creole!iw~Hebrew!hi~Hindi!hu~Hungarian!is~Icelandic!id~Indonesian!ga~Irish!it~Italian!ja~Japanese!ko~Korean!lv~Latvian!lt~Lithuanian!mk~Macedonian!ms~Malay!mt~Maltese!no~Norwegian!fa~Persian!pl~Polish!pt~Portuguese!ro~Romanian!ru~Russian!sr~Serbian!sk~Slovak!sl~Slovenian!es~Spanish!sw~Swahili!sv~Swedish!th~Thai!tr~Turkish!uk~Ukrainian!vi~Vietnamese!cy~Welsh!yi~Yiddish
+	
+		## Comments
+	page.type.custom.attribute.null.value=NULL
+	meetingpoint.comments.articleid.param.name=articleId
+	meetingpoint.comments.pageid.param.name=pageId
+	
+
+	## NITRO ACTION (TAG) NAMES ## 
+	
+				##Wiki
+			wiki.glossary.action.name.prefix=Wiki_
+			wiki.glossary.action.name.suffix=_Glossary
+			
+				##Poll
+			polls.vote.action.name.prefix=Poll_
+			
+				##Article Rate
+			article.rate.action.name.prefix=ArticleRate_			
+			
+				##Comments			
+			article.comments.action.name.prefix=ArticleComment_
+			feedback.challenge.comments.action.name.prefix=Discussion_	
+			
+				##Comments Thumbs-Up			
+			article.comments.thumbs.up.action.name.prefix=ArticleThumb_
+			feedback.challenge.comments.thumbs.up.action.name.prefix=DiscussionThumb_
+			social.wall.comments.thumbs.up.action.name.prefix=WallThumb_
+						
+				##Ratings		
+			ratings.webcontent.action.name.suffix=_Wiki_Glossary
+			
+				##SocialWall	
+			social.wall.start.thread.action.name.prefix=WallNewThread_
+			social.wall.post.comment.action.name.prefix=WallPost_
+			social.wall.upload.file.action.name.prefix=WallUpload_
+			##social.update.thread.comment.action.name.suffix=
+			
+	## NITRO PREFERENCE NAMES ##
+	nitro.preference.firstname=firstName
+	nitro.preference.lastname=lastName
+	
+	## Meeting Point Admin Role
+	meeting.point.admin.role.name=Meeting_Point_Admin
+
+	## Meeting Point UAT User Role
+	meeting.point.uat.role.name=Meeting_Point_UAT_User
+	
+	##Structure, template, web-content
+	feedback.challenge.structure.id=FEEDBACK_CHALLENGE
+	feedback.challenge.template.id=FEEDBACK_CHALLENGE
+
+
+	##Forms
+	##booking.form.action.name.suffix=_Associate_SubmitBookings
+	##accounts.potential.form.action.name.suffix=_Associate_BusDevTeam
+	##marketing.form.action.name.suffix=_Associate_SubmitLocalContacts
+	booking.form.action.name.suffix=_SubmitBookings
+	accounts.potential.form.action.name.suffix=_BusDevTeam
+	marketing.form.action.name.suffix=_SubmitLocalContacts
+	CUSTOMERS_NEEDED=_CUSTOMERS_NEEDED
+	SECTOR_RLVNT_FACILITIES=_SECTOR_RLVNT_FACILITIES
+	BIGGEST_SECTOR_CUSTOMERS =_BIGGEST_SECTOR_CUSTOMERS
+		
+	
+	##Friendly URLs
+	meeting.point.social.page.url=/social
+	meetingpoint.comments.page.friendlyurl.suffix=_comments
+	
+	
+	## Profile Images Path
+	pharma.basic.image=/Pharma_Basic_UberMission.jpg
+	pharma.associate.image=/Pharma_Associate_UberMission.jpg
+	pharma.expert.image=/Pharma_Expert_UberMission.jpg
+	auto.basic.image=/Auto_Basic_UberMission.jpg
+	auto.associate.image=/Auto_Associate_UberMission.jpg
+	auto.expert.image=/Auto_Expert_UberMission.jpg
+	energy.basic.image=/Energy_Basic.jpg
+	energy.associate.image=/Energy_Associate.jpg
+	energy.expert.image=/Energy_Expert.jpg
+	medical.basic.image=/Medical_Basic.jpg
+	medical.associate.image=/Medical_Associate.jpg
+	medical.expert.image=/Medical_Expert.jpg
+	
+	
+	## Timezone
+	ihg.timezone.utc=UTC
+	ihg.timezone.gmt=GMT
+	
+	liferay.oob.edit.portrait.url=/group/control_panel/manage?p_p_id=2&p_p_lifecycle=0&p_p_state=pop_up&p_p_mode=view&_2_struts_action=/my_account/edit_user_portrait
+
+
+########################### IHG Meeting Point Properties - ENDS - Jay ############################
+
+########################### IHG Revenue Management Properties - STARTS - Gaurang ############################
+ckeditor.height.config.portlets=MyWall_WAR_ME2socialportlet,Buzz_WAR_rmbuzzportlet,me2wall_WAR_me2wallportlet
+########################### IHG Revenue Management Properties - ENDS - Gaurang ############################
+
+article.service.hook.community.name=newsroom,App Store,End User Engagement,IHG Winning Champions Hub,Hotel Solutions,Political Action
+article.service.hook.community.tag.name=initiative,blog
+
+####################
+### Created by Bruce for "Sale Source"
+### Unique properties must be added to original portal-ext.properties
+### Duplicate properties must be carefully merged to existing portal-ext.properties
+####################
+
+
+########################### IHG Sales Source Properties - STARTS - Bruce ##########################
+
+asset.publisher.display.styles=table,title-list,abstracts,full-content,ihg-tss-lr-faqs,ihg-tss-lr-help
+
+ihg.tss.lr.faqs.display.style=ihg-tss-lr-faqs
+ihg.tss.lr.help.display.style=ihg-tss-lr-help
+ihg.tss.lr.help.page.title=GLOSSARY OF TERMS
+ihg.tss.lr.help.page.discription=Glossary terms are arranged in alphabetical order along with a brief definition. The Glossary provides definitions for terms and expressions that are commonly used for the IHG Sales Source
+ihg.tss.lr.searchable.content.structure=IHG_TSS_SEARCHABLE_CONTENT_STRUCTURE
+ihg.tss.lr.upload.folder.name=TSS Docs
+
+ihg.merlin.salessource.google.analytics.id=UA-10867344-9
+ihg.tss.lr.google.analytics.id=UA-10867344-9
+
+########################### IHG Sales Source Properties - ENDS - Bruce ############################
+
+####################
+### Created by Niren for Merlin Newsroom
+### Unique properties must be added to original portal-ext.properties
+### Duplicate properties must be carefully merged to existing portal-ext.properties
+####################
+
+########################### Merlin Newsroom Properties - STARTS - Niren ##########################
+
+ihg.merlin.newsroom.google.analytics.id=UA-36681905-1
+#article.service.hook.community.name=newsroom
+
+########################### Merlin Newsroom Properties - ENDS - Niren ##########################
+######################### Hotel Solutions Start - lakkars ##################
+
+ihg.hs.gmpathwayAccess.brandsandregion = AMER:HI;AMER:EX;AMER:RS;AMER:MA;AMER:MI;AMER:SP;AMER:SS;AMER:SL;AMER:FS;AMER:CP;AMER:IC;AMER:IN;AMER:SB;AMER:CW;EURO:HI;EURO:EX;EURO:RS;EURO:MA;EURO:MI;EURO:SP;EURO:SS;EURO:SL;EURO:FS;EURO:CP;EURO:IC;EURO:IN;EURO:SB;AMEA:HI;AMEA:EX;AMEA:RS;AMEA:MA;AMEA:MI;AMEA:SP;AMEA:SS;AMEA:SL;AMEA:FS;AMEA:CP;AMEA:IC;AMEA:SB;AMEA:AN;AMEA:NO;AMEA:IN;GC:HI;GC:EX;GC:RS;GC:MA;GC:MI;GC:SP;GC:SS;GC:SL;GC:FS;GC:CP;GC:IC;GC:SB;GC:AN;GC:NO;GC:IN;
+
+######################### Hotel Solutions End - lakkars #############
+
+## patch provided by lr support- added by Vineith ##
+ permissions.inline.sql.check.enabled=false
+###################################################
+
+###################### Social wall property Added by Hetal ###########################
+### Social Wall Properties
+#Email properties for social wall
+socialportlet.email.fromname=Merlin Wall Admin
+socialportlet.portlet.email.fromaddress=merlinwalladmin@ihg.com
+
+###################### End of socail wall property###########################
+
+##Added by Hetal Patel START ##
+## Add name of communities, which need LR OOTB email notification while requesting for memebership ##
+excluded.membershiprequest.email.notification.community.name=
+##Added by Hetal Patel END ##
+
+
+
+########
+# Niren Patel
+# Oct 17 2013 - Merlin 2
+########
+me2.old_merlin.url=https://www.ihgmerlin.com/portal/server.pt?
+me2.google_translation_id=c85949f8cf64f147-9bc209bd1c3c92f8-gb6c36b2bfb641f3a-11
+me2.google_translation.id=57847d9edd428c8c-7f25438c080da9b3-ge9bafe371125f208-13
+me2.uam.requests.url=https://www.ihgmerlin.com/portal/server.pt/gateway/PTARGS_0_0_25850_0_0_43/https%3B/eprov.globaloneteam.com/uam/ManageAccountGlobal/begin.do?rqstType=request
+me2.uam.accounts.url=https://www.ihgmerlin.com/portal/server.pt/gateway/PTARGS_0_0_25850_0_0_43/https%3B/eprov.globaloneteam.com/uam/ManageAccountGlobal/begin.do?rqstType=account
+me2.uam.dashboard.url=https://www.ihgmerlin.com/portal/server.pt/gateway/PTARGS_0_0_25850_0_0_43/https%3B/eprov.globaloneteam.com/uam/merlinUAMDashboard/begin.do
+
+#####
+# Vineith Kaul 10-21-2013 M2.1 Launch
+####################STARTS####################
+	resource.actions.configs=resource-actions/default.xml,resource-actions/default-ext.xml
+####################ENDS######################
+
+###################################################
+#	Add Merlin Search Metadata
+###################################################
+	meta-data-content-source-value=MERLIN
+	meta-data-content-type-department=DEPARTMENT
+	meta-data-content-type-teamspace=TEAMSPACE
+	meta-data-content-type-news-article=NEWS_ARTICLE
+	meta-data-content-type-application=APPLICATION
+	meta-data-content-type-hot-topics=HOT_TOPICS
+	meta-data-content-type-resource=RESOURCE
+	meta-data-content-type-link=LINK
+	meta-data-content-type-person=PERSON
+
+	tag-merlin=merlin
+	tag-teamspace=teamspace
+
+	structure-id-news=AWARDS,EVENTS,FEATURES,LATEST_STORIES,MOVERS_&_SHAKERS,PRESS_RELEASE,RESULTS,SUBMIT_YOUR_STORY
+	structure-id-apps=APPLICATION
+	structure-id-hot-topics=HOT_TOPICS_DETAILS
+
+	news-room-community-name=Newsroom
+	app-stor-community-name=App Store
+	merlin-community-name=Merlin
+	
+#### Properties  for Generic Merlin Global Search like: Conferences , Initiatives etc.. ##############################
+## Add comma separated list of tags, Group associated with this tags, will be available in Global search for specific components
+
+## Add group tag name to make web-content of that group available in merlin global search ###
+wc-search-tag-list=initiative-active,conference,blog
+
+## Add group tag name to make document-library of that group available in merlin global search ###
+dl-search-tag-list=initiative-active,conference,our-people,about-ihg
+
+## Add group tag name to make bookmark of that group available in merlin global search ###
+bookmark-search-tag-list=initiative-active,our-people,about-ihg
+
+## Add group tag name to make community available in merlin global search ###
+community-search-tag-list=initiative-active,conference
+
+## Add group tag name to make organization available in merlin global search ###
+org-search-tag-list=our-people,about-ihg
+
+## Add structure-id of web content to make available in merlin global search ###
+valid-structure-id-list=ALL_BULLETINS_DETAILS,IHG_AMER_NEWS_ROOM,CONF_NEWS,MERLIN_BLOGS
+
+## If tag (initiative) added in above property then need to provide values to below key
+wc-content-type-initiative-active=HOT_TOPICS
+resource-content-type-initiative-active=RESOURCE
+link-content-type-initiative-active=LINK
+parent-content-type-initiative-active=Initiative
+parent-content-link-initiative-active=/web/initiatives/home
+
+## If tag (conference) added in above property then need to provide values to below key
+wc-content-type-conference=WC_CONF
+resource-content-type-conference=RESOURCE
+link-content-type-conference=LINK
+parent-content-type-conference=Conference
+parent-content-link-conference=/web/conferences/home
+
+## If tag (our-people) added in above property then need to provide values to below key
+wc-content-type-our-people=WC_OUR_PEOPLE
+resource-content-type-our-people=RESOURCE
+link-content-type-our-people=LINK
+parent-content-type-our-people=Our_People
+parent-content-link-our-people=/web/our-people/home
+
+## If tag (about-ihg) added in above property then need to provide values to below key
+wc-content-type-about-ihg=WC_ABOUT_IHG
+resource-content-type-about-ihg=RESOURCE
+link-content-type-about-ihg=LINK
+parent-content-type-about-ihg=About_IHG
+parent-content-link-about-ihg=/web/about-ihg/home
+
+## If tag (blog) added in above property then need to provide values to below key
+wc-content-type-blog=WC_BLOG
+parent-content-type-blog=blog
+parent-content-link-blog=/web/news/blogs
+	
+
+###################################################################
+# Hetal Patel
+# Nov 14 2013 - Merlin 2
+# 1 Property to read Peopel Directory WS URL
+###################################################################
+peopledb.service.url=http://ihgpdbupdate.hiw.com/peopledbservice-1.3/services/PeopleDBService
+
+#Appended Properties on 12/19/13
+layout.user.private.layouts.auto.create=false
+layout.user.private.layouts.enabled=false
+layout.user.private.layouts.modifiable=false
+layout.user.private.layouts.power.user.required=false
+layout.user.public.layouts.auto.create=false
+layout.user.public.layouts.enabled=false
+layout.user.public.layouts.modifiable=false
+layout.user.public.layouts.power.user.required=false
+
+#
+# Set number items per page on Liferay pagination widget
+#
+search.container.page.delta.values=5,10,20,30,50,75,100
+
+# Adding below velocity properties to render the variables on theme templates
+velocity.engine.restricted.classes=
+velocity.engine.restricted.variables=
+
+#
+# Set this property to restrict parallel rendering
+#
+layout.parallel.render.enable=false
+
+#
+# A file extension of * will permit all file extensions.
+# Below property was removed from 6.2 source code but we have used in our code so put it back
+ig.image.extensions=.bmp,.gif,.jpeg,.jpg,.png,.tif,.tiff
+
+#header.properties for hotel auto-complete in me2-hfd-portlet - 01-13-2015
+endecaURL=https://adcptlsearchp2:18000
+endecaPath=/ws/getHotelTypeAhead
+PDFXSLT=/Merlin/global/config/xslt/HotelSolutions/Home Page/Home_download.xsl
+
+
+############# Properties added for Hotel dashboard to get winning matrices information ############
+############# By Hetal - 01-08-2015  PROD property is set ############################
+hpdd.winning.tool.name=WinningTool
+providerURL=http://adcfinp10.hiw.com:19000/aps/JAPI
+analyticServerName=adcfinp13
+userName=javaapi
+password=merlin10
+Obi.Dashboard.Link=https://ihgobi.hiw.com/analytics/
+############# END ############################
+
+
+
+
+index.sortable.text.fields=firstName,jobTitle,lastName,name,screenName,title,customModified
+
+
+
+dynamic.data.mapping.structure.force.autogenerate.key=false
+
+public.site.host.name=development.ihg.com
+
+################ Journal Article Configure email notification settings. #######################################
+journal.email.article.added.enabled=false
+journal.email.article.review.enabled=false
+journal.email.article.updated.enabled=false
+###############################################################################################################

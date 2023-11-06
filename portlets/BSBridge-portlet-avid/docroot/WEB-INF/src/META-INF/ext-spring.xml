@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	default-destroy-method="destroy" default-init-method="afterPropertiesSet"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="brandstandDataSourceTarget" class="com.liferay.portal.spring.jndi.JndiObjectFactoryBean" lazy-init="true">
+		<property name="jndiName">
+			<value>brandstandDataSource</value>
+		</property>
+	</bean>
+	
+	<bean id="brandstandDataSource" class="org.springframework.jdbc.datasource.LazyConnectionDataSourceProxy" lazy-init="true">
+		<property name="targetDataSource" ref="brandstandDataSourceTarget" />
+	</bean>
+
+	<bean id="liferayHibernateSessionFactory" class="com.liferay.portal.spring.hibernate.PortletHibernateConfiguration" lazy-init="true">
+		<property name="dataSource" ref="brandstandDataSource" />
+	</bean>
+	
+	<bean id="BRNDSTNDSessionFactory" class="com.liferay.portal.dao.orm.hibernate.SessionFactoryImpl" lazy-init="true">		
+		<property name="sessionFactoryImplementor" ref="liferayHibernateSessionFactory" />
+	</bean>
+	
+</beans>

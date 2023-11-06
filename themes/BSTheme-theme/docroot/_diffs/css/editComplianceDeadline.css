@@ -1,0 +1,51 @@
+.aui {
+.apply_link,.apply_link1,.cancel_link,.cancel_link1,.apply_expiry_date_link,.cancel_expiry_date_link,.apply_expiry_date_link1,.cancel_expiry_date_link1,.region_apply_link,.region_cancel_link,.region_apply_expiry_date_link,.region_cancel_expiry_date_link{display: none;}
+.edit_link,.edit_expiry_date_link, .edit_link1,.apply_link,.apply_link1,.cancel_link,.cancel_link1,.apply_expiry_date_link,.cancel_expiry_date_link,.apply_expiry_date_link1,.cancel_expiry_date_link1 ,.region_apply_link,.region_cancel_link,.region_apply_expiry_date_link,.region_cancel_expiry_date_link,.edit_expiry_date_link,.region_edit_expiry_date_link,.edit_expiry_date_link1,.region_edit_link{text-decoration: underline;}
+#accordion table td {padding: 5px 0px;}
+.edit_comp_deadline table.results_table, .edit_comp_deadline table.results_table tr {border:0;}
+
+#accordion #compliance_admin_edit_table td{
+	padding:5px;
+	border:1px solid #ccc;
+	}	
+#accordion .comp_edit_title td {
+	background-color:#959595;
+	color:#FFF;
+	font-weight:bold;
+	}
+#accordion #comp_edit_table_no_border td {
+	border: 0px;
+	padding:0px;
+}
+#accordion a {
+	cursor:pointer;
+	color:blue;
+}
+.amendAll{
+border:1px solid #ccc;
+margin:10px 0;
+}
+.amendAll h3 {
+	background-color:#959595;
+	color:#FFF;
+	border:1px solid #ccc;
+}
+.blankTd {
+border-bottom: none;
+background-color:#959595;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

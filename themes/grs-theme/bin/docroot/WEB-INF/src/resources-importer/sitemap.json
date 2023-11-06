@@ -1,0 +1,22 @@
+{
+	"layoutTemplateId": "2_columns_iii",
+	"publicPages": [
+		{
+			"friendlyURL": "/home",
+			"name": "Welcome",
+			"title": "Welcome"
+		},
+		{
+			"friendlyURL": "/feedback",
+			"name": "Feedback",
+			"title": "Feedback",
+			"columns": [
+				[
+					{
+						"portletId": "feedback_WAR_grsportlet"
+					}
+				]
+			]
+		}
+	]
+}

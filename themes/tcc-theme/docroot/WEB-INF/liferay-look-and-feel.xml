@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE look-and-feel PUBLIC "-//Liferay//DTD Look and Feel 6.2.0//EN" "http://www.liferay.com/dtd/liferay-look-and-feel_6_2_0.dtd">
+
+<look-and-feel>
+	<compatibility>
+		<version>6.2.10+</version>
+	</compatibility>
+	<theme id="tcc" name="Tcc">
+		<settings>
+			<setting key="portlet-setup-show-borders-default" value="false"></setting>
+			<setting key="homepage-promo-article-url-title" value="homepage-promo-article"></setting>
+			<setting key="homepage-promo-popup-url-title" value="home_page_promo"></setting>
+			<setting key="book-agent-travel-promotion-details" value="book-agent-travel-homepage-promotion"></setting>
+			<setting key="book-client-travel-promotion-details" value="book-client-travel-homepage-promotion"></setting>
+			<setting key="agent-promotion-home-page-promotion-details" value="agent-promotion-home-page-promotion"></setting>
+			<setting key="client-promotion-home-page-promotion-details" value="client-promotion-home-page-promotion"></setting>
+			<setting key="ihg-site-main-url" value="http://www.ihg.com/"></setting>
+			<setting key="ihg-news-and-release-site-url" value="http://www.ihgplc.com/index.asp?pageid=57"></setting>
+			<setting key="site-home-page-url" value="/web/tcc/home"></setting>
+			<setting key="ihg-reward-club-external-url" value="http://www.ihg.com/rewardsclub/us/en/home"></setting>
+			<setting key="luxury-travel" value="Luxury Travel"></setting>
+			<setting key="signature-preferred-hotel-program" value="Signature Preferred Hotel Program"></setting>
+			<setting key="virtuoso-preferred-hotel-program" value="Virtuoso Preferred Hotel Progam"></setting>
+		</settings>
+	</theme>
+
+</look-and-feel>

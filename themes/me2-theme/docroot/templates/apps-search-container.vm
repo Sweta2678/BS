@@ -1,0 +1,8 @@
+<div class="apps-home-search-container fRight">
+	<form name="pageSearchFormName" onsubmit="pageSearchFormSubmit(this); return false;" title="Search Form">
+		<div class="rightpanelSearchContainer">
+			<input id="formSearchKeywords" name="q" onblur="onBlurValidation(this)" onfocus="onFocusValidation(this)" title="Search Applications" type="text" value="Search Applications" /> 
+			<label for="header-submit" title="Header Submit"> <input id="header-submit" name="header-submit-name" onclick="pageSearchFormSubmit(this); return false;" title="Click To Search" type="button" /> </label>
+		</div>
+	</form>
+</div>

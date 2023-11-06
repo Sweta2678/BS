@@ -1,0 +1,774 @@
+package com.ihg.brandstandards.db.service.persistence;
+
+import java.math.BigDecimal;
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+
+import com.ihg.brandstandards.custom.gem.model.GEMScoreModel;
+import com.ihg.brandstandards.custom.gem.model.QualityLeadModel;
+import com.ihg.brandstandards.db.model.GEMQlReport;
+import com.ihg.brandstandards.gem.util.GemConstants;
+import com.ihg.brandstandards.gem.util.GemQueryUtils;
+import com.liferay.portal.kernel.dao.orm.SQLQuery;
+import com.liferay.portal.kernel.dao.orm.Session;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.service.persistence.impl.BasePersistenceImpl;
+
+public class GEMQlReportFinderImpl extends BasePersistenceImpl<GEMQlReport>
+		implements GEMQlReportFinder {
+	private static final Log LOG = LogFactoryUtil
+			.getLog(GEMQlReportFinderImpl.class);
+
+	public List<QualityLeadModel> getGEMQlReport(long parentPublishId,
+			long publishId, long regionId, String regionCd, String brandCd,
+			String stdIdLst, String stdStatus, String stdOwner,
+			long seCategory, String stdRegion, boolean isGlobalUser) {
+		long start = new Date().getTime();
+		String query = GemQueryUtils.getGemQLFormRecordsQuery(parentPublishId,
+				publishId, regionId, regionCd, brandCd, stdIdLst, stdStatus,
+				stdOwner, seCategory, stdRegion,
+				GemConstants.MANUAL_TYPE_OPERATE);
+		if (LOG.isDebugEnabled()) {
+			LOG.debug("getGemQLFormRecords Query : " + query);
+		}
+
+		List<QualityLeadModel> records = new ArrayList<QualityLeadModel>();
+		Session session = null;
+		try {
+			session = openSession();
+			SQLQuery q = session.createSQLQuery(query.toString());
+			@SuppressWarnings("unchecked")
+			List<Object> list = (List<Object>) q.list();
+
+			for (int i = 0; i < list.size(); i++) {
+				Object[] obj = (Object[]) list.get(i);
+				QualityLeadModel model = new QualityLeadModel();
+				model.setIndexId(((BigDecimal) obj[0]).longValue());
+				model.setIndexPrntId(((BigDecimal) obj[1]).longValue());
+				model.setIndexTitle((String) obj[2]);
+				model.setIndexLevel(((BigDecimal) obj[3]).longValue());
+				model.setIndexHerarchyLevel(((BigDecimal) obj[4]).longValue());
+				model.setIndexPath((String) obj[5]);
+				model.setStdId(((BigDecimal) obj[6]).longValue());
+				model.setParentStdId(((BigDecimal) obj[7]).longValue());
+				model.setStdType((String) obj[8]);
+				model.setStdTitle((String) obj[9]);
+				model.setRegionCd((String) obj[10]);
+				// model.set(gbl_rgn_ind);
+				// model.set(framework_std_ind);
+				model.setGlobalOrRegional((String) obj[13]);
+				model.setStdStatus((String) obj[14]);
+				model.setStdStatusDesc((String) obj[15]);
+				model.setId(((BigDecimal) obj[16]).longValue());
+				model.setPublishId(((BigDecimal) obj[17]).longValue());
+				model.setBucketId(((BigDecimal) obj[18]).longValue());
+				model.setBucketDesc((String) obj[19]);
+				model.setSeverityId(((BigDecimal) obj[20]).longValue());
+				model.setSeverityDesc((String) obj[21]);
+				model.setMeasurementId(((BigDecimal) obj[22]).longValue());
+				model.setMeasurementDesc((String) obj[23]);
+				model.setTriggerId(((BigDecimal) obj[24]).longValue());
+				model.setTriggerDesc((String) obj[25]);
+				model.setCategoryId(((BigDecimal) obj[26]).longValue());
+				model.setCategoryDesc((String) obj[27]);
+				int seSeqNo = ((BigDecimal) obj[28]).intValue();
+				model.setSeSquence(String.valueOf(seSeqNo));
+				model.setInPublication(((BigDecimal) obj[29]).intValue());
+				model.setUserId((String) obj[30]);
+				model.setStdOwner((String) obj[31]);
+				model.setStdCategory((String) obj[32]);
+				model.setComplDueId(((BigDecimal) obj[33]).intValue());
+				model.setComplDueDesc((String) obj[34]);
+				model.setCmplyRuleDate((String) obj[35]);
+				model.setCatgyDisplayOrder(((BigDecimal) obj[36]).intValue());
+				model.setDisplayOrder(((BigDecimal) obj[37]).intValue());
+				model.setGlobalMust((String) obj[38]);
+				records.add(model);
+			}
+
+		} catch (Exception e) {
+			LOG.info("Failed Query : " + query);
+			LOG.error("Failed to execute query", e);
+		} finally {
+			LOG.info("getGEMQlReport took: " + (new Date().getTime() - start)
+					+ "ms");
+			if (session != null) {
+				closeSession(session);
+			}
+		}
+
+		return records;
+	}
+	
+	public List<QualityLeadModel> getGEMQlReport(String query) {
+		long start = new Date().getTime();
+		if (LOG.isDebugEnabled()) {
+			LOG.debug("getGemQLFormRecords Query : " + query);
+		}
+
+		List<QualityLeadModel> records = new ArrayList<QualityLeadModel>();
+		Session session = null;
+		try {
+			session = openSession();
+			SQLQuery q = session.createSQLQuery(query.toString());
+			@SuppressWarnings("unchecked")
+			List<Object> list = (List<Object>) q.list();
+
+			for (int i = 0; i < list.size(); i++) {
+				Object[] obj = (Object[]) list.get(i);
+				QualityLeadModel model = new QualityLeadModel();
+				model.setIndexId(((BigDecimal) obj[0]).longValue());
+				model.setIndexPrntId(((BigDecimal) obj[1]).longValue());
+				model.setIndexTitle((String) obj[2]);
+				model.setIndexLevel(((BigDecimal) obj[3]).longValue());
+				model.setIndexHerarchyLevel(((BigDecimal) obj[4]).longValue());
+				model.setIndexPath((String) obj[5]);
+				model.setStdId(((BigDecimal) obj[6]).longValue());
+				model.setParentStdId(((BigDecimal) obj[7]).longValue());
+				model.setStdType((String) obj[8]);
+				model.setStdTitle((String) obj[9]);
+				model.setRegionCd((String) obj[10]);
+				model.setGlobalOrRegional((String) obj[13]);
+				model.setStdStatus((String) obj[14]);
+				model.setStdStatusDesc((String) obj[15]);
+				model.setId(((BigDecimal) obj[16]).longValue());
+				model.setPublishId(((BigDecimal) obj[17]).longValue());
+				model.setBucketId(((BigDecimal) obj[18]).longValue());
+				model.setBucketDesc((String) obj[19]);
+				model.setSeverityId(((BigDecimal) obj[20]).longValue());
+				model.setSeverityDesc((String) obj[21]);
+				model.setMeasurementId(((BigDecimal) obj[22]).longValue());
+				model.setMeasurementDesc((String) obj[23]);
+				model.setTriggerId(((BigDecimal) obj[24]).longValue());
+				model.setTriggerDesc((String) obj[25]);
+				model.setCategoryId(((BigDecimal) obj[26]).longValue());
+				model.setCategoryDesc((String) obj[27]);
+				int seSeqNo = ((BigDecimal) obj[28]).intValue();
+				model.setSeSquence(String.valueOf(seSeqNo));
+				model.setInPublication(((BigDecimal) obj[29]).intValue());
+				model.setUserId((String) obj[30]);
+				model.setStdOwner((String) obj[31]);
+				model.setStdCategory((String) obj[32]);
+				model.setComplDueId(((BigDecimal) obj[33]).intValue());
+				model.setComplDueDesc((String) obj[34]);
+				model.setCmplyRuleDate((String) obj[35]);
+				model.setCatgyDisplayOrder(((BigDecimal) obj[36]).intValue());
+				model.setDisplayOrder(((BigDecimal) obj[37]).intValue());
+				model.setGlobalMust((String) obj[38]);
+				model.setStdManualType((String) obj[39]);
+				records.add(model);
+			}
+
+		} catch (Exception e) {
+			LOG.info("Failed Query : " + query);
+			LOG.error("Failed to execute query", e);
+		} finally {
+			LOG.info("getGEMQlReport took: " + (new Date().getTime() - start)
+					+ "ms");
+			if (session != null) {
+				closeSession(session);
+			}
+		}
+
+		return records;
+	}
+
+	public boolean saveGEMQlReport(List<QualityLeadModel> records,
+			long publishDeptId, long parentPublishId, long publishId,
+			long regionId, String userName, boolean isGlobalUser,
+			boolean isReSequence) {
+		long start = new Date().getTime();
+		String query = GemQueryUtils.getGemSaveQuery(records, publishDeptId,
+				parentPublishId, publishId, regionId, userName, isReSequence,
+				isGlobalUser);
+		LOG.debug("saveGEMQlReport query:" + query);
+
+		boolean success = true;
+		Connection conn = null;
+		CallableStatement colstmt = null;
+		try {
+			conn = getDataSource().getConnection();
+			colstmt = conn.prepareCall(query);
+			colstmt.executeQuery();
+		} catch (SQLException e) {
+			success = false;
+			LOG.debug("Failed Save GEMQlReport Query: " + query);
+			LOG.error("Save GEMQlReport", e);
+		} finally {
+			LOG.debug("saveGEMQlReport took: " + (new Date().getTime() - start)
+					+ "ms");
+			closeConnection(conn, colstmt);
+		}
+		return success;
+	}
+
+	public boolean populateScoringCounts(long puiblishDeptId,
+			long parentPublishId, long publishId, long seTemplateId,
+			long regionId, String userName) {
+		if (LOG.isDebugEnabled()) {
+			LOG.debug("publish department Id :"+ puiblishDeptId);
+			LOG.debug("publish Id :"+ publishId);
+			LOG.debug("parent publish Id :"+ parentPublishId);
+		}
+		String query = GemQueryUtils.getGemScoringQuery(puiblishDeptId,
+				parentPublishId, publishId, seTemplateId, regionId, userName);
+
+		LOG.debug("populateScoringCounts Query: " + query);
+
+		boolean success = true;
+		Connection conn = null;
+		CallableStatement colstmt = null;
+		try {
+			conn = getDataSource().getConnection();
+			colstmt = conn.prepareCall(query);
+			colstmt.executeQuery();
+		} catch (SQLException e) {
+			success = false;
+			LOG.debug("populateScoringCounts Query: " + query);
+			LOG.error("populateScoringCounts", e);
+		} finally {
+			closeConnection(conn, colstmt);
+		}
+
+		return success;
+	}
+
+	public synchronized boolean syncBridgeGEMQlReport(long actvGemDeptId, long actvGemPublishDeptId,
+			long brdgPublishId, long actvGemPublishId, long regionId, String regionCd,
+			String brandCd, String screenName, String userName, String seManualType, 
+			String saManualType, String wrManualType,boolean isGlobalUser) {
+		long start = new Date().getTime();
+		/*String query = GemQueryUtils.syncBridgeGEMQlReport(publishDeptId, prntPublishId, publishId, regionId, regionCd, brandCd, userName, GemConstants.MANUAL_TYPE_OPERATE);*/
+		String query = GemQueryUtils.syncBridgeGEMQlReport(actvGemDeptId, actvGemPublishDeptId, brdgPublishId, 
+				actvGemPublishId, regionId, regionCd, brandCd, screenName, userName, seManualType, saManualType, wrManualType);
+		boolean success = true;
+		Connection conn = null;
+		CallableStatement colstmt = null;
+		try {
+			conn = getDataSource().getConnection();
+			colstmt = conn.prepareCall(query);
+			// colstmt.registerOutParameter(0, Types.VARCHAR);
+			colstmt.executeQuery();
+			// Check whether to re-generate SA groups or not
+			/*
+			 * if ("N".equals(colstmt.getString(0))) { success = false; }
+			 */
+		} catch (SQLException e) {
+			success = false;
+			LOG.error("Failed syncBridgeGEMQlReport", e);
+		} finally {
+			LOG.debug("syncBridgeGEMQlReport took: "
+					+ (new Date().getTime() - start) + "ms");
+			LOG.debug("syncBridgeGEMQlReport Query: " + query);
+			closeConnection(conn, colstmt);
+		}
+
+		return success;
+	}
+
+	public boolean updateQlWithDataFromLastPublication(long curPublishId,
+			long regionId) {
+		boolean success = true;
+		long lstPublishId = getLastGEMPublishId(curPublishId);
+		if (lstPublishId > 0 && curPublishId != lstPublishId) {
+			success = updateQlWithDataFromPublication(curPublishId,
+					lstPublishId, regionId);
+		}
+		return success;
+	}
+
+	public boolean updateQlWithDataFromPublication(long curPublishId,
+			long lstPublishId, long regionId) {
+		long start = new Date().getTime();
+		StringBuilder query = new StringBuilder();
+
+		query.append("DECLARE ");
+		query.append("  l_lst_publish_id NUMBER := ").append(lstPublishId)
+				.append("; ");
+		query.append("  l_cur_publish_id NUMBER := ").append(curPublishId)
+				.append("; ");
+		query.append("  l_rgn_id NUMBER := ").append(regionId).append("; ");
+		query.append("  CURSOR l_cur IS ");
+		query.append("  SELECT qlty_lead_rpt_id, std_id, gem_mgt_bucket_id, gem_severity_id, gem_msrmnt_id, ");
+		query.append("  gem_trigger_id, gem_catgy_id, disp_order_nbr, rgn_id, cmply_due_dy_qty ");
+		query.append("  FROM qlty_lead_rpt ");
+		query.append("  WHERE publish_id = l_lst_publish_id AND rgn_id = l_rgn_id; ");
+		query.append("BEGIN ");
+		query.append("  FOR rec IN l_cur LOOP ");
+		query.append("   UPDATE qlty_lead_rpt ");
+		query.append("   SET gem_mgt_bucket_id = rec.gem_mgt_bucket_id, gem_severity_id = rec.gem_severity_id, gem_msrmnt_id = rec.gem_msrmnt_id, ");
+		query.append("   gem_trigger_id = rec.gem_trigger_id, gem_catgy_id = rec.gem_catgy_id, disp_order_nbr = rec.disp_order_nbr, ");
+		query.append("   cmply_due_dy_qty = rec.cmply_due_dy_qty ");
+		query.append("   WHERE publish_id = l_cur_publish_id ");
+		query.append("   AND std_id = rec.std_id ");
+		query.append("   AND rgn_id = rec.rgn_id; ");
+		query.append("  END LOOP; ");
+		query.append("  COMMIT; ");
+		query.append("END; ");
+
+		boolean success = true;
+		Connection conn = null;
+		CallableStatement colstmt = null;
+		try {
+			conn = getDataSource().getConnection();
+			colstmt = conn.prepareCall(query.toString());
+			colstmt.executeQuery();
+		} catch (SQLException e) {
+			success = false;
+			LOG.debug("populateQlFromLastPublication Query: " + query);
+			LOG.error("Failed populateQlFromLastPublication", e);
+		} finally {
+			LOG.debug("populateQlFromLastPublication took: "
+					+ (new Date().getTime() - start) + "ms");
+			closeConnection(conn, colstmt);
+		}
+		return success;
+	}
+
+	public long getQlCountByPublishIdRegionId(long publishId, long regionId) {
+		StringBuilder query = new StringBuilder();
+		query.append("SELECT count(*) FROM qlty_lead_rpt WHERE publish_id = ")
+				.append(publishId).append(" AND rgn_id = ").append(regionId);
+
+		long count = 0;
+		Session session = null;
+		try {
+			session = openSession();
+			SQLQuery q = session.createSQLQuery(query.toString());
+			List list = q.list();
+			if (list != null && !list.isEmpty()) {
+				count = ((BigDecimal) list.get(0)).longValue();
+			}
+		} catch (Exception e) {
+			LOG.debug("Failed Query : " + query);
+			LOG.error("Failed fetch getQlCountByPublishIdRegionId", e);
+		} finally {
+			if (session != null) {
+				closeSession(session);
+			}
+		}
+
+		return count;
+	}
+
+	public long getLastGEMPublishId(long publishId) {
+		StringBuilder query = new StringBuilder();
+		query.append("SELECT * FROM (SELECT prnt_publish_id FROM publish WHERE publish_environment_nm IN ('GEM_CMS', 'GEM_OBSM') ");
+		query.append("AND chain_cd = (SELECT chain_cd FROM publish WHERE publish_id = ");
+		query.append(publishId)
+				.append(") AND publish_stat_cd = 'ARCHIVE' ORDER BY creat_ts DESC) WHERE rownum = 1 ");
+
+		long lstPublishId = 0;
+		Session session = null;
+		try {
+			session = openSession();
+			SQLQuery q = session.createSQLQuery(query.toString());
+			List list = q.list();
+			if (list != null && !list.isEmpty()) {
+				lstPublishId = ((BigDecimal) list.get(0)).longValue();
+			}
+		} catch (Exception e) {
+			lstPublishId = 0;
+		} finally {
+			if (session != null) {
+				closeSession(session);
+			}
+		}
+
+		return lstPublishId;
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<String> getStdOwners(long publishId, long regionId,
+			String regionCd) {
+		StringBuilder query = new StringBuilder();
+		query.append("SELECT DISTINCT s.bus_owner_nm ");
+		query.append("FROM std s, bridge_publish b ");
+		query.append("WHERE b.publish_id = ").append(publishId).append(" ");
+		query.append("AND s.std_id = b.std_id ");
+		query.append("AND b.rgn_id = ").append(regionId).append(" ");
+
+		List<String> owners;
+		Session session = null;
+		try {
+			session = openSession();
+			SQLQuery q = session.createSQLQuery(query.toString());
+			owners = (List<String>) q.list();
+		} catch (Exception e) {
+			owners = new ArrayList<String>();
+			LOG.debug("Failed Query : " + query);
+			LOG.error("Failed to execute query", e);
+		} finally {
+			if (session != null) {
+				closeSession(session);
+			}
+		}
+
+		return owners;
+	}
+
+	private void closeConnection(Connection conn, CallableStatement colstmt) {
+		if (colstmt != null) {
+			try {
+				colstmt.close();
+			} catch (SQLException e) {
+				LOG.error(e);
+			}
+		}
+		if (conn != null) {
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				LOG.error(e);
+			}
+		}
+	}
+
+	public Map<String, String> getGemBktSeverityCatgyCounts(long seTemplateId) {
+		StringBuilder query = new StringBuilder(
+				"SELECT GEM_MGT_BUCKET_ID, GEM_SEVERITY_ID, GEM_MSRMNT_ID, GEM_SUB_RGN_CD FROM GEM_MSRMNT_BUCKET_CHAIN WHERE");
+		query.append(" GEM_MSRMNT_ID IN (SELECT GEM_MSRMNT_ID FROM GEM_MSRMNT WHERE GEM_TEMPLATE_ID=");
+		query.append(seTemplateId);
+		query.append(")");
+		Map<String, String> gemBktSeverityCatgyCounts = new LinkedHashMap<String, String>();
+
+		Session session = null;
+		try {
+			session = openSession();
+			SQLQuery sqlQuery = session.createSQLQuery(query.toString());
+			List results = sqlQuery.list();
+			if (results != null && results.size() > 0) {
+				for (int i = 0; i < results.size(); i++) {
+					Object[] obj = (Object[]) results.get(i);
+					String key = obj[0] + "_" + obj[1] + "_" + obj[2];
+					gemBktSeverityCatgyCounts.put(key, (String) obj[3]);
+				}
+			}
+		} catch (Exception e) {
+			LOG.debug("getGemBktSeverityCatgyCounts Failed query: "
+					+ query.toString());
+			LOG.error(
+					"Failed to get GEM Bucket Servity Categories Counts for gemTemplateIds:"
+							+ seTemplateId, e);
+		} finally {
+			if (session != null) {
+				closeSession(session);
+			}
+		}
+		return gemBktSeverityCatgyCounts;
+	}
+
+	public Map<String, String> getGemBktSeverityCatgyTotalCounts(
+			long seTemplateId) {
+		StringBuilder query = new StringBuilder(
+				"SELECT sp.PUBLISH_ID, sp.RGN_ID, sp.GEM_MGT_BUCKET_ID, sp.GEM_SEVERITY_ID, sv.TOT_MSRMNT_QTY, sv.NET_MSRMNT_QTY , sv.NON_COMPLIANT_MSRMNT_QTY,");
+		query.append(" sp.COMPLIANT_QTY, sp.COMPLIANT_DENOMINATOR_QTY, sp.NON_COMPLIANT_QTY, sp.NON_COMPLIANT_DENOMINATOR_QTY");
+		query.append(" FROM GEM_TEMPLATE t, GEM_SCOR_PT sp, SCORING_VAL sv WHERE t.PUBLISH_ID=sp.PUBLISH_ID AND t.RGN_ID=sp.RGN_ID");
+		query.append(" AND sp.GEM_SCOR_PT_ID=sv.SCORING_VAL_ID AND t.GEM_TEMPLATE_ID=");
+		query.append(seTemplateId);
+		Map<String, String> gemBktSeverityCatgyTotalCounts = new LinkedHashMap<String, String>();
+
+		Session session = null;
+		try {
+			session = openSession();
+			SQLQuery sqlQuery = session.createSQLQuery(query.toString());
+			List results = sqlQuery.list();
+			if (results != null && results.size() > 0) {
+				for (int i = 0; i < results.size(); i++) {
+					Object[] obj = (Object[]) results.get(i);
+					String totalQtyKey = obj[2] + "_" + obj[3] + "_totalQty";
+					String netQtyKey = obj[2] + "_" + obj[3] + "_netQty";
+					String nonComplQtyKey = obj[2] + "_" + obj[3]
+							+ "_nonComplQty";
+					gemBktSeverityCatgyTotalCounts.put(totalQtyKey,
+							(String.valueOf(obj[4])));
+					gemBktSeverityCatgyTotalCounts.put(netQtyKey,
+							(String.valueOf(obj[5])));
+					gemBktSeverityCatgyTotalCounts.put(nonComplQtyKey,
+							(String.valueOf(obj[6])));
+				}
+			}
+		} catch (Exception e) {
+			LOG.debug("getGemBktSeverityCatgyTotalCounts Failed query: "
+					+ query.toString());
+			LOG.error(
+					"Failed to get GEM Bucket Servity Categories Total Counts for gemTemplateIds:"
+							+ seTemplateId, e);
+		} finally {
+			if (session != null) {
+				closeSession(session);
+			}
+		}
+		return gemBktSeverityCatgyTotalCounts;
+	}
+
+	public String getScoringHeaderCounts(long seTemplateId,long gemDepartmentId) {
+		StringBuilder query = new StringBuilder();
+		query.append("SELECT sp.gem_mgt_bucket_id, ");
+		query.append("b.gem_bucket_nm || ': ' || LISTAGG(decode(s.gem_severity_nm, 'Important', 'I:', 'Critical', 'C:', 'Auto Fail', 'A:') || ");
+		query.append("sv.non_compliant_msrmnt_qty || ' ') WITHIN GROUP (ORDER BY sp.gem_mgt_bucket_id, sp.gem_severity_id) ");
+		query.append("FROM gem_template t, gem_scor_pt sp, scoring_val sv, gem_mgt_bucket b, gem_severity s ");
+		query.append("WHERE t.publish_id = sp.publish_id ");
+		query.append("AND t.rgn_id = sp.rgn_id ");
+		query.append("AND sp.gem_scor_pt_id = sv.scoring_val_id ");
+		query.append("AND sp.gem_mgt_bucket_id = b.gem_mgt_bucket_id ");
+		query.append("AND sp.gem_severity_id = s.gem_severity_id ");
+		query.append("AND t.gem_template_id = ");
+		query.append(seTemplateId);
+		query.append("AND b.gem_dept_id= ");
+		query.append(gemDepartmentId);
+		query.append(" GROUP BY b.gem_bucket_nm, sp.gem_mgt_bucket_id ");
+		query.append("ORDER BY sp.gem_mgt_bucket_id ");
+		StringBuilder headerData = new StringBuilder();
+
+		Session session = null;
+		try {
+			session = openSession();
+			SQLQuery sqlQuery = session.createSQLQuery(query.toString());
+			List results = sqlQuery.list();
+			if (results != null && results.size() > 0) {
+				for (int i = 0; i < results.size(); i++) {
+					Object[] obj = (Object[]) results.get(i);
+					String bucketCounts = (String) obj[1];
+
+					if (bucketCounts.startsWith("IHG Way")) {
+						bucketCounts = bucketCounts.replaceAll("0", "");
+					}
+					headerData.append(bucketCounts);
+				}
+			}
+		} catch (Exception e) {
+			LOG.debug("getGemBktSeverityCatgyTotalCounts Failed query: "
+					+ query.toString());
+			LOG.error(
+					"Failed to get GEM Bucket Servity Categories Total Counts for gemTemplateIds:"
+							+ seTemplateId, e);
+		} finally {
+			if (session != null) {
+				closeSession(session);
+			}
+		}
+		return headerData.toString();
+	}
+
+	public List<GEMScoreModel> getScoringPoints(long publishId, long regionId) {
+		StringBuilder query = new StringBuilder();
+		query.append("SELECT sp.gem_scor_pt_id, sp.compliant_qty, sp.compliant_denominator_qty, sp.non_compliant_qty,  ");
+		query.append("sp.non_compliant_denominator_qty, sv.tot_msrmnt_qty, sv.net_msrmnt_qty, sv.non_compliant_msrmnt_qty, ");
+		query.append("sp.gem_mgt_bucket_id, sp.gem_severity_id, ");
+		query.append("(SELECT gem_severity_nm FROM gem_severity WHERE gem_severity_id = sp.gem_severity_id) severity_nm, ");
+		query.append("(SELECT gem_bucket_nm FROM gem_mgt_bucket WHERE gem_mgt_bucket_id = sp.gem_mgt_bucket_id) bucket_nm ");
+		query.append("FROM gem_scor_pt sp, scoring_val sv ");
+		query.append("WHERE sp.publish_id = ").append(publishId).append(" ");
+		query.append("AND sp.rgn_id = ").append(regionId).append(" ");
+		query.append("AND sp.gem_scor_pt_id = sv.scoring_val_id ");
+
+		List<GEMScoreModel> scorePts = new ArrayList<GEMScoreModel>();
+		Session session = null;
+		try {
+			session = openSession();
+			SQLQuery sqlQuery = session.createSQLQuery(query.toString());
+			@SuppressWarnings("unchecked")
+			List<Object> list = (List<Object>) sqlQuery.list();
+
+			for (int i = 0; i < list.size(); i++) {
+				Object[] obj = (Object[]) list.get(i);
+				GEMScoreModel model = new GEMScoreModel();
+				model.setScorPntId(((BigDecimal) obj[0]).longValue());
+				model.setCmplNumerator(((BigDecimal) obj[1]).longValue());
+				model.setCmplDenominator(((BigDecimal) obj[2]).longValue());
+				model.setNonCmplNumerator(((BigDecimal) obj[3]).longValue());
+				model.setNonCmplDenominator(((BigDecimal) obj[4]).longValue());
+				model.setTotalMsrmnt(((BigDecimal) obj[5]).longValue());
+				model.setNetMsrmnt(((BigDecimal) obj[6]).longValue());
+				model.setNonCmplMsrmnt(((BigDecimal) obj[7]).longValue());
+				model.setBucketId(((BigDecimal) obj[8]).longValue());
+				model.setSeverityId(((BigDecimal) obj[9]).longValue());
+				model.setSeverityName((String) obj[10]);
+				model.setBucketName((String) obj[11]);
+
+				scorePts.add(model);
+			}
+		} catch (Exception e) {
+			LOG.debug("getScoringPoint Failed query: " + query.toString());
+			LOG.error("Failed to get getScoringPoint", e);
+		} finally {
+			if (session != null) {
+				closeSession(session);
+			}
+		}
+
+		return scorePts;
+	}
+
+	public boolean setScoringPoints(List<GEMScoreModel> scorePoints) {
+		StringBuilder query = new StringBuilder();
+		query.append("BEGIN ");
+
+		for (GEMScoreModel model : scorePoints) {
+			query.append("UPDATE gem_scor_pt SET compliant_qty = ").append(
+					model.getCmplNumerator());
+			query.append(", compliant_denominator_qty = ").append(
+					model.getCmplDenominator());
+			query.append(", non_compliant_qty = ").append(
+					model.getNonCmplNumerator());
+			query.append(", non_compliant_denominator_qty = ").append(
+					model.getNonCmplDenominator());
+			query.append(" WHERE gem_scor_pt_id = ")
+					.append(model.getScorPntId()).append(" ; ");
+		}
+
+		query.append(" COMMIT; ");
+		query.append("END; ");
+
+		boolean success = true;
+		Connection conn = null;
+		CallableStatement colstmt = null;
+		try {
+			conn = getDataSource().getConnection();
+			colstmt = conn.prepareCall(query.toString());
+			colstmt.executeQuery();
+		} catch (SQLException e) {
+			success = false;
+			LOG.debug("setScoringPoints Query: " + query);
+			LOG.error("Failed to setScoringPoints", e);
+		} finally {
+			closeConnection(conn, colstmt);
+		}
+		return success;
+	}
+
+	public boolean isGlobalMustNotSelectedForMeasurement(long publishId,
+			long regionId) {
+		StringBuilder query = new StringBuilder();
+		query.append("SELECT count(*) cnt ");
+		query.append("FROM qlty_lead_rpt ");
+		query.append("WHERE publish_id = ").append(publishId).append(" ");
+		query.append("AND rgn_id = ").append(regionId).append(" ");
+		query.append("AND gbl_must_measure_std_ind = 'Y' ");
+		query.append("AND (gem_mgt_bucket_id = 0 OR gem_severity_id = 0 OR gem_catgy_id = 0) ");
+
+		boolean glblMustNotSelected = false;
+		Session session = null;
+		try {
+			session = openSession();
+			SQLQuery sqlQuery = session.createSQLQuery(query.toString());
+			Object results = sqlQuery.uniqueResult();
+			if (results != null) {
+				long count = ((BigDecimal) results).longValue();
+				glblMustNotSelected = count > 0 ? true : false;
+			}
+		} catch (Exception e) {
+			LOG.debug("Global Must not selected for measuements query: "
+					+ query.toString());
+			LOG.error("Failed to get count for not measured global must", e);
+		} finally {
+			if (session != null) {
+				closeSession(session);
+			}
+		}
+		return glblMustNotSelected;
+	}
+	
+	/**
+	 * 
+	 * @param query
+	 * @return Map<String,String>
+	 */
+	public Map<String,String> getReportManualTypes (String query) {
+		Session session = null;
+		Map<String,String> result = new HashMap<String, String>();
+		try {
+			session = openSession();
+			SQLQuery q = session.createSQLQuery(query.toString());
+			@SuppressWarnings("unchecked")
+			List<Object> list = (List<Object>) q.list();
+			if (list != null && list.size() > 0) {
+				for (int i =0; i < list.size(); i++) {
+					Object[] obj = (Object[]) list.get(i);
+					result.put((String) obj[0], (String) obj[1]);
+				}
+			}
+		} catch (Exception e) {
+			LOG.error(e.getMessage(), e);
+		} finally {
+			if (session != null) {
+				closeSession(session);
+			}
+		}
+		return result;
+	}
+
+	public Map<String, String> getGemPathFilterData(String query) {
+		Session session = null;
+		Map<String, String> result = new HashMap<String, String>();
+		try {
+			session = openSession();
+			SQLQuery q = session.createSQLQuery(query.toString());
+			@SuppressWarnings("unchecked")
+			List<Object> list = (List<Object>) q.list();
+			if (list != null && list.size() > 0) {
+				for (int i = 0; i < list.size(); i++) {
+					Object[] obj = (Object[]) list.get(i);
+					result.put(obj[0]+"_"+obj[2], (String) obj[2]);
+				}
+			}
+		} catch (Exception e) {
+			LOG.error(e.getMessage(), e);
+		} finally {
+			if (session != null) {
+				closeSession(session);
+			}
+		}
+		return result;
+	}
+	
+	public List<QualityLeadModel> getApplicableBrandsByStdId(long deptId, long stdId, long regionId){
+		List<QualityLeadModel> records = new ArrayList<QualityLeadModel>();
+		
+		String query = GemQueryUtils.getApplicableBrandsByStdId(deptId, stdId, regionId);
+		
+		Session session = null;
+		try {
+			session = openSession();
+			SQLQuery q = session.createSQLQuery(query);
+			@SuppressWarnings("unchecked")
+			List<Object> list = (List<Object>) q.list();
+
+			for (int i = 0; i < list.size(); i++) {
+				Object[] obj = (Object[]) list.get(i);
+				QualityLeadModel model = new QualityLeadModel();
+				
+				model.setChainCode((String) obj[0]);
+				model.setId(((BigDecimal) obj[1]).longValue());				
+				model.setStdId(((BigDecimal) obj[2]).longValue());
+				model.setCategoryId(((BigDecimal) obj[3]).longValue());
+				model.setCategoryDesc((String) obj[4]);				
+				model.setBucketId(((BigDecimal) obj[5]).longValue());
+				model.setBucketDesc((String) obj[6]);
+				model.setSeverityId(((BigDecimal) obj[7]).longValue());
+				model.setSeverityDesc((String) obj[8]);
+				
+				records.add(model);
+			}
+
+		} catch (Exception e) {
+			LOG.info("Failed Query : " + query);
+			LOG.error("Failed to execute query", e);
+		} finally {			
+			if (session != null) {
+				closeSession(session);
+			}
+		}
+		
+		return records;
+	}
+}

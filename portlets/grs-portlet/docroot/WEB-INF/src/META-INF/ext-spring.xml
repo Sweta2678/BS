@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	
+	<!-- for GRS DB configuration -->
+	
+	<bean id="grsDataSourceTarget" class="com.liferay.portal.spring.jndi.JndiObjectFactoryBean" lazy-init="true">
+ 		<property name="jndiName">
+ 			<value>jdbc/GRS_COMM</value>
+ 		</property>
+ 	</bean>
+ 	<bean id="grsDataSource" class="org.springframework.jdbc.datasource.LazyConnectionDataSourceProxy" lazy-init="true">
+ 		<property name="targetDataSource">
+ 			<ref bean="grsDataSourceTarget" />
+ 		</property>
+ 	</bean>	
+ 	
+ 	<bean id="grsHibernateSessionFactory" class="com.liferay.portal.spring.hibernate.PortletHibernateConfiguration" lazy-init="true">
+		<property name="dataSource" ref="grsDataSource" />
+	</bean>
+
+	<bean id="grsSessionFactory" class="com.liferay.portal.dao.orm.hibernate.SessionFactoryImpl" lazy-init="true">
+		<property name="sessionFactoryImplementor" ref="grsHibernateSessionFactory" />
+	</bean>	
+</beans>
+ 
+

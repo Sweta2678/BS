@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+
+<deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+	<service name="Plugin_bsservices_JobQueueService" provider="java:RPC" style="rpc" use="encoded">
+		<parameter name="wsdlTargetNamespace" value="urn:http.service.db.brandstandards.ihg.com" />
+		<parameter name="wsdlServiceElement" value="JobQueueServiceSoapService" />
+		<parameter name="schemaUnqualified" value="urn:http.service.db.brandstandards.ihg.com,http://model.db.brandstandards.ihg.com" />
+		<parameter name="wsdlServicePort" value="Plugin_bsservices_JobQueueService" />
+		<parameter name="className" value="com.ihg.brandstandards.db.service.http.JobQueueServiceSoap" />
+		<parameter name="wsdlPortType" value="JobQueueServiceSoap" />
+		<parameter name="typeMappingVersion" value="1.2" />
+		<operation xmlns:operNS="urn:http.service.db.brandstandards.ihg.com" xmlns:rtns="http://model.db.brandstandards.ihg.com" name="addJobQueue" qname="operNS:addJobQueue" returnQName="addJobQueueReturn" returnType="rtns:JobQueueSoap" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="jobOwner" type="tns:string"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="jobType" type="tns:string"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="metadata" type="tns:string"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="link" type="tns:string"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="notificationEmail" type="tns:string"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="startTime" type="tns:dateTime"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="endTime" type="tns:dateTime"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="status" type="tns:string"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="createdBy" type="tns:string"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="createDate" type="tns:dateTime"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="updatedBy" type="tns:string"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="updateDate" type="tns:dateTime"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.db.brandstandards.ihg.com" xmlns:rtns="http://model.db.brandstandards.ihg.com" name="updateJobQueue" qname="operNS:updateJobQueue" returnQName="updateJobQueueReturn" returnType="rtns:JobQueueSoap" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="jobQueueId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="jobOwner" type="tns:string"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="jobType" type="tns:string"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="metadata" type="tns:string"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="link" type="tns:string"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="notificationEmail" type="tns:string"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="startTime" type="tns:dateTime"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="endTime" type="tns:dateTime"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="status" type="tns:string"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="updatedBy" type="tns:string"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.db.brandstandards.ihg.com" xmlns:rtns="http://model.db.brandstandards.ihg.com" name="updateJobQueueStatus" qname="operNS:updateJobQueueStatus" returnQName="updateJobQueueStatusReturn" returnType="rtns:JobQueueSoap" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="jobQueueId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="link" type="tns:string"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="startTime" type="tns:dateTime"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="endTime" type="tns:dateTime"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="status" type="tns:string"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.db.brandstandards.ihg.com" name="deleteJobQueue" qname="operNS:deleteJobQueue" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="jobQueueId" type="tns:long"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.db.brandstandards.ihg.com" xmlns:rtns="urn:http.service.db.brandstandards.ihg.com" xmlns:tns2="http://model.db.brandstandards.ihg.com" name="getAllJobQueues" qname="operNS:getAllJobQueues" returnQName="getAllJobQueuesReturn" returnType="rtns:ArrayOf_tns2_JobQueueSoap" returnItemType="tns2:JobQueueSoap" soapAction=""> </operation>
+		<operation xmlns:operNS="urn:http.service.db.brandstandards.ihg.com" xmlns:rtns="urn:http.service.db.brandstandards.ihg.com" xmlns:tns2="http://model.db.brandstandards.ihg.com" name="getJobQueuesExceptFullManuals" qname="operNS:getJobQueuesExceptFullManuals" returnQName="getJobQueuesExceptFullManualsReturn" returnType="rtns:ArrayOf_tns2_JobQueueSoap" returnItemType="tns2:JobQueueSoap" soapAction=""> </operation>
+		<operation xmlns:operNS="urn:http.service.db.brandstandards.ihg.com" xmlns:rtns="urn:http.service.db.brandstandards.ihg.com" xmlns:tns2="http://model.db.brandstandards.ihg.com" name="getJobQueuesByOwnerAndType" qname="operNS:getJobQueuesByOwnerAndType" returnQName="getJobQueuesByOwnerAndTypeReturn" returnType="rtns:ArrayOf_tns2_JobQueueSoap" returnItemType="tns2:JobQueueSoap" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="jobOwner" type="tns:string"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="jobType" type="tns:string"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.db.brandstandards.ihg.com" xmlns:rtns="urn:http.service.db.brandstandards.ihg.com" xmlns:tns2="http://model.db.brandstandards.ihg.com" name="getJobQueuesByOwnerTypeAndStatus" qname="operNS:getJobQueuesByOwnerTypeAndStatus" returnQName="getJobQueuesByOwnerTypeAndStatusReturn" returnType="rtns:ArrayOf_tns2_JobQueueSoap" returnItemType="tns2:JobQueueSoap" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="jobOwner" type="tns:string"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="jobType" type="tns:string"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="status" type="tns:string"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.db.brandstandards.ihg.com" xmlns:rtns="urn:http.service.db.brandstandards.ihg.com" xmlns:tns2="http://model.db.brandstandards.ihg.com" name="getJobQueuesByType" qname="operNS:getJobQueuesByType" returnQName="getJobQueuesByTypeReturn" returnType="rtns:ArrayOf_tns2_JobQueueSoap" returnItemType="tns2:JobQueueSoap" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="jobType" type="tns:string"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.db.brandstandards.ihg.com" xmlns:rtns="urn:http.service.db.brandstandards.ihg.com" xmlns:tns2="http://model.db.brandstandards.ihg.com" name="getJobQueuesByTypeAndStatus" qname="operNS:getJobQueuesByTypeAndStatus" returnQName="getJobQueuesByTypeAndStatusReturn" returnType="rtns:ArrayOf_tns2_JobQueueSoap" returnItemType="tns2:JobQueueSoap" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="jobType" type="tns:string"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="status" type="tns:string"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.db.brandstandards.ihg.com" xmlns:rtns="urn:http.service.db.brandstandards.ihg.com" xmlns:tns2="http://model.db.brandstandards.ihg.com" name="getJobQueuesByOwner" qname="operNS:getJobQueuesByOwner" returnQName="getJobQueuesByOwnerReturn" returnType="rtns:ArrayOf_tns2_JobQueueSoap" returnItemType="tns2:JobQueueSoap" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="jobOwner" type="tns:string"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.db.brandstandards.ihg.com" xmlns:rtns="urn:http.service.db.brandstandards.ihg.com" xmlns:tns2="http://www.w3.org/2001/XMLSchema" name="getUniqueJobQueTypes" qname="operNS:getUniqueJobQueTypes" returnQName="getUniqueJobQueTypesReturn" returnType="rtns:ArrayOf_xsd_string" returnItemType="tns2:string" soapAction=""> </operation>
+		<operation xmlns:operNS="urn:http.service.db.brandstandards.ihg.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getFileAsByteStream" qname="operNS:getFileAsByteStream" returnQName="getFileAsByteStreamReturn" returnType="rtns:base64Binary" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="fileEntryId" type="tns:long"></parameter>
+		</operation>
+		<operation xmlns:operNS="urn:http.service.db.brandstandards.ihg.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getImageAsByteStream" qname="operNS:getImageAsByteStream" returnQName="getImageAsByteStreamReturn" returnType="rtns:base64Binary" soapAction="">
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="imageId" type="tns:long"></parameter>
+			<parameter xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="getLargeImage" type="tns:boolean"></parameter>
+		</operation>
+		<parameter name="allowedMethods" value="getAllJobQueues getFileAsByteStream addJobQueue getJobQueuesExceptFullManuals updateJobQueue getJobQueuesByOwner getJobQueuesByOwnerAndType getJobQueuesByOwnerTypeAndStatus getJobQueuesByType getImageAsByteStream getUniqueJobQueTypes getJobQueuesByTypeAndStatus updateJobQueueStatus deleteJobQueue" />
+		<arrayMapping xmlns:ns="urn:http.service.db.brandstandards.ihg.com" xmlns:cmp-ns="http://model.db.brandstandards.ihg.com" qname="ns:ArrayOf_tns2_JobQueueSoap" type="java:com.ihg.brandstandards.db.model.JobQueueSoap[]" innerType="cmp-ns:JobQueueSoap" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"></arrayMapping>
+		<arrayMapping xmlns:ns="urn:http.service.db.brandstandards.ihg.com" xmlns:cmp-ns="http://www.w3.org/2001/XMLSchema" qname="ns:ArrayOf_xsd_string" type="java:java.lang.String[]" innerType="cmp-ns:string" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"></arrayMapping>
+		<typeMapping xmlns:ns="http://model.db.brandstandards.ihg.com" qname="ns:JobQueueSoap" type="java:com.ihg.brandstandards.db.model.JobQueueSoap" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"></typeMapping>
+	</service>
+</deployment>

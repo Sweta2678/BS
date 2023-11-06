@@ -1,0 +1,40 @@
+@charset "utf-8";
+.aui {
+  /** UI Element Portlet CSS - START */
+  /** UI Element Portlet CSS - END */ }
+  .aui .search_left_panel, .aui .search_right_panel {
+    float: left;
+    width: 49%; }
+  .aui .usedinmultis {
+    width: 220px !important; }
+  .aui .ui-multiselect, .aui .multis {
+    width: 220px !important; }
+  .aui #ExportElementModal button.ui-multiselect {
+    width: 220px !important; }
+  .aui button.ui-multiselect {
+    width: 220px !important; }
+  .aui .uielem_btn {
+    float: right !important;
+    margin: 3px 5px 0; }
+  .aui .wrap_field {
+    display: block;
+    float: left;
+    height: auto;
+    overflow: hidden;
+    word-wrap: break-word; }
+  .aui select#searchLanguage, .aui select#secondLanguage {
+    width: 190px; }
+  .aui #uielement span.wrapper_span {
+    display: block;
+    font-size: 12px;
+    float: left;
+    width: 200px;
+    text-align: right;
+    padding: 5px 20px 0 0; }
+  .aui .uiElementImportPopup {
+    height: auto !important;
+    width: auto !important; }
+  .aui .uiElementImportPopup-content .modal-body {
+    height: auto !important;
+    width: auto !important; }
+

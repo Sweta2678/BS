@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+
+<project name="BSBridge-portlet" basedir="." default="deploy">
+	
+	<path id="portal.classpath">
+		<pathelement path="${portal.classpath}"/>
+		<fileset>
+		        <include name="docroot/bridge-service-jar/BSBridge-portlet-service.jar"/>
+		</fileset>
+	</path>
+	
+	<import file="../build-common-portlet.xml" />
+    <property name="src" value="docroot/WEB-INF/service"/>
+    
+    <property name="jaxbReportMappingDestPackage" value="com.ihg.brandstandards.report"/>
+    <property name="xsdReportMappingFilePath" value="docroot/WEB-INF/src/resources/xlsReportConfig.xsd"/>
+	<target name="generate-report-jaxb-code">
+		<java classname="com.sun.tools.internal.xjc.XJCFacade">
+			<arg value="${xsdReportMappingFilePath}" />
+			<arg value="-p" />
+			<arg value="${jaxbReportMappingDestPackage}" />
+			<arg value="-d" />
+			<arg value="${src}" />
+		</java>
+	</target>
+	
+    <property name="jaxbReportDestPackage" value="com.ihg.brandstandards.xml.metadata"/>
+    <property name="xsdReportFilePath" value="docroot/WEB-INF/src/com/ihg/brandstandards/xml/metadata/metadata.xsd"/>
+    <target name="generate-metadata-jaxb-code">
+        <java classname="com.sun.tools.internal.xjc.XJCFacade">
+            <arg value="${xsdReportFilePath}" />
+            <arg value="-p" />
+            <arg value="${jaxbReportDestPackage}" />
+            <arg value="-d" />
+            <arg value="${src}" />
+        </java>
+    </target>
+</project>

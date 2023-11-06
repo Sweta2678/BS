@@ -1,0 +1,96 @@
+/**
+ * Copyright (c) 2000-2013 Liferay, Inc. All rights reserved.
+ *
+ * The contents of this file are subject to the terms of the Liferay Enterprise
+ * Subscription License ("License"). You may not use this file except in
+ * compliance with the License. You can obtain a copy of the License by
+ * contacting Liferay, Inc. See the License for the specific language governing
+ * permissions and limitations under the License, including but not limited to
+ * distribution rights of the Software.
+ *
+ *
+ *
+ */
+
+package com.ihg.brandstandards.db.service.persistence;
+
+/**
+ * @author Mummanedi
+ */
+public interface GEMQlReportFinder {
+	public java.util.List<com.ihg.brandstandards.custom.gem.model.QualityLeadModel> getGEMQlReport(
+		long parentPublishId, long publishId, long regionId,
+		java.lang.String regionCd, java.lang.String brandCd,
+		java.lang.String stdIdLst, java.lang.String stdStatus,
+		java.lang.String stdOwner, long seCategory, java.lang.String stdRegion,
+		boolean isGlobalUser);
+
+	public java.util.List<com.ihg.brandstandards.custom.gem.model.QualityLeadModel> getGEMQlReport(
+		java.lang.String query);
+
+	public boolean saveGEMQlReport(
+		java.util.List<com.ihg.brandstandards.custom.gem.model.QualityLeadModel> records,
+		long publishDeptId, long parentPublishId, long publishId,
+		long regionId, java.lang.String userName, boolean isGlobalUser,
+		boolean isReSequence);
+
+	public boolean populateScoringCounts(long puiblishDeptId,
+		long parentPublishId, long publishId, long seTemplateId, long regionId,
+		java.lang.String userName);
+
+	public boolean syncBridgeGEMQlReport(long actvGemDeptId,
+		long actvGemPublishDeptId, long brdgPublishId, long actvGemPublishId,
+		long regionId, java.lang.String regionCd, java.lang.String brandCd,
+		java.lang.String screenName, java.lang.String userName,
+		java.lang.String seManualType, java.lang.String saManualType,
+		java.lang.String wrManualType, boolean isGlobalUser);
+
+	public boolean updateQlWithDataFromLastPublication(long curPublishId,
+		long regionId);
+
+	public boolean updateQlWithDataFromPublication(long curPublishId,
+		long lstPublishId, long regionId);
+
+	public long getQlCountByPublishIdRegionId(long publishId, long regionId);
+
+	public long getLastGEMPublishId(long publishId);
+
+	public java.util.List<java.lang.String> getStdOwners(long publishId,
+		long regionId, java.lang.String regionCd);
+
+	public java.util.Map<java.lang.String, java.lang.String> getGemBktSeverityCatgyCounts(
+		long seTemplateId);
+
+	public java.util.Map<java.lang.String, java.lang.String> getGemBktSeverityCatgyTotalCounts(
+		long seTemplateId);
+
+	public java.lang.String getScoringHeaderCounts(long seTemplateId,
+		long gemDepartmentId);
+
+	public java.util.List<com.ihg.brandstandards.custom.gem.model.GEMScoreModel> getScoringPoints(
+		long publishId, long regionId);
+
+	public boolean setScoringPoints(
+		java.util.List<com.ihg.brandstandards.custom.gem.model.GEMScoreModel> scorePoints);
+
+	public boolean isGlobalMustNotSelectedForMeasurement(long publishId,
+		long regionId);
+
+	public java.util.Map<java.lang.String, java.lang.String> getReportManualTypes(
+		java.lang.String query);
+
+	public java.util.Map<java.lang.String, java.lang.String> getGemPathFilterData(
+		java.lang.String query);
+
+	public java.util.List<com.ihg.brandstandards.custom.gem.model.QualityLeadModel> getApplicableBrandsByStdId(
+		long deptId, long stdId, long regionId);
+
+	public java.util.List<com.ihg.brandstandards.custom.gem.model.QualityLeadModel> getGEMDuplicatesReport(
+		java.lang.String query);
+
+	public java.util.List<com.ihg.brandstandards.db.model.GEMQlReport> getSpecGdlnByStdIdPublishIdDuplicate(
+		long publishId, long regionId, long stdId,
+		java.lang.String duplicateInd, java.lang.String stdType);
+
+	public boolean executeSelectImportProcedure(java.lang.String query);
+}

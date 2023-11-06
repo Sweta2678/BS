@@ -1,0 +1,5137 @@
+<?xml version="1.0"?>
+
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm http://java.sun.com/xml/ns/persistence/orm_1_0.xsd">
+	<persistence-unit-metadata>
+		<xml-mapping-metadata-complete/>
+		<persistence-unit-defaults>
+			<access>PROPERTY</access>
+		</persistence-unit-defaults>
+	</persistence-unit-metadata>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.AttachmentsStandardsModelImpl">
+		<id-class class="com.ihg.brandstandards.db.service.persistence.AttachmentsStandardsPK" />
+		<attributes>
+			<id name="attachmentId">
+				<column name="STD_ATTACHEMENT_ID" />
+			</id>
+			<id name="localeCode">
+				<column name="LOCALE_CD" />
+			</id>
+			<basic name="parentAttachmentId">
+				<column name="PRNT_STD_ATTACHMENT_ID" />
+			</basic>
+			<basic name="stdId">
+				<column name="STD_ID" />
+			</basic>
+			<basic name="type">
+				<column name="ATTACHMENT_TYP" />
+			</basic>
+			<basic name="title">
+				<column name="ATTACHMENT_TITLE_TXT" />
+			</basic>
+			<basic name="translationIndicator">
+				<column name="XLAT_IND" />
+			</basic>
+			<basic name="attachmentPath">
+				<column name="ATTACHMENT_PATH_TXT" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.AttachmentsStandardsCountryModelImpl">
+		<id-class class="com.ihg.brandstandards.db.service.persistence.AttachmentsStandardsCountryPK" />
+		<attributes>
+			<id name="attachmentId">
+				<column name="STD_ATTACHEMENT_ID" />
+			</id>
+			<id name="countryCode">
+				<column name="CTRY_NM_CD" />
+			</id>
+			<id name="localeCode">
+				<column name="LOCALE_CD" />
+			</id>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.BrandTaxonomyModelImpl">
+		<attributes>
+			<id name="id">
+				<column name="BRAND_TAXONOMY_ID" />
+			</id>
+			<basic name="taxId">
+				<column name="TAXONOMY_ID" />
+			</basic>
+			<basic name="chain">
+				<column name="CHAIN_CD" />
+			</basic>
+			<basic name="title">
+				<column name="TITLE_TXT" />
+			</basic>
+			<basic name="desc">
+				<column name="BRAND_TAXOMOMY_DESC" />
+			</basic>
+			<basic name="imageLoc">
+				<column name="IMAGE_PATH_TXT" />
+			</basic>
+			<basic name="createdBy">
+				<column name="CREATOR_SCRN_NM" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.BrandTaxonomyTranslateModelImpl">
+		<id-class class="com.ihg.brandstandards.db.service.persistence.BrandTaxonomyTranslatePK" />
+		<attributes>
+			<id name="brandTaxId">
+				<column name="BRAND_TAXONOMY_ID" />
+			</id>
+			<id name="localeCd">
+				<column name="LOCALE_CD" />
+			</id>
+			<basic name="title">
+				<column name="TITLE_TXT" />
+			</basic>
+			<basic name="desc">
+				<column name="BRAND_TAXONOMY_DESC" />
+			</basic>
+			<basic name="imageLoc">
+				<column name="IMAGE_PATH_TXT" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.BridgeGlobalPublishModelImpl">
+		<attributes>
+			<id name="globalPublishId">
+				<column name="BRIDGE_GBL_PUBLISH_ID" />
+			</id>
+			<basic name="publishId">
+				<column name="PUBLISH_ID" />
+			</basic>
+			<basic name="stdId">
+				<column name="STD_ID" />
+			</basic>
+			<basic name="mustPublishInd">
+				<column name="MUST_PUBLISH_IND" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.BridgeGlobalPublishCountryModelImpl">
+		<attributes>
+			<id name="globalPublishCtryId">
+				<column name="BRIDGE_GBL_PUBLISH_CTRY_ID" />
+			</id>
+			<basic name="globalPublishId">
+				<column name="BRIDGE_GBL_PUBLISH_ID" />
+			</basic>
+			<basic name="countryCode">
+				<column name="CTRY_NM_CD" />
+			</basic>
+			<basic name="publishInd">
+				<column name="PUBLISH_IND" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.BridgeProgressCategoryModelImpl">
+		<attributes>
+			<id name="progressCategoryId">
+				<column name="BRIDGE_PUB_PROGRESS_CATGY_ID" />
+			</id>
+			<basic name="progressCategoryName">
+				<column name="BRIDGE_PUB_PROGRESS_CATGY_NM" />
+			</basic>
+			<basic name="displayOrderNumber">
+				<column name="DISP_ORDER_NBR" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.BridgeProgressDiscrepancyModelImpl">
+		<id-class class="com.ihg.brandstandards.db.service.persistence.BridgeProgressDiscrepancyPK" />
+		<attributes>
+			<id name="progressCategoryId">
+				<column name="BRIDGE_PUB_PROGRESS_CATGY_ID" />
+			</id>
+			<id name="progressSubCategoryId">
+				<column name="BRIDGE_PUB_PROGRESS_SUBCAT_ID" />
+			</id>
+			<id name="publishId">
+				<column name="PUBLISH_ID" />
+			</id>
+			<id name="regionId">
+				<column name="RGN_ID" />
+			</id>
+			<basic name="errorCount">
+				<column name="ERR_QTY" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.BridgeProgressSubCategoryModelImpl">
+		<attributes>
+			<id name="progressSubCategoryId">
+				<column name="BRIDGE_PUB_PROGRESS_SUBCAT_ID" />
+			</id>
+			<basic name="progressCategoryId">
+				<column name="BRIDGE_PUB_PROGRESS_CATGY_ID" />
+			</basic>
+			<basic name="categoryName">
+				<column name="BRIDGE_PUB_PROGRESS_SUBCAT_NM" />
+			</basic>
+			<basic name="displayOrderNumber">
+				<column name="DISP_ORDER_NBR" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.BridgePublishModelImpl">
+		<attributes>
+			<id name="bridgePublishId">
+				<column name="BRIDGE_PUBLISH_ID" />
+			</id>
+			<basic name="publishId">
+				<column name="PUBLISH_ID" />
+			</basic>
+			<basic name="standardId">
+				<column name="STD_ID" />
+			</basic>
+			<basic name="regionId">
+				<column name="RGN_ID" />
+			</basic>
+			<basic name="unpublishInd">
+				<column name="UNPUBLISH_IND" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.BridgePublishCountryModelImpl">
+		<attributes>
+			<id name="publishCtryId">
+				<column name="BRIDGE_PUBLISH_CTRY_ID" />
+			</id>
+			<basic name="bridgePublishId">
+				<column name="BRIDGE_PUBLISH_ID" />
+			</basic>
+			<basic name="countryCode">
+				<column name="CTRY_NM_CD" />
+			</basic>
+			<basic name="statusCode">
+				<column name="BRIDGE_PUBLISH_STAT_CD" />
+			</basic>
+			<basic name="publishInd">
+				<column name="PUBLISH_IND" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.BridgePublishCountryStateExModelImpl">
+		<id-class class="com.ihg.brandstandards.db.service.persistence.BridgePublishCountryStateExPK" />
+		<attributes>
+			<id name="stdId">
+				<column name="STD_ID" />
+			</id>
+			<id name="CountryCode">
+				<column name="CTRY_NM_CD" />
+			</id>
+			<basic name="parentStdId">
+				<column name="PRNT_STD_ID" />
+			</basic>
+			<basic name="type">
+				<column name="STD_TYP" />
+			</basic>
+			<basic name="publishId">
+				<column name="BRIDGE_PUBLISH_ID" />
+			</basic>
+			<basic name="stateCd">
+				<column name="BRIDGE_PUBLISH_STAT_CD" />
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.BridgePublishImportModelImpl">
+		<attributes>
+			<id name="publishImportId">
+				<column name="BRIDGE_PUBLICATION_IMPORT_ID" />
+			</id>
+			<basic name="publishId">
+				<column name="PUBLISH_ID" />
+			</basic>
+			<basic name="stdId">
+				<column name="STD_ID" />
+			</basic>
+			<basic name="selectInd">
+				<column name="SELECTION_ID" />
+			</basic>
+			<basic name="regionId">
+				<column name="RGN_ID" />
+			</basic>
+			<basic name="status">
+				<column name="VLD_STAT_CD" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.BridgePublishLangModelImpl">
+		<attributes>
+			<id name="publishLangId">
+				<column name="BRIDGE_PUBLISH_LANG_ID" />
+			</id>
+			<basic name="publishId">
+				<column name="PUBLISH_ID" />
+			</basic>
+			<basic name="regionId">
+				<column name="RGN_ID" />
+			</basic>
+			<basic name="localeCode">
+				<column name="LOCALE_CD" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.BridgePublishPreviewModelImpl">
+		<attributes>
+			<id name="stdId">
+				<column name="STD_ID" />
+			</id>
+			<basic name="taxonomyTitle">
+				<column name="TAX_TITLE_TXT" />
+			</basic>
+			<basic name="title">
+				<column name="TITLE" />
+			</basic>
+			<basic name="path">
+				<column name="PATH" />
+			</basic>
+			<basic name="parentStdId">
+				<column name="PRNT_STD_ID" />
+			</basic>
+			<basic name="currentTitle">
+				<column name="CURR_TITLE" />
+			</basic>
+			<basic name="type">
+				<column name="STD_TYP" />
+			</basic>
+			<basic name="displayOrder">
+				<column name="DISP_ORDER_NBR" />
+			</basic>
+			<basic name="taxonomyId">
+				<column name="TAXONOMY_ID" />
+			</basic>
+			<basic name="parentTaxonomyId">
+				<column name="PRNT_TAXONOMY_ID" />
+			</basic>
+			<basic name="indexOrder">
+				<column name="INDX_ORDER" />
+			</basic>
+			<basic name="level">
+				<column name="LVL" />
+			</basic>
+			<basic name="levelSortOrder">
+				<column name="HIER_LVL_NBR" />
+			</basic>
+			<basic name="status">
+				<column name="STATUS" />
+			</basic>
+			<basic name="imageCount">
+				<column name="IMG_ATCH" />
+			</basic>
+			<basic name="attachmentCount">
+				<column name="STD_ATCH" />
+			</basic>
+			<basic name="xRefCount">
+				<column name="STD_XREF" />
+			</basic>
+			<basic name="hotelLifeCycle">
+				<column name="HTL_LFCCL" />
+			</basic>
+			<basic name="complianceCount">
+				<column name="STD_CMPLY" />
+			</basic>
+			<basic name="hotelAttributes">
+				<column name="HTL_ATTR" />
+			</basic>
+			<basic name="complianceDate">
+				<column name="STD_CMPLY_DATE" />
+			</basic>
+			<basic name="stdReference">
+				<column name="STD_REFERENCE" />
+			</basic>
+			<transient name="XRefCount" />
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.BridgePublishStateExModelImpl">
+		<id-class class="com.ihg.brandstandards.db.service.persistence.BridgePublishStateExPK" />
+		<attributes>
+			<id name="publishId">
+				<column name="BRIDGE_PUBLISH_ID" />
+			</id>
+			<id name="stdId">
+				<column name="STD_ID" />
+			</id>
+			<basic name="taxonomyTitle">
+				<column name="TAX_TITLE_TXT" />
+			</basic>
+			<basic name="title">
+				<column name="TITLE" />
+			</basic>
+			<basic name="path">
+				<column name="PATH" />
+			</basic>
+			<basic name="parentStdId">
+				<column name="PRNT_STD_ID" />
+			</basic>
+			<basic name="stateCd">
+				<column name="STAT_CD" />
+			</basic>
+			<basic name="type">
+				<column name="STD_TYP" />
+			</basic>
+			<basic name="manualType">
+				<column name="MNL_TYP" />
+			</basic>
+			<basic name="count">
+				<column name="STAT_COUNT" />
+			</basic>
+			<basic name="displayOrder">
+				<column name="DISP_ORDER_NBR" />
+			</basic>
+			<basic name="taxonomyId">
+				<column name="TAXONOMY_ID" />
+			</basic>
+			<basic name="parentTaxonomyId">
+				<column name="PRNT_TAXONOMY_ID" />
+			</basic>
+			<basic name="indexOrder">
+				<column name="INDX_ORDER" />
+			</basic>
+			<basic name="level">
+				<column name="LVL" />
+			</basic>
+			<basic name="levelSortOrder">
+				<column name="HIER_LVL_NBR" />
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.BridgePublishStatusModelImpl">
+		<attributes>
+			<id name="publishStatusCode">
+				<column name="BRIDGE_PUBLISH_STAT_CD" />
+			</id>
+			<basic name="publishStatusName">
+				<column name="BRIDGE_PUBLISH_STAT_NM" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.BusImpactAssmtModelImpl">
+		<attributes>
+			<id name="busImpactAssmtId">
+				<column name="BUS_IMPACT_ASSMT_MNL_ID" />
+			</id>
+			<basic name="stdId">
+				<column name="STD_ID" />
+			</basic>
+			<basic name="chain">
+				<column name="CHAIN_CD" />
+			</basic>
+			<basic name="region">
+				<column name="RGN_CD" />
+			</basic>
+			<basic name="profileLossImpact">
+				<column name="PROFIT_LOSS_IMPACT_CD" />
+			</basic>
+			<basic name="CapExpenseImpact">
+				<column name="CAP_EXPENSE_IMPACT_CD" />
+			</basic>
+			<basic name="ImplTimeScale">
+				<column name="IMPLMNT_TIMESCALE_CD" />
+			</basic>
+			<basic name="changeFromRegional">
+				<column name="CHG_FROM_RGN_TO_GBL_DESC" />
+			</basic>
+			<basic name="biaComments">
+				<column name="CMT_TXT" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.ChainAttachmentsStandardsModelImpl">
+		<attributes>
+			<id name="chainAttachmentId">
+				<column name="STD_ATTACHMENT_CHAIN_ID" />
+			</id>
+			<basic name="attachmentId">
+				<column name="STD_ATTACHEMENT_ID" />
+			</basic>
+			<basic name="localeCode">
+				<column name="LOCALE_CD" />
+			</basic>
+			<basic name="chainCode">
+				<column name="CHAIN_CD" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.ChainExternalLinkStandardsModelImpl">
+		<id-class class="com.ihg.brandstandards.db.service.persistence.ChainExternalLinkStandardsPK" />
+		<attributes>
+			<id name="extLinkId">
+				<column name="STD_EXTL_LINK_ID" />
+			</id>
+			<id name="chainCode">
+				<column name="CHAIN_CD" />
+			</id>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.ChainStandardsModelImpl">
+		<id-class class="com.ihg.brandstandards.db.service.persistence.ChainStandardsPK" />
+		<attributes>
+			<id name="chainCode">
+				<column name="CHAIN_CD" />
+			</id>
+			<id name="stdId">
+				<column name="STD_ID" />
+			</id>
+			<basic name="statusId">
+				<column name="STAT_ID" />
+			</basic>
+			<basic name="isActive">
+				<column name="ACTV_IND" />
+			</basic>
+			<basic name="lastPublishedDate">
+				<column name="LST_PUBLISHED_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.CountryStandardsModelImpl">
+		<id-class class="com.ihg.brandstandards.db.service.persistence.CountryStandardsPK" />
+		<attributes>
+			<id name="country">
+				<column name="CTRY_NM_CD" />
+			</id>
+			<id name="stdId">
+				<column name="STD_ID" />
+			</id>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.CountryStandardsExtModelImpl">
+		<id-class class="com.ihg.brandstandards.db.service.persistence.CountryStandardsExtPK" />
+		<attributes>
+			<id name="countryCode">
+				<column name="CTRY_NM_CD" />
+			</id>
+			<id name="stdId">
+				<column name="STD_ID" />
+			</id>
+			<basic name="regionId">
+				<column name="RGN_ID" />
+			</basic>
+			<basic name="regionCode">
+				<column name="RGN_CD" />
+			</basic>
+			<basic name="regionName">
+				<column name="RGN_NM" />
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.DepartmentModelImpl">
+		<attributes>
+			<id name="departmentId">
+				<column name="GEM_DEPT_ID" />
+			</id>
+			<basic name="departmentName">
+				<column name="GEM_DEPT_NM" />
+			</basic>
+			<basic name="description">
+				<column name="GEM_DEPT_DESC" />
+			</basic>
+			<basic name="activeInd">
+				<column name="ACTV_IND" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.ErrNotificationModelImpl">
+		<attributes>
+			<id name="notificationId">
+				<column name="ERR_NOTIFICATION_ID" />
+			</id>
+			<basic name="componentName">
+				<column name="COMPONENT_NM" />
+			</basic>
+			<basic name="referenceId">
+				<column name="REF_ID" />
+			</basic>
+			<basic name="severity">
+				<column name="SEVERITY_LVL_CD" />
+			</basic>
+			<basic name="title">
+				<column name="ERR_TITLE_TXT" />
+			</basic>
+			<basic name="description">
+				<column name="ERR_DESC" />
+			</basic>
+			<basic name="status">
+				<column name="STAT_CD" />
+			</basic>
+			<basic name="publishId">
+				<column name="PUBLISH_ID" />
+			</basic>
+			<basic name="regionId">
+				<column name="RGN_ID" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.ExternalLinkStandardsModelImpl">
+		<attributes>
+			<id name="extLinkId">
+				<column name="STD_EXTL_LINK_ID" />
+			</id>
+			<basic name="parentExtLinkId">
+				<column name="PRNT_STD_EXTL_LINK_ID" />
+			</basic>
+			<basic name="stdId">
+				<column name="STD_ID" />
+			</basic>
+			<basic name="url">
+				<column name="URL_TXT" />
+			</basic>
+			<basic name="title">
+				<column name="LINK_TITLE_TXT" />
+			</basic>
+			<basic name="translationIndicator">
+				<column name="XLAT_IND" />
+			</basic>
+			<basic name="localeCode">
+				<column name="LOCALE_CD" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.ExternalLinkStandardsCountryModelImpl">
+		<id-class class="com.ihg.brandstandards.db.service.persistence.ExternalLinkStandardsCountryPK" />
+		<attributes>
+			<id name="extLinkId">
+				<column name="STD_EXTL_LINK_ID" />
+			</id>
+			<id name="countryCode">
+				<column name="CTRY_NM_CD" />
+			</id>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.FlagCategoryModelImpl">
+		<id-class class="com.ihg.brandstandards.db.service.persistence.FlagCategoryPK" />
+		<attributes>
+			<id name="flagCatId">
+				<column name="FLAG_CATGY_ID" />
+			</id>
+			<id name="activeInd">
+				<column name="ACTV_IND" />
+			</id>
+			<basic name="parentCatId">
+				<column name="PRNT_FLAG_CATGY_ID" />
+			</basic>
+			<basic name="catOrField">
+				<column name="CATGY_CD" />
+			</basic>
+			<basic name="txtValue">
+				<column name="FLAG_CATGY_VAL" />
+			</basic>
+			<basic name="orderNumber">
+				<column name="DISP_ORDER_NBR" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.FlagStandardsModelImpl">
+		<id-class class="com.ihg.brandstandards.db.service.persistence.FlagStandardsPK" />
+		<attributes>
+			<id name="flagCatId">
+				<column name="FLAG_CATGY_ID" />
+			</id>
+			<id name="stdId">
+				<column name="STD_ID" />
+			</id>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.GEMCategoryModelImpl">
+		<attributes>
+			<id name="categoryId">
+				<column name="GEM_CATGY_ID" />
+			</id>
+			<basic name="cmsCategoryId">
+				<column name="CMS_CATGY_ID" />
+			</basic>
+			<basic name="gemCategoryCode">
+				<column name="GEM_CATGY_CD" />
+			</basic>
+			<basic name="gemPrntCategoryId">
+				<column name="GEM_PRNT_CATGY_ID" />
+			</basic>
+			<basic name="categoryName">
+				<column name="GEM_CATGY_NM" />
+			</basic>
+			<basic name="categoryViewType">
+				<column name="GEM_CATGY_VIEW_TYP" />
+			</basic>
+			<basic name="categoryAnsAll">
+				<column name="GEM_CATGY_ANS_TXT" />
+			</basic>
+			<basic name="duplicatable">
+				<column name="DUPLICATE_VAL_TXT" />
+			</basic>
+			<basic name="displayOrderNumber">
+				<column name="DISP_ORDER_NBR" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.GEMChainMeasurementModelImpl">
+		<attributes>
+			<id name="chainMeasurementId">
+				<column name="GEM_CHAIN_MSRMNT_ID" />
+			</id>
+			<basic name="measurementId">
+				<column name="GEM_MSRMNT_ID" />
+			</basic>
+			<basic name="publishDeptId">
+				<column name="GEM_PUBLISH_DEPT_ID" />
+			</basic>
+			<basic name="publishId">
+				<column name="PUBLISH_ID" />
+			</basic>
+			<basic name="regionId">
+				<column name="RGN_ID" />
+			</basic>
+			<basic name="uniqueGroupId">
+				<column name="GEM_UNIQUE_GRP_ID" />
+			</basic>
+			<basic name="measurementItemCount">
+				<column name="MSRMNT_ITEM_QTY" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.GEMCodeModelImpl">
+		<attributes>
+			<id name="code">
+				<column name="GEM_CD" />
+			</id>
+			<basic name="codeDesc">
+				<column name="GEM_CD_DESC" />
+			</basic>
+			<basic name="codeVal">
+				<column name="GEM_CD_VAL" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.GEMGeneratedReportModelImpl">
+		<attributes>
+			<id name="reportId">
+				<column name="GEM_GEN_RPT_ID" />
+			</id>
+			<basic name="templateId">
+				<column name="GEM_TEMPLATE_ID" />
+			</basic>
+			<basic name="uniqueGroupId">
+				<column name="GEM_UNIQUE_GRP_ID" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.GEMGeneratedReportValModelImpl">
+		<id-class class="com.ihg.brandstandards.db.service.persistence.GEMGeneratedReportValPK" />
+		<attributes>
+			<id name="reportValId">
+				<column name="GEM_GEN_RPT_VAL_ID" />
+			</id>
+			<id name="reportId">
+				<column name="GEM_GEN_RPT_ID" />
+			</id>
+			<basic name="columnId">
+				<column name="GEM_TEMPLATE_COL_ID" />
+			</basic>
+			<basic name="generatedValue">
+				<column name="GEN_VAL" />
+			</basic>
+			<basic name="displayOrderNumber">
+				<column name="DISP_ORDER_NBR" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.GEMManagementBucketModelImpl">
+		<attributes>
+			<id name="bucketId">
+				<column name="GEM_MGT_BUCKET_ID" />
+			</id>
+			<basic name="bucketName">
+				<column name="GEM_BUCKET_NM" />
+			</basic>
+			<basic name="departmentId">
+				<column name="GEM_DEPT_ID" />
+			</basic>
+			<basic name="activeInd">
+				<column name="ACTV_IND" />
+			</basic>
+			<basic name="displayOrderNumber">
+				<column name="DISP_ORDER_NBR" />
+			</basic>
+			<basic name="bucketCode">
+				<column name="GEM_BUCKET_CD" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.GEMManagementIdModelImpl">
+		<attributes>
+			<id name="managementId">
+				<column name="GEM_MGT_ID_KEY" />
+			</id>
+			<basic name="chainCode">
+				<column name="BRAND_CD" />
+			</basic>
+			<basic name="countryCode">
+				<column name="CTRY_NM_CD" />
+			</basic>
+			<basic name="value">
+				<column name="GEM_MGT_ID" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.GEMMeasurementModelImpl">
+		<attributes>
+			<id name="measurementId">
+				<column name="GEM_MSRMNT_ID" />
+			</id>
+			<basic name="measurementName">
+				<column name="GEM_MSRMNT_NM" />
+			</basic>
+			<basic name="measurementType">
+				<column name="GEM_MSRMNT_TYP_CD" />
+			</basic>
+			<basic name="displayOrderNumber">
+				<column name="DISP_ORDER_NBR" />
+			</basic>
+			<basic name="templateId">
+				<column name="GEM_TEMPLATE_ID" />
+			</basic>
+			<basic name="multiplierQty">
+				<column name="GEM_MSRMNT_MULTR_QTY" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.GEMMeasurementBucketChainModelImpl">
+		<attributes>
+			<id name="measurementBucketChainId">
+				<column name="GEM_MSRMNT_BUCKET_CHAIN_ID" />
+			</id>
+			<basic name="bucketId">
+				<column name="GEM_MGT_BUCKET_ID" />
+			</basic>
+			<basic name="severityId">
+				<column name="GEM_SEVERITY_ID" />
+			</basic>
+			<basic name="measurementId">
+				<column name="GEM_MSRMNT_ID" />
+			</basic>
+			<basic name="publishDeptId">
+				<column name="GEM_PUBLISH_DEPT_ID" />
+			</basic>
+			<basic name="publishId">
+				<column name="PUBLISH_ID" />
+			</basic>
+			<basic name="regionId">
+				<column name="RGN_ID" />
+			</basic>
+			<basic name="subRegionCd">
+				<column name="GEM_SUB_RGN_CD" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.GEMMeasurementFormulaModelImpl">
+		<attributes>
+			<id name="formulaId">
+				<column name="GEM_MSRMNT_FORMULA_ID" />
+			</id>
+			<basic name="publishId">
+				<column name="PUBLISH_ID" />
+			</basic>
+			<basic name="regionId">
+				<column name="RGN_ID" />
+			</basic>
+			<basic name="measurementId">
+				<column name="GEM_MSRMNT_ID" />
+			</basic>
+			<basic name="severityId">
+				<column name="GEM_SEVERITY_ID" />
+			</basic>
+			<basic name="subRegionLevelCd">
+				<column name="GEM_SUB_RGN_LVL_CD" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.GEMMeasurementFormulaValueModelImpl">
+		<attributes>
+			<id name="formulaValueId">
+				<column name="GEM_MSRMNT_FORMULA_DTL_ID" />
+			</id>
+			<basic name="formulaId">
+				<column name="GEM_MSRMNT_FORMULA_ID" />
+			</basic>
+			<basic name="formulaType">
+				<column name="GEM_MSRMNT_FORMULA_TYP" />
+			</basic>
+			<basic name="formulaValue">
+				<column name="GEM_FORMULA_TXT" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.GEMMeasurementTypeModelImpl">
+		<attributes>
+			<id name="measurementType">
+				<column name="GEM_MSRMNT_TYP_CD" />
+			</id>
+			<basic name="measurementTypeDesc">
+				<column name="GEM_MSRMNT_TYP_DESC" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.GEMQlReportModelImpl">
+		<attributes>
+			<id name="qlReportId">
+				<column name="QLTY_LEAD_RPT_ID" />
+			</id>
+			<basic name="publishDeptId">
+				<column name="GEM_PUBLISH_DEPT_ID" />
+			</basic>
+			<basic name="publishId">
+				<column name="PUBLISH_ID" />
+			</basic>
+			<basic name="stdId">
+				<column name="STD_ID" />
+			</basic>
+			<basic name="bucketId">
+				<column name="GEM_MGT_BUCKET_ID" />
+			</basic>
+			<basic name="severityId">
+				<column name="GEM_SEVERITY_ID" />
+			</basic>
+			<basic name="measurementId">
+				<column name="GEM_MSRMNT_ID" />
+			</basic>
+			<basic name="triggerId">
+				<column name="GEM_TRIGGER_ID" />
+			</basic>
+			<basic name="categoryId">
+				<column name="GEM_CATGY_ID" />
+			</basic>
+			<basic name="displayOrderNumber">
+				<column name="DISP_ORDER_NBR" />
+			</basic>
+			<basic name="regionId">
+				<column name="RGN_ID" />
+			</basic>
+			<basic name="complianceDueDays">
+				<column name="CMPLY_DUE_DY_QTY" />
+			</basic>
+			<basic name="glblMustMeasure">
+				<column name="GBL_MUST_MEASURE_STD_IND" />
+			</basic>
+			<basic name="parentQlReportId">
+				<column name="PRNT_QLTY_LEAD_RPT_ID" />
+			</basic>
+			<basic name="duplicate">
+				<column name="DUPLICATE_IND" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.GEMRoleModelImpl">
+		<attributes>
+			<id name="gemGrpId">
+				<column name="GEM_GRP_ID" />
+			</id>
+			<basic name="regionId">
+				<column name="RGN_ID" />
+			</basic>
+			<basic name="chainCode">
+				<column name="CHAIN_CD" />
+			</basic>
+			<basic name="gemGrpCode">
+				<column name="GEM_GRP_CD" />
+			</basic>
+			<basic name="ownerGrpId">
+				<column name="OWNER_GRP_ID" />
+			</basic>
+			<basic name="ownerGrpName">
+				<column name="OWNER_GRP_NM" />
+			</basic>
+			<basic name="busOwnerName">
+				<column name="BUS_OWNER_NM" />
+			</basic>
+			<basic name="deligate1Name">
+				<column name="DELEGATE_1_NM" />
+			</basic>
+			<basic name="deligate2Name">
+				<column name="DELEGATE_2_NM" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.GEMScoringValueModelImpl">
+		<attributes>
+			<id name="scoringId">
+				<column name="SCORING_VAL_ID" />
+			</id>
+			<basic name="measurementBucketChainId">
+				<column name="GEM_MSRMNT_BUCKET_CHAIN_ID" />
+			</basic>
+			<basic name="totalMeasurement">
+				<column name="TOT_MSRMNT_QTY" />
+			</basic>
+			<basic name="netMeasurement">
+				<column name="NET_MSRMNT_QTY" />
+			</basic>
+			<basic name="nonCompliantMeasurement">
+				<column name="NON_COMPLIANT_MSRMNT_QTY" />
+			</basic>
+			<basic name="nonCompliantMeasurementPercent">
+				<column name="NON_COMPLIANT_MSRMNT_PCT" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.GEMSeverityModelImpl">
+		<attributes>
+			<id name="severityId">
+				<column name="GEM_SEVERITY_ID" />
+			</id>
+			<basic name="severityName">
+				<column name="GEM_SEVERITY_NM" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.GEMStdCategoryModelImpl">
+		<attributes>
+			<id name="gemStdCategoryId">
+				<column name="GEM_STD_CATGY_ID" />
+			</id>
+			<basic name="stdId">
+				<column name="STD_ID" />
+			</basic>
+			<basic name="categoryId">
+				<column name="GEM_CATGY_ID" />
+			</basic>
+			<basic name="templateType">
+				<column name="TEMPLATE_TYP_CD" />
+			</basic>
+			<basic name="chainCode">
+				<column name="CHAIN_CD" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.GEMTemplateModelImpl">
+		<attributes>
+			<id name="templateId">
+				<column name="GEM_TEMPLATE_ID" />
+			</id>
+			<basic name="templateName">
+				<column name="TEMPLATE_NM" />
+			</basic>
+			<basic name="publishId">
+				<column name="PUBLISH_ID" />
+			</basic>
+			<basic name="regionId">
+				<column name="RGN_ID" />
+			</basic>
+			<basic name="templateType">
+				<column name="TEMPLATE_TYP_CD" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.GEMTemplateCategoryModelImpl">
+		<attributes>
+			<id name="templateCatgyId">
+				<column name="GEM_TEMPLATE_CATGY_ID" />
+			</id>
+			<basic name="templateId">
+				<column name="GEM_TEMPLATE_ID" />
+			</basic>
+			<basic name="categoryId">
+				<column name="GEM_CATGY_ID" />
+			</basic>
+			<basic name="categoryViewType">
+				<column name="CATGY_VIEW_TYP" />
+			</basic>
+			<basic name="categoryAnsAll">
+				<column name="CATGY_ANS_TXT" />
+			</basic>
+			<basic name="duplicatable">
+				<column name="DUPLICATABLE_IND" />
+			</basic>
+			<basic name="displayOrderNumber">
+				<column name="DISP_ORDER_NBR" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.GEMTemplateColumnModelImpl">
+		<attributes>
+			<id name="columnId">
+				<column name="GEM_TEMPLATE_COL_ID" />
+			</id>
+			<basic name="templateId">
+				<column name="GEM_TEMPLATE_ID" />
+			</basic>
+			<basic name="columnName">
+				<column name="COL_NM" />
+			</basic>
+			<basic name="valueType">
+				<column name="VAL_DAT_TYP" />
+			</basic>
+			<basic name="defaultValue">
+				<column name="DFLT_VAL_TXT" />
+			</basic>
+			<basic name="isMandatory">
+				<column name="MAND_IND" />
+			</basic>
+			<basic name="displayOrderNumber">
+				<column name="DISP_ORDER_NBR" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.GEMTemplateReferenceModelImpl">
+		<attributes>
+			<id name="templateRefId">
+				<column name="GEM_PUB_REF_TEMPLATE_ID" />
+			</id>
+			<basic name="templateId">
+				<column name="GEM_TEMPLATE_ID" />
+			</basic>
+			<basic name="publishDeptId">
+				<column name="GEM_PUBLISH_DEPT_ID" />
+			</basic>
+			<basic name="regionId">
+				<column name="RGN_ID" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.GEMTemplateValuesModelImpl">
+		<attributes>
+			<id name="valueId">
+				<column name="GEM_TEMPLATE_VAL_ID" />
+			</id>
+			<basic name="columnId">
+				<column name="GEM_TEMPLATE_COL_ID" />
+			</basic>
+			<basic name="categoryId">
+				<column name="GEM_CATGY_ID" />
+			</basic>
+			<basic name="columnValue">
+				<column name="COL_VAL" />
+			</basic>
+			<basic name="displayOrderNumber">
+				<column name="DISP_ORDER_NBR" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.GEMTriggerModelImpl">
+		<attributes>
+			<id name="triggerId">
+				<column name="GEM_TRIGGER_ID" />
+			</id>
+			<basic name="publishDeptId">
+				<column name="GEM_PUBLISH_DEPT_ID" />
+			</basic>
+			<basic name="publishId">
+				<column name="PUBLISH_ID" />
+			</basic>
+			<basic name="question">
+				<column name="TRIGGER_QSTN_TXT" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.GEMUniqueGroupModelImpl">
+		<attributes>
+			<id name="uniqueGroupId">
+				<column name="GEM_UNIQUE_GRP_ID" />
+			</id>
+			<basic name="publishDeptId">
+				<column name="GEM_PUBLISH_DEPT_ID" />
+			</basic>
+			<basic name="publishId">
+				<column name="PUBLISH_ID" />
+			</basic>
+			<basic name="groupName">
+				<column name="GEM_GRP_NM" />
+			</basic>
+			<basic name="regionId">
+				<column name="RGN_ID" />
+			</basic>
+			<basic name="policyId">
+				<column name="GEM_PLCY_ID" />
+			</basic>
+			<basic name="levelId">
+				<column name="GEM_LVL_ID" />
+			</basic>
+			<basic name="groupType">
+				<column name="GRP_TYP" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.GEMUniqueGroupCountryModelImpl">
+		<attributes>
+			<id name="groupCountryId">
+				<column name="GROUP_CTRY_ID" />
+			</id>
+			<basic name="uniqueGroupId">
+				<column name="GEM_UNIQUE_GRP_ID" />
+			</basic>
+			<basic name="countryCode">
+				<column name="CTRY_CD" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.GEMUniqueGroupStandardModelImpl">
+		<attributes>
+			<id name="groupStandardId">
+				<column name="GEM_UNIQUE_GRP_DTL_ID" />
+			</id>
+			<basic name="groupId">
+				<column name="GEM_UNIQUE_GRP_ID" />
+			</basic>
+			<basic name="stdId">
+				<column name="STD_ID" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.GlossaryModelImpl">
+		<attributes>
+			<id name="glossaryId">
+				<column name="GLOSSARY_ID" />
+			</id>
+			<basic name="glossaryTermText">
+				<column name="GLOSSARY_TERM_TXT" />
+			</basic>
+			<basic name="glossaryTermDesc">
+				<column name="GLOSSARY_TERM_DESC" />
+			</basic>
+			<basic name="activeInd">
+				<column name="ACTV_IND" />
+			</basic>
+			<basic name="glossaryOwner">
+				<column name="OWNER_RGN_ID" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.GlossaryExtModelImpl">
+		<attributes>
+			<id name="glossaryId">
+				<column name="GLOSSARY_ID" />
+			</id>
+			<basic name="activeInd">
+				<column name="ACTV_IND" />
+			</basic>
+			<basic name="glossaryTermText">
+				<column name="GLOSSARY_TERM_TXT" />
+			</basic>
+			<basic name="glossaryTermDesc">
+				<column name="GLOSSARY_TERM_DESC" />
+			</basic>
+			<basic name="glossaryRegions">
+				<column name="REGIONS" />
+			</basic>
+			<basic name="glossaryChains">
+				<column name="CHAINS" />
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.GlossaryRegionNavModelImpl">
+		<attributes>
+			<id name="glossaryRgnNavId">
+				<column name="GLOSSARY_RGN_NAV_ID" />
+			</id>
+			<basic name="glossaryId">
+				<column name="GLOSSARY_ID" />
+			</basic>
+			<basic name="regionId">
+				<column name="RGN_ID" />
+			</basic>
+			<basic name="navItemText">
+				<column name="NAVIGATION_ITEM_TXT" />
+			</basic>
+			<basic name="activeInd">
+				<column name="ACTV_IND" />
+			</basic>
+			<basic name="chainCode">
+				<column name="CHAIN_CD" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.GlossaryTranslateModelImpl">
+		<attributes>
+			<id name="glossaryXlatId">
+				<column name="GLOSSARY_XLAT_ID" />
+			</id>
+			<basic name="glossaryId">
+				<column name="GLOSSARY_ID" />
+			</basic>
+			<basic name="langCode">
+				<column name="LOCALE_CD" />
+			</basic>
+			<basic name="glossaryTermText">
+				<column name="GLOSSARY_TERM_TXT" />
+			</basic>
+			<basic name="glossaryTermDesc">
+				<column name="GLOSSARY_TERM_DESC" />
+			</basic>
+			<basic name="isValidTermTxt">
+				<column name="TERM_XLAT_IND" />
+			</basic>
+			<basic name="isValidDescTxt">
+				<column name="DESC_XLAT_IND" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.HistManualAttachmentModelImpl">
+		<attributes>
+			<id name="histManualId">
+				<column name="HST_MNL_ID" />
+			</id>
+			<basic name="attachmentPath">
+				<column name="ATTACHMENT_PATH_TXT" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREATE_BY" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREATE_DATE" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LAST_UPD_BY" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LAST_UPD_DATE" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.HistManualChainModelImpl">
+		<id-class class="com.ihg.brandstandards.db.service.persistence.HistManualChainPK" />
+		<attributes>
+			<id name="chainCode">
+				<column name="CHN_CD" />
+			</id>
+			<id name="histManualId">
+				<column name="HST_MNL_ID" />
+			</id>
+			<basic name="creatorId">
+				<column name="CREATE_BY" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREATE_DATE" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LAST_UPD_BY" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LAST_UPD_DATE" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.HistManualRegionModelImpl">
+		<id-class class="com.ihg.brandstandards.db.service.persistence.HistManualRegionPK" />
+		<attributes>
+			<id name="regionCode">
+				<column name="RGN_CD" />
+			</id>
+			<id name="histManualId">
+				<column name="HST_MNL_ID" />
+			</id>
+			<basic name="creatorId">
+				<column name="CREATE_BY" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREATE_DATE" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LAST_UPD_BY" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LAST_UPD_DATE" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.HistManualsModelImpl">
+		<attributes>
+			<id name="histManualId">
+				<column name="HST_MNL_ID" />
+			</id>
+			<basic name="title">
+				<column name="MNL_TITLE" />
+			</basic>
+			<basic name="type">
+				<column name="MNL_TYP" />
+			</basic>
+			<basic name="pubDate">
+				<column name="PUBLISH_DT" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="status">
+				<column name="STAT_DESC" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREATE_BY" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREATE_DATE" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LAST_UPD_BY" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LAST_UPD_DATE" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.ImageModelImpl">
+		<attributes>
+			<id name="imageId">
+				<column name="IMAGE_ID" />
+			</id>
+			<basic name="imageUuId">
+				<column name="IMAGE_UUID" />
+			</basic>
+			<basic name="imageDesc">
+				<column name="IMAGE_DESC" />
+			</basic>
+			<basic name="imageTitle">
+				<column name="IMAGE_TITLE_TXT" />
+			</basic>
+			<basic name="imageSize">
+				<column name="IMAGE_SIZE_KILOBYTE_QTY" />
+			</basic>
+			<basic name="imageType">
+				<column name="IMAGE_TYP" />
+			</basic>
+			<basic name="smallImageId">
+				<column name="SMALL_IMAGE_ID" />
+			</basic>
+			<basic name="imageDimension">
+				<column name="IMAGE_DIM_TXT" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.JobQueueModelImpl">
+		<attributes>
+			<id name="jobId">
+				<column name="JOB_ID" />
+			</id>
+			<basic name="jobOwner">
+				<column name="JOB_OWNER" />
+			</basic>
+			<basic name="jobType">
+				<column name="JOB_TYP" />
+			</basic>
+			<basic name="metadata">
+				<column name="METADATA_TXT" />
+			</basic>
+			<basic name="link">
+				<column name="LINK_TXT" />
+			</basic>
+			<basic name="notificationEmail">
+				<column name="NOTIFICATION_EMAIL_ID" />
+			</basic>
+			<basic name="startTime">
+				<column name="STRT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="endTime">
+				<column name="END_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="status">
+				<column name="STAT_CD" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.MustPublishModelImpl">
+		<attributes>
+			<id name="stdId">
+				<column name="STD_ID" />
+			</id>
+			<basic name="parentId">
+				<column name="PRNT_STD_ID" />
+			</basic>
+			<basic name="title">
+				<column name="TITLE" />
+			</basic>
+			<basic name="stdType">
+				<column name="STD_TYPE" />
+			</basic>
+			<basic name="path">
+				<column name="PATH" />
+			</basic>
+			<basic name="currentPath">
+				<column name="CURR_PATH" />
+			</basic>
+			<basic name="regionCode">
+				<column name="RGN_CD" />
+			</basic>
+			<basic name="amer">
+				<column name="AMER" />
+			</basic>
+			<basic name="amea">
+				<column name="AMEA" />
+			</basic>
+			<basic name="euro">
+				<column name="EURO" />
+			</basic>
+			<basic name="gc">
+				<column name="GC" />
+			</basic>
+			<basic name="status">
+				<column name="STAT_DESC" />
+			</basic>
+			<basic name="displayOrder">
+				<column name="DISP_ORDER_NBR" />
+			</basic>
+			<basic name="taxonomyId">
+				<column name="TAXONOMY_ID" />
+			</basic>
+			<basic name="parentTaxonomyId">
+				<column name="PRNT_TAXONOMY_ID" />
+			</basic>
+			<basic name="indexOrder">
+				<column name="INDX_ORDER" />
+			</basic>
+			<basic name="level">
+				<column name="LVL" />
+			</basic>
+			<basic name="levelSortOrder">
+				<column name="HIER_LVL_NBR" />
+			</basic>
+			<basic name="isGlobal">
+				<column name="GBL_RGN_IND" />
+			</basic>
+			<basic name="framework">
+				<column name="FRAMEWORK_STD_IND" />
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.PublicationModelImpl">
+		<attributes>
+			<id name="publishId">
+				<column name="PUBLISH_ID" />
+			</id>
+			<basic name="publishVerId">
+				<column name="PUBLISH_VER_ID" />
+			</basic>
+			<basic name="publishStatCd">
+				<column name="PUBLISH_STAT_CD" />
+			</basic>
+			<basic name="chainCode">
+				<column name="CHAIN_CD" />
+			</basic>
+			<basic name="publishEnvName">
+				<column name="PUBLISH_ENVIRONMENT_NM" />
+			</basic>
+			<basic name="publishLocaleList">
+				<column name="PUBLISHED_LOCALE_LIST_TXT" />
+			</basic>
+			<basic name="publishDate">
+				<column name="PUBLISH_DT" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="publishContentType">
+				<column name="PUBLISH_CONTENT_TYP" />
+			</basic>
+			<basic name="parentPublishId">
+				<column name="PRNT_PUBLISH_ID" />
+			</basic>
+			<basic name="validateTranslation">
+				<column name="VLD_XLAT_IND" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.PublishCountryStandardModelImpl">
+		<attributes>
+			<id name="publishCountryStdId">
+				<column name="PUBLISH_CTRY_STD_ID" />
+			</id>
+			<basic name="publishVerId">
+				<column name="PUBLISH_STD_VER_ID" />
+			</basic>
+			<basic name="countryCode">
+				<column name="CTRY_NM_CD" />
+			</basic>
+			<basic name="expiredRefTxt">
+				<column name="EXPIRED_BY_REF_TXT" />
+			</basic>
+			<basic name="publishStatCode">
+				<column name="PUBLISH_STAT_CD" />
+			</basic>
+			<basic name="stdComplyDeadlineDate">
+				<column name="STD_CMPLY_DEADLINE_DT" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="orderNumber">
+				<column name="DISP_ORDER_NBR" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.PublishDeptModelImpl">
+		<attributes>
+			<id name="publishDeptId">
+				<column name="GEM_PUBLISH_DEPT_ID" />
+			</id>
+			<basic name="deptId">
+				<column name="GEM_DEPT_ID" />
+			</basic>
+			<basic name="publishId">
+				<column name="PUBLISH_ID" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.PublishedPdfListModelImpl">
+		<attributes>
+			<id name="pdfId">
+				<column name="PDF_ID" />
+			</id>
+			<basic name="pdfChainCode">
+				<column name="PDF_CHAIN_CD" />
+			</basic>
+			<basic name="pdfCtryCode">
+				<column name="PDF_CTRY_CD" />
+			</basic>
+			<basic name="pdfBuildType">
+				<column name="PDF_BUILD_TYP" />
+			</basic>
+			<basic name="pdfYearNumber">
+				<column name="PDF_YR_NBR" />
+			</basic>
+			<basic name="pdfLocaleCode">
+				<column name="PDF_LOCALE_CD" />
+			</basic>
+			<basic name="pdfVersionNumber">
+				<column name="PDF_VER_NBR" />
+			</basic>
+			<basic name="pdfFileName">
+				<column name="PDF_FILE_NM" />
+			</basic>
+			<basic name="pdfFileURLText">
+				<column name="PDF_FILE_URL_TXT" />
+			</basic>
+			<basic name="publishId">
+				<column name="PUBLISH_ID" />
+			</basic>
+			<basic name="pageSizeOrientationType">
+				<column name="PAGE_SIZE_ORIENTATION_TYP" />
+			</basic>
+			<basic name="createdBy">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.PublishExtStdModelImpl">
+		<attributes>
+			<id name="stdId">
+				<column name="STD_ID" />
+			</id>
+			<basic name="compDate">
+				<column name="CMPLY_DT" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="parentId">
+				<column name="PRNT_STD_ID" />
+			</basic>
+			<basic name="title">
+				<column name="TITLE_TXT" />
+			</basic>
+			<basic name="expiredIds">
+				<column name="EXPIRED_BY_REF_TXT" />
+			</basic>
+			<basic name="regionCode">
+				<column name="RGN_CD" />
+			</basic>
+			<basic name="isGlobal">
+				<column name="GBL_RGN_IND" />
+			</basic>
+			<basic name="framework">
+				<column name="FRAMEWORK_STD_IND" />
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.PublishParmModelImpl">
+		<attributes>
+			<id name="publishParmId">
+				<column name="PUBLISH_PARM_ID" />
+			</id>
+			<basic name="publishId">
+				<column name="PUBLISH_ID" />
+			</basic>
+			<basic name="parmName">
+				<column name="PARM_NM" />
+			</basic>
+			<basic name="parmValue">
+				<column name="PARM_VAL" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.PublishQueueModelImpl">
+		<attributes>
+			<id name="publishQueueId">
+				<column name="PUBLISH_QUEUE_ID" />
+			</id>
+			<basic name="publishFileText">
+				<column name="PUBLISH_FILE_TXT" />
+			</basic>
+			<basic name="publishEnvironment">
+				<column name="PUBLISH_ENVIRONMENT_NM" />
+			</basic>
+			<basic name="schedulePublish">
+				<column name="SCHED_PUBLISH_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="queueStatCd">
+				<column name="QUEUE_STAT_CD" />
+			</basic>
+			<basic name="chainCd">
+				<column name="CHAIN_CD" />
+			</basic>
+			<basic name="notificationEmailId">
+				<column name="NOTIFICATION_EMAIL_ID" />
+			</basic>
+			<basic name="scheduleStart">
+				<column name="SCHED_STRT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="scheduleEnd">
+				<column name="SCHED_END_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="expectedProdPublishDt">
+				<column name="EXPT_PROD_PUBLISH_DT" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="publishId">
+				<column name="PUBLISH_ID" />
+			</basic>
+			<basic name="publishLocaleList">
+				<column name="LOCALE_LIST_TXT" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.PublishStandardsExtModelImpl">
+		<attributes>
+			<id name="publishStdId">
+				<column name="PUBLISH_STD_VER_ID" />
+			</id>
+			<basic name="publishId">
+				<column name="PUBLISH_ID" />
+			</basic>
+			<basic name="stdId">
+				<column name="STD_ID" />
+			</basic>
+			<basic name="parentPublishId">
+				<column name="PRNT_STD_ID" />
+			</basic>
+			<basic name="stdTyp">
+				<column name="STD_TYP" />
+			</basic>
+			<basic name="title">
+				<column name="TITLE_TXT" />
+			</basic>
+			<basic name="prevPublishTitle">
+				<column name="PREV_PUBLISH_TITLE_TXT" />
+			</basic>
+			<basic name="description">
+				<column name="STD_DESC" />
+			</basic>
+			<basic name="prevDescription">
+				<column name="PREV_PUBLISH_STD_DESC" />
+			</basic>
+			<basic name="author">
+				<column name="AUTHOR_NM_TXT" />
+			</basic>
+			<basic name="businessOwner">
+				<column name="BUS_OWNER_NM" />
+			</basic>
+			<basic name="effectiveDate">
+				<column name="EFF_DT" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="implDate">
+				<column name="CMPLY_DT" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="prevCmplyDate">
+				<column name="PREV_CMPLY_DT" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="waiver">
+				<column name="WAIVER_IND" />
+			</basic>
+			<basic name="status">
+				<column name="STAT_DESC" />
+			</basic>
+			<basic name="category">
+				<column name="AREA_CATGY_CD" />
+			</basic>
+			<basic name="createdBy">
+				<column name="CREATOR_SCRN_NM" />
+			</basic>
+			<basic name="change">
+				<column name="CHNG_DESC" />
+			</basic>
+			<basic name="isGlobal">
+				<column name="GBL_RGN_IND" />
+			</basic>
+			<basic name="regionCode">
+				<column name="RGN_CD" />
+			</basic>
+			<basic name="notes">
+				<column name="NOTE_TXT" />
+			</basic>
+			<basic name="framework">
+				<column name="FRAMEWORK_STD_IND" />
+			</basic>
+			<basic name="internalReference">
+				<column name="STD_MGR_ID" />
+			</basic>
+			<basic name="region">
+				<column name="REGION_IDENTIFIER" />
+			</basic>
+			<basic name="statusIdentifier">
+				<column name="STATUS_IDENTIFIER" />
+			</basic>
+			<basic name="sortOrder">
+				<column name="DISP_ORDER_NBR" />
+			</basic>
+			<basic name="localeCode">
+				<column name="LOCALE_CD" />
+			</basic>
+			<basic name="taxonomyId">
+				<column name="TAXONOMY_ID" />
+			</basic>
+			<basic name="prntTaxonomyId">
+				<column name="PRNT_TAXONOMY_ID" />
+			</basic>
+			<basic name="attachmentExists">
+				<column name="ATTACHMENT_EXISTS" />
+			</basic>
+			<basic name="attachmentList">
+				<column name="ATTACH_LST" />
+			</basic>
+			<basic name="linkExists">
+				<column name="LINK_EXISTS" />
+			</basic>
+			<basic name="linkList">
+				<column name="LINK_LST" />
+			</basic>
+			<basic name="imageExists">
+				<column name="IMG_EXISTS" />
+			</basic>
+			<basic name="stdXrefListStdId">
+				<column name="XREF_LST_STD_ID" />
+			</basic>
+			<basic name="attachmentStatus">
+				<column name="ATTCH_STAT_CD" />
+			</basic>
+			<basic name="linkStatus">
+				<column name="LINK_STAT_CD" />
+			</basic>
+			<basic name="imageStatus">
+				<column name="IMG_STAT_CD" />
+			</basic>
+			<basic name="imageIdList">
+				<column name="IMG_LST_ID" />
+			</basic>
+			<basic name="indexOrder">
+				<column name="INDEX_ORDER" />
+			</basic>
+			<basic name="publishTaxonomyId">
+				<column name="PUBLISH_TAXONOMY_ID" />
+			</basic>
+			<basic name="parentTaxonomyId">
+				<column name="PRNT_PUBLISH_TAXONOMY_ID" />
+			</basic>
+			<basic name="indexTitle">
+				<column name="INDEX_TITLE" />
+			</basic>
+			<basic name="indexLvl">
+				<column name="LVL" />
+			</basic>
+			<basic name="taxonomyPath">
+				<column name="PATH" />
+			</basic>
+			<basic name="levelSortOrder">
+				<column name="HIER_LVL_NBR" />
+			</basic>
+			<basic name="indexDescription">
+				<column name="TAXONOMY_DESC" />
+			</basic>
+			<basic name="matchedId">
+				<column name="MATCHED_ID" />
+			</basic>
+			<basic name="expiryDate">
+				<column name="EXPR_DT" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="prevExpiryDate">
+				<column name="PREV_EXPR_DT" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="expiredStdId">
+				<column name="EXPIRED_BY_REF" />
+			</basic>
+			<basic name="flagStdId">
+				<column name="FLAG_ID" />
+			</basic>
+			<basic name="prevFlagStdId">
+				<column name="PREV_FLAG_ID" />
+			</basic>
+			<basic name="titleChange">
+				<column name="TITLE_CHANGE" />
+			</basic>
+			<basic name="cmplyChange">
+				<column name="CMPLY_CHANGE" />
+			</basic>
+			<basic name="exprChange">
+				<column name="EXPR_CHANGE" />
+			</basic>
+			<basic name="hlcChange">
+				<column name="HCL_CHANGE" />
+			</basic>
+			<basic name="changedStatus">
+				<column name="CHANGED_STAT" />
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.PublishStdModelImpl">
+		<attributes>
+			<id name="publishStdVerId">
+				<column name="PUBLISH_STD_VER_ID" />
+			</id>
+			<basic name="stdId">
+				<column name="STD_ID" />
+			</basic>
+			<basic name="parentId">
+				<column name="PRNT_STD_ID" />
+			</basic>
+			<basic name="stdTyp">
+				<column name="STD_TYP" />
+			</basic>
+			<basic name="title">
+				<column name="TITLE_TXT" />
+			</basic>
+			<basic name="description">
+				<column name="STD_DESC" />
+			</basic>
+			<basic name="author">
+				<column name="AUTHOR_NM_TXT" />
+			</basic>
+			<basic name="businessOwner">
+				<column name="BUS_OWNER_NM" />
+			</basic>
+			<basic name="effectiveDate">
+				<column name="EFF_DT" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="implDate">
+				<column name="IMPLMNT_DEADLINE_DT" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="waiver">
+				<column name="WAIVER_IND" />
+			</basic>
+			<basic name="status">
+				<column name="STAT_DESC" />
+			</basic>
+			<basic name="category">
+				<column name="AREA_CATGY_CD" />
+			</basic>
+			<basic name="createdBy">
+				<column name="CREATOR_SCRN_NM" />
+			</basic>
+			<basic name="change">
+				<column name="CHNG_DESC" />
+			</basic>
+			<basic name="isGlobal">
+				<column name="GBL_RGN_IND" />
+			</basic>
+			<basic name="regionCode">
+				<column name="RGN_CD" />
+			</basic>
+			<basic name="notes">
+				<column name="NOTE_TXT" />
+			</basic>
+			<basic name="framework">
+				<column name="FRAMEWORK_STD_IND" />
+			</basic>
+			<basic name="internalReference">
+				<column name="STD_MGR_ID" />
+			</basic>
+			<basic name="orderNumber">
+				<column name="DISP_ORDER_NBR" />
+			</basic>
+			<basic name="statusIdentifier">
+				<column name="STATUS_IDENTIFIER" />
+			</basic>
+			<basic name="regionIdentifier">
+				<column name="REGION_IDENTIFIER" />
+			</basic>
+			<basic name="publishId">
+				<column name="PUBLISH_ID" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.PublishTaxonomyModelImpl">
+		<attributes>
+			<id name="publishTaxId">
+				<column name="PUBLISH_TAXONOMY_ID" />
+			</id>
+			<basic name="publishId">
+				<column name="PUBLISH_ID" />
+			</basic>
+			<basic name="taxId">
+				<column name="TAXONOMY_ID" />
+			</basic>
+			<basic name="publishParentId">
+				<column name="PRNT_PUBLISH_TAXONOMY_ID" />
+			</basic>
+			<basic name="title">
+				<column name="TITLE_TXT" />
+			</basic>
+			<basic name="desc">
+				<column name="TAXONOMY_DESC" />
+			</basic>
+			<basic name="imageLoc">
+				<column name="IMAGE_PATH_TXT" />
+			</basic>
+			<basic name="createdBy">
+				<column name="CREATOR_SCRN_NM" />
+			</basic>
+			<basic name="position">
+				<column name="HIER_LVL_NBR" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.PublishTaxonomyExtModelImpl">
+		<attributes>
+			<id name="publishTaxId">
+				<column name="PUBLISH_TAXONOMY_ID" />
+			</id>
+			<basic name="publishParentId">
+				<column name="PRNT_PUBLISH_TAXONOMY_ID" />
+			</basic>
+			<basic name="title">
+				<column name="TITLE_TXT" />
+			</basic>
+			<basic name="lvl">
+				<column name="LVL" />
+			</basic>
+			<basic name="path">
+				<column name="PATH" />
+			</basic>
+			<basic name="levelSortOrder">
+				<column name="HIER_LVL_NBR" />
+			</basic>
+			<basic name="publishId">
+				<column name="PUBLISH_ID" />
+			</basic>
+			<basic name="indexOrder">
+				<column name="INDX_ORDER" />
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.SpecialWordDictionaryModelImpl">
+		<attributes>
+			<id name="specialWordId">
+				<column name="SPCL_WORD_DICTIONARY_ID" />
+			</id>
+			<basic name="replacedWordTxt">
+				<column name="REPLCD_WORD_TXT" />
+			</basic>
+			<basic name="replacementWordTxt">
+				<column name="REPLCMNT_WORD_TXT" />
+			</basic>
+			<basic name="localeCode">
+				<column name="LOCALE_CD" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.SpreadSheetAttributeUpdateModelImpl">
+		<attributes>
+			<id name="speardSheetId">
+				<column name="SPREADSHEET_ID" />
+			</id>
+			<basic name="requestTitle">
+				<column name="UPDT_RQST_TITLE_TXT" />
+			</basic>
+			<basic name="status">
+				<column name="UPDT_RQST_STAT_CD" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="spreadSheet">
+				<column name="SPREADSHEET_TXT" />
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.StandardsModelImpl">
+		<attributes>
+			<id name="stdId">
+				<column name="STD_ID" />
+			</id>
+			<basic name="parentId">
+				<column name="PRNT_STD_ID" />
+			</basic>
+			<basic name="stdTyp">
+				<column name="STD_TYP" />
+			</basic>
+			<basic name="title">
+				<column name="TITLE_TXT" />
+			</basic>
+			<basic name="description">
+				<column name="STD_DESC" />
+			</basic>
+			<basic name="author">
+				<column name="AUTHOR_NM_TXT" />
+			</basic>
+			<basic name="businessOwner">
+				<column name="BUS_OWNER_NM" />
+			</basic>
+			<basic name="effectiveDate">
+				<column name="EFF_DT" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="implDate">
+				<column name="IMPLMNT_DEADLINE_DT" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="waiver">
+				<column name="WAIVER_IND" />
+			</basic>
+			<basic name="status">
+				<column name="STAT_DESC" />
+			</basic>
+			<basic name="category">
+				<column name="AREA_CATGY_CD" />
+			</basic>
+			<basic name="createdBy">
+				<column name="CREATOR_SCRN_NM" />
+			</basic>
+			<basic name="change">
+				<column name="CHNG_DESC" />
+			</basic>
+			<basic name="isGlobal">
+				<column name="GBL_RGN_IND" />
+			</basic>
+			<basic name="regionCode">
+				<column name="RGN_CD" />
+			</basic>
+			<basic name="notes">
+				<column name="NOTE_TXT" />
+			</basic>
+			<basic name="framework">
+				<column name="FRAMEWORK_STD_IND" />
+			</basic>
+			<basic name="internalReference">
+				<column name="STD_MGR_ID" />
+			</basic>
+			<basic name="orderNumber">
+				<column name="DISP_ORDER_NBR" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="statusId">
+				<column name="STAT_ID" />
+			</basic>
+			<basic name="regionId">
+				<column name="RGN_ID" />
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.StandardsAuthorsModelImpl">
+		<attributes>
+			<id name="stdAuthorId">
+				<column name="STD_AUTHOR_ID" />
+			</id>
+			<basic name="stdId">
+				<column name="STD_ID" />
+			</basic>
+			<basic name="authorName">
+				<column name="AUTHOR_NM" />
+			</basic>
+			<basic name="isPrimary">
+				<column name="PRIM_IND" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.StandardsChainImagesModelImpl">
+		<id-class class="com.ihg.brandstandards.db.service.persistence.StandardsChainImagesPK" />
+		<attributes>
+			<id name="stdImageId">
+				<column name="STD_IMAGE_ID" />
+			</id>
+			<id name="chainCode">
+				<column name="CHAIN_CD" />
+			</id>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.StandardsComplianceModelImpl">
+		<attributes>
+			<id name="stdComplianceId">
+				<column name="STD_CMPLY_ID" />
+			</id>
+			<basic name="stdId">
+				<column name="STD_ID" />
+			</basic>
+			<basic name="countryCode">
+				<column name="CTRY_NM_CD" />
+			</basic>
+			<basic name="chainCode">
+				<column name="CHAIN_CD" />
+			</basic>
+			<basic name="complianceExpiryDate">
+				<column name="CMPLY_EXPR_DT" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="complianceExpiryRule">
+				<column name="CMPLY_EXPR_RULE_CD" />
+			</basic>
+			<basic name="complianceRuleMonths">
+				<column name="CMPLY_RULE_MO_QTY" />
+			</basic>
+			<basic name="RuleDate">
+				<column name="RULE_DT_CD" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.StandardsComplianceExtModelImpl">
+		<attributes>
+			<id name="stdComplianceId">
+				<column name="STD_CMPLY_ID" />
+			</id>
+			<basic name="stdId">
+				<column name="STD_ID" />
+			</basic>
+			<basic name="countryCode">
+				<column name="CTRY_NM_CD" />
+			</basic>
+			<basic name="regionCode">
+				<column name="RGN_CD" />
+			</basic>
+			<basic name="chainCode">
+				<column name="CHAIN_CD" />
+			</basic>
+			<basic name="complianceExpiryDate">
+				<column name="CMPLY_EXPR_DT" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="complianceExpiryRule">
+				<column name="CMPLY_EXPR_RULE_CD" />
+			</basic>
+			<basic name="complianceRuleMonths">
+				<column name="CMPLY_RULE_MO_QTY" />
+			</basic>
+			<basic name="RuleDate">
+				<column name="RULE_DT_CD" />
+			</basic>
+			<basic name="expiryDate">
+				<column name="EXPR_DT" />
+			</basic>
+			<basic name="complianceDateString">
+				<column name="CMPLY_DT_STR" />
+			</basic>
+			<basic name="expiryDateString">
+				<column name="EXPR_DT_STR" />
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.StandardsCountryModelImpl">
+		<attributes>
+			<id name="countryNameCode">
+				<column name="CTRY_NM_CD" />
+			</id>
+			<basic name="regionId">
+				<column name="RGN_ID" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="subRegionId">
+				<column name="SUB_RGN_ID" />
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.StandardsCountryChainModelImpl">
+		<id-class class="com.ihg.brandstandards.db.service.persistence.StandardsCountryChainPK" />
+		<attributes>
+			<id name="stdId">
+				<column name="STD_ID" />
+			</id>
+			<id name="countryCode">
+				<column name="CTRY_NM_CD" />
+			</id>
+			<id name="chainCode">
+				<column name="CHAIN_CD" />
+			</id>
+			<basic name="regionCode">
+				<column name="RGN_CD" />
+			</basic>
+			<basic name="compDate">
+				<column name="CMPLY_DT" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="exprDate">
+				<column name="EXPR_DT" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="expiredIds">
+				<column name="EXPIRED_BY_REF_TXT" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.StandardsCountryExtModelImpl">
+		<attributes>
+			<id name="rowNum">
+				<column name="ROWNUM" />
+			</id>
+			<basic name="countryCode">
+				<column name="CTRY_NM_CD" />
+			</basic>
+			<basic name="flag">
+				<column name="CTRY_FLAG" />
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.StandardsCountryImagesModelImpl">
+		<id-class class="com.ihg.brandstandards.db.service.persistence.StandardsCountryImagesPK" />
+		<attributes>
+			<id name="stdImageId">
+				<column name="STD_IMAGE_ID" />
+			</id>
+			<id name="countryCode">
+				<column name="CTRY_NM_CD" />
+			</id>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.StandardsCrossReferenceModelImpl">
+		<id-class class="com.ihg.brandstandards.db.service.persistence.StandardsCrossReferencePK" />
+		<attributes>
+			<id name="stdId">
+				<column name="REFERRING_STD_ID" />
+			</id>
+			<id name="xrefStdId">
+				<column name="REFERENCED_STD_ID" />
+			</id>
+			<basic name="dispOrderNumber">
+				<column name="DISP_ORDER_NBR" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.StandardsDisplayOrderModelImpl">
+		<id-class class="com.ihg.brandstandards.db.service.persistence.StandardsDisplayOrderPK" />
+		<attributes>
+			<id name="stdId">
+				<column name="STD_ID" />
+			</id>
+			<id name="regionCode">
+				<column name="RGN_CD" />
+			</id>
+			<id name="chainCode">
+				<column name="CHAIN_CD" />
+			</id>
+			<basic name="displayOrder">
+				<column name="DISP_ORDER_NBR" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.StandardsDisplayOrderExtModelImpl">
+		<attributes>
+			<id name="stdId">
+				<column name="STD_ID" />
+			</id>
+			<basic name="title">
+				<column name="TITLE_TXT" />
+			</basic>
+			<basic name="isGlobal">
+				<column name="GBL_RGN_IND" />
+			</basic>
+			<basic name="framework">
+				<column name="FRAMEWORK_STD_IND" />
+			</basic>
+			<basic name="chainCode">
+				<column name="CHAIN_CD" />
+			</basic>
+			<basic name="regionCode">
+				<column name="RGN_CD" />
+			</basic>
+			<basic name="displayOrder">
+				<column name="DISP_ORDER_NBR" />
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.StandardsExtModelImpl">
+		<id-class class="com.ihg.brandstandards.db.service.persistence.StandardsExtPK" />
+		<attributes>
+			<id name="stdId">
+				<column name="STD_ID" />
+			</id>
+			<id name="auditLogId">
+				<column name="WORKFLOW_ACTV_LOG_ID" />
+			</id>
+			<id name="stdManual">
+				<column name="STD_MANUAL_FLG" />
+			</id>
+			<id name="stdCorporateDepartment">
+				<column name="STD_CORP_DEPMNT_FLG" />
+			</id>
+			<id name="stdBrandCd">
+				<column name="STD_BRAND_CD" />
+			</id>
+			<id name="biImpactAssmntId">
+				<column name="BI_ASSMT_ID" />
+			</id>
+			<id name="stdCountryCd">
+				<column name="STD_CTRY_CD" />
+			</id>
+			<basic name="stdPrntId">
+				<column name="STD_PRNT_STD_ID" />
+			</basic>
+			<basic name="stdOrigStdId">
+				<column name="STD_ORIG_STD_ID" />
+			</basic>
+			<basic name="stdPubStatCd">
+				<column name="STD_PUBLISH_STAT_CD" />
+			</basic>
+			<basic name="stdType">
+				<column name="STD_TYP" />
+			</basic>
+			<basic name="stdTitle">
+				<column name="STD_TITLE_TXT" />
+			</basic>
+			<basic name="stdDescription">
+				<column name="STD_DESC" />
+			</basic>
+			<basic name="stdBusinessOwner">
+				<column name="STD_BUS_OWNER_NM" />
+			</basic>
+			<basic name="stdStatus">
+				<column name="STD_STAT_DESC" />
+			</basic>
+			<basic name="stdAuthor">
+				<column name="STD_AUTHOR_NM" />
+			</basic>
+			<basic name="stdCategory">
+				<column name="STD_AREA_CATGY_CD" />
+			</basic>
+			<basic name="stdGlobal">
+				<column name="STD_GBL_RGN_IND" />
+			</basic>
+			<basic name="stdRegionCode">
+				<column name="STD_RGN_CD" />
+			</basic>
+			<basic name="stdFramework">
+				<column name="FRAMEWORK_STD_IND" />
+			</basic>
+			<basic name="stdChange">
+				<column name="STD_CHNG_DESC" />
+			</basic>
+			<basic name="stdCreatedBy">
+				<column name="STD_CREATOR_SCRN_NM" />
+			</basic>
+			<basic name="stdUpdatedDate">
+				<column name="STD_LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="stdImageCount">
+				<column name="STD_IMG_CNT" />
+			</basic>
+			<basic name="stdImageTitle">
+				<column name="STD_IMG_TITLE" />
+			</basic>
+			<basic name="stdInternalReference">
+				<column name="STD_MGR_ID" />
+			</basic>
+			<basic name="stdOrderNumber">
+				<column name="DISP_ORDER_NBR" />
+			</basic>
+			<basic name="indexId">
+				<column name="INDX_TAXONOMY_ID" />
+			</basic>
+			<basic name="indexOrigId">
+				<column name="ORIG_INDX_TAXONOMY_ID" />
+			</basic>
+			<basic name="indexPrntId">
+				<column name="INDX_PRNT_TAXONOMY_ID" />
+			</basic>
+			<basic name="indexTitle">
+				<column name="INDX_TITLE_TXT" />
+			</basic>
+			<basic name="indexLevel">
+				<column name="INDX_LEVEL" />
+			</basic>
+			<basic name="indexLevelSortOrder">
+				<column name="INDX_HIER_LVL_NBR" />
+			</basic>
+			<basic name="indexPath">
+				<column name="INDX_PATH" />
+			</basic>
+			<basic name="auditLogComments">
+				<column name="AUDIT_LOG_TXT" />
+			</basic>
+			<basic name="auditLogTitle">
+				<column name="AUDIT_LOG_TITLE_TXT" />
+			</basic>
+			<basic name="auditLogDate">
+				<column name="AUDIT_LOG_UPD_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="auditLogStatus">
+				<column name="AUDIT_LOG_CURRENT_STAT_CD" />
+			</basic>
+			<basic name="auditLogPrevStatus">
+				<column name="AUDIT_LOG_PREV_STAT_CD" />
+			</basic>
+			<basic name="histManualDesc">
+				<column name="MNL_TITLE" />
+			</basic>
+			<basic name="secLangIndexTitle">
+				<column name="SEC_LANG_INDX_TITLE" />
+			</basic>
+			<basic name="secLangIndexDesc">
+				<column name="SEC_LANG_INDX_DESC" />
+			</basic>
+			<basic name="secLangIndexImgPath">
+				<column name="SEC_LANG_INDX_IMG_PATH" />
+			</basic>
+			<basic name="secLangStdTitle">
+				<column name="SEC_LANG_STD_TITLE" />
+			</basic>
+			<basic name="secLangStdDesc">
+				<column name="SEC_LANG_STD_DESC" />
+			</basic>
+			<basic name="biChangeTypeCd">
+				<column name="BI_CHG_FROM_RGN" />
+			</basic>
+			<basic name="biRegionCd">
+				<column name="BI_RGN_CD" />
+			</basic>
+			<basic name="biProfileLossImpactCd">
+				<column name="BI_PROFIT_LOSS_IMPACT_CD" />
+			</basic>
+			<basic name="biCapExpenseImpactCd">
+				<column name="BI_CAP_EXPENSE_IMPACT_CD" />
+			</basic>
+			<basic name="biImplTimeScaleCd">
+				<column name="BI_IMPLMNT_TIMESCALE_CD" />
+			</basic>
+			<basic name="biComments">
+				<column name="BI_DESC" />
+			</basic>
+			<basic name="biBrandCd">
+				<column name="BI_CHAIN_CD" />
+			</basic>
+			<basic name="stdCrossReferences">
+				<column name="REFERENCED_STD_ID" />
+			</basic>
+			<basic name="auditBrand">
+				<column name="AUDIT_BRAND" />
+			</basic>
+			<basic name="globalRule">
+				<column name="GLBL_RUL" />
+			</basic>
+			<basic name="ameaRule">
+				<column name="AMEA_RUL" />
+			</basic>
+			<basic name="amerRule">
+				<column name="AMER_RUL" />
+			</basic>
+			<basic name="euroRule">
+				<column name="EURO_RUL" />
+			</basic>
+			<basic name="gcRule">
+				<column name="GC_RUL" />
+			</basic>
+			<basic name="expires">
+				<column name="EXPIRES" />
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.StandardsHistoricalManualModelImpl">
+		<attributes>
+			<id name="stdMnlId">
+				<column name="STD_MNL_ID" />
+			</id>
+			<basic name="stdId">
+				<column name="STD_ID" />
+			</basic>
+			<basic name="histManualId">
+				<column name="HST_MNL_ID" />
+			</basic>
+			<basic name="change">
+				<column name="MNL_CHNG_DESC" />
+			</basic>
+			<basic name="title">
+				<column name="STD_MNL_TITLE" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREATE_BY" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREATE_DATE" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LAST_UPD_BY" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LAST_UPD_DATE" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.StandardsImagesModelImpl">
+		<attributes>
+			<id name="stdImageId">
+				<column name="STD_IMAGE_ID" />
+			</id>
+			<basic name="parentImageId">
+				<column name="PRNT_STD_IMAGE_ID" />
+			</basic>
+			<basic name="imageId">
+				<column name="IMAGE_ID" />
+			</basic>
+			<basic name="stdId">
+				<column name="STD_ID" />
+			</basic>
+			<basic name="localeCode">
+				<column name="LOCALE_CD" />
+			</basic>
+			<basic name="imageTitle">
+				<column name="IMAGE_TITLE_TXT" />
+			</basic>
+			<basic name="imageSortOrder">
+				<column name="SORT_ORDER_NBR" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.StandardsLocaleModelImpl">
+		<attributes>
+			<id name="localeCode">
+				<column name="LOCALE_CD" />
+			</id>
+			<basic name="countryCode">
+				<column name="CTRY_CD" />
+			</basic>
+			<basic name="localeName">
+				<column name="LOCALE_NM" />
+			</basic>
+			<basic name="languageCode">
+				<column name="LANG_CD" />
+			</basic>
+			<basic name="orderNumber">
+				<column name="DISP_ORDER_NBR" />
+			</basic>
+			<basic name="isActive">
+				<column name="ACTV_IND" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.StandardsRegionModelImpl">
+		<attributes>
+			<id name="regionId">
+				<column name="RGN_ID" />
+			</id>
+			<basic name="regionCode">
+				<column name="RGN_CD" />
+			</basic>
+			<basic name="regionType">
+				<column name="RGN_TYP_CD" />
+			</basic>
+			<basic name="regionName">
+				<column name="RGN_NM" />
+			</basic>
+			<basic name="isActive">
+				<column name="ACTV_IND" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="parentRegionId">
+				<column name="PRNT_RGN_ID" />
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.StandardsRegionChainModelImpl">
+		<id-class class="com.ihg.brandstandards.db.service.persistence.StandardsRegionChainPK" />
+		<attributes>
+			<id name="stdId">
+				<column name="STD_ID" />
+			</id>
+			<id name="regionCode">
+				<column name="RGN_CD" />
+			</id>
+			<id name="chainCode">
+				<column name="CHAIN_CD" />
+			</id>
+			<basic name="compDate">
+				<column name="CMPLY_DT" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="expiredIds">
+				<column name="EXPIRED_BY_REF_TXT" />
+			</basic>
+			<basic name="complianceRule">
+				<column name="CMPLY_RULE_MO_NBR" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.StandardsRegionLocaleModelImpl">
+		<id-class class="com.ihg.brandstandards.db.service.persistence.StandardsRegionLocalePK" />
+		<attributes>
+			<id name="regionId">
+				<column name="RGN_ID" />
+			</id>
+			<id name="localeCode">
+				<column name="LOCALE_CD" />
+			</id>
+			<basic name="isDefault">
+				<column name="DFLT_LANG_IND" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.StandardsStatusModelImpl">
+		<attributes>
+			<id name="statusId">
+				<column name="STAT_ID" />
+			</id>
+			<basic name="statusCode">
+				<column name="STAT_CD" />
+			</basic>
+			<basic name="title">
+				<column name="STAT_TITLE_TXT" />
+			</basic>
+			<basic name="regionId">
+				<column name="RGN_ID" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.StandardsTranslateModelImpl">
+		<id-class class="com.ihg.brandstandards.db.service.persistence.StandardsTranslatePK" />
+		<attributes>
+			<id name="stdId">
+				<column name="STD_ID" />
+			</id>
+			<id name="localeCode">
+				<column name="LOCALE_CD" />
+			</id>
+			<basic name="title">
+				<column name="TITLE_TXT" />
+			</basic>
+			<basic name="description">
+				<column name="STD_DESC" />
+			</basic>
+			<basic name="note">
+				<column name="NOTE_TXT" />
+			</basic>
+			<basic name="comment">
+				<column name="CMT_TXT" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="isValidTxt">
+				<column name="TITLE_TXT_VLD_IND" />
+			</basic>
+			<basic name="isValidCntxt">
+				<column name="STD_DESC_VLD_IND" />
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.TaxonomyModelImpl">
+		<attributes>
+			<id name="taxId">
+				<column name="TAXONOMY_ID" />
+			</id>
+			<basic name="parentId">
+				<column name="PRNT_TAXONOMY_ID" />
+			</basic>
+			<basic name="title">
+				<column name="TITLE_TXT" />
+			</basic>
+			<basic name="desc">
+				<column name="TAXONOMY_DESC" />
+			</basic>
+			<basic name="imageLoc">
+				<column name="IMAGE_PATH_TXT" />
+			</basic>
+			<basic name="createdBy">
+				<column name="CREATOR_SCRN_NM" />
+			</basic>
+			<basic name="position">
+				<column name="HIER_LVL_NBR" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.TaxonomyExtModelImpl">
+		<attributes>
+			<id name="taxId">
+				<column name="TAXONOMY_ID" />
+			</id>
+			<basic name="parentId">
+				<column name="PRNT_TAXONOMY_ID" />
+			</basic>
+			<basic name="title">
+				<column name="TITLE_TXT" />
+			</basic>
+			<basic name="desc">
+				<column name="TAXONOMY_DESC" />
+			</basic>
+			<basic name="imageLoc">
+				<column name="IMAGE_PATH_TXT" />
+			</basic>
+			<basic name="lvl">
+				<column name="LVL" />
+			</basic>
+			<basic name="path">
+				<column name="PATH" />
+			</basic>
+			<basic name="levelSortOrder">
+				<column name="HIER_LVL_NBR" />
+			</basic>
+			<basic name="indexOrder">
+				<column name="INDX_ORDER" />
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.TaxonomyStandardsModelImpl">
+		<attributes>
+			<id name="stdId">
+				<column name="STD_ID" />
+			</id>
+			<basic name="taxId">
+				<column name="TAXONOMY_ID" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.TaxonomyTranslateModelImpl">
+		<id-class class="com.ihg.brandstandards.db.service.persistence.TaxonomyTranslatePK" />
+		<attributes>
+			<id name="taxId">
+				<column name="TAXONOMY_ID" />
+			</id>
+			<id name="localeCode">
+				<column name="LOCALE_CD" />
+			</id>
+			<basic name="title">
+				<column name="TITLE_TXT" />
+			</basic>
+			<basic name="desc">
+				<column name="TAXONOMY_DESC" />
+			</basic>
+			<basic name="imageLoc">
+				<column name="IMAGE_PATH_TXT" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.TreeXMLModelImpl">
+		<attributes>
+			<id name="ID">
+				<column name="XML_ID" />
+			</id>
+			<basic name="XMLLOB">
+				<column name="XML_CLOB" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.UIElementModelImpl">
+		<attributes>
+			<id name="elementId">
+				<column name="UI_ELEM_ID" />
+			</id>
+			<basic name="elementKey">
+				<column name="UI_ELEM_KEY" />
+			</basic>
+			<basic name="moduleName">
+				<column name="TGT_MODULE_NM" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.UIElementTranslateModelImpl">
+		<id-class class="com.ihg.brandstandards.db.service.persistence.UIElementTranslatePK" />
+		<attributes>
+			<id name="elementId">
+				<column name="UI_ELEM_ID" />
+			</id>
+			<id name="localeCode">
+				<column name="LOCALE_CD" />
+			</id>
+			<basic name="elementValue">
+				<column name="ELEM_VAL" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.UniqueGroupModelImpl">
+		<attributes>
+			<id name="uniqueGroupId">
+				<column name="UNIQUE_GRP_ID" />
+			</id>
+			<basic name="publishId">
+				<column name="PUBLISH_ID" />
+			</basic>
+			<basic name="groupName">
+				<column name="GRP_NM" />
+			</basic>
+			<basic name="regionId">
+				<column name="RGN_ID" />
+			</basic>
+			<basic name="groupType">
+				<column name="UNIQUE_GRP_TYP_CD" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.UniqueGroupCountryModelImpl">
+		<attributes>
+			<id name="groupCountryId">
+				<column name="UNIQUE_GRP_CTRY_ID" />
+			</id>
+			<basic name="uniqueGroupId">
+				<column name="UNIQUE_GRP_ID" />
+			</basic>
+			<basic name="countryCode">
+				<column name="CTRY_NM_CD" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.UniqueGroupStandardModelImpl">
+		<attributes>
+			<id name="groupStandardId">
+				<column name="UNIQUE_GRP_STD_ID" />
+			</id>
+			<basic name="groupId">
+				<column name="UNIQUE_GRP_ID" />
+			</basic>
+			<basic name="stdId">
+				<column name="STD_ID" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.UserPreferenceModelImpl">
+		<attributes>
+			<id name="preferenceId">
+				<column name="PREF_ID" />
+			</id>
+			<basic name="userId">
+				<column name="USR_ID" />
+			</basic>
+			<basic name="langCode">
+				<column name="LOCALE_CD" />
+			</basic>
+			<basic name="pdfLangCode">
+				<column name="PDF_LOCALE_CD" />
+			</basic>
+			<basic name="buildType">
+				<column name="BUILD_TYP" />
+			</basic>
+			<basic name="chainCode">
+				<column name="CHAIN_CD" />
+			</basic>
+			<basic name="reportType">
+				<column name="RPT_TYP" />
+			</basic>
+			<basic name="paperSize">
+				<column name="RPT_PAPER_SIZE" />
+			</basic>
+			<basic name="itemsPerPage">
+				<column name="ITEMS_PER_PAGE" />
+			</basic>
+			<basic name="infoDisplay">
+				<column name="INFO_DISP" />
+			</basic>
+			<basic name="CountryCode">
+				<column name="CTRY_NM_CD" />
+			</basic>
+			<basic name="unsubscribeEmail">
+				<column name="UNSUBSCRIBE_CMT_EML" />
+			</basic>
+			<basic name="moduleName">
+				<column name="MODULE_NM" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+			<transient name="userUuid" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.UserSearchCriteriaModelImpl">
+		<attributes>
+			<id name="userSearchId">
+				<column name="USR_SEARCH_ID" />
+			</id>
+			<basic name="searchName">
+				<column name="SEARCH_NM" />
+			</basic>
+			<basic name="searchCriteria">
+				<column name="SEARCH_CRIT" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="moduleName">
+				<column name="MODULE_NM" />
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<mapped-superclass class="com.ihg.brandstandards.db.model.impl.WorkflowModelImpl">
+		<attributes>
+			<id name="workflowActvtId">
+				<column name="WORKFLOW_ACTV_LOG_ID" />
+			</id>
+			<basic name="objectId">
+				<column name="OBJECT_ID" />
+			</basic>
+			<basic name="objectType">
+				<column name="OBJECT_TYP" />
+			</basic>
+			<basic name="status">
+				<column name="CURRENT_STAT_CD" />
+			</basic>
+			<basic name="prevStatus">
+				<column name="PREV_STAT_CD" />
+			</basic>
+			<basic name="title">
+				<column name="TITLE_TXT" />
+			</basic>
+			<basic name="comment">
+				<column name="CMT_TXT" />
+			</basic>
+			<basic name="createdBy">
+				<column name="USR_SCRN_NM" />
+			</basic>
+			<basic name="chainCode">
+				<column name="CHAIN_CD" />
+			</basic>
+			<basic name="creatorId">
+				<column name="CREAT_USR_ID" />
+			</basic>
+			<basic name="createdDate">
+				<column name="CREAT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<basic name="updatedBy">
+				<column name="LST_UPDT_USR_ID" />
+			</basic>
+			<basic name="updatedDate">
+				<column name="LST_UPDT_TS" />
+				<temporal>TIMESTAMP</temporal>
+			</basic>
+			<transient name="modelAttributes" />
+			<transient name="primaryKey" />
+			<transient name="primaryKeyObj" />
+		</attributes>
+	</mapped-superclass>
+	<entity class="com.ihg.brandstandards.db.model.impl.AttachmentsStandardsImpl" name="AttachmentsStandards">
+		<table name="STD_ATTACHMENT" />
+		<attributes>
+			<transient name="translationExist" />
+		</attributes>
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.AttachmentsStandardsCountryImpl" name="AttachmentsStandardsCountry">
+		<table name="STD_ATTACHMENT_CTRY" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.BrandTaxonomyImpl" name="BrandTaxonomy">
+		<table name="Brand_Taxonomy" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.BrandTaxonomyTranslateImpl" name="BrandTaxonomyTranslate">
+		<table name="BRAND_TAXONOMY_XLAT" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.BridgeGlobalPublishImpl" name="BridgeGlobalPublish">
+		<table name="BRIDGE_GBL_PUBLISH" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.BridgeGlobalPublishCountryImpl" name="BridgeGlobalPublishCountry">
+		<table name="BRIDGE_GBL_PUBLISH_CTRY" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.BridgeProgressCategoryImpl" name="BridgeProgressCategory">
+		<table name="BRIDGE_PUBLISH_PROGRESS_CATGY" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.BridgeProgressDiscrepancyImpl" name="BridgeProgressDiscrepancy">
+		<table name="BRIDGE_PUB_PROG_DISCREPANCY" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.BridgeProgressSubCategoryImpl" name="BridgeProgressSubCategory">
+		<table name="BRIDGE_PUBLISH_PROGRESS_SUBCAT" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.BridgePublishImpl" name="BridgePublish">
+		<table name="BRIDGE_PUBLISH" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.BridgePublishCountryImpl" name="BridgePublishCountry">
+		<table name="BRIDGE_PUBLISH_CTRY" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.BridgePublishCountryStateExImpl" name="BridgePublishCountryStateEx">
+		<table name="BRIDGE_PUBLISH_STAT" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.BridgePublishImportImpl" name="BridgePublishImport">
+		<table name="BRIDGE_PUBLISH_IMPORT" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.BridgePublishLangImpl" name="BridgePublishLang">
+		<table name="BRIDGE_PUBLISH_LANG" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.BridgePublishPreviewImpl" name="BridgePublishPreview">
+		<table name="BRIDGE_PUBLISH" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.BridgePublishStateExImpl" name="BridgePublishStateEx">
+		<table name="BRIDGE_PUBLISH_STAT" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.BridgePublishStatusImpl" name="BridgePublishStatus">
+		<table name="BRIDGE_PUBLISH_STAT" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.BusImpactAssmtImpl" name="BusImpactAssmt">
+		<table name="BUS_IMPACT_ASSMT_MNL" />
+		<attributes>
+			<transient name="chainName" />
+		</attributes>
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.ChainAttachmentsStandardsImpl" name="ChainAttachmentsStandards">
+		<table name="STD_ATTACHMENT_CHAIN" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.ChainExternalLinkStandardsImpl" name="ChainExternalLinkStandards">
+		<table name="STD_EXTL_LINK_CHAIN" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.ChainStandardsImpl" name="ChainStandards">
+		<table name="CHAIN_STD" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.CountryStandardsImpl" name="CountryStandards">
+		<table name="CTRY_STD" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.CountryStandardsExtImpl" name="CountryStandardsExt">
+		<table name="CTRY_STD" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.DepartmentImpl" name="Department">
+		<table name="GEM_DEPT" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.ErrNotificationImpl" name="ErrNotification">
+		<table name="ERR_NOTIFICATION" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.ExternalLinkStandardsImpl" name="ExternalLinkStandards">
+		<table name="STD_EXTL_LINK" />
+		<attributes>
+			<transient name="linkTranslationExist" />
+		</attributes>
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.ExternalLinkStandardsCountryImpl" name="ExternalLinkStandardsCountry">
+		<table name="STD_LINK_CTRY" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.FlagCategoryImpl" name="FlagCategory">
+		<table name="FLAG_CATGY" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.FlagStandardsImpl" name="FlagStandards">
+		<table name="FLAG_STD" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.GEMCategoryImpl" name="GEMCategory">
+		<table name="GEM_CATGY" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.GEMChainMeasurementImpl" name="GEMChainMeasurement">
+		<table name="GEM_CHAIN_MSRMNT" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.GEMCodeImpl" name="GEMCode">
+		<table name="GEM_CD" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.GEMGeneratedReportImpl" name="GEMGeneratedReport">
+		<table name="GEM_GEN_RPT" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.GEMGeneratedReportValImpl" name="GEMGeneratedReportVal">
+		<table name="GEM_GEN_RPT_VAL" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.GEMManagementBucketImpl" name="GEMManagementBucket">
+		<table name="GEM_MGT_BUCKET" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.GEMManagementIdImpl" name="GEMManagementId">
+		<table name="GEM_MGT_ID" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.GEMMeasurementImpl" name="GEMMeasurement">
+		<table name="GEM_MSRMNT" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.GEMMeasurementBucketChainImpl" name="GEMMeasurementBucketChain">
+		<table name="GEM_MSRMNT_BUCKET_CHAIN" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.GEMMeasurementFormulaImpl" name="GEMMeasurementFormula">
+		<table name="GEM_MSRMNT_FORMULA" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.GEMMeasurementFormulaValueImpl" name="GEMMeasurementFormulaValue">
+		<table name="GEM_MSRMNT_FORMULA_DTL" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.GEMMeasurementTypeImpl" name="GEMMeasurementType">
+		<table name="GEM_MSRMNT_TYP" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.GEMQlReportImpl" name="GEMQlReport">
+		<table name="QLTY_LEAD_RPT" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.GEMRoleImpl" name="GEMRole">
+		<table name="GEM_GRP" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.GEMScoringValueImpl" name="GEMScoringValue">
+		<table name="SCORING_VAL" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.GEMSeverityImpl" name="GEMSeverity">
+		<table name="GEM_SEVERITY" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.GEMStdCategoryImpl" name="GEMStdCategory">
+		<table name="GEM_STD_CATGY" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.GEMTemplateImpl" name="GEMTemplate">
+		<table name="GEM_TEMPLATE" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.GEMTemplateCategoryImpl" name="GEMTemplateCategory">
+		<table name="GEM_TEMPLATE_CATGY" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.GEMTemplateColumnImpl" name="GEMTemplateColumn">
+		<table name="GEM_TEMPLATE_COL" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.GEMTemplateReferenceImpl" name="GEMTemplateReference">
+		<table name="GEM_PUB_REF_TEMPLATE" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.GEMTemplateValuesImpl" name="GEMTemplateValues">
+		<table name="GEM_TEMPLATE_VAL" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.GEMTriggerImpl" name="GEMTrigger">
+		<table name="GEM_TRIGGER" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.GEMUniqueGroupImpl" name="GEMUniqueGroup">
+		<table name="GEM_UNIQUE_GRP" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.GEMUniqueGroupCountryImpl" name="GEMUniqueGroupCountry">
+		<table name="GEM_UNIQUE_GROUP_CTRY" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.GEMUniqueGroupStandardImpl" name="GEMUniqueGroupStandard">
+		<table name="GEM_UNIQUE_GRP_DTL" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.GlossaryImpl" name="Glossary">
+		<table name="GLOSSARY" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.GlossaryExtImpl" name="GlossaryExt">
+		<table name="GLOSSARY" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.GlossaryRegionNavImpl" name="GlossaryRegionNav">
+		<table name="GLOSSARY_RGN_NAV" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.GlossaryTranslateImpl" name="GlossaryTranslate">
+		<table name="GLOSSARY_XLAT" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.HistManualAttachmentImpl" name="HistManualAttachment">
+		<table name="MNL_ATTACHMENT" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.HistManualChainImpl" name="HistManualChain">
+		<table name="MNL_CHN" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.HistManualRegionImpl" name="HistManualRegion">
+		<table name="MNL_RGN" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.HistManualsImpl" name="HistManuals">
+		<table name="HIST_MNL" />
+		<attributes>
+			<transient name="chain" />
+			<transient name="region" />
+		</attributes>
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.ImageImpl" name="Image">
+		<table name="IMAGE" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.JobQueueImpl" name="JobQueue">
+		<table name="JOB_QUEUE" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.MustPublishImpl" name="MustPublish">
+		<table name="BRIDGE_GBL_PUBLISH" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.PublicationImpl" name="Publication">
+		<table name="PUBLISH" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.PublishCountryStandardImpl" name="PublishCountryStandard">
+		<table name="PUBLISH_CTRY_STD" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.PublishDeptImpl" name="PublishDept">
+		<table name="GEM_PUBLISH_DEPT" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.PublishedPdfListImpl" name="PublishedPdfList">
+		<table name="PUBLISHED_PDF_LIST" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.PublishExtStdImpl" name="PublishExtStd">
+		<table name="PUBLISH_STD" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.PublishParmImpl" name="PublishParm">
+		<table name="PUBLISH_PARM" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.PublishQueueImpl" name="PublishQueue">
+		<table name="PUBLISH_QUEUE" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.PublishStandardsExtImpl" name="PublishStandardsExt">
+		<table name="PUBLISH_STD" />
+		<attributes>
+			<transient name="attachmentListXlat" />
+			<transient name="cmplDateStr" />
+			<transient name="errorType" />
+			<transient name="expiryDateStr" />
+			<transient name="imageList" />
+			<transient name="imageListXlat" />
+			<transient name="indexDescXlat" />
+			<transient name="indexTitleXlat" />
+			<transient name="linkListXlat" />
+			<transient name="manual" />
+			<transient name="prevCmplDateStr" />
+			<transient name="prevExpiryDateStr" />
+			<transient name="removable" />
+			<transient name="searchMatches" />
+			<transient name="stdDescXlat" />
+			<transient name="stdTitleXlat" />
+		</attributes>
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.PublishStdImpl" name="PublishStd">
+		<table name="PUBLISH_STD" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.PublishTaxonomyImpl" name="PublishTaxonomy">
+		<table name="PUBLISH_TAXONOMY" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.PublishTaxonomyExtImpl" name="PublishTaxonomyExt">
+		<table name="PUBLISH_TAXONOMY" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.SpecialWordDictionaryImpl" name="SpecialWordDictionary">
+		<table name="SPCL_WORD_DICTIONARY" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.SpreadSheetAttributeUpdateImpl" name="SpreadSheetAttributeUpdate">
+		<table name="SPREADSHEET_ATTR_UPDT" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.StandardsImpl" name="Standards">
+		<table name="STD" />
+		<attributes>
+			<transient name="contextTransExist" />
+			<transient name="textTransExist" />
+		</attributes>
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.StandardsAuthorsImpl" name="StandardsAuthors">
+		<table name="STD_AUTHOR" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.StandardsChainImagesImpl" name="StandardsChainImages">
+		<table name="STD_IMAGE_CHAIN" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.StandardsComplianceImpl" name="StandardsCompliance">
+		<table name="STD_CMPLY" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.StandardsComplianceExtImpl" name="StandardsComplianceExt">
+		<table name="STD_CMPLY" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.StandardsCountryImpl" name="StandardsCountry">
+		<table name="BRNDSTND_CTRY" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.StandardsCountryChainImpl" name="StandardsCountryChain">
+		<table name="STD_CTRY_CHAIN" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.StandardsCountryExtImpl" name="StandardsCountryExt">
+		<table name="BRNDSTND_CTRY" />
+		<attributes>
+			<transient name="regionCode" />
+			<transient name="regionId" />
+			<transient name="subRegionCode" />
+		</attributes>
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.StandardsCountryImagesImpl" name="StandardsCountryImages">
+		<table name="STD_IMAGE_CTRY" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.StandardsCrossReferenceImpl" name="StandardsCrossReference">
+		<table name="STD_XREF" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.StandardsDisplayOrderImpl" name="StandardsDisplayOrder">
+		<table name="STD_DISPLAY_ORDER" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.StandardsDisplayOrderExtImpl" name="StandardsDisplayOrderExt">
+		<table name="STD_DISPLAY_ORDER" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.StandardsExtImpl" name="StandardsExt">
+		<table name="STD" />
+		<attributes>
+			<transient name="auditStatus" />
+			<transient name="countryChngStat" />
+			<transient name="flags" />
+			<transient name="indexOrder" />
+			<transient name="stdManualBuild" />
+			<transient name="stdManualOperate" />
+		</attributes>
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.StandardsHistoricalManualImpl" name="StandardsHistoricalManual">
+		<table name="STD_MNL" />
+		<attributes>
+			<transient name="chain" />
+			<transient name="histManualTitle" />
+			<transient name="histManualType" />
+			<transient name="region" />
+		</attributes>
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.StandardsImagesImpl" name="StandardsImages">
+		<table name="STD_IMAGE" />
+		<attributes>
+			<transient name="image" />
+			<transient name="isTranslationExist" />
+		</attributes>
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.StandardsLocaleImpl" name="StandardsLocale">
+		<table name="BRNDSTND_LOCALE" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.StandardsRegionImpl" name="StandardsRegion">
+		<table name="BRNDSTND_RGN" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.StandardsRegionChainImpl" name="StandardsRegionChain">
+		<table name="STD_RGN_CHAIN" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.StandardsRegionLocaleImpl" name="StandardsRegionLocale">
+		<table name="BRNDSTND_RGN_LOCALE" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.StandardsStatusImpl" name="StandardsStatus">
+		<table name="STAT" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.StandardsTranslateImpl" name="StandardsTranslate">
+		<table name="STD_XLAT" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.TaxonomyImpl" name="Taxonomy">
+		<table name="Taxonomy" />
+		<attributes>
+			<transient name="lvl" />
+			<transient name="path" />
+		</attributes>
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.TaxonomyExtImpl" name="TaxonomyExt">
+		<table name="Taxonomy" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.TaxonomyStandardsImpl" name="TaxonomyStandards">
+		<table name="TAXONOMY_STD" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.TaxonomyTranslateImpl" name="TaxonomyTranslate">
+		<table name="TAXONOMY_XLAT" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.TreeXMLImpl" name="TreeXML">
+		<table name="XML" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.UIElementImpl" name="UIElement">
+		<table name="UI_ELEM" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.UIElementTranslateImpl" name="UIElementTranslate">
+		<table name="UI_ELEM_XLAT" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.UniqueGroupImpl" name="UniqueGroup">
+		<table name="UNIQUE_GRP" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.UniqueGroupCountryImpl" name="UniqueGroupCountry">
+		<table name="UNIQUE_GRP_CTRY" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.UniqueGroupStandardImpl" name="UniqueGroupStandard">
+		<table name="UNIQUE_GRP_STD" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.UserPreferenceImpl" name="UserPreference">
+		<table name="USR_PREF" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.UserSearchCriteriaImpl" name="UserSearchCriteria">
+		<table name="USR_SEARCH_CRIT" />
+		<attributes />
+	</entity>
+	<entity class="com.ihg.brandstandards.db.model.impl.WorkflowImpl" name="Workflow">
+		<table name="WORKFLOW_ACTV_LOG" />
+		<attributes />
+	</entity>
+</entity-mappings>

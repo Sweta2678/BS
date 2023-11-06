@@ -1,0 +1,26 @@
+
+
+	#set ($layoutLS = $serviceLocator.findService("com.liferay.portal.service.LayoutLocalService"))
+	#set ($groupService = $serviceLocator.findService("com.liferay.portal.service.GroupService"))
+	#set ($group = $groupService.getGroup($company_id, $groupName))
+	#set ($nav_items = $layoutLS.getLayouts($group.getGroupId(), false, 0))
+	#set ($showDivider = false )
+	#foreach ($nav_item in $nav_items)
+		#set ($pageId = $stringUtil.extractLast($nav_item.getFriendlyURL(),"/"))			
+		#set ($pageId = $pageId + "tab")
+		#if($nav_item.isHidden() == false)
+			#if($showDivider)
+				<li><span>|</span></li>
+			#else
+				#set ($showDivider = true)
+			#end
+			#if($group.getGroupId() == $scopeGroupId && $nav_item.getLayoutId() == $layout.getLayoutId())
+				<li class="selected"  id="$pageId">
+			#else
+				<li id="$pageId">
+			#end
+			#set ($pageName = $nav_item.getName($themeDisplay.getLocale()))
+				<a onmousedown="_gaq.push(['_trackEvent', 'Navigation', ' $groupName', '$pageName']);" href="/web$group.getFriendlyURL()$nav_item.getFriendlyURL()" ><span>$pageName</span></a>
+			</li>
+		#end
+	#end

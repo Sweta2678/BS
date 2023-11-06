@@ -1,0 +1,67 @@
+<nav id="navigation" role="navigation">
+#set ($renderPie = true)
+	<ul aria-label="#language ("site-pages")" role="menubar" class="tcc_Mainmenu">
+		#foreach ($nav_item in $nav_items)
+			#if ($nav_item.isSelected())
+				#if($velocityCount==1)
+					<li class="selected first">
+				#else
+					<li class="selected">
+				#end
+			#else
+				#if($velocityCount==1)
+					<li class="first">
+				#else 
+					<li>
+				#end
+			#end
+			#if($nav_item.getName() == $theme_settings.getProperty("luxury-travel"))
+				#if($hasVirtuosoRole && $hasSignatureRole)
+					<a href="/web$layout.getGroup().friendlyURL/signature-preferred-hotel-program/" $nav_item.getTarget() onmousedown="_gaq.push(['_trackEvent', 'Header','Menu_LinkClick','$nav_item.getName()']);"><span>$nav_item.icon() $nav_item.getName()</span></a>
+				#elseif($hasSignatureRole)
+					<a href="/web$layout.getGroup().friendlyURL/signature-preferred-hotel-program/" $nav_item.getTarget() onmousedown="_gaq.push(['_trackEvent', 'Header','Menu_LinkClick','$nav_item.getName()']);"><span>$nav_item.icon() $nav_item.getName()</span></a>
+				#elseif($hasVirtuosoRole)
+					<a href="/web$layout.getGroup().friendlyURL/virtuoso-preferred-hotel-progam/" $nav_item.getTarget() onmousedown="_gaq.push(['_trackEvent', 'Header','Menu_LinkClick','$nav_item.getName()']);"><span>$nav_item.icon() $nav_item.getName()</span></a>
+				#else
+					#set ($renderPie = false)	
+				#end
+			#else
+				<a href="$nav_item.getURL()" $nav_item.getTarget() onmousedown="_gaq.push(['_trackEvent', 'Header','Menu_LinkClick','$nav_item.getName()']);"><span>$nav_item.icon() $nav_item.getName()</span></a>
+			#end
+				#if($velocityCount != $nav_items.size() && $renderPie)
+					<span class="pie">|</span>
+				#else
+					#set ($renderPie = true)		
+				#end
+				#if ($nav_item.hasChildren())
+					<ul class="child-menu">
+						#foreach ($nav_child in $nav_item.getChildren())
+						
+							#if (($hasVirtuosoRole && $nav_child.getName() == $theme_settings.getProperty("virtuoso-preferred-hotel-program")) || ($hasSignatureRole && $nav_child.getName() == $theme_settings.getProperty("signature-preferred-hotel-program")))
+								#if ($nav_child.isSelected())
+									<li class="selected title signature-content">
+								#else
+									<li class="title signature-content">
+								#end
+								#*<a href="$nav_child.getURL()" $nav_child.getTarget()>$nav_child.getName()</a>*#
+								$nav_child.getName()
+							</li>
+								#foreach ($nav_inner_child in $nav_child.getChildren())
+									<li class="signature-content"><a href="$nav_inner_child.getURL()" $nav_inner_child.getTarget() onmousedown="_gaq.push(['_trackEvent', 'Header','Menu_LinkClick','$nav_inner_child.getName()']);">$nav_inner_child.getName()</a></li>
+								#end
+							#end
+						#end
+						
+						#if ($nav_item.getName() == "Travel Agent Resources")
+								<li class="title signature-content">$nav_item.getName()</li>
+								#foreach ($nav_inner_child in $nav_item.getChildren())
+									<li class="signature-content"><a href="$nav_inner_child.getURL()" $nav_inner_child.getTarget() onmousedown="_gaq.push(['_trackEvent', 'Header','Menu_LinkClick','$nav_inner_child.getName()']);">$nav_inner_child.getName()</a></li>
+								#end
+								<li class="signature-content"><a target="_blank" href="$ihgNewsAndReleaseSiteURL">IHG News And Press Release</a></li>
+						#end
+					</ul>
+				#end
+			</li>
+		#end
+	</ul>
+</nav>

@@ -1,0 +1,117 @@
+/** NEW STYLES TO MAKE THIS PAGE WORK - NEED TO BE ADDED TO BS THEME **/
+.aui {
+.tiny_text, .no_change {
+	color:#979696;
+	font-size:10px;
+}
+.no_change {
+	font-style:italic;
+}
+.refresh_color {
+	padding:0 5px 0 0;
+	vertical-align:middle;
+	}
+.translation_table {
+	width:900px;
+	margin:20px 0 10px 0px;
+	background-color:#fff;
+	}
+.translation_table tr td{
+	border:1px solid #ccc;
+	padding:3px;
+	}
+.translation_table tr td.translation_table_header {
+	font-weight:bold;
+	text-align:center;
+	}
+.translation_table tr td.table_center {
+	text-align:center;
+	}
+.translation_table a, .translation_table a:hover {
+	color:#e15f26;
+	text-decoration:none;
+	}
+.table_hidden_row {
+	display:none;
+	}
+.trans_text{
+	width: 700px;
+	margin:0 0 0 90px;
+	height:80px;
+	}
+.hidden_images_cont {
+	width: 650px;
+	margin:0 0 0 90px;
+	border:1px solid #CCC;
+	}
+.hidden_images_left, .hidden_images_right {
+	float:left;
+	}
+.hidden_images_left {
+	width:200px;
+    padding: 10px;
+	}
+.inner_image_container {
+	border: 1px solid lightgray;
+	padding:10px;
+	}
+.hidden_images_right {
+	padding-top:95px;
+	padding-left:10px;
+	}
+.hidden_trans_label {
+	font-style:italic;
+	margin:20px 0 0 90px;
+	}
+.hidden_trans_label_left {
+	font-style:italic;
+	margin:20px 0 0 0;
+	}
+.hidden_attach {
+	border:1px solid #CCC;
+	}
+.center_help_text {
+	text-align:center;
+	font-style:italic;
+	}
+tr.tr_hidden_titles td {
+	background-color:#d1d1d1;
+	font-weight:bold;
+	color:#000;
+	font-size:12px;
+	font-family:Arial, sans-serif;
+	width : 1px;
+	}
+table.hidden_attach_table {
+    width: 100%;
+}
+.hidden_add_attachlink_icon {
+	text-align:center;
+	}
+
+table.hidden_attach_table tr.attch_connected_row_btm td {
+	border-top:none;
+	}
+.tiny_text {
+	color:#979696;
+	font-size:10px;
+	}
+.align_cell_middle {
+	text-align:center;
+	}
+.hidden_new_file {
+	display:none;
+	}
+.trmultis {
+	width:100px;
+	}
+.tr_save_btn {
+	margin:5px 0 20px 90px;
+	float:left;
+	}
+.tr_cancel_btn {
+	float:left;
+	margin:5px 0 20px 0;
+	}
+	
+}

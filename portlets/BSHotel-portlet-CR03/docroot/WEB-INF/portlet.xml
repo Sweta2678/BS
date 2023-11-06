@@ -1,0 +1,263 @@
+<?xml version="1.0"?>
+
+<portlet-app xmlns="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd http://java.sun.com/xml/ns/portlet/portlet-app_2_0.xsd" version="2.0">
+	<portlet>
+		<portlet-name>StandardsList</portlet-name>
+		<display-name>Standards List</display-name>
+		<portlet-class>com.ihg.me2.brandstandards.custom.portlet.StandardsListPortlet</portlet-class>
+		<init-param>
+			<name>view-jsp</name>
+			<value>/html/browse/view.jsp</value>
+		</init-param>
+		<init-param>
+			<name>edit-jsp</name>
+			<value>/html/browse/edit.jsp</value>
+		</init-param>
+		<init-param>
+			<name>add-process-action-success-action</name>
+			<value>false</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>VIEW</portlet-mode>
+			<portlet-mode>EDIT</portlet-mode>
+		</supports>
+		<portlet-info>
+			<title>Standards List</title>
+			<short-title>Standards List</short-title>
+			<keywords>Standards List</keywords>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+	<portlet>
+		<portlet-name>WhatChangedOn</portlet-name>
+		<display-name>What Changed On</display-name>
+		<portlet-class>com.ihg.me2.brandstandards.custom.portlet.WhatChangedOnPortlet</portlet-class>
+		<init-param>
+			<name>view-jsp</name>
+			<value>/html/whatChangedOn/view.jsp</value>
+		</init-param>
+		<init-param>
+			<name>edit-jsp</name>
+			<value>/html/whatChangedOn/edit.jsp</value>
+		</init-param>
+		<init-param>
+			<name>add-process-action-success-action</name>
+			<value>false</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>VIEW</portlet-mode>
+			<portlet-mode>EDIT</portlet-mode>
+		</supports>
+		<portlet-info>
+			<title>What Changed On</title>
+			<short-title>What Changed On</short-title>
+			<keywords>What Changed On</keywords>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+	<portlet>
+		<portlet-name>UserPreference</portlet-name>
+		<display-name>User Preference</display-name>
+		<portlet-class>com.ihg.me2.brandstandards.custom.portlet.UserPreferencePortlet</portlet-class>
+		<init-param>
+			<name>view-jsp</name>
+			<value>/html/userprefs/view.jsp</value>
+		</init-param>
+		<init-param>
+			<name>add-process-action-success-action</name>
+			<value>false</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+		<portlet-info>
+			<title>User Preference</title>
+			<short-title>User Preference</short-title>
+			<keywords>User Preference</keywords>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+	<portlet>
+		<portlet-name>Content-Configuration</portlet-name>
+		<display-name>Content Configuration</display-name>
+		<portlet-class>com.ihg.me2.brandstandards.custom.portlet.ContentConfigurationPortlet</portlet-class>
+		<init-param>
+			<name>view-jsp</name>
+			<value>/html/content/view.jsp</value>
+		</init-param>
+		<init-param>
+			<name>edit-jsp</name>
+			<value>/html/content/edit.jsp</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>VIEW</portlet-mode>
+			<portlet-mode>EDIT</portlet-mode>
+		</supports>
+		<portlet-info>
+			<title>Content Configuration</title>
+			<short-title>Content Configuration</short-title>
+			<keywords>Content Configuration</keywords>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+	<portlet>
+		<portlet-name>Download-manual</portlet-name>
+		<display-name>Download Manual</display-name>
+		<portlet-class>com.ihg.me2.brandstandards.custom.portlet.DownloadManualPortlet</portlet-class>
+		<init-param>
+			<name>view-jsp</name>
+			<value>/html/download/view.jsp</value>
+		</init-param>
+		<init-param>
+			<name>edit-jsp</name>
+			<value>/html/download/edit.jsp</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>VIEW</portlet-mode>
+			<portlet-mode>EDIT</portlet-mode>
+		</supports>
+		<portlet-info>
+			<title>Download-manual</title>
+			<short-title>Download-manual</short-title>
+			<keywords>Download-manual</keywords>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+	<portlet>
+		<portlet-name>BSHotel-analytics</portlet-name>
+		<display-name>BSHotel Analytics</display-name>
+		<portlet-class>com.ihg.me2.brandstandards.custom.portlet.AnalyticsPortlet</portlet-class>
+		<init-param>
+			<name>view-jsp</name>
+			<value>/html/analytics/view.jsp</value>
+		</init-param>
+		<init-param>
+			<name>edit-jsp</name>
+			<value>/html/analytics/edit.jsp</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+			<portlet-mode>view</portlet-mode>
+            <portlet-mode>edit</portlet-mode>
+		</supports>
+		<resource-bundle>content/Language</resource-bundle>
+		<portlet-info>
+			<title>BSHotel Analytics</title>
+			<short-title>BSHotel Analytics</short-title>
+			<keywords>BSHotel Analytics</keywords>
+		</portlet-info>
+		<portlet-preferences>
+			<preference>
+				<name>analyticsId</name>
+				<value></value>
+			</preference>
+		</portlet-preferences>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+	<portlet>
+		<portlet-name>GlossaryList</portlet-name>
+		<display-name>Glossary List</display-name>
+		<portlet-class>com.ihg.me2.brandstandards.custom.portlet.GlossaryListPortlet</portlet-class>
+		<init-param>
+			<name>view-jsp</name>
+			<value>/html/glossary/view.jsp</value>
+		</init-param>
+		<expiration-cache>0</expiration-cache>
+		<supports>
+			<mime-type>text/html</mime-type>
+		</supports>
+		<portlet-info>
+			<title>Glossary List</title>
+			<short-title>Glossary List</short-title>
+			<keywords>Glossary List</keywords>
+		</portlet-info>
+		<security-role-ref>
+			<role-name>administrator</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>guest</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>power-user</role-name>
+		</security-role-ref>
+		<security-role-ref>
+			<role-name>user</role-name>
+		</security-role-ref>
+	</portlet>
+</portlet-app>

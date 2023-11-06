@@ -1,0 +1,181 @@
+#set($loggedInuserId= $request.theme-display.user-id)
+#set($iataNo = $request.get('portlet-session').get('application-attributes').get('IATA Number'))
+
+#set ($prp_edit_URL = $portletURLFactory.create($request, "15", $getterUtil.getLong($plid), "RENDER_PHASE"))
+$prp_edit_URL.setParameter("struts_action","/journal/edit_article")
+$prp_edit_URL.setParameter("redirect","/web$layout.getGroup().friendlyURL")
+$prp_edit_URL.setParameter("referringPortletResource","56")
+$prp_edit_URL.setParameter("p_p_state","maximized")
+$prp_edit_URL.setParameter("p_p_mode","view")
+$prp_edit_URL.setParameter("p_p_col_id","column-1")
+$prp_edit_URL.setParameter("p_p_col_count","1")
+
+#set ($wc_edit_URL = $portletURLFactory.create($request, "15", $getterUtil.getLong($plid), "RENDER_PHASE"))
+$wc_edit_URL.setParameter("struts_action","/journal/edit_article")
+$wc_edit_URL.setParameter("redirect","/web$layout.getGroup().friendlyURL")
+$wc_edit_URL.setParameter("referringPortletResource","56")
+$wc_edit_URL.setParameter("p_p_state","maximized")
+$wc_edit_URL.setParameter("p_p_mode","view")
+$wc_edit_URL.setParameter("p_p_col_id","column-1")
+$wc_edit_URL.setParameter("p_p_col_count","1")
+
+#set ($wc_edit_URL_1 = $portletURLFactory.create($request, "15", $getterUtil.getLong($plid), "RENDER_PHASE"))
+$wc_edit_URL_1.setParameter("struts_action","/journal/edit_article")
+$wc_edit_URL_1.setParameter("redirect","/web$layout.getGroup().friendlyURL")
+$wc_edit_URL_1.setParameter("referringPortletResource","56")
+$wc_edit_URL_1.setParameter("p_p_state","maximized")
+$wc_edit_URL_1.setParameter("p_p_mode","view")
+$wc_edit_URL_1.setParameter("p_p_col_id","column-1")
+$wc_edit_URL_1.setParameter("p_p_col_count","1")
+
+#set ($wc_edit_URL_2 = $portletURLFactory.create($request, "15", $getterUtil.getLong($plid), "RENDER_PHASE"))
+$wc_edit_URL_2.setParameter("struts_action","/journal/edit_article")
+$wc_edit_URL_2.setParameter("redirect","/web$layout.getGroup().friendlyURL")
+$wc_edit_URL_2.setParameter("referringPortletResource","56")
+$wc_edit_URL_2.setParameter("p_p_state","maximized")
+$wc_edit_URL_2.setParameter("p_p_mode","view")
+$wc_edit_URL_2.setParameter("p_p_col_id","column-1")
+$wc_edit_URL_2.setParameter("p_p_col_count","1")
+
+#set ($wc_edit_URL_3 = $portletURLFactory.create($request, "15", $getterUtil.getLong($plid), "RENDER_PHASE"))
+$wc_edit_URL_3.setParameter("struts_action","/journal/edit_article")
+$wc_edit_URL_3.setParameter("redirect","/web$layout.getGroup().friendlyURL")
+$wc_edit_URL_3.setParameter("referringPortletResource","56")
+$wc_edit_URL_3.setParameter("p_p_state","maximized")
+$wc_edit_URL_3.setParameter("p_p_mode","view")
+$wc_edit_URL_3.setParameter("p_p_col_id","column-1")
+$wc_edit_URL_3.setParameter("p_p_col_count","1")
+
+#set ($wc_edit_URL_4 = $portletURLFactory.create($request, "15", $getterUtil.getLong($plid), "RENDER_PHASE"))
+$wc_edit_URL_4.setParameter("struts_action","/journal/edit_article")
+$wc_edit_URL_4.setParameter("redirect","/web$layout.getGroup().friendlyURL")
+$wc_edit_URL_4.setParameter("referringPortletResource","56")
+$wc_edit_URL_4.setParameter("p_p_state","maximized")
+$wc_edit_URL_4.setParameter("p_p_mode","view")
+$wc_edit_URL_4.setParameter("p_p_col_id","column-1")
+$wc_edit_URL_4.setParameter("p_p_col_count","1")
+
+#set ($portletSetupShowBordersDefault = $theme_settings.getProperty("portlet-setup-show-borders-default"))
+#set ($journalArticleLocalService = $serviceLocator.findService("com.liferay.portlet.journal.service.JournalArticleLocalService"))
+
+#set ($homePagePromoListing = $theme_settings.getProperty("homepage-promo-article-url-title"))
+#set ($homePagePromoPopup = $theme_settings.getProperty("homepage-promo-popup-url-title"))
+
+#set ($bookAgentTravelPromotionDetails = $theme_settings.getProperty("book-agent-travel-promotion-details"))
+#set ($bookClientTravelPromotionDetails = $theme_settings.getProperty("book-client-travel-promotion-details"))
+#set ($agentPromotionDetails = $theme_settings.getProperty("agent-promotion-home-page-promotion-details"))
+#set ($clientPromotionDetails = $theme_settings.getProperty("client-promotion-home-page-promotion-details"))
+
+#set ($homePagePromoListingContentObject = $journalArticleLocalService.getArticleByUrlTitle($theme_display.getScopeGroupId(), $homePagePromoListing))
+#set ($homePagePromoPopupObject = $journalArticleLocalService.getArticleByUrlTitle($theme_display.getScopeGroupId(), $homePagePromoPopup))
+#set ($bookAgentTravelPromotionDetailsContentObject = $journalArticleLocalService.getArticleByUrlTitle($theme_display.getScopeGroupId(), $bookAgentTravelPromotionDetails))
+#set ($bookClientTravelPromotionDetailsContentObject = $journalArticleLocalService.getArticleByUrlTitle($theme_display.getScopeGroupId(), $bookClientTravelPromotionDetails))
+#set ($agentPromotionDetailsContentObject = $journalArticleLocalService.getArticleByUrlTitle($theme_display.getScopeGroupId(), $agentPromotionDetails))
+#set ($clientPromotionDetailsContentObject = $journalArticleLocalService.getArticleByUrlTitle($theme_display.getScopeGroupId(), $clientPromotionDetails))
+
+$wc_edit_URL.setParameter("groupId","$homePagePromoListingContentObject.groupId")
+$wc_edit_URL.setParameter("articleId","$homePagePromoListingContentObject.articleId")
+$wc_edit_URL.setParameter("version","$homePagePromoListingContentObject.version")
+
+$prp_edit_URL.setParameter("groupId","$homePagePromoPopupObject.groupId")
+$prp_edit_URL.setParameter("articleId","$homePagePromoPopupObject.articleId")
+$prp_edit_URL.setParameter("version","$homePagePromoPopupObject.version")
+
+$wc_edit_URL_1.setParameter("groupId","$bookAgentTravelPromotionDetailsContentObject.groupId")
+$wc_edit_URL_1.setParameter("articleId","$bookAgentTravelPromotionDetailsContentObject.articleId")
+$wc_edit_URL_1.setParameter("version","$bookAgentTravelPromotionDetailsContentObject.version")
+
+
+$wc_edit_URL_2.setParameter("groupId","$bookClientTravelPromotionDetailsContentObject.groupId")
+$wc_edit_URL_2.setParameter("articleId","$bookClientTravelPromotionDetailsContentObject.articleId")
+$wc_edit_URL_2.setParameter("version","$bookClientTravelPromotionDetailsContentObject.version")
+
+
+$wc_edit_URL_3.setParameter("groupId","$agentPromotionDetailsContentObject.groupId")
+$wc_edit_URL_3.setParameter("articleId","$agentPromotionDetailsContentObject.articleId")
+$wc_edit_URL_3.setParameter("version","$agentPromotionDetailsContentObject.version")
+
+
+$wc_edit_URL_4.setParameter("groupId","$clientPromotionDetailsContentObject.groupId")
+$wc_edit_URL_4.setParameter("articleId","$clientPromotionDetailsContentObject.articleId")
+$wc_edit_URL_4.setParameter("version","$clientPromotionDetailsContentObject.version")
+
+#set ($homePagePromoListingTemplateId = $homePagePromoListingContentObject.getTemplateId())
+#set ($homePagePromoPopupTemplateId = $homePagePromoPopupObject.getTemplateId())
+#set ($bookAgentTravelPromotionDetailsTemplateId = $bookAgentTravelPromotionDetailsContentObject.getTemplateId())
+#set ($bookClientTravelPromotionDetailsTemplateId = $bookClientTravelPromotionDetailsContentObject.getTemplateId())
+#set ($agentPromotionDetailsTemplateId = $agentPromotionDetailsContentObject.getTemplateId())
+#set ($clientPromotionDetailsTemplateId = $clientPromotionDetailsContentObject.getTemplateId())
+
+#set ($homePagePromoListingContent = $journalContentUtil.getContent($theme_display.getScopeGroupId(), $homePagePromoListingContentObject.getArticleId(), $homePagePromoListingTemplateId, "$locale", $theme_display))
+#set ($homePagePromoPopupContent = $journalContentUtil.getContent($theme_display.getScopeGroupId(), $homePagePromoPopupObject.getArticleId(), $homePagePromoPopupTemplateId, "$locale", $theme_display))
+#set ($bookAgentTravelPromotionDetailsContent = $journalContentUtil.getContent($theme_display.getScopeGroupId(), $bookAgentTravelPromotionDetailsContentObject.getArticleId(), $bookAgentTravelPromotionDetailsTemplateId, "$locale", $theme_display))
+#set ($bookClientTravelPromotionDetailsContent = $journalContentUtil.getContent($theme_display.getScopeGroupId(), $bookClientTravelPromotionDetailsContentObject.getArticleId(), $bookClientTravelPromotionDetailsTemplateId, "$locale", $theme_display))
+#set ($agentPromotionDetailsContent = $journalContentUtil.getContent($theme_display.getScopeGroupId(), $agentPromotionDetailsContentObject.getArticleId(), $agentPromotionDetailsTemplateId, "$locale", $theme_display))
+#set ($clientPromotionDetailsContent = $journalContentUtil.getContent($theme_display.getScopeGroupId(), $clientPromotionDetailsContentObject.getArticleId(), $clientPromotionDetailsTemplateId, "$locale", $theme_display))
+
+<div class="main-img-container">
+<div class="wrapper RelPos">
+	<div class="tcc_hmPromo_Box ">
+		 <!--<div class="logoInfoBx_Bg">
+			<div class="logoInfoBx">
+			Click any of the logos above to learn more about our IHG family of brands
+			</div>logoInfoBx
+		</div>--> <!--logoInfoBx_Bg-->
+		
+		<!--
+		<div class="RelPos" id="tcc_Praise">
+		<div class="tccp_Close"></div>
+		<div class="tcc_Praise_Bg"></div>  < ! --tcc_Praise - - >
+		< ! --<p class="tcc_Praise_Para">
+			For a third consecutive year, Holiday Inn brand ranked "Highest in Guest Satisfaction Among Mid-Scale Full Service Hotel Chains" in the J.D. Power and Associates' annual North American Hotel Guest Satisfaction Index StudySM. 
+		</p> - - >
+		<p class="tcc_Praise_Para">		
+			IHG<sup>&reg;</sup> Rewards Club - Discover How Far We can Take You
+		</p>
+		</div>  < ! - - RelPos- - >
+		<div class="tcc_hmPromo_Txt">
+			<p>IHG&rsquo;s site for Travel Consultants</p>
+		</div> tcc_hmPromo_Txt -->
+		
+		#if($homePagePromoPopupContent != "")
+			$homePagePromoPopupContent
+		#end
+		
+		
+	    <div class="hmPrmo_Tb_Bg_Large"> <!--TCC Home Promo Tabs-->
+			<div class="RelPos">
+			<div class="hmPrmo_Tb_Bg_Small"></div> <!--hmPrmo_Tb_Bg_Small-->
+			<!--HOME PAGE PROMO CONTENTS START-->
+			#if($homePagePromoListingContent != "")
+			   $homePagePromoListingContent
+			#end
+			#if($bookAgentTravelPromotionDetailsContent != "")
+			   $bookAgentTravelPromotionDetailsContent
+			#end
+			#if($bookClientTravelPromotionDetailsContent != "")
+			   $bookClientTravelPromotionDetailsContent
+			#end
+			#if($agentPromotionDetailsContent != "")
+			   $agentPromotionDetailsContent
+			#end
+			#if($clientPromotionDetailsContent != "")
+			  $clientPromotionDetailsContent
+			#end
+			<!--HOME PAGE PROMO CONTENTS END-->
+			</div>
+		</div>
+	</div> <!--tcc_hmPromo_Box-->
+	#if($hasRole)
+	<div class="usr_Spcfc_Links">
+	
+	<a href="$prp_edit_URL">Click to Edit Home Page Promotion Popup</a><br/>
+	<a href="$wc_edit_URL">Click to Edit Home Page Promotion List</a><br/>
+	<a href="$wc_edit_URL_1">Click to Edit Book Agent Travel Details</a><br/>
+	<a href="$wc_edit_URL_2">Click to Edit Book Client Travel Details</a><br/>
+	<a href="$wc_edit_URL_3">Click to Edit Agent Promotions Details</a><br/>
+	<a href="$wc_edit_URL_4">Click to Edit Client Promotions Details</a><br/>
+	</div>
+	#end
+</div>
+</div

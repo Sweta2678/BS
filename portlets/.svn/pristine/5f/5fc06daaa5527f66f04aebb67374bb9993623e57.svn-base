@@ -1,0 +1,259 @@
+/**
+ * Copyright (c) 2000-2011 Liferay, Inc. All rights reserved.
+ *
+ * This library is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation; either version 2.1 of the License, or (at your option)
+ * any later version.
+ *
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+ * details.
+ */
+
+package com.ihg.brandstandards.db.service.impl;
+
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
+
+import com.ihg.brandstandards.bridge.util.BridgeQueryUtils;
+import com.ihg.brandstandards.db.NoSuchPublicationException;
+import com.ihg.brandstandards.db.model.Publication;
+import com.ihg.brandstandards.db.model.impl.PublicationImpl;
+import com.ihg.brandstandards.db.service.base.PublicationLocalServiceBaseImpl;
+import com.ihg.brandstandards.util.BrandStandardsUtil;
+import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.log.Log;
+import com.liferay.portal.kernel.log.LogFactoryUtil;
+import com.liferay.portal.kernel.util.ListUtil;
+
+/**
+ * The implementation of the publication local service.
+ *
+ * <p>
+ * All custom service methods should be put in this class. Whenever methods are added, rerun ServiceBuilder to copy their definitions into the {@link com.ihg.brandstandards.db.service.PublicationLocalService} interface.
+ *
+ * <p>
+ * This is a local service. Methods of this service will not have security checks based on the propagated JAAS credentials because this service can only be accessed from within the same VM.
+ * </p>
+ *
+ * @author Mummanedi
+ * @see com.ihg.brandstandards.db.service.base.PublicationLocalServiceBaseImpl
+ * @see com.ihg.brandstandards.db.service.PublicationLocalServiceUtil
+ */
+public class PublicationLocalServiceImpl extends PublicationLocalServiceBaseImpl {
+	/*
+	 * NOTE FOR DEVELOPERS:
+	 *
+	 * Never reference this interface directly. Always use {@link com.ihg.brandstandards.db.service.PublicationLocalServiceUtil} to access the publication local service.
+	 */
+    private static final Log LOG = LogFactoryUtil.getLog(PublicationLocalServiceImpl.class);
+
+    public void clearCache()
+    {
+        try
+        {
+            publicationPersistence.clearCache();
+        }
+        catch (Exception e)
+        {
+        }
+    }
+
+    public Publication getPublishByStatEnvChainCode(String status, String environment, String chainCode)
+            throws NoSuchPublicationException, SystemException
+    {
+        return publicationPersistence.findByPublishStatEnvChn(status, environment, chainCode);
+    }
+    
+    public List<Publication> getPublishByEnvChainCode(String environment, String chainCode)
+            throws NoSuchPublicationException, SystemException
+    {
+        return publicationPersistence.findByPublishEnvChn(environment, chainCode);
+    }
+    
+    public boolean isPublishedBrand(String chainCode) throws SystemException
+    {
+        boolean isActiveBrand = false;
+        List<Publication> arlPublish = new ArrayList<Publication>();
+        try {
+            arlPublish = publicationPersistence.findByChainCodeAndStatus(chainCode, "ACTIVE");
+        } catch (Exception e) {
+            LOG.error(e.getMessage(), e);
+        }
+        if (arlPublish != null && arlPublish.size() > 0)
+        {
+            isActiveBrand = true;
+        }
+
+        return isActiveBrand;
+    }
+
+    public Publication getPublishObjectByBrand(String chainCode, String environment, String status)
+    {
+        Publication publish = null;
+        try
+        {
+            publish = publicationPersistence.fetchByPublishObject(chainCode, environment, status, false);
+        }
+        catch (SystemException e)
+        {
+            LOG.error(e.getMessage(), e);
+        }
+        return publish;
+    }
+
+    /**
+     * This method will return list of published entries based on brand and environment
+     * @author Lakshminarayana Mummanedi
+     * @param chainCode
+     * @param publishEnv
+     * @return List<Publish>
+     */
+    public List<Publication> getWhatChangedOnNavigation(String chainCode, String publishEnv)
+    {
+        List<Publication> whatChangedOnNav = new ArrayList<Publication>();
+        try
+        {
+            whatChangedOnNav = publicationPersistence.findByPublishHistory(chainCode, publishEnv);
+            whatChangedOnNav = ListUtil.sort(whatChangedOnNav, new Comparator<Publication>()
+            {
+                public int compare(Publication u1, Publication u2)
+                {
+                    //return -((u1.getUpdatedDate()).compareTo(u2.getUpdatedDate()));
+                    return -((u1.getPublishDate()).compareTo(u2.getPublishDate()));
+                }
+            });
+        }
+        catch (SystemException e)
+        {
+            LOG.error(e.getMessage(), e);
+        }
+        catch (Exception e)
+        {
+            LOG.error(e.getMessage(), e);
+        }
+
+        if (LOG.isDebugEnabled())
+        {
+            LOG.debug("Number of what Changed On navigation items:" + whatChangedOnNav.size());
+        }
+        return whatChangedOnNav;
+    }
+
+    public List<String> getPublishLanguagesPerBrand(String chainCode, String environment) throws SystemException
+    {
+        Publication publish = null;
+        List<String> arlPublishedLang = new ArrayList<String>();
+        try {
+            publish = publicationPersistence.findByPublishStatEnvChn("ACTIVE", environment, chainCode);
+        } catch (NoSuchPublicationException e) {
+            LOG.error(e.getMessage());
+        }
+        
+        if (publish != null)
+        {
+            String langlist = publish.getPublishLocaleList();
+            String[] languages = langlist.split(",");
+            for (String lang : languages)
+            {
+                arlPublishedLang.add(lang);
+            }
+        }
+        if (LOG.isDebugEnabled()) {
+            LOG.debug("size of arlPublished Language is " + arlPublishedLang.size());
+        }
+
+        return arlPublishedLang;
+    }
+
+    public long getPublishIdByBrand(String chainCode, String environment) throws SystemException
+    {
+        long publishId = 0;
+        Publication publish = null;
+        try {
+            publish = publicationPersistence.findByPublishStatEnvChn("ACTIVE", environment, chainCode);
+        } catch (NoSuchPublicationException e) {
+            LOG.error(e.getMessage());
+        }
+        if (publish != null)
+        {
+            publishId = publish.getPublishId();
+        }
+        return publishId;
+    }
+    
+    /**
+     * This method will return the translated date based language & date params passed to it. 
+     * This just a utility method. We have written this method here because this method is called form Navigation.vm.
+     * @author Lakshminarayana Mummanedi
+     * @param publishedDate
+     * @param localeCD
+     * @return
+     */
+    public String getFormatedDate(Date publishedDate, String localeCD, Map<String, String> obsmBsLanguageUtil) 
+    {
+        return BrandStandardsUtil.getFormatedDate(publishedDate, localeCD, obsmBsLanguageUtil);
+    }
+    
+    public List<Publication> getAllPublicationsByBrand (String brandCode) 
+    {
+        String query = BridgeQueryUtils.getAllPublicationRecords(brandCode);
+        if (LOG.isDebugEnabled()) 
+        {
+            LOG.debug("Query :"+query);
+        }
+        return publicationFinder.getPublishRecords(query);
+    }
+    
+    public Publication createPublication() throws SystemException
+    {
+        return publicationFinder.createPublication();
+    }
+    
+    public List<String> fetchUniquePublishedBrandCodes()
+    {
+        return publicationFinder.fetchUniquePublishedBrandCodes();
+    }
+    
+    public Publication getLatestPublication(String brandCode, String environment, String status)
+    {
+        String query = BridgeQueryUtils.getLatestPublication(brandCode, environment, status);
+        if (LOG.isDebugEnabled()) 
+        {
+            LOG.debug("Query :" + query);
+        }
+        List<Publication> publishLst = publicationFinder.getPublishRecords(query);
+        Publication publish;
+        if (publishLst != null && !publishLst.isEmpty())
+        {
+            publish = publishLst.get(0);
+        }
+        else
+        {
+            publish = new PublicationImpl();
+        }
+        
+        return publish;
+    }
+    
+    public List<Publication> getPublicationByQuery(String query)
+    {
+        if (LOG.isDebugEnabled()) {
+            LOG.debug("Query :" + query);
+        }
+        return publicationFinder.getPublishRecords(query);
+    }
+    
+    public List<String> getPublicationDateByEnv(String env )
+    {
+        return publicationFinder.getPublicationDatesByEnv(env);
+    }
+    public List<Publication> getWhatChangedOnCustom(String chainCode, String publishEnv){
+    	return publicationFinder.getWhatChangedOnCustom(chainCode, publishEnv);
+    }
+}

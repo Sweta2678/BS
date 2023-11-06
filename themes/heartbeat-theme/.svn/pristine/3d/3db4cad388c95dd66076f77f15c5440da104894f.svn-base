@@ -1,0 +1,35 @@
+/* This file allows you to override default styles in one central location for easier upgrade and maintenance. */
+.aui{
+	body{font-family:"Calibri",Arial, Helvetica, sans-serif;color:#666666;margin:0;padding:0;background-color:#fff;font-size:12px}
+	html{padding:0;margin:0}
+	table td img{max-width:none}
+	p{margin:1em 0; line-height:1.3em}
+	h1,h2,h3,h4,h5,h6{line-height:normal}
+	a:focus{outline:none}
+	a{color:#666;}
+	#wrapper{padding:0}
+	label{display:inline}
+	input[type="radio"], input[type="checkbox"]{margin:0}
+	.fLeft{float:left}
+	.fRight{float:right}
+	.cLeft{clear:left}
+	.cRight{clear:right}
+	.cBoth{clear:both}
+	.fBold{font-weight:bold}
+	.txt-center{text-align:center;}
+	select{padding:0;height:auto;width:auto}
+	form{padding:0;margin:0}
+	body.cke_show_borders{background:none}
+	img{border:0}
+	.alert.alert-info{display:none}
+	.row{margin:0}
+	.portlet-journal-content{clear:both}
+	.tJustify{text-align:justify}
+	.tCenter{text-align:center}
+	.uLine{text-decoration:underline;color:#9b3d97}
+	.ui-widget-content, .ui-icon{background:none}
+	ul.ui-widget-content{background-color:#ffffff}
+	.user-avatar img{width:20px;height:22px}
+.wrapper{width:860px;margin:0 auto}
+} /*aui class ends*/
+

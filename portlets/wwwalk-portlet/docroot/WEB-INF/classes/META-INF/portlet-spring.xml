@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" default-destroy-method="destroy" default-init-method="afterPropertiesSet" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	<bean id="com.ihg.www.common.service.AccountActivityLocalService" class="com.ihg.www.common.service.impl.AccountActivityLocalServiceImpl" />
+	<bean id="com.ihg.www.common.service.persistence.AccountActivityPersistence" class="com.ihg.www.common.service.persistence.AccountActivityPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="WishWantWalk" />
+		<property name="sessionFactory" ref="wishWantWalkSessionFactory" />
+	</bean>
+	<bean id="com.ihg.www.common.service.AccountAvgPercPricingLocalService" class="com.ihg.www.common.service.impl.AccountAvgPercPricingLocalServiceImpl" />
+	<bean id="com.ihg.www.common.service.persistence.AccountAvgPercPricingPersistence" class="com.ihg.www.common.service.persistence.AccountAvgPercPricingPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="WishWantWalk" />
+		<property name="sessionFactory" ref="wishWantWalkSessionFactory" />
+	</bean>
+	<bean id="com.ihg.www.common.service.AccountOwnerLocalService" class="com.ihg.www.common.service.impl.AccountOwnerLocalServiceImpl" />
+	<bean id="com.ihg.www.common.service.persistence.AccountOwnerPersistence" class="com.ihg.www.common.service.persistence.AccountOwnerPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="WishWantWalk" />
+		<property name="sessionFactory" ref="wishWantWalkSessionFactory" />
+	</bean>
+	<bean id="com.ihg.www.common.service.AccountPricingLocalService" class="com.ihg.www.common.service.impl.AccountPricingLocalServiceImpl" />
+	<bean id="com.ihg.www.common.service.persistence.AccountPricingPersistence" class="com.ihg.www.common.service.persistence.AccountPricingPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="WishWantWalk" />
+		<property name="sessionFactory" ref="wishWantWalkSessionFactory" />
+	</bean>
+	<bean id="com.ihg.www.common.service.persistence.AccountPricingFinder" class="com.ihg.www.common.service.persistence.AccountPricingFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="WishWantWalk" />
+		<property name="sessionFactory" ref="wishWantWalkSessionFactory" />
+	</bean>
+	<bean id="com.ihg.www.common.service.AccountPricingSeasonalLocalService" class="com.ihg.www.common.service.impl.AccountPricingSeasonalLocalServiceImpl" />
+	<bean id="com.ihg.www.common.service.persistence.AccountPricingSeasonalPersistence" class="com.ihg.www.common.service.persistence.AccountPricingSeasonalPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="WishWantWalk" />
+		<property name="sessionFactory" ref="wishWantWalkSessionFactory" />
+	</bean>
+	<bean id="com.ihg.www.common.service.ArtExtraLocalService" class="com.ihg.www.common.service.impl.ArtExtraLocalServiceImpl" />
+	<bean id="com.ihg.www.common.service.persistence.ArtExtraPersistence" class="com.ihg.www.common.service.persistence.ArtExtraPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="WishWantWalk" />
+		<property name="sessionFactory" ref="wishWantWalkSessionFactory" />
+	</bean>
+	<bean id="com.ihg.www.common.service.CurrencyLocalService" class="com.ihg.www.common.service.impl.CurrencyLocalServiceImpl" />
+	<bean id="com.ihg.www.common.service.persistence.CurrencyPersistence" class="com.ihg.www.common.service.persistence.CurrencyPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="WishWantWalk" />
+		<property name="sessionFactory" ref="wishWantWalkSessionFactory" />
+	</bean>
+	<bean id="com.ihg.www.common.service.PricingExtraLocalService" class="com.ihg.www.common.service.impl.PricingExtraLocalServiceImpl" />
+	<bean id="com.ihg.www.common.service.persistence.PricingExtraPersistence" class="com.ihg.www.common.service.persistence.PricingExtraPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="WishWantWalk" />
+		<property name="sessionFactory" ref="wishWantWalkSessionFactory" />
+	</bean>
+	<bean id="com.ihg.www.common.service.persistence.PricingExtraFinder" class="com.ihg.www.common.service.persistence.PricingExtraFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="WishWantWalk" />
+		<property name="sessionFactory" ref="wishWantWalkSessionFactory" />
+	</bean>
+	<bean id="com.ihg.www.common.service.RegionChainAccountMetricsLocalService" class="com.ihg.www.common.service.impl.RegionChainAccountMetricsLocalServiceImpl" />
+	<bean id="com.ihg.www.common.service.persistence.RegionChainAccountMetricsPersistence" class="com.ihg.www.common.service.persistence.RegionChainAccountMetricsPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="WishWantWalk" />
+		<property name="sessionFactory" ref="wishWantWalkSessionFactory" />
+	</bean>
+	<bean id="com.ihg.www.common.service.persistence.RegionChainAccountMetricsFinder" class="com.ihg.www.common.service.persistence.RegionChainAccountMetricsFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="WishWantWalk" />
+		<property name="sessionFactory" ref="wishWantWalkSessionFactory" />
+	</bean>
+	<bean id="com.ihg.www.common.service.RFPAccountOwnerLocalService" class="com.ihg.www.common.service.impl.RFPAccountOwnerLocalServiceImpl" />
+	<bean id="com.ihg.www.common.service.persistence.RFPAccountOwnerPersistence" class="com.ihg.www.common.service.persistence.RFPAccountOwnerPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="WishWantWalk" />
+		<property name="sessionFactory" ref="wishWantWalkSessionFactory" />
+	</bean>
+	<bean id="com.ihg.www.common.service.persistence.RFPAccountOwnerFinder" class="com.ihg.www.common.service.persistence.RFPAccountOwnerFinderImpl" parent="basePersistence">
+		<property name="dataSource" ref="WishWantWalk" />
+		<property name="sessionFactory" ref="wishWantWalkSessionFactory" />
+	</bean>
+	<bean id="com.ihg.www.common.service.RFPCommnetsLocalService" class="com.ihg.www.common.service.impl.RFPCommnetsLocalServiceImpl" />
+	<bean id="com.ihg.www.common.service.persistence.RFPCommnetsPersistence" class="com.ihg.www.common.service.persistence.RFPCommnetsPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="WishWantWalk" />
+		<property name="sessionFactory" ref="wishWantWalkSessionFactory" />
+	</bean>
+	<bean id="com.ihg.www.common.service.RFPSeasonLocalService" class="com.ihg.www.common.service.impl.RFPSeasonLocalServiceImpl" />
+	<bean id="com.ihg.www.common.service.persistence.RFPSeasonPersistence" class="com.ihg.www.common.service.persistence.RFPSeasonPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="WishWantWalk" />
+		<property name="sessionFactory" ref="wishWantWalkSessionFactory" />
+	</bean>
+	<bean id="com.ihg.www.common.service.RFPSeasonRoomLocalService" class="com.ihg.www.common.service.impl.RFPSeasonRoomLocalServiceImpl" />
+	<bean id="com.ihg.www.common.service.persistence.RFPSeasonRoomPersistence" class="com.ihg.www.common.service.persistence.RFPSeasonRoomPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="WishWantWalk" />
+		<property name="sessionFactory" ref="wishWantWalkSessionFactory" />
+	</bean>
+	<bean id="com.ihg.www.common.service.WorkflowLocalService" class="com.ihg.www.common.service.impl.WorkflowLocalServiceImpl" />
+	<bean id="com.ihg.www.common.service.persistence.WorkflowPersistence" class="com.ihg.www.common.service.persistence.WorkflowPersistenceImpl" parent="basePersistence">
+		<property name="dataSource" ref="WishWantWalk" />
+		<property name="sessionFactory" ref="wishWantWalkSessionFactory" />
+	</bean>
+</beans>
